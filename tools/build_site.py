@@ -615,7 +615,7 @@ def index_page():
     principles = ['**Schwarz ist die Bühne.** Tiefe über Flächenstufen, nie über Schatten.', '**Ein Akzent, eine Bedeutung.** Gelb heißt „hier handeln“ oder „hier schauen“.',
                   '**Dreiklang.** Eyebrow, Versalien-Headline, grauer Zweitsatz.', '**Linie statt Fläche.** Icons und Illustrationen sind Strichzeichnungen.',
                   '**Fortschritt ist sichtbar.** Segmentierte Leiste, Schrittnummer, Zähler.', '**Ehrlich vor elegant.** Warnungen, Grenzen und Quellen stehen sichtbar da.']
-    hero = (f'<section class="sb-hero"><header class="odsv-hgroup"><p class="odsv-eyebrow">Design-System · Version {esc(VERSION)}</p>'
+    hero = (f'<section class="sb-hero"><header class="odsv-hgroup"><p class="odsv-eyebrow">OneDay Super Visuals · Design-System · Version {esc(VERSION)}</p>'
             f'<h1 class="odsv-display">ODSV</h1><p class="odsv-sub">Dunkel, gesperrte Versalien, ein gelber Akzent – für Websites, Dashboards und Präsentationen.</p>'
             f'<div class="odsv-cluster"><a class="odsv-btn odsv-btn--primary" href="{{P}}komponenten/button.html">Komponenten ansehen</a>'
             f'<a class="odsv-btn odsv-btn--ghost" href="{{P}}downloads.html">{icon("download")}Dateien laden</a></div></header>'
