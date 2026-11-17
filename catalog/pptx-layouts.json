@@ -1,0 +1,938 @@
+{
+ "version": "1.0.0",
+ "template": "pptx/ODSV-Vorlage.potx",
+ "helper": "pptx/odsv_pptx.py",
+ "footer_placeholders": {
+  "source": 11,
+  "slide_number": 12
+ },
+ "layouts": [
+  {
+   "name": "Titel",
+   "spec_id": "title",
+   "use": "Erste Folie. Signet-Moment.",
+   "progress": false,
+   "footer": false,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Titel",
+     "style": "display",
+     "maxChars": 12,
+     "lines": 2
+    },
+    {
+     "role": "sub",
+     "idx": 1,
+     "name": "Untertitel",
+     "style": "sub-large",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "meta",
+     "idx": 14,
+     "name": "Meta",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Einziger Ort für den Signet-Verlauf.",
+    "Titel höchstens 2 Zeilen à 12 Zeichen; längere Titel: 36 pt / spc 720.",
+    "Kein Seitenfuß, keine Fortschrittsleiste."
+   ]
+  },
+  {
+   "name": "Kapiteltrenner",
+   "spec_id": "chapter",
+   "use": "Beginn eines Kapitels.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "number",
+     "idx": 13,
+     "name": "Kapitelnummer",
+     "style": "number-large",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "eyebrow",
+     "idx": 14,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Kapiteltitel",
+     "style": "chapter",
+     "maxChars": 17,
+     "lines": 2
+    },
+    {
+     "role": "sub",
+     "idx": 15,
+     "name": "Zweitsatz",
+     "style": "sub-large",
+     "maxChars": 90,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Kapitelnummer oben rechts wie bei der Schritt-Karte.",
+    "Fortschrittsleiste zeigt das aktive Kapitel.",
+    "Sonst leer – keine Bilder, keine Listen."
+   ]
+  },
+  {
+   "name": "Agenda",
+   "spec_id": "agenda",
+   "use": "Überblick, höchstens 6 Punkte.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "body",
+     "idx": 15,
+     "name": "Agenda-Liste",
+     "style": "agenda",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "aside",
+     "idx": 16,
+     "name": "Hinweis-Karte",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Mehr als 6 Punkte: Kapitel zusammenfassen.",
+    "Als Zwischenstand wiederverwendbar: aktive Zeile weiß, übrige text.muted."
+   ]
+  },
+  {
+   "name": "Inhalt einspaltig",
+   "spec_id": "content-1",
+   "use": "Eine Aussage mit Begründung.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "body",
+     "idx": 15,
+     "name": "Text",
+     "style": "body",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "aside",
+     "idx": 16,
+     "name": "Hinweis-Karte",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Textspalte nie breiter als 8 Spalten (Lesebreite).",
+    "Listenpunkte: gelber Punkt 0,08 in, Text 18 pt."
+   ]
+  },
+  {
+   "name": "Zwei Spalten",
+   "spec_id": "content-2",
+   "use": "Zwei gleichrangige Gedanken.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "label0",
+     "idx": 15,
+     "name": "Label links",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title0",
+     "idx": 16,
+     "name": "Karten-Headline links",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "text0",
+     "idx": 17,
+     "name": "Text links",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "label1",
+     "idx": 18,
+     "name": "Label rechts",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title1",
+     "idx": 19,
+     "name": "Karten-Headline rechts",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "text1",
+     "idx": 20,
+     "name": "Text rechts",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Beide Karten gleich hoch.",
+    "Variante 7 + 5 Spalten für Text + Bild/Illustration."
+   ]
+  },
+  {
+   "name": "KPI drei Zahlen",
+   "spec_id": "kpi",
+   "use": "Eine Zahl trägt die Folie.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "label",
+     "idx": 0,
+     "name": "Zahl-Label (Folientitel)",
+     "style": "label",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "value",
+     "idx": 15,
+     "name": "Zahl",
+     "style": "kpi-hero",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "sentence",
+     "idx": 16,
+     "name": "Aussage",
+     "style": "sub-large",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tl0",
+     "idx": 17,
+     "name": "Kachel 1 Label",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tv0",
+     "idx": 18,
+     "name": "Kachel 1 Wert",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tl1",
+     "idx": 19,
+     "name": "Kachel 2 Label",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tv1",
+     "idx": 20,
+     "name": "Kachel 2 Wert",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tl2",
+     "idx": 21,
+     "name": "Kachel 3 Label",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "tv2",
+     "idx": 22,
+     "name": "Kachel 3 Wert",
+     "style": "kpi-tiles",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Keine Versalien-Headline – die Zahl ist die Headline.",
+    "Zahl höchstens 9 Zeichen einschließlich Einheit bei 120 pt; sonst 96 pt.",
+    "Quelle im Seitenfuß."
+   ]
+  },
+  {
+   "name": "Diagramm",
+   "spec_id": "chart",
+   "use": "Ein Diagramm, eine Kernaussage.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "chart",
+     "idx": 15,
+     "name": "Diagramm",
+     "style": "chart-frame",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "ilabel",
+     "idx": 16,
+     "name": "Aussage-Label",
+     "style": "insight",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "itext",
+     "idx": 17,
+     "name": "Aussage",
+     "style": "insight",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "inote",
+     "idx": 18,
+     "name": "Erläuterung",
+     "style": "insight",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Headline nennt die Aussage, nicht das Thema.",
+    "Variante Vollbreite: Diagramm 12 Spalten, Aussage als Zweitsatz.",
+    "Höchstens 4 Reihen direkt beschriftet; Legende oben links im Rahmen."
+   ]
+  },
+  {
+   "name": "Bild vollflächig",
+   "spec_id": "image",
+   "use": "Foto, Rendering oder 3D-Standbild.",
+   "progress": false,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "image",
+     "idx": 13,
+     "name": "Bild",
+     "style": "image",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "eyebrow",
+     "idx": 14,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 15,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Text steht nur auf dem abgedunkelten Bereich (Kontrast ≥ 4,5:1 prüfen).",
+    "Variante „Bild in Karte“: Karte cx(6)…12, Text links 5 Spalten.",
+    "Nur Seitenzahl im Fuß."
+   ]
+  },
+  {
+   "name": "Bild in Karte",
+   "spec_id": "image-card",
+   "use": "Bild in einer Karte rechts, erklärender Text links.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": null
+    },
+    {
+     "role": "body",
+     "idx": 15,
+     "name": "Text",
+     "style": "body",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "image",
+     "idx": 16,
+     "name": "Bild",
+     "style": "image",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Bild mit Alternativtext.",
+    "Text höchstens 3 Aufzählungspunkte.",
+    "Bild 28 pt Radius, 0,75-pt-Rand."
+   ]
+  },
+  {
+   "name": "Zitat",
+   "spec_id": "quote",
+   "use": "Eine Stimme, wörtlich.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "quote",
+     "idx": 13,
+     "name": "Zitat",
+     "style": "quote",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "name",
+     "idx": 14,
+     "name": "Name",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "role",
+     "idx": 15,
+     "name": "Rolle",
+     "style": "body-small-muted",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Normale Schreibweise, keine Versalien.",
+    "Kein Porträt nötig; wenn doch: Kreis 1,0 in links neben dem Namen."
+   ]
+  },
+  {
+   "name": "Prozess vier Schritte",
+   "spec_id": "process",
+   "use": "3 bis 5 Schritte in Reihenfolge.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "n0",
+     "idx": 15,
+     "name": "Schritt 1 Nummer",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "t0",
+     "idx": 16,
+     "name": "Schritt 1 Titel",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "x0",
+     "idx": 17,
+     "name": "Schritt 1 Text",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "n1",
+     "idx": 18,
+     "name": "Schritt 2 Nummer",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "t1",
+     "idx": 19,
+     "name": "Schritt 2 Titel",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "x1",
+     "idx": 20,
+     "name": "Schritt 2 Text",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "n2",
+     "idx": 21,
+     "name": "Schritt 3 Nummer",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "t2",
+     "idx": 22,
+     "name": "Schritt 3 Titel",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "x2",
+     "idx": 23,
+     "name": "Schritt 3 Text",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "n3",
+     "idx": 24,
+     "name": "Schritt 4 Nummer",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "t3",
+     "idx": 25,
+     "name": "Schritt 4 Titel",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "x3",
+     "idx": 26,
+     "name": "Schritt 4 Text",
+     "style": "step-cards",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "3 Schritte: je 4 Spalten (3,867 in); 4: je 3 Spalten (2,850 in); 5: je 2,240 in bei 0,2 in Lücke.",
+    "Aktiver Schritt: Rand border.active, übrige Karten 45 % Deckkraft (nur beim schrittweisen Zeigen)."
+   ]
+  },
+  {
+   "name": "Vergleich",
+   "spec_id": "compare",
+   "use": "Zwei Optionen, richtig/falsch, vorher/nachher.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "head0",
+     "idx": 15,
+     "name": "Kopf A",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title0",
+     "idx": 16,
+     "name": "Titel A",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "text0",
+     "idx": 17,
+     "name": "Zeilen A",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "head1",
+     "idx": 18,
+     "name": "Kopf B",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title1",
+     "idx": 19,
+     "name": "Titel B",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "text1",
+     "idx": 20,
+     "name": "Zeilen B",
+     "style": "card",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Richtig/Falsch: Icon (Haken/Kreuz) + Wort, nie nur Grün/Rot.",
+    "Empfohlene Option: Rand 1,5 pt accent.line.",
+    "Zeilen beider Karten stehen auf gleicher Höhe."
+   ]
+  },
+  {
+   "name": "Tabelle",
+   "spec_id": "table",
+   "use": "Wenige, vergleichbare Werte.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": 1
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    },
+    {
+     "role": "table",
+     "idx": 15,
+     "name": "Tabelle",
+     "style": "table",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Nur waagrechte Haarlinien (0,75 pt, border.subtle); keine Zebrastreifen.",
+    "Kopf: 11 pt Versalien, text.secondary. Erste Spalte fett weiß, Zahlen rechtsbündig.",
+    "Mehr als 8 Zeilen: aufteilen oder in den Anhang."
+   ]
+  },
+  {
+   "name": "Abschluss",
+   "spec_id": "closing",
+   "use": "Nächster Schritt, Kontakt.",
+   "progress": false,
+   "footer": false,
+   "placeholders": [
+    {
+     "role": "prompt",
+     "idx": 0,
+     "name": "Aufforderung (Folientitel)",
+     "style": "prompt",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "button",
+     "idx": 14,
+     "name": "Button",
+     "style": "button",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "contact",
+     "idx": 15,
+     "name": "Kontakt",
+     "style": "body-small-muted",
+     "maxChars": null,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Eine Aufforderung, ein Button.",
+    "Kein „Danke für Ihre Aufmerksamkeit“ als einziger Inhalt."
+   ]
+  },
+  {
+   "name": "Nur Titel",
+   "spec_id": "title-only",
+   "use": "Freie Gestaltung unter Eyebrow, Headline und Zweitsatz (Karten, Kacheln, Buttons in ODSV-Maßen).",
+   "progress": true,
+   "footer": true,
+   "placeholders": [
+    {
+     "role": "eyebrow",
+     "idx": 13,
+     "name": "Eyebrow",
+     "style": "eyebrow",
+     "maxChars": null,
+     "lines": null
+    },
+    {
+     "role": "title",
+     "idx": 0,
+     "name": "Headline",
+     "style": "headline",
+     "maxChars": 34,
+     "lines": null
+    },
+    {
+     "role": "sub",
+     "idx": 14,
+     "name": "Zweitsatz",
+     "style": "sub",
+     "maxChars": 90,
+     "lines": null
+    }
+   ],
+   "rules": [
+    "Eigene Formen nur in ODSV-Farben und -Radien.",
+    "Raster 12 Spalten, Rand 0,6 in einhalten."
+   ]
+  },
+  {
+   "name": "Leer",
+   "spec_id": "blank",
+   "use": "Leere Folie mit Fortschrittsleiste und Seitenfuß.",
+   "progress": true,
+   "footer": true,
+   "placeholders": [],
+   "rules": [
+    "Nur für Sonderfälle (Vollbild-Grafik, Einbettung).",
+    "Fortschrittsleiste und Fuß bleiben."
+   ]
+  }
+ ]
+}

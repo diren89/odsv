@@ -1,0 +1,124 @@
+{
+ "grammar": "(gilt für jede Variante, SPEC 10.4):\n  1. viewBox 0 0 400 400, genau vier Striche (Pfade) à 26 Einheiten, runde Enden und Ecken.\n  2. Farbfolge fest: Strich 1 signet-1 (Pink) → 2 signet-2 (Orange) → 3 signet-3 (Hellorange) → 4 signet-4 (Gelb);\n     von außen/hinten/groß nach innen/vorne/klein.\n  3. Genau ein gefüllter Punkt (signet-dot, Gelb, r 24–34) als Fokus: Ziel, Gipfel, Knoten, Cursor, Sonne.\n  4. Motiv schwerpunktmäßig rechts; darf rechts angeschnitten sein (Karte nutzt xMaxYMid slice).\n     Sichtbereich y 50–350 (bleibt auch in 4:3-Querformat sichtbar), links nicht unter x 120.\n  5. Wortmarken-Zone x < 240 und y > 300 bleibt frei.\n  6. Abstand paralleler Striche Mitte–Mitte ≥ 40 (lichte Weite ≥ 14); keine Füllflächen außer dem Punkt.\n  7. Bedeutung über eine einfache, bekannte Form; keine Schrift, keine Marken, keine Personen.",
+ "signets": [
+  {
+   "id": "odsv-signet",
+   "group": "Basis",
+   "name": "Signal / Wirkung",
+   "meaning": "Standard für alle Themen",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-ai",
+   "group": "Technik",
+   "name": "KI",
+   "meaning": "Funke: Intelligenz, Generierung, Assistenz",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-ai\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-network",
+   "group": "Technik",
+   "name": "Netzwerk",
+   "meaning": "Knoten und Verbindungen: Vernetzung, Plattform, Integration",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-network\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-data",
+   "group": "Technik",
+   "name": "Daten",
+   "meaning": "Steigende Säulen: Analyse, Kennzahlen, Wachstum",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-data\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-code",
+   "group": "Technik",
+   "name": "Code",
+   "meaning": "Klammern und Cursor: Entwicklung, Software, Engineering",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-code\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-mountains",
+   "group": "Lifestyle",
+   "name": "Berge",
+   "meaning": "Gestaffelte Grate und Sonne: Alpin, Wandern, Weitblick",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-mountains\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-bike",
+   "group": "Lifestyle",
+   "name": "Fahrrad",
+   "meaning": "Räder und Rahmen: Radfahren, Mobilität, Touren",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-bike\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-outdoor",
+   "group": "Lifestyle",
+   "name": "Outdoor",
+   "meaning": "Zelt unter der Sonne: Draußen, Camping, Abenteuer",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-outdoor\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-route",
+   "group": "Lifestyle",
+   "name": "Route",
+   "meaning": "Geschwungene Strecke zum Ziel: Training, Tour, Fortschritt",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-route\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-success",
+   "group": "Situation",
+   "name": "Erfolg",
+   "meaning": "Haken erreicht das Ziel, Strahlen feiern: Erfolg, Meilenstein, Abschluss",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-success\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-fail",
+   "group": "Situation",
+   "name": "Fail",
+   "meaning": "Kurve steigt und bricht ein: Misserfolg, Rückschlag, Learnings",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-fail\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-conflict",
+   "group": "Situation",
+   "name": "Konflikt",
+   "meaning": "Zwei Pfeile prallen aufeinander: Konflikt, Zielkonflikt, Reibung",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-conflict\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-agreement",
+   "group": "Situation",
+   "name": "Einigung",
+   "meaning": "Zwei Wege werden einer: Einigung, Lösung, Zusammenarbeit",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-agreement\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-idea",
+   "group": "Situation",
+   "name": "Idee",
+   "meaning": "Glühbirne mit Strahlen: Idee, Innovation, Vorschlag",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-idea\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-question",
+   "group": "Situation",
+   "name": "Frage",
+   "meaning": "Fragezeichen: offene Frage, Unklarheit, Diskussion",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-question\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-progress",
+   "group": "Situation",
+   "name": "In Arbeit",
+   "meaning": "Ring aus Bogenstücken: in Arbeit, läuft, Zwischenstand",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-progress\"/></svg>"
+  },
+  {
+   "id": "odsv-signet-restart",
+   "group": "Situation",
+   "name": "Neustart",
+   "meaning": "Kreispfeil: Neustart, Iteration, Wiederholung",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-restart\"/></svg>"
+  }
+ ]
+}

@@ -1,0 +1,2191 @@
+{
+ "version": "1.0.0",
+ "generated_by": "tools/build_catalog.py",
+ "states": [
+  "is-active",
+  "is-disabled",
+  "is-dismissed",
+  "is-focus",
+  "is-hover",
+  "is-invalid",
+  "is-loading",
+  "is-open",
+  "is-selected",
+  "is-visible"
+ ],
+ "components": [
+  {
+   "id": "typography",
+   "name": "Typografie",
+   "use": "Textstile für jede Ausgabe. Dreiklang je Abschnitt: .odsv-eyebrow → .odsv-display/.odsv-h1 → .odsv-sub, danach .odsv-body.",
+   "avoid": "Versalien für Fließtext, Warnungen, Fehler oder Tabellenzellen (dafür .odsv-body, .odsv-body-small).",
+   "root_classes": [
+    "odsv-eyebrow",
+    "odsv-display",
+    "odsv-h1",
+    "odsv-h2",
+    "odsv-h3",
+    "odsv-h4",
+    "odsv-sub",
+    "odsv-body",
+    "odsv-body-small",
+    "odsv-small",
+    "odsv-caption",
+    "odsv-label",
+    "odsv-mono",
+    "odsv-number",
+    "odsv-muted",
+    "odsv-accent",
+    "odsv-strong",
+    "odsv-tabular",
+    "odsv-kbd",
+    "odsv-code-inline",
+    "odsv-hint"
+   ],
+   "classes": [
+    "odsv-accent",
+    "odsv-body",
+    "odsv-body-small",
+    "odsv-caption",
+    "odsv-code-inline",
+    "odsv-display",
+    "odsv-eyebrow",
+    "odsv-h1",
+    "odsv-h2",
+    "odsv-h3",
+    "odsv-h4",
+    "odsv-hint",
+    "odsv-kbd",
+    "odsv-label",
+    "odsv-mono",
+    "odsv-muted",
+    "odsv-number",
+    "odsv-small",
+    "odsv-strong",
+    "odsv-sub",
+    "odsv-tabular"
+   ],
+   "elements": [],
+   "modifiers": [],
+   "variants": {
+    "display": "Hero-/Titel-Headline, 28→64 px, Versalien 0,2 em",
+    "h1": "Sektions-Headline, 22→40 px, Versalien",
+    "h2": "Unterabschnitt, 24 px, Versalien 0,12 em",
+    "h3": "Karten-/Block-Headline, normale Schreibweise",
+    "h4": "kleine Überschrift 17 px",
+    "sub": "grauer Zweitsatz unter jeder Headline",
+    "body": "Fließtext 17 px, max. 640 px breit",
+    "body-small": "Erklärtext in Karten/Tabellen 15 px",
+    "small": "Fußnote, Quelle 14 px",
+    "caption": "Achsen, Zeitstempel 12 px",
+    "label": "Feld-/Gruppenlabel in Versalien 13 px",
+    "number": "große Kennzahl 40→48 px, tabular-nums",
+    "mono": "Code, IDs",
+    "accent": "Hervorhebung in Akzentfarbe (sparsam)",
+    "muted": "abgeschwächter Text"
+   },
+   "states": {},
+   "rules": [
+    "Headline höchstens 3 Wörter / 24 Zeichen / 2 Zeilen.",
+    "Versalien nur per CSS (text-transform), im Quelltext normale Schreibweise.",
+    "Eyebrow ist ein <p>, keine Überschrift; Headline-Ebenen: ein h1 je Seite, h2 je Sektion, h3 in Karten (Klasse ≠ Element: <h2 class=\"odsv-h1\"> ist erlaubt).",
+    "Lange Wörter: &shy; setzen oder odsv.js einbinden (ODSV.fit verhindert Bruch mitten im Wort).",
+    "Zahlen, die untereinander stehen oder sich ändern: .odsv-tabular bzw. .odsv-number."
+   ],
+   "a11y": [
+    "Text nie als Bild.",
+    "Kontrast: Fließtext ≥ 4,5:1 – .odsv-muted/.odsv-caption nicht auf surface-3."
+   ],
+   "js": "",
+   "content_limits": {
+    "eyebrow": "1–4 Wörter",
+    "headline": "1–3 Wörter, ≤ 24 Zeichen",
+    "sub": "1 Satz, ≤ 90 Zeichen",
+    "body": "Absätze ≤ 4 Sätze"
+   },
+   "reference": "web/index.html#typografie",
+   "examples": []
+  },
+  {
+   "id": "layout",
+   "name": "Layout-Primitive",
+   "use": "Seitengerüst: .odsv-container (max. Breite) → .odsv-section (vertikaler Rhythmus) → .odsv-grid mit .odsv-col-N / .odsv-col-{sm|md|lg|xl}-N; innen .odsv-stack (vertikal) und .odsv-cluster (horizontal, bricht um).",
+   "avoid": "Eigene Abstände per style-Attribut oder feste px-Breiten.",
+   "root_classes": [
+    "odsv-container",
+    "odsv-section",
+    "odsv-section-head",
+    "odsv-grid",
+    "odsv-col",
+    "odsv-stack",
+    "odsv-cluster",
+    "odsv-divider",
+    "odsv-scroll-x",
+    "odsv-center",
+    "odsv-w-full",
+    "odsv-nowrap",
+    "odsv-app"
+   ],
+   "classes": [
+    "odsv-app",
+    "odsv-app__main",
+    "odsv-center",
+    "odsv-cluster",
+    "odsv-cluster--2",
+    "odsv-cluster--6",
+    "odsv-cluster--between",
+    "odsv-cluster--center",
+    "odsv-cluster--start",
+    "odsv-col-",
+    "odsv-col-1",
+    "odsv-col-10",
+    "odsv-col-11",
+    "odsv-col-12",
+    "odsv-col-2",
+    "odsv-col-3",
+    "odsv-col-4",
+    "odsv-col-5",
+    "odsv-col-6",
+    "odsv-col-7",
+    "odsv-col-8",
+    "odsv-col-9",
+    "odsv-col-lg-1",
+    "odsv-col-lg-10",
+    "odsv-col-lg-11",
+    "odsv-col-lg-12",
+    "odsv-col-lg-2",
+    "odsv-col-lg-3",
+    "odsv-col-lg-4",
+    "odsv-col-lg-5",
+    "odsv-col-lg-6",
+    "odsv-col-lg-7",
+    "odsv-col-lg-8",
+    "odsv-col-lg-9",
+    "odsv-col-md-1",
+    "odsv-col-md-10",
+    "odsv-col-md-11",
+    "odsv-col-md-12",
+    "odsv-col-md-2",
+    "odsv-col-md-3",
+    "odsv-col-md-4",
+    "odsv-col-md-5",
+    "odsv-col-md-6",
+    "odsv-col-md-7",
+    "odsv-col-md-8",
+    "odsv-col-md-9",
+    "odsv-col-sm-1",
+    "odsv-col-sm-10",
+    "odsv-col-sm-11",
+    "odsv-col-sm-12",
+    "odsv-col-sm-2",
+    "odsv-col-sm-3",
+    "odsv-col-sm-4",
+    "odsv-col-sm-5",
+    "odsv-col-sm-6",
+    "odsv-col-sm-7",
+    "odsv-col-sm-8",
+    "odsv-col-sm-9",
+    "odsv-col-xl-1",
+    "odsv-col-xl-10",
+    "odsv-col-xl-11",
+    "odsv-col-xl-12",
+    "odsv-col-xl-2",
+    "odsv-col-xl-3",
+    "odsv-col-xl-4",
+    "odsv-col-xl-5",
+    "odsv-col-xl-6",
+    "odsv-col-xl-7",
+    "odsv-col-xl-8",
+    "odsv-col-xl-9",
+    "odsv-container",
+    "odsv-container--text",
+    "odsv-container--wide",
+    "odsv-divider",
+    "odsv-grid",
+    "odsv-grid--dashboard",
+    "odsv-nowrap",
+    "odsv-scroll-x",
+    "odsv-section",
+    "odsv-section--rule",
+    "odsv-section--tight",
+    "odsv-section-head",
+    "odsv-section-head--center",
+    "odsv-stack",
+    "odsv-stack--1",
+    "odsv-stack--12",
+    "odsv-stack--2",
+    "odsv-stack--3",
+    "odsv-stack--6",
+    "odsv-stack--8",
+    "odsv-w-full"
+   ],
+   "elements": [
+    "main"
+   ],
+   "modifiers": [
+    "1",
+    "12",
+    "2",
+    "3",
+    "6",
+    "8",
+    "between",
+    "center",
+    "dashboard",
+    "rule",
+    "start",
+    "text",
+    "tight",
+    "wide"
+   ],
+   "variants": {
+    "container--wide": "breiter Container (Dashboard)",
+    "container--text": "Lesebreite für Fließtext",
+    "section--tight": "weniger Innenabstand",
+    "section--rule": "Haarlinie oben",
+    "grid--dashboard": "Dashboard-Raster, Lücke 16 px",
+    "stack--N": "Abstand space-N zwischen Kindern (1,2,3,6,8,12)",
+    "cluster--2|6": "Abstand space-2/space-6",
+    "cluster--between|center|start": "Verteilung",
+    "section-head--center": "zentrierter Sektionskopf"
+   },
+   "states": {},
+   "rules": [
+    "Mobile-First: .odsv-col-12 als Basis, ab Breakpoint überschreiben (sm 600, md 768, lg 1024, xl 1280).",
+    "Karten/Kacheln in einer Rasterzeile werden automatisch gleich hoch.",
+    "Breite Inhalte (Tabellen) in .odsv-scroll-x bzw. .odsv-table-wrap, nie die Seite seitlich scrollen lassen."
+   ],
+   "a11y": [
+    "Reihenfolge im DOM = Lesereihenfolge; Raster nicht per order umsortieren."
+   ],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#layout",
+   "examples": [
+    {
+     "title": "Raster",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-md-4\"><div class=\"docs-box\">md-4</div></div>\n<div class=\"odsv-col-md-4\"><div class=\"docs-box\">md-4</div></div>\n<div class=\"odsv-col-md-4\"><div class=\"docs-box\">md-4</div></div>\n<div class=\"odsv-col-6 odsv-col-lg-3\"><div class=\"docs-box\">6 / lg-3</div></div>\n<div class=\"odsv-col-6 odsv-col-lg-3\"><div class=\"docs-box\">6 / lg-3</div></div>\n<div class=\"odsv-col-12 odsv-col-lg-6\"><div class=\"docs-box\">12 / lg-6</div></div>\n</div>"
+    },
+    {
+     "title": "Stack und Cluster",
+     "captions": [],
+     "html": "<div class=\"odsv-stack odsv-stack--3\">\n<div class=\"docs-box\">Stack (Abstand 12 px)</div>\n<div class=\"docs-box\">zweites Kind</div>\n<div class=\"odsv-cluster\">\n<span class=\"odsv-badge\">Cluster</span><span class=\"odsv-badge odsv-badge--accent\">bricht um</span><span class=\"odsv-badge odsv-badge--info\">Abstand 12 px</span>\n</div>\n</div>"
+    },
+    {
+     "title": "Container und Sektion",
+     "captions": [],
+     "html": "<section class=\"odsv-section odsv-section--rule\">\n<div class=\"odsv-container\">\n<div class=\"odsv-section-head\">\n<p class=\"odsv-eyebrow\">Eyebrow</p>\n<h2 class=\"odsv-h1\">Headline</h2>\n<p class=\"odsv-sub\">Zweitsatz erklärt.</p>\n</div>\n<!-- Inhalt: max. 1120 px, Seitenrand 20 → 40 px -->\n</div>\n</section>"
+    }
+   ]
+  },
+  {
+   "id": "icon",
+   "name": "Icon",
+   "use": "Line-Icons aus dem Sprite web/icons.svg: <svg class=\"odsv-icon\" aria-hidden=\"true\"><use href=\"#odsv-icon-NAME\"/></svg>.",
+   "avoid": "Gefüllte oder mehrfarbige Icons, Emoji, Icons ohne Bedeutung.",
+   "root_classes": [
+    "odsv-icon"
+   ],
+   "classes": [
+    "odsv-icon",
+    "odsv-icon--lg",
+    "odsv-icon--sm"
+   ],
+   "elements": [],
+   "modifiers": [
+    "lg",
+    "sm"
+   ],
+   "variants": {
+    "icon--sm": "18 px (in Buttons)",
+    "icon--lg": "44 px (Kachel)"
+   },
+   "states": {},
+   "rules": [
+    "24er-Raster, Strich 2 px, runde Enden, Farbe currentColor.",
+    "Verfügbare Namen siehe catalog/icons.json; fehlende aus Lucide (gleiche Maße) ergänzen."
+   ],
+   "a11y": [
+    "Dekorativ: aria-hidden=\"true\". Allein stehend (Icon-Button): Name per aria-label oder .odsv-sr-only."
+   ],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#icons",
+   "examples": [
+    {
+     "title": "Größen",
+     "captions": [
+      "18 px",
+      "22 px (Standard)",
+      "44 px (Kachel)"
+     ],
+     "html": "<svg aria-hidden=\"true\" class=\"odsv-icon odsv-icon--sm\"><use href=\"#odsv-icon-bolt\"></use></svg>\n<svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-bolt\"></use></svg>\n<svg aria-hidden=\"true\" class=\"odsv-icon odsv-icon--lg\"><use href=\"#odsv-icon-bolt\"></use></svg>"
+    }
+   ]
+  },
+  {
+   "id": "button",
+   "name": "Button",
+   "use": "Handlungen auslösen. Primär = die eine Haupthandlung der Ansicht.",
+   "avoid": "Navigation zu anderer Seite ohne Handlung (dafür .odsv-link); mehrere Primär-Buttons nebeneinander.",
+   "root_classes": [
+    "odsv-btn",
+    "odsv-icon-btn"
+   ],
+   "classes": [
+    "odsv-btn",
+    "odsv-btn--block",
+    "odsv-btn--block-sm",
+    "odsv-btn--danger",
+    "odsv-btn--ghost",
+    "odsv-btn--icon",
+    "odsv-btn--md",
+    "odsv-btn--primary",
+    "odsv-btn--secondary",
+    "odsv-btn--sm",
+    "odsv-icon-btn"
+   ],
+   "elements": [],
+   "modifiers": [
+    "block",
+    "block-sm",
+    "danger",
+    "ghost",
+    "icon",
+    "md",
+    "primary",
+    "secondary",
+    "sm"
+   ],
+   "variants": {
+    "btn--primary": "gelb, Haupthandlung, ab 600 px min. 240 px breit",
+    "btn--secondary": "hellgrau, zweite Handlung",
+    "btn--ghost": "dunkel mit Rand, Nebenhandlung",
+    "btn--danger": "zerstörerische Handlung (rot)",
+    "btn--md": "44 px hoch",
+    "btn--sm": "36 px hoch (auf Touch 44 px)",
+    "btn--icon": "quadratisch, nur Icon",
+    "btn--block": "volle Breite",
+    "btn--block-sm": "volle Breite nur mobil"
+   },
+   "states": {
+    "is-loading": "zeigt Ladekreis, aria-busy=\"true\" setzen",
+    "disabled / aria-disabled=\"true\"": "deaktiviert",
+    "is-hover / is-active / is-focus": "nur für Dokumentation"
+   },
+   "rules": [
+    "Genau ein .odsv-btn--primary je Ansicht.",
+    "Beschriftung = Verb + Ziel („Projekt starten“), nie „OK“, „Hier klicken“, „Weiter“ ohne Ziel.",
+    "Element: <button type=\"button\"> für Handlungen, <a href> nur wenn navigiert wird."
+   ],
+   "a11y": [
+    "Icon-only braucht aria-label.",
+    "Fokusring nie entfernen."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–3 Wörter"
+   },
+   "reference": "web/index.html#buttons",
+   "examples": [
+    {
+     "title": "Varianten",
+     "captions": [
+      "Primär",
+      "Sekundär",
+      "Ghost",
+      "Gefährlich"
+     ],
+     "html": "<button class=\"odsv-btn odsv-btn--primary\" type=\"button\">Projekt starten</button>\n<button class=\"odsv-btn odsv-btn--secondary\" type=\"button\">Zur Übersicht</button>\n<button class=\"odsv-btn odsv-btn--ghost\" type=\"button\">Bericht öffnen</button>\n<button class=\"odsv-btn odsv-btn--ghost odsv-btn--danger\" type=\"button\">Löschen</button>"
+    },
+    {
+     "title": "Zustände: Primär",
+     "captions": [
+      "Ruhe",
+      "Hover",
+      "Gedrückt",
+      "Fokus",
+      "Laden",
+      "Deaktiviert"
+     ],
+     "html": "<button class=\"odsv-btn odsv-btn--primary\" type=\"button\">Weiter</button>\n<button class=\"odsv-btn odsv-btn--primary is-hover\" type=\"button\">Weiter</button>\n<button class=\"odsv-btn odsv-btn--primary is-active\" type=\"button\">Weiter</button>\n<button class=\"odsv-btn odsv-btn--primary is-focus\" type=\"button\">Weiter</button>\n<button aria-busy=\"true\" class=\"odsv-btn odsv-btn--primary is-loading\" type=\"button\">Lädt …</button>\n<button class=\"odsv-btn odsv-btn--primary\" disabled=\"\" type=\"button\">Weiter</button>"
+    },
+    {
+     "title": "Zustände: Sekundär und Ghost",
+     "captions": [
+      "Sekundär Ruhe",
+      "Sekundär Hover",
+      "Sekundär Deaktiviert",
+      "Ghost Ruhe",
+      "Ghost Hover",
+      "Ghost Fokus"
+     ],
+     "html": "<button class=\"odsv-btn odsv-btn--secondary\" type=\"button\">Zurück</button>\n<button class=\"odsv-btn odsv-btn--secondary is-hover\" type=\"button\">Zurück</button>\n<button class=\"odsv-btn odsv-btn--secondary\" disabled=\"\" type=\"button\">Zurück</button>\n<button class=\"odsv-btn odsv-btn--ghost\" type=\"button\">Teilen</button>\n<button class=\"odsv-btn odsv-btn--ghost is-hover\" type=\"button\">Teilen</button>\n<button class=\"odsv-btn odsv-btn--ghost is-focus\" type=\"button\">Teilen</button>"
+    },
+    {
+     "title": "Größen, Icon und volle Breite",
+     "captions": [
+      "L · 52 px",
+      "M · 44 px",
+      "S · 36 px",
+      "Mit Icon",
+      "Icon-Button"
+     ],
+     "html": "<button class=\"odsv-btn odsv-btn--secondary\" type=\"button\">Groß</button>\n<button class=\"odsv-btn odsv-btn--secondary odsv-btn--md\" type=\"button\">Mittel</button>\n<button class=\"odsv-btn odsv-btn--secondary odsv-btn--sm\" type=\"button\">Klein</button>\n<button class=\"odsv-btn odsv-btn--primary odsv-btn--md\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-download\"></use></svg>Herunterladen</button>\n<button aria-label=\"Einstellungen\" class=\"odsv-btn odsv-btn--ghost odsv-btn--md odsv-btn--icon\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-settings\"></use></svg></button>"
+    }
+   ]
+  },
+  {
+   "id": "link",
+   "name": "Link",
+   "use": "Navigation im Text oder leise Nebenaktion („Überspringen“).",
+   "avoid": "Haupthandlungen (dafür Button).",
+   "root_classes": [
+    "odsv-link",
+    "odsv-textbtn"
+   ],
+   "classes": [
+    "odsv-link",
+    "odsv-link--muted",
+    "odsv-link--plain",
+    "odsv-textbtn"
+   ],
+   "elements": [],
+   "modifiers": [
+    "muted",
+    "plain"
+   ],
+   "variants": {
+    "link--muted": "leiser Link in Grau",
+    "link--plain": "ohne Unterstreichung (nur in Navigation)",
+    "textbtn": "Button im Link-Stil für leise Aktionen ohne Navigation"
+   },
+   "states": {},
+   "rules": [
+    "Im Fließtext immer unterstrichen.",
+    "Linktext nennt das Ziel; Dateien mit Typ und Größe: „Bericht (PDF, 1,2 MB)“.",
+    "Externe Links mit Icon external."
+   ],
+   "a11y": [
+    "Leise Links: Trefferfläche ≥ 24 px (Maus) bzw. 44 px (Touch) – erledigt odsv.css."
+   ],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#links",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<p class=\"odsv-body\">Die <a class=\"odsv-link\" href=\"#links\">Bedienungsanleitung (PDF, 1,2 MB)</a> enthält alle Details. <a class=\"odsv-link\" href=\"https://example.org\">Externer Link<svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-external\"></use></svg></a></p>\n<p class=\"odsv-small\"><a class=\"odsv-link odsv-link--muted\" href=\"#links\">Überspringen</a> · <button class=\"odsv-textbtn\" type=\"button\">Zurücksetzen</button> · <a class=\"odsv-link is-hover\" href=\"#links\">Hover</a></p>"
+    }
+   ]
+  },
+  {
+   "id": "card",
+   "name": "Karte",
+   "use": "Gruppiert zusammengehörige Inhalte auf einer Fläche (surface-1, 1-px-Rand, Radius 28).",
+   "avoid": "Eine Karte als einziger Träger einer Gruppierung bei wichtigen Informationen (Rand ist Dekor); Karten in Karten in Karten.",
+   "root_classes": [
+    "odsv-card"
+   ],
+   "classes": [
+    "odsv-card",
+    "odsv-card--accent",
+    "odsv-card--active",
+    "odsv-card--compact",
+    "odsv-card--danger",
+    "odsv-card--flush",
+    "odsv-card--inset",
+    "odsv-card--interactive",
+    "odsv-card--level-0",
+    "odsv-card--level-2",
+    "odsv-card--level-3",
+    "odsv-card--outline",
+    "odsv-card--stage",
+    "odsv-card--success",
+    "odsv-card--warning",
+    "odsv-card__footer",
+    "odsv-card__label",
+    "odsv-card__text",
+    "odsv-card__title"
+   ],
+   "elements": [
+    "footer",
+    "label",
+    "text",
+    "title"
+   ],
+   "modifiers": [
+    "accent",
+    "active",
+    "compact",
+    "danger",
+    "flush",
+    "inset",
+    "interactive",
+    "level-0",
+    "level-2",
+    "level-3",
+    "outline",
+    "stage",
+    "success",
+    "warning"
+   ],
+   "variants": {
+    "card--level-0|2|3": "Flächenstufe (0 = Grund, 2 = Karte in Karte, 3 = gedrückt)",
+    "card--inset": "eingelassene Fläche",
+    "card--stage": "Bühne für 3D/Illustration",
+    "card--outline": "nur Rand",
+    "card--accent": "gelber Rand – Empfehlung, sparsam",
+    "card--active": "aktiver/ausgewählter Zustand",
+    "card--success|warning|danger": "Rand in Statusfarbe",
+    "card--compact": "Dashboard: Radius 20, Abstand 16",
+    "card--interactive": "ganze Karte klickbar (als <a>)",
+    "card--flush": "ohne Innenabstand (z. B. Tabelle)"
+   },
+   "states": {},
+   "rules": [
+    "Aufbau: .odsv-card__label (optional) → .odsv-card__title (h3) → .odsv-card__text → .odsv-card__footer.",
+    "Kein Schatten; Tiefe nur über Flächenstufen.",
+    "Statusfarbe am Rand nur zusammen mit Wort/Icon im Inhalt."
+   ],
+   "a11y": [
+    "Klickbare Karte: genau ein Link (die Karte selbst), keine verschachtelten Buttons."
+   ],
+   "js": "",
+   "content_limits": {
+    "title": "≤ 40 Zeichen",
+    "text": "1–2 Sätze"
+   },
+   "reference": "web/index.html#karten",
+   "examples": [
+    {
+     "title": "",
+     "captions": [
+      "Standard · Ebene 1",
+      "Ebene 2",
+      "Klickbar",
+      "Kompakt",
+      "Akzent",
+      "Status Erfolg",
+      "Status Warnung",
+      "Status Fehler"
+     ],
+     "html": "<div class=\"odsv-card\"><p class=\"odsv-label odsv-card__label\">Vorbereitung</p><h3 class=\"odsv-card__title\">Zugang anlegen</h3><p class=\"odsv-card__text\">Konto erstellen und Rolle festlegen.</p></div>\n<div class=\"odsv-card odsv-card--level-2\"><h3 class=\"odsv-card__title\">Ebene 2</h3><p class=\"odsv-card__text\">Für Karte in Karte und Hover.</p></div>\n<a class=\"odsv-card odsv-card--interactive\" href=\"#karten\"><h3 class=\"odsv-card__title\">Klickbar</h3><p class=\"odsv-card__text\">Hover hebt auf Ebene 2.</p></a>\n<div class=\"odsv-card odsv-card--compact\"><h3 class=\"odsv-card__title\">Kompakt</h3><p class=\"odsv-card__text\">Dashboard: Radius 20, Abstand 16.</p></div>\n<div class=\"odsv-card odsv-card--accent\"><h3 class=\"odsv-card__title\">Akzent</h3><p class=\"odsv-card__text\">Sparsam für Empfehlungen.</p></div>\n<div class=\"odsv-card odsv-card--success\"><h3 class=\"odsv-card__title\">Erfolg</h3><p class=\"odsv-card__text\">Rand in Statusfarbe.</p></div>\n<div class=\"odsv-card odsv-card--warning\"><h3 class=\"odsv-card__title\">Warnung</h3><p class=\"odsv-card__text\">Rand in Statusfarbe.</p></div>\n<div class=\"odsv-card odsv-card--danger\"><h3 class=\"odsv-card__title\">Fehler</h3><p class=\"odsv-card__text\">Rand in Statusfarbe.</p></div>"
+    }
+   ]
+  },
+  {
+   "id": "kpi",
+   "name": "KPI- und Spec-Kachel",
+   "use": "Kennzahl mit Label, Einheit, Veränderung und Bezug (.odsv-kpi); Produktdaten im 2×2-Raster (.odsv-specs/.odsv-spec).",
+   "avoid": "Zahlen ohne Einheit, Bezug oder Quelle; mehr als eine gelbe Zahl je Kachelgruppe.",
+   "root_classes": [
+    "odsv-kpi",
+    "odsv-trend",
+    "odsv-spec",
+    "odsv-specs"
+   ],
+   "classes": [
+    "odsv-kpi",
+    "odsv-kpi--lead",
+    "odsv-kpi--lg",
+    "odsv-kpi__goal",
+    "odsv-kpi__label",
+    "odsv-kpi__note",
+    "odsv-kpi__row",
+    "odsv-kpi__spark",
+    "odsv-kpi__unit",
+    "odsv-kpi__value",
+    "odsv-kpi__value--accent",
+    "odsv-spec",
+    "odsv-spec__label",
+    "odsv-spec__value",
+    "odsv-specs",
+    "odsv-specs--4",
+    "odsv-trend",
+    "odsv-trend--negative",
+    "odsv-trend--neutral",
+    "odsv-trend--positive"
+   ],
+   "elements": [
+    "goal",
+    "label",
+    "note",
+    "row",
+    "spark",
+    "unit",
+    "value"
+   ],
+   "modifiers": [
+    "4",
+    "accent",
+    "lead",
+    "lg",
+    "negative",
+    "neutral",
+    "positive"
+   ],
+   "variants": {
+    "kpi--lead": "Leit-KPI (größer)",
+    "kpi--lg": "große Zahl",
+    "kpi__value--accent": "Zahl in Akzentfarbe (eine je Gruppe)",
+    "trend--positive|negative|neutral": "Veränderung (Farbe + Icon + Wort)",
+    "specs--4": "vier Spalten"
+   },
+   "states": {},
+   "rules": [
+    "Aufbau: <dl class=\"odsv-kpi\"><dt class=\"odsv-kpi__label\">…</dt><dd class=\"odsv-kpi__value\">Wert<span class=\"odsv-kpi__unit\">Einheit</span></dd><dd class=\"odsv-kpi__row\">Trend + .odsv-kpi__note (Bezug)</dd></dl>.",
+    "Leerer Wert: „–“ plus .odsv-kpi__note mit Grund („Noch keine Daten für diesen Zeitraum.“).",
+    "Trendfarbe nach Bedeutung, nicht nach Richtung: steigende Bearbeitungszeit = negativ."
+   ],
+   "a11y": [
+    "Trend nie nur über Farbe: Icon und Vorzeichen/Wort."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–3 Wörter",
+    "note": "Bezug, z. B. „ggü. Vormonat“"
+   },
+   "reference": "web/index.html#kpi",
+   "examples": [
+    {
+     "title": "KPI-Reihe mit Trend",
+     "captions": [],
+     "html": "<div class=\"odsv-grid odsv-grid--dashboard\">\n<div class=\"odsv-col-6 odsv-col-lg-3\"><dl class=\"odsv-kpi\">\n<dt class=\"odsv-kpi__label\">Aktive Nutzer</dt>\n<dd class=\"odsv-kpi__value\">1.284</dd>\n<dd class=\"odsv-kpi__row\"><span class=\"odsv-trend odsv-trend--positive\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-trend-up\"></use></svg>+4,2 %</span><span class=\"odsv-kpi__note\">ggü. Vormonat</span></dd>\n</dl></div>\n<div class=\"odsv-col-6 odsv-col-lg-3\"><dl class=\"odsv-kpi\">\n<dt class=\"odsv-kpi__label\">Ø Bearbeitungszeit</dt>\n<dd class=\"odsv-kpi__value\">22<span class=\"odsv-kpi__unit\">min</span></dd>\n<dd class=\"odsv-kpi__row\"><span class=\"odsv-trend odsv-trend--negative\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-trend-up\"></use></svg>+1,5 min</span><span class=\"odsv-kpi__note\">ggü. Vormonat</span></dd>\n</dl></div>\n<div class=\"odsv-col-6 odsv-col-lg-3\"><dl class=\"odsv-kpi\">\n<dt class=\"odsv-kpi__label\">Supportanfragen</dt>\n<dd class=\"odsv-kpi__value\">96</dd>\n<dd class=\"odsv-kpi__row\"><span class=\"odsv-trend odsv-trend--neutral\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-minus\"></use></svg>±0 %</span><span class=\"odsv-kpi__note\">ggü. Vormonat</span></dd>\n</dl></div>\n<div class=\"odsv-col-6 odsv-col-lg-3\"><dl class=\"odsv-kpi\">\n<dt class=\"odsv-kpi__label\">Abschlussquote</dt>\n<dd class=\"odsv-kpi__value\">–</dd>\n<dd class=\"odsv-kpi__note\">Noch keine Daten für diesen Zeitraum.</dd>\n</dl></div>\n</div>"
+    },
+    {
+     "title": "Leit-KPI und KPI mit Ziel",
+     "captions": [],
+     "html": "<div class=\"odsv-grid odsv-grid--dashboard\">\n<div class=\"odsv-col-12 odsv-col-md-6\"><dl class=\"odsv-kpi odsv-kpi--lg odsv-kpi--lead\">\n<dt class=\"odsv-kpi__label\">Nutzer gesamt</dt>\n<dd class=\"odsv-kpi__value\">12.480</dd>\n<dd class=\"odsv-kpi__note\">Stand 17.11.2026 · alle Regionen</dd>\n</dl></div>\n<div class=\"odsv-col-12 odsv-col-md-6\"><dl class=\"odsv-kpi\">\n<dt class=\"odsv-kpi__label\">Jahresziel</dt>\n<dd class=\"odsv-kpi__value\">82<span class=\"odsv-kpi__unit\">% von 1.200</span></dd>\n<dd class=\"odsv-kpi__goal\">\n<ol aria-label=\"82 Prozent von 1.200\" class=\"odsv-progress odsv-progress--dashed\" role=\"img\">\n<li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0.1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li>\n</ol>\n</dd>\n</dl></div>\n</div>"
+    },
+    {
+     "title": "Spec-Gruppe (2 × 2)",
+     "captions": [],
+     "html": "<dl class=\"odsv-specs\">\n<div class=\"odsv-spec\"><dt class=\"odsv-spec__label\">Dauer</dt><dd class=\"odsv-spec__value\">ca. 15 Minuten</dd></div>\n<div class=\"odsv-spec\"><dt class=\"odsv-spec__label\">Aufwand</dt><dd class=\"odsv-spec__value\">Gering</dd></div>\n<div class=\"odsv-spec\"><dt class=\"odsv-spec__label\">Version</dt><dd class=\"odsv-spec__value\">1.0</dd></div>\n<div class=\"odsv-spec\"><dt class=\"odsv-spec__label\">Gilt für</dt><dd class=\"odsv-spec__value\"><em>Web</em> &amp; Mobil</dd></div>\n</dl>"
+    }
+   ]
+  },
+  {
+   "id": "step",
+   "name": "Schritt-Karte",
+   "use": "Nummerierte Schritte einer Anleitung oder eines Ablaufs.",
+   "avoid": "Ungeordnete Inhalte (dafür Karte).",
+   "root_classes": [
+    "odsv-step"
+   ],
+   "classes": [
+    "odsv-step",
+    "odsv-step--active",
+    "odsv-step--done",
+    "odsv-step--inactive",
+    "odsv-step__media",
+    "odsv-step__num",
+    "odsv-step__skip",
+    "odsv-step__text",
+    "odsv-step__title"
+   ],
+   "elements": [
+    "media",
+    "num",
+    "skip",
+    "text",
+    "title"
+   ],
+   "modifiers": [
+    "active",
+    "done",
+    "inactive"
+   ],
+   "variants": {
+    "step--active": "aktueller Schritt",
+    "step--done": "erledigt",
+    "step--inactive": "noch nicht dran (Deckkraft 0,6, bleibt lesbar)"
+   },
+   "states": {},
+   "rules": [
+    "In <ol> setzen; Nummer .odsv-step__num ist dekorativ (aria-hidden), Titel enthält „Schritt N:“ als .odsv-sr-only.",
+    "Aufbau: __num, __media (Line-Art), __title, __text, optional __skip (leiser Link)."
+   ],
+   "a11y": [
+    "Inaktive Schritte bleiben bedienbar."
+   ],
+   "js": "",
+   "content_limits": {
+    "title": "≤ 30 Zeichen",
+    "text": "1–2 Sätze"
+   },
+   "reference": "web/index.html#schritt",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<ol class=\"odsv-grid\">\n<li class=\"odsv-col-12 odsv-col-md-6\">\n<article class=\"odsv-step odsv-step--active\">\n<span aria-hidden=\"true\" class=\"odsv-step__num\">2</span>\n<div aria-hidden=\"true\" class=\"odsv-step__media\">\n<svg class=\"odsv-lineart\" viewbox=\"0 0 220 120\"><rect height=\"58\" rx=\"12\" width=\"120\" x=\"30\" y=\"34\"></rect><path class=\"odsv-lineart--dim\" d=\"M150 52h24a8 8 0 018 8v12a8 8 0 01-8 8h-24\"></path><path class=\"odsv-lineart--marker\" d=\"M62 63h56\"></path></svg>\n</div>\n<h3 class=\"odsv-step__title\"><span class=\"odsv-sr-only\">Schritt 2: </span>Daten importieren</h3>\n<p class=\"odsv-step__text\">Vorhandene Daten als CSV-Datei hochladen und Spalten zuordnen.</p>\n<a class=\"odsv-link odsv-link--muted odsv-step__skip\" href=\"#schritt\">Überspringen</a>\n</article>\n</li>\n<li class=\"odsv-col-12 odsv-col-md-6\">\n<article class=\"odsv-step odsv-step--inactive\">\n<span aria-hidden=\"true\" class=\"odsv-step__num\">3</span>\n<div aria-hidden=\"true\" class=\"odsv-step__media\">\n<svg class=\"odsv-lineart\" viewbox=\"0 0 220 120\"><circle cx=\"110\" cy=\"60\" r=\"30\"></circle><path class=\"odsv-lineart--marker\" d=\"M110 40v20l14 8\"></path></svg>\n</div>\n<h3 class=\"odsv-step__title\"><span class=\"odsv-sr-only\">Schritt 3: </span>Team einladen</h3>\n<p class=\"odsv-step__text\">Inaktive Karten bleiben lesbar und bedienbar.</p>\n</article>\n</li>\n</ol>"
+    }
+   ]
+  },
+  {
+   "id": "progress",
+   "name": "Fortschrittsleiste",
+   "use": "Segmentierte Leiste für Kapitel (Links) oder Zähler (Checkliste, Ziel).",
+   "avoid": "Prozentringe, Fortschritt nur über Farbe.",
+   "root_classes": [
+    "odsv-progress"
+   ],
+   "classes": [
+    "odsv-progress",
+    "odsv-progress--dashed",
+    "odsv-progress--success",
+    "odsv-progress--thick",
+    "odsv-progress__bar",
+    "odsv-progress__link",
+    "odsv-progress__meta",
+    "odsv-progress__seg"
+   ],
+   "elements": [
+    "bar",
+    "link",
+    "meta",
+    "seg"
+   ],
+   "modifiers": [
+    "dashed",
+    "success",
+    "thick"
+   ],
+   "variants": {
+    "progress--dashed": "Zähl-Leiste, ein Segment je Einheit",
+    "progress--success": "Füllung grün (Checkliste)",
+    "progress--thick": "dickere Segmente"
+   },
+   "states": {
+    "aria-current=\"step\"": "aktives Segment",
+    "--p (0…1)": "Füllgrad eines Segments per style"
+   },
+   "rules": [
+    "Kapitelleiste: Segmente sind Links mit aria-label; data-odsv-scrollprogress koppelt die Füllung an den Scroll.",
+    "Zähler daneben als Text: „7 von 12“."
+   ],
+   "a11y": [
+    "Zähl-Leiste: role=\"img\" + aria-label oder role=\"progressbar\" mit aria-valuenow."
+   ],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#fortschritt",
+   "examples": [
+    {
+     "title": "Kapitelleiste",
+     "captions": [],
+     "html": "<nav aria-label=\"Kapitel\">\n<ol class=\"odsv-progress\">\n<li class=\"odsv-progress__seg\" style=\"--p:1\"><a aria-label=\"Überblick\" class=\"odsv-progress__link\" href=\"#fortschritt\"><span class=\"odsv-progress__bar\"></span></a></li>\n<li class=\"odsv-progress__seg\" style=\"--p:1\"><a aria-label=\"Grundlagen\" class=\"odsv-progress__link\" href=\"#fortschritt\"><span class=\"odsv-progress__bar\"></span></a></li>\n<li aria-current=\"step\" class=\"odsv-progress__seg\" style=\"--p:0.55\"><a aria-current=\"step\" aria-label=\"Umsetzung\" class=\"odsv-progress__link\" href=\"#fortschritt\"><span class=\"odsv-progress__bar\"></span></a></li>\n<li class=\"odsv-progress__seg\" style=\"--p:0\"><a aria-label=\"Test\" class=\"odsv-progress__link\" href=\"#fortschritt\"><span class=\"odsv-progress__bar\"></span></a></li>\n<li class=\"odsv-progress__seg\" style=\"--p:0\"><a aria-label=\"Abschluss\" class=\"odsv-progress__link\" href=\"#fortschritt\"><span class=\"odsv-progress__bar\"></span></a></li>\n</ol>\n</nav>\n<p class=\"odsv-eyebrow odsv-mt-4\">Umsetzung</p>"
+    },
+    {
+     "title": "Zähl-Leiste (Checkliste)",
+     "captions": [],
+     "html": "<div class=\"odsv-progress__meta\"><span class=\"odsv-body-small\" role=\"status\">7 von 12</span></div>\n<ol aria-valuemax=\"12\" aria-valuemin=\"0\" aria-valuenow=\"7\" aria-valuetext=\"7 von 12 erledigt\" class=\"odsv-progress odsv-progress--dashed odsv-progress--success\" role=\"progressbar\">\n<li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:1\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li><li class=\"odsv-progress__seg\" style=\"--p:0\"><span class=\"odsv-progress__bar\"></span></li>\n</ol>"
+    }
+   ]
+  },
+  {
+   "id": "segmented",
+   "name": "Segment-Umschalter",
+   "use": "Einen Wert aus 2–4 Optionen wählen, die Ansicht wechselt sofort (Zeitraum, Diagramm/Tabelle).",
+   "avoid": "Mehr als 4 Optionen (dafür Auswahl), Navigation zwischen Seiten (dafür Tabs/Links).",
+   "root_classes": [
+    "odsv-segmented"
+   ],
+   "classes": [
+    "odsv-segmented",
+    "odsv-segmented--block",
+    "odsv-segmented--inverse",
+    "odsv-segmented--sm",
+    "odsv-segmented__item"
+   ],
+   "elements": [
+    "item"
+   ],
+   "modifiers": [
+    "block",
+    "inverse",
+    "sm"
+   ],
+   "variants": {
+    "segmented--inverse": "aktiv weiß statt gelb (Gegenwahl)",
+    "segmented--sm": "klein",
+    "segmented--block": "volle Breite"
+   },
+   "states": {
+    "aria-checked=\"true\"": "gewählt"
+   },
+   "rules": [
+    "Items sind <button role=\"radio\" aria-checked>."
+   ],
+   "a11y": [
+    "Container mit aria-label."
+   ],
+   "js": "data-odsv-segmented am Container: role=radiogroup, Pfeiltasten, Event odsv:change.",
+   "content_limits": {
+    "item": "1–2 Wörter"
+   },
+   "reference": "web/index.html#segment",
+   "examples": [
+    {
+     "title": "",
+     "captions": [
+      "Standard",
+      "Gegenwahl (inverse)",
+      "Mit Icon",
+      "Klein"
+     ],
+     "html": "<div aria-label=\"Zeitraum\" class=\"odsv-segmented\" data-odsv-segmented=\"\" role=\"radiogroup\">\n<button aria-checked=\"true\" class=\"odsv-segmented__item\" data-value=\"7\" role=\"radio\" type=\"button\">7 Tage</button>\n<button aria-checked=\"false\" class=\"odsv-segmented__item\" data-value=\"30\" role=\"radio\" type=\"button\">30 Tage</button>\n<button aria-checked=\"false\" class=\"odsv-segmented__item\" data-value=\"90\" role=\"radio\" type=\"button\">90 Tage</button>\n</div>\n<div aria-label=\"Antwort\" class=\"odsv-segmented odsv-segmented--inverse\" data-odsv-segmented=\"\" role=\"radiogroup\">\n<button aria-checked=\"false\" class=\"odsv-segmented__item\" data-value=\"ja\" role=\"radio\" type=\"button\">Ja</button>\n<button aria-checked=\"true\" class=\"odsv-segmented__item\" data-value=\"nein\" role=\"radio\" type=\"button\">Nein</button>\n</div>\n<div aria-label=\"Ansicht\" class=\"odsv-segmented\" data-odsv-segmented=\"\" role=\"radiogroup\">\n<button aria-checked=\"true\" class=\"odsv-segmented__item\" data-value=\"chart\" role=\"radio\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-chart\"></use></svg>Diagramm</button>\n<button aria-checked=\"false\" class=\"odsv-segmented__item\" data-value=\"table\" role=\"radio\" type=\"button\">Tabelle</button>\n</div>\n<div aria-label=\"Dichte\" class=\"odsv-segmented odsv-segmented--sm\" data-odsv-segmented=\"\" role=\"radiogroup\">\n<button aria-checked=\"false\" class=\"odsv-segmented__item\" data-value=\"a\" role=\"radio\" type=\"button\">Bequem</button>\n<button aria-checked=\"true\" class=\"odsv-segmented__item\" data-value=\"b\" role=\"radio\" type=\"button\">Kompakt</button>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "checklist",
+   "name": "Checkliste",
+   "use": "Abhaken mehrerer Punkte mit gespeichertem Stand und Fortschritt.",
+   "avoid": "Einzelne Zustimmung (dafür Checkbox in .odsv-option).",
+   "root_classes": [
+    "odsv-checklist",
+    "odsv-check"
+   ],
+   "classes": [
+    "odsv-check",
+    "odsv-check__body",
+    "odsv-check__text",
+    "odsv-check__title",
+    "odsv-checklist",
+    "odsv-checklist__group",
+    "odsv-checklist__items",
+    "odsv-checklist__summary",
+    "odsv-checklist__title"
+   ],
+   "elements": [
+    "body",
+    "group",
+    "items",
+    "summary",
+    "text",
+    "title"
+   ],
+   "modifiers": [],
+   "variants": {},
+   "states": {},
+   "rules": [
+    "Label in Versalien (.odsv-check__title), Erklärung grau (.odsv-check__text).",
+    "Gruppen in <fieldset> mit <legend class=\"odsv-label\">."
+   ],
+   "a11y": [
+    "Zähler mit role=\"status\"."
+   ],
+   "js": "data-odsv-checklist=\"schlüssel\" am Container; Kinder data-odsv-checklist-progress, -count, -reset; jede Checkbox mit data-id. Stand in localStorage (still bei Fehlern).",
+   "content_limits": {
+    "title": "1–2 Wörter",
+    "text": "≤ 60 Zeichen"
+   },
+   "reference": "web/index.html#checkliste",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<div class=\"odsv-checklist\" data-odsv-checklist=\"docs-demo\">\n<div class=\"odsv-checklist__summary\">\n<ol class=\"odsv-progress odsv-progress--dashed\" data-odsv-checklist-progress=\"\"></ol>\n<div class=\"odsv-progress__meta\"><span class=\"odsv-body-small\" data-odsv-checklist-count=\"\" role=\"status\">0 von 4</span><button class=\"odsv-textbtn\" data-odsv-checklist-reset=\"\" type=\"button\">Zurücksetzen</button></div>\n<p class=\"odsv-caption\">Dein Fortschritt bleibt auf diesem Gerät gespeichert.</p>\n</div>\n<fieldset class=\"odsv-fieldset\">\n<legend class=\"odsv-label odsv-checklist__title\">Vorbereitung</legend>\n<ul class=\"odsv-checklist__items\">\n<li><label class=\"odsv-check\"><input class=\"odsv-checkbox\" data-id=\"anleitung\" type=\"checkbox\"/><span class=\"odsv-check__body\"><span class=\"odsv-check__title\">Anleitung</span><span class=\"odsv-check__text\">Anleitung gelesen</span></span></label></li>\n<li><label class=\"odsv-check\"><input class=\"odsv-checkbox\" data-id=\"material\" type=\"checkbox\"/><span class=\"odsv-check__body\"><span class=\"odsv-check__title\">Daten</span><span class=\"odsv-check__text\">Daten für den Import vorbereitet</span></span></label></li>\n<li><label class=\"odsv-check\"><input class=\"odsv-checkbox\" data-id=\"zugang\" type=\"checkbox\"/><span class=\"odsv-check__body\"><span class=\"odsv-check__title\">Zugang</span><span class=\"odsv-check__text\">Konto angelegt und Rolle zugewiesen</span></span></label></li>\n<li><label class=\"odsv-check\"><input class=\"odsv-checkbox\" data-id=\"team\" type=\"checkbox\"/><span class=\"odsv-check__body\"><span class=\"odsv-check__title\">Team</span><span class=\"odsv-check__text\">Teammitglieder eingeladen</span></span></label></li>\n</ul>\n</fieldset>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "accordion",
+   "name": "Akkordeon",
+   "use": "Optionale Zusatzinformation (FAQ).",
+   "avoid": "Warnungen, Pflichtinformationen oder Hauptinhalt.",
+   "root_classes": [
+    "odsv-accordion"
+   ],
+   "classes": [
+    "odsv-accordion",
+    "odsv-accordion--card",
+    "odsv-accordion--last",
+    "odsv-accordion__body"
+   ],
+   "elements": [
+    "body"
+   ],
+   "modifiers": [
+    "card",
+    "last"
+   ],
+   "variants": {
+    "accordion--card": "als Karte",
+    "accordion--last": "letzter Eintrag ohne Linie"
+   },
+   "states": {},
+   "rules": [
+    "Natives <details class=\"odsv-accordion\"><summary>Frage</summary><div class=\"odsv-accordion__body\">…</div></details>."
+   ],
+   "a11y": [
+    "summary-Text als Frage formulieren."
+   ],
+   "js": "",
+   "content_limits": {
+    "summary": "≤ 60 Zeichen"
+   },
+   "reference": "web/index.html#akkordeon",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<div>\n<details class=\"odsv-accordion\" open=\"\">\n<summary>Wie lange dauert die Einrichtung?</summary>\n<div class=\"odsv-accordion__body\"><p>Rund 15 Minuten, ohne Installation.</p></div>\n</details>\n<details class=\"odsv-accordion\">\n<summary>Welche Dateiformate werden unterstützt?</summary>\n<div class=\"odsv-accordion__body\"><p>CSV und XLSX.</p></div>\n</details>\n<details class=\"odsv-accordion odsv-accordion--last\">\n<summary>Funktioniert das auch auf dem Smartphone?</summary>\n<div class=\"odsv-accordion__body\"><p>Ja, alle Ansichten sind für Mobilgeräte optimiert.</p></div>\n</details>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "table",
+   "name": "Tabelle",
+   "use": "Datensätze vergleichen. Dichten: bequem (Website), kompakt (Dashboard), dicht (nur Zeigergerät).",
+   "avoid": "Layout-Zwecke; Versalien in Zellen.",
+   "root_classes": [
+    "odsv-table-wrap",
+    "odsv-table"
+   ],
+   "classes": [
+    "odsv-table",
+    "odsv-table--compact",
+    "odsv-table--dense",
+    "odsv-table--hover",
+    "odsv-table--sticky",
+    "odsv-table-wrap",
+    "odsv-table__num",
+    "odsv-table__strong"
+   ],
+   "elements": [
+    "num",
+    "strong"
+   ],
+   "modifiers": [
+    "compact",
+    "dense",
+    "hover",
+    "sticky"
+   ],
+   "variants": {
+    "table--compact": "Dashboard-Standard",
+    "table--dense": "viele Zeilen, nur Zeigergerät",
+    "table--hover": "Zeilen-Hover",
+    "table--sticky": "fester Kopf",
+    "table__num": "Zahlenspalte rechtsbündig, tabular",
+    "table__strong": "betonte Zelle"
+   },
+   "states": {
+    "aria-selected=\"true\" an <tr>": "ausgewählte Zeile"
+   },
+   "rules": [
+    "Immer in .odsv-table-wrap (role=\"region\", aria-label, tabindex=\"0\") – scrollt seitlich statt die Seite.",
+    "Zahlen rechtsbündig, Text links; Kopf in Versalien klein."
+   ],
+   "a11y": [
+    "<caption> (gern .odsv-sr-only), <th scope>."
+   ],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#tabellen",
+   "examples": [
+    {
+     "title": "Bequem (Website)",
+     "captions": [],
+     "html": "<div aria-label=\"Tarife\" class=\"odsv-table-wrap\" role=\"region\" tabindex=\"0\">\n<table class=\"odsv-table\">\n<caption class=\"odsv-sr-only\">Tarife mit Preis und Nutzerzahl</caption>\n<thead><tr><th scope=\"col\">Tarif</th><th class=\"odsv-table__num\" scope=\"col\">€/Monat</th><th class=\"odsv-table__num\" scope=\"col\">Nutzer</th><th scope=\"col\">Status</th></tr></thead>\n<tbody>\n<tr><th scope=\"row\">Team</th><td class=\"odsv-table__num\">49</td><td class=\"odsv-table__num\">25</td><td><span class=\"odsv-badge odsv-badge--success\"><span class=\"odsv-badge__dot\"></span>Aktiv</span></td></tr>\n<tr><th scope=\"row\">Basis</th><td class=\"odsv-table__num\">19</td><td class=\"odsv-table__num\">5</td><td><span class=\"odsv-badge\">Bereit</span></td></tr>\n</tbody>\n</table>\n</div>"
+    },
+    {
+     "title": "Kompakt, klickbar mit Auswahl",
+     "captions": [],
+     "html": "<div aria-label=\"Aufträge\" class=\"odsv-table-wrap\" role=\"region\" tabindex=\"0\">\n<table class=\"odsv-table odsv-table--compact odsv-table--hover\">\n<caption class=\"odsv-sr-only\">Aufträge</caption>\n<thead><tr><th scope=\"col\">Auftrag</th><th scope=\"col\">Bereich</th><th class=\"odsv-table__num\" scope=\"col\">Minuten</th><th scope=\"col\">Status</th></tr></thead>\n<tbody>\n<tr><th scope=\"row\">A-1042</th><td>Vertrieb</td><td class=\"odsv-table__num\">24</td><td><span class=\"odsv-badge odsv-badge--success\"><span class=\"odsv-badge__dot\"></span>Fertig</span></td></tr>\n<tr aria-selected=\"true\"><th scope=\"row\">A-1043</th><td>Einkauf</td><td class=\"odsv-table__num\">31</td><td><span class=\"odsv-badge odsv-badge--warning\"><span class=\"odsv-badge__dot\"></span>In Arbeit</span></td></tr>\n<tr><th scope=\"row\">A-1044</th><td>Logistik</td><td class=\"odsv-table__num\">–</td><td><span class=\"odsv-badge odsv-badge--danger\"><span class=\"odsv-badge__dot\"></span>Fehler</span></td></tr>\n</tbody>\n</table>\n</div>"
+    },
+    {
+     "title": "Dicht (nur Zeigergerät)",
+     "captions": [],
+     "html": "<div aria-label=\"Meldungen\" class=\"odsv-table-wrap\" role=\"region\" tabindex=\"0\">\n<table class=\"odsv-table odsv-table--dense\">\n<caption class=\"odsv-sr-only\">Meldungen</caption>\n<thead><tr><th scope=\"col\">Zeit</th><th scope=\"col\">Quelle</th><th class=\"odsv-table__num\" scope=\"col\">Wert</th></tr></thead>\n<tbody>\n<tr><td>09:12</td><td>Sensor A</td><td class=\"odsv-table__num\">21,4</td></tr>\n<tr><td>09:13</td><td>Sensor B</td><td class=\"odsv-table__num\">22,0</td></tr>\n<tr><td>09:14</td><td>Sensor A</td><td class=\"odsv-table__num\">21,9</td></tr>\n</tbody>\n</table>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "callout",
+   "name": "Hinweis (Callout)",
+   "use": "Status- oder Sicherheitshinweis mit Icon und Wort.",
+   "avoid": "Dekoration; Warnungen einklappen oder kürzen.",
+   "root_classes": [
+    "odsv-callout"
+   ],
+   "classes": [
+    "odsv-callout",
+    "odsv-callout--banner",
+    "odsv-callout--danger",
+    "odsv-callout--error",
+    "odsv-callout--info",
+    "odsv-callout--success",
+    "odsv-callout--warning",
+    "odsv-callout__head",
+    "odsv-callout__label",
+    "odsv-callout__text",
+    "odsv-callout__title"
+   ],
+   "elements": [
+    "head",
+    "label",
+    "text",
+    "title"
+   ],
+   "modifiers": [
+    "banner",
+    "danger",
+    "error",
+    "info",
+    "success",
+    "warning"
+   ],
+   "variants": {
+    "callout--info": "Hinweis",
+    "callout--success": "Richtig/Erfolg",
+    "callout--warning": "Vorsicht (vor dem Schritt, volle Länge)",
+    "callout--danger": "Falsch/Gefahr",
+    "callout--banner": "kompakt mit getöntem Grund"
+   },
+   "states": {},
+   "rules": [
+    "Aufbau: __head (Icon + __label) → __title (optional) → __text.",
+    "Warnung steht vor dem betroffenen Schritt.",
+    "role: warning → note, danger → alert, success → status."
+   ],
+   "a11y": [
+    "Status nie nur über Farbe."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–2 Wörter",
+    "title": "≤ 50 Zeichen"
+   },
+   "reference": "web/index.html#callouts",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<div class=\"odsv-stack\">\n<div class=\"odsv-callout odsv-callout--warning\" role=\"note\">\n<p class=\"odsv-callout__head\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-warning\"></use></svg><span class=\"odsv-callout__label\">Vorsicht</span></p>\n<p class=\"odsv-callout__title\">Änderungen nicht gespeichert</p>\n<p class=\"odsv-callout__text\">Erst speichern, dann die Seite verlassen. Warnungen stehen vor dem Schritt, in voller Länge.</p>\n</div>\n<div class=\"odsv-callout odsv-callout--info\"><p class=\"odsv-callout__head\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-info\"></use></svg><span class=\"odsv-callout__label\">Hinweis</span></p><p class=\"odsv-callout__text\">Zusatzinformation, die den Ablauf nicht stoppt.</p></div>\n<div class=\"odsv-callout odsv-callout--success\" role=\"status\"><p class=\"odsv-callout__head\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-check\"></use></svg><span class=\"odsv-callout__label\">Richtig</span></p><p class=\"odsv-callout__text\">Der Import ist abgeschlossen. Alle Datensätze wurden übernommen.</p></div>\n<div class=\"odsv-callout odsv-callout--danger\" role=\"alert\"><p class=\"odsv-callout__head\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-error\"></use></svg><span class=\"odsv-callout__label\">Falsch</span></p><p class=\"odsv-callout__text\">Die Datei enthält ungültige Zeilen. Bitte korrigieren und erneut hochladen.</p></div>\n<div class=\"odsv-callout\"><p class=\"odsv-callout__head\"><span class=\"odsv-callout__label\">Gut zu wissen</span></p><p class=\"odsv-callout__text\">Neutral: ein Merksatz ohne Status.</p></div>\n<div class=\"odsv-callout odsv-callout--banner odsv-callout--warning\"><p class=\"odsv-callout__head\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-warning\"></use></svg><span class=\"odsv-callout__label\">Vorsicht</span></p><p class=\"odsv-callout__text\">Kompaktes Banner mit getöntem Grund.</p></div>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "badge",
+   "name": "Badge und Pill",
+   "use": "Badge: nicht klickbarer Status (1–2 Wörter). Pill: klickbarer Filter.",
+   "avoid": "Badges als Buttons; mehr als ein gelbes Badge je Gruppe.",
+   "root_classes": [
+    "odsv-badge",
+    "odsv-pill"
+   ],
+   "classes": [
+    "odsv-badge",
+    "odsv-badge--accent",
+    "odsv-badge--count",
+    "odsv-badge--danger",
+    "odsv-badge--info",
+    "odsv-badge--solid",
+    "odsv-badge--success",
+    "odsv-badge--warning",
+    "odsv-badge__dot",
+    "odsv-pill"
+   ],
+   "elements": [
+    "dot"
+   ],
+   "modifiers": [
+    "accent",
+    "count",
+    "danger",
+    "info",
+    "solid",
+    "success",
+    "warning"
+   ],
+   "variants": {
+    "badge--accent": "neu/hervorgehoben",
+    "badge--success|warning|danger|info": "Status mit Punkt oder Icon",
+    "badge--solid": "gefüllt (starker Status)",
+    "badge--count": "Zähler"
+   },
+   "states": {
+    "aria-pressed=\"true\" (Pill)": "aktiver Filter"
+   },
+   "rules": [
+    "Status-Badges mit __dot oder Icon plus Wort."
+   ],
+   "a11y": [
+    "Pill ist <button aria-pressed>."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–2 Wörter"
+   },
+   "reference": "web/index.html#badges",
+   "examples": [
+    {
+     "title": "Badges",
+     "captions": [],
+     "html": "<div class=\"odsv-cluster\">\n<span class=\"odsv-badge\">Neutral</span>\n<span class=\"odsv-badge odsv-badge--accent\">Neu</span>\n<span class=\"odsv-badge odsv-badge--success\"><span class=\"odsv-badge__dot\"></span>Aktiv</span>\n<span class=\"odsv-badge odsv-badge--warning\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-warning\"></use></svg>Vorsicht</span>\n<span class=\"odsv-badge odsv-badge--danger\"><span class=\"odsv-badge__dot\"></span>Fehler</span>\n<span class=\"odsv-badge odsv-badge--info\"><span class=\"odsv-badge__dot\"></span>Info</span>\n</div>\n<div class=\"odsv-cluster odsv-mt-4\">\n<span class=\"odsv-badge odsv-badge--solid odsv-badge--success\">Fertig</span>\n<span class=\"odsv-badge odsv-badge--solid odsv-badge--warning\">Offen</span>\n<span class=\"odsv-badge odsv-badge--solid odsv-badge--danger\">Alarm</span>\n<span class=\"odsv-badge odsv-badge--solid odsv-badge--info\">Info</span>\n<span aria-label=\"3 neue Meldungen\" class=\"odsv-badge odsv-badge--count\">3</span>\n</div>"
+    },
+    {
+     "title": "Pillen (Filter)",
+     "captions": [],
+     "html": "<div aria-label=\"Filter\" class=\"odsv-cluster odsv-cluster--2\" role=\"group\">\n<button aria-pressed=\"true\" class=\"odsv-pill\" type=\"button\">Alle</button>\n<button aria-pressed=\"false\" class=\"odsv-pill\" type=\"button\">Offen</button>\n<button aria-pressed=\"false\" class=\"odsv-pill\" type=\"button\">Fertig</button>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "tabs",
+   "name": "Tabs",
+   "use": "Gleichrangige Ansichten auf derselben Seite wechseln.",
+   "avoid": "Schrittfolgen (dafür Schritte), Wertwahl (dafür Segment-Umschalter).",
+   "root_classes": [
+    "odsv-tabs",
+    "odsv-tab",
+    "odsv-tabpanel"
+   ],
+   "classes": [
+    "odsv-tab",
+    "odsv-tabpanel",
+    "odsv-tabs"
+   ],
+   "elements": [],
+   "modifiers": [],
+   "variants": {},
+   "states": {
+    "aria-selected=\"true\"": "aktiver Tab",
+    "disabled": "nicht verfügbar"
+   },
+   "rules": [
+    "Tab = <button role=\"tab\" aria-controls>, Panel = role=\"tabpanel\" aria-labelledby."
+   ],
+   "a11y": [
+    "Nur aktiver Tab im Tab-Fokus (tabindex=-1 für andere) – erledigt odsv.js."
+   ],
+   "js": "data-odsv-tabs am role=\"tablist\": Pfeiltasten, Pos1/Ende, schaltet Panels (aria-controls).",
+   "content_limits": {
+    "tab": "1–2 Wörter"
+   },
+   "reference": "web/index.html#tabs",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<div>\n<div aria-label=\"Bereiche\" class=\"odsv-tabs\" data-odsv-tabs=\"\" role=\"tablist\">\n<button aria-controls=\"dp-1\" aria-selected=\"true\" class=\"odsv-tab\" id=\"dt-1\" role=\"tab\" type=\"button\">Übersicht</button>\n<button aria-controls=\"dp-2\" aria-selected=\"false\" class=\"odsv-tab\" id=\"dt-2\" role=\"tab\" tabindex=\"-1\" type=\"button\">Qualität</button>\n<button aria-controls=\"dp-3\" aria-selected=\"false\" class=\"odsv-tab\" id=\"dt-3\" role=\"tab\" tabindex=\"-1\" type=\"button\">Support</button>\n<button aria-selected=\"false\" class=\"odsv-tab\" disabled=\"\" role=\"tab\" type=\"button\">Archiv</button>\n</div>\n<div aria-labelledby=\"dt-1\" class=\"odsv-tabpanel\" id=\"dp-1\" role=\"tabpanel\" tabindex=\"0\"><p class=\"odsv-body\">Inhalt der Übersicht.</p></div>\n<div aria-labelledby=\"dt-2\" class=\"odsv-tabpanel\" hidden=\"\" id=\"dp-2\" role=\"tabpanel\" tabindex=\"0\"><p class=\"odsv-body\">Inhalt der Qualität.</p></div>\n<div aria-labelledby=\"dt-3\" class=\"odsv-tabpanel\" hidden=\"\" id=\"dp-3\" role=\"tabpanel\" tabindex=\"0\"><p class=\"odsv-body\">Inhalt des Supports.</p></div>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "form",
+   "name": "Formularfelder",
+   "use": "Eingaben mit sichtbarem Label, Hinweis und Fehler am Feld.",
+   "avoid": "Platzhalter als Label; Fehler nur über Farbe.",
+   "root_classes": [
+    "odsv-field",
+    "odsv-input",
+    "odsv-select",
+    "odsv-textarea",
+    "odsv-search",
+    "odsv-option",
+    "odsv-fieldset",
+    "odsv-checkbox",
+    "odsv-radio",
+    "odsv-switch"
+   ],
+   "classes": [
+    "odsv-checkbox",
+    "odsv-field",
+    "odsv-field__error",
+    "odsv-field__hint",
+    "odsv-field__label",
+    "odsv-field__opt",
+    "odsv-fieldset",
+    "odsv-input",
+    "odsv-option",
+    "odsv-radio",
+    "odsv-search",
+    "odsv-select",
+    "odsv-select__control",
+    "odsv-select__icon",
+    "odsv-switch",
+    "odsv-textarea"
+   ],
+   "elements": [
+    "control",
+    "error",
+    "hint",
+    "icon",
+    "label",
+    "opt"
+   ],
+   "modifiers": [],
+   "variants": {
+    "field__label": "sichtbares Label",
+    "field__opt": "„(optional)“",
+    "field__hint": "Hinweis unter dem Feld",
+    "field__error": "Fehlertext mit Icon",
+    "option": "Checkbox/Radio/Schalter mit Text, min. 44 px",
+    "switch": "An/Aus mit sichtbarem Wort („Benachrichtigungen: an“)"
+   },
+   "states": {
+    "is-invalid (an .odsv-field) + aria-invalid=\"true\"": "Fehler",
+    "disabled": "deaktiviert (Label wird grau)",
+    "readonly": "nur lesen"
+   },
+   "rules": [
+    "Fehler: Text sagt, was zu tun ist („Bitte eine vollständige Adresse angeben.“), per aria-describedby verknüpft.",
+    "Radiogruppen in <fieldset> mit <legend class=\"odsv-label\">.",
+    "Auswahl = natives <select> in .odsv-select mit Chevron-Icon."
+   ],
+   "a11y": [
+    "Jedes Feld hat <label for>.",
+    "Fehler mit role=\"alert\"."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–3 Wörter",
+    "error": "1 Satz mit Lösung"
+   },
+   "reference": "web/index.html#formulare",
+   "examples": [
+    {
+     "title": "Textfelder und Zustände",
+     "captions": [
+      "Ruhe",
+      "Hover",
+      "Fokus",
+      "Fehler",
+      "Deaktiviert",
+      "Nur lesen"
+     ],
+     "html": "<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"f1\">Projektname</label><input autocomplete=\"off\" class=\"odsv-input\" id=\"f1\" placeholder=\"z. B. Website-Relaunch\" type=\"text\"/></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"f2\">Projektname</label><input class=\"odsv-input is-hover\" id=\"f2\" type=\"text\" value=\"Website-Relaunch\"/></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"f3\">Projektname</label><input class=\"odsv-input is-focus\" id=\"f3\" type=\"text\" value=\"Website-Relaunch\"/></div>\n<div class=\"odsv-field is-invalid\"><label class=\"odsv-field__label\" for=\"f4\">E-Mail</label><input aria-describedby=\"f4e\" aria-invalid=\"true\" class=\"odsv-input\" id=\"f4\" type=\"email\" value=\"name@\"/><p class=\"odsv-field__error\" id=\"f4e\" role=\"alert\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-error\"></use></svg>Bitte eine vollständige Adresse angeben.</p></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"f5\">Projekt-ID</label><input class=\"odsv-input\" disabled=\"\" id=\"f5\" type=\"text\" value=\"PRJ-0042\"/></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"f6\">Erstellt von</label><input class=\"odsv-input\" id=\"f6\" readonly=\"\" type=\"text\" value=\"Admin\"/></div>"
+    },
+    {
+     "title": "Suche, Auswahl, Textbereich",
+     "captions": [],
+     "html": "<div class=\"odsv-stack odsv-stack--6\">\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"g1\">Suche</label><div class=\"odsv-search\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-search\"></use></svg><input class=\"odsv-input\" id=\"g1\" placeholder=\"Auftrag suchen\" type=\"search\"/></div></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"g2\">Bereich <span class=\"odsv-field__opt\">(optional)</span></label><div class=\"odsv-select\"><select class=\"odsv-select__control\" id=\"g2\"><option>Vertrieb</option><option>Einkauf</option><option>Logistik</option></select><svg aria-hidden=\"true\" class=\"odsv-icon odsv-select__icon\"><use href=\"#odsv-icon-chevron-down\"></use></svg></div><p class=\"odsv-field__hint\">Der Bereich steuert, wer das Projekt sieht.</p></div>\n<div class=\"odsv-field\"><label class=\"odsv-field__label\" for=\"g3\">Anmerkung</label><textarea class=\"odsv-textarea\" id=\"g3\" placeholder=\"Was ist dir aufgefallen?\" rows=\"3\"></textarea></div>\n</div>"
+    },
+    {
+     "title": "Checkbox, Radio, Schalter",
+     "captions": [],
+     "html": "<div class=\"odsv-stack odsv-stack--2\">\n<label class=\"odsv-option\"><input checked=\"\" class=\"odsv-checkbox\" type=\"checkbox\"/>Bedingungen gelesen</label>\n<label class=\"odsv-option\"><input class=\"odsv-checkbox\" type=\"checkbox\"/>Newsletter abonnieren</label>\n<label class=\"odsv-option\"><input class=\"odsv-checkbox\" disabled=\"\" type=\"checkbox\"/>Nicht verfügbar</label>\n<fieldset class=\"odsv-fieldset\"><legend class=\"odsv-label\">Sichtbarkeit</legend>\n<label class=\"odsv-option\"><input checked=\"\" class=\"odsv-radio\" name=\"ort\" type=\"radio\"/>Privat</label>\n<label class=\"odsv-option\"><input class=\"odsv-radio\" name=\"ort\" type=\"radio\"/>Öffentlich</label>\n</fieldset>\n<label class=\"odsv-option\"><input checked=\"\" class=\"odsv-switch\" role=\"switch\" type=\"checkbox\"/>Benachrichtigungen: an</label>\n<label class=\"odsv-option\"><input class=\"odsv-switch\" role=\"switch\" type=\"checkbox\"/>Automatisch speichern: aus</label>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "tooltip",
+   "name": "Tooltip",
+   "use": "Benennt Icon-Buttons oder ergänzt Unwichtiges.",
+   "avoid": "Nötige Information (auf Touch unerreichbar).",
+   "root_classes": [
+    "odsv-tooltip"
+   ],
+   "classes": [
+    "odsv-tooltip",
+    "odsv-tooltip--below",
+    "odsv-tooltip--end",
+    "odsv-tooltip--start",
+    "odsv-tooltip__content"
+   ],
+   "elements": [
+    "content"
+   ],
+   "modifiers": [
+    "below",
+    "end",
+    "start"
+   ],
+   "variants": {
+    "tooltip--start|end": "Ausrichtung am Rand",
+    "tooltip--below": "unterhalb"
+   },
+   "states": {
+    "is-open": "dauerhaft sichtbar (Doku)",
+    "is-dismissed": "per Escape geschlossen"
+   },
+   "rules": [
+    "Erscheint bei Hover (300 ms) und sofort bei Fokus; Escape schließt."
+   ],
+   "a11y": [
+    "role=\"tooltip\" + aria-describedby am Auslöser."
+   ],
+   "js": "",
+   "content_limits": {
+    "text": "≤ 80 Zeichen"
+   },
+   "reference": "web/index.html#tooltip",
+   "examples": [
+    {
+     "title": "",
+     "captions": [],
+     "html": "<div class=\"odsv-cluster odsv-cluster--6\" style=\"padding-top:var(--odsv-space-12)\">\n<span class=\"odsv-tooltip is-open\"><button aria-describedby=\"tt1\" class=\"odsv-icon-btn\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-download\"></use></svg><span class=\"odsv-sr-only\">Herunterladen</span></button><span class=\"odsv-tooltip__content\" id=\"tt1\" role=\"tooltip\">Anleitung herunterladen</span></span>\n<span class=\"odsv-tooltip odsv-tooltip--start\"><button aria-describedby=\"tt2\" class=\"odsv-btn odsv-btn--ghost odsv-btn--md\" type=\"button\">Ausgerichtet links</button><span class=\"odsv-tooltip__content\" id=\"tt2\" role=\"tooltip\">Linksbündig zum Auslöser, falls der Rand knapp ist.</span></span>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "navigation",
+   "name": "Navigation und Top-Bar",
+   "use": "Klebende Top-Bar mit Wortmarke, Navigation, Aktionen; Seitenleiste fürs Dashboard ab 1024 px.",
+   "avoid": "Mehr als 5 Hauptpunkte in der Top-Bar.",
+   "root_classes": [
+    "odsv-topbar",
+    "odsv-brand",
+    "odsv-nav",
+    "odsv-sidebar",
+    "odsv-skip",
+    "odsv-theme-toggle"
+   ],
+   "classes": [
+    "odsv-brand",
+    "odsv-brand__mark",
+    "odsv-brand__name",
+    "odsv-nav",
+    "odsv-nav--stacked",
+    "odsv-nav__group",
+    "odsv-nav__link",
+    "odsv-sidebar",
+    "odsv-sidebar--collapsed",
+    "odsv-sidebar__group",
+    "odsv-sidebar__link",
+    "odsv-sidebar__nav",
+    "odsv-sidebar__text",
+    "odsv-skip",
+    "odsv-theme-toggle",
+    "odsv-theme-toggle__moon",
+    "odsv-theme-toggle__sun",
+    "odsv-topbar",
+    "odsv-topbar--static",
+    "odsv-topbar--wide",
+    "odsv-topbar__actions",
+    "odsv-topbar__inner",
+    "odsv-topbar__meta",
+    "odsv-topbar__nav",
+    "odsv-topbar__progress",
+    "odsv-topbar__toggle"
+   ],
+   "elements": [
+    "actions",
+    "group",
+    "inner",
+    "link",
+    "mark",
+    "meta",
+    "moon",
+    "name",
+    "nav",
+    "progress",
+    "sun",
+    "text",
+    "toggle"
+   ],
+   "modifiers": [
+    "collapsed",
+    "stacked",
+    "static",
+    "wide"
+   ],
+   "variants": {
+    "topbar--static": "nicht klebend",
+    "topbar--wide": "breit (Dashboard)",
+    "nav--stacked": "untereinander",
+    "sidebar--collapsed": "eingeklappt"
+   },
+   "states": {
+    "aria-current=\"page\"": "aktueller Punkt"
+   },
+   "rules": [
+    "Erster Link der Seite: .odsv-skip „Zum Inhalt“.",
+    "Mobil: Navigation hinter Menü-Button."
+   ],
+   "a11y": [
+    "<nav aria-label>, aria-current=\"page\"."
+   ],
+   "js": "data-odsv-nav-toggle (mobiles Menü, aria-expanded) · data-odsv-theme-toggle (Theme, gespeichert).",
+   "content_limits": {
+    "item": "1–2 Wörter"
+   },
+   "reference": "web/index.html#navigation",
+   "examples": [
+    {
+     "title": "Top-Bar",
+     "captions": [],
+     "html": "<header class=\"odsv-topbar odsv-topbar--static\">\n<div class=\"odsv-topbar__inner\">\n<a class=\"odsv-brand\" href=\"#navigation\"><span class=\"odsv-brand__name\">Produktname</span></a>\n<nav aria-label=\"Hauptnavigation\" class=\"odsv-topbar__nav\" id=\"demo-nav\">\n<ul class=\"odsv-nav\">\n<li><a aria-current=\"page\" class=\"odsv-nav__link\" href=\"#navigation\">Übersicht</a></li>\n<li><a class=\"odsv-nav__link\" href=\"#navigation\">Berichte</a></li>\n<li><a class=\"odsv-nav__link\" href=\"#navigation\">Hilfe</a></li>\n</ul>\n</nav>\n<div class=\"odsv-topbar__actions\">\n<button aria-controls=\"demo-nav\" aria-expanded=\"false\" aria-label=\"Menü\" class=\"odsv-icon-btn odsv-topbar__toggle\" data-odsv-nav-toggle=\"\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-menu\"></use></svg></button>\n</div>\n</div>\n</header>"
+    },
+    {
+     "title": "Seitenleiste (Dashboard ab 1024 px)",
+     "captions": [],
+     "html": "<nav aria-label=\"Bereiche\" style=\"max-width:264px\">\n<ul class=\"odsv-sidebar__nav\">\n<li><a aria-current=\"page\" class=\"odsv-sidebar__link\" href=\"#navigation\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-chart\"></use></svg><span class=\"odsv-sidebar__text\">Übersicht</span></a></li>\n<li><a class=\"odsv-sidebar__link\" href=\"#navigation\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-wrench\"></use></svg><span class=\"odsv-sidebar__text\">Aufträge</span></a></li>\n<li><a class=\"odsv-sidebar__link\" href=\"#navigation\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-settings\"></use></svg><span class=\"odsv-sidebar__text\">Einstellungen</span></a></li>\n</ul>\n</nav>"
+    }
+   ]
+  },
+  {
+   "id": "sheet",
+   "name": "Bottom-Sheet",
+   "use": "Abschluss-Aufforderung (im Fluss) oder modale Rückfrage.",
+   "avoid": "Lange Formulare, mehrere Primär-Aktionen.",
+   "root_classes": [
+    "odsv-sheet"
+   ],
+   "classes": [
+    "odsv-sheet",
+    "odsv-sheet--inline",
+    "odsv-sheet--static",
+    "odsv-sheet--sticky",
+    "odsv-sheet__actions",
+    "odsv-sheet__backdrop",
+    "odsv-sheet__grabber",
+    "odsv-sheet__panel",
+    "odsv-sheet__text",
+    "odsv-sheet__title"
+   ],
+   "elements": [
+    "actions",
+    "backdrop",
+    "grabber",
+    "panel",
+    "text",
+    "title"
+   ],
+   "modifiers": [
+    "inline",
+    "static",
+    "sticky"
+   ],
+   "variants": {
+    "sheet--inline": "im Fluss",
+    "sheet--static": "statisch",
+    "sheet--sticky": "am unteren Rand klebend"
+   },
+   "states": {},
+   "rules": [
+    "Aufbau: __grabber, __title (fett, zentriert), __text, __actions (gelber Button + leiser Link)."
+   ],
+   "a11y": [
+    "Modal: role=\"dialog\" aria-modal=\"true\" aria-labelledby."
+   ],
+   "js": "data-odsv-sheet-open=\"#id\" / data-odsv-sheet-close: Fokusfalle, Escape, Fokus zurück.",
+   "content_limits": {
+    "title": "≤ 40 Zeichen"
+   },
+   "reference": "web/index.html#sheet",
+   "examples": [
+    {
+     "title": "Im Fluss",
+     "captions": [],
+     "html": "<div class=\"odsv-sheet odsv-sheet--inline\">\n<div class=\"odsv-sheet__panel\">\n<span aria-hidden=\"true\" class=\"odsv-sheet__grabber\"></span>\n<h3 class=\"odsv-sheet__title\">Bereit für den Start?</h3>\n<p class=\"odsv-sheet__text\">Die Einrichtung führt dich in fünf Schritten durch.</p>\n<div class=\"odsv-sheet__actions\">\n<a class=\"odsv-btn odsv-btn--primary\" href=\"#sheet\">Einrichtung starten</a>\n<a class=\"odsv-link odsv-link--muted\" href=\"#sheet\">Später</a>\n</div>\n</div>\n</div>"
+    },
+    {
+     "title": "Modal",
+     "captions": [],
+     "html": "<button class=\"odsv-btn odsv-btn--secondary odsv-btn--md\" data-odsv-sheet-open=\"#demo-sheet\" type=\"button\">Sheet öffnen</button>\n<div aria-labelledby=\"demo-sheet-t\" aria-modal=\"true\" class=\"odsv-sheet\" hidden=\"\" id=\"demo-sheet\" role=\"dialog\">\n<div class=\"odsv-sheet__backdrop\" data-odsv-sheet-close=\"\"></div>\n<div class=\"odsv-sheet__panel\">\n<span aria-hidden=\"true\" class=\"odsv-sheet__grabber\"></span>\n<h3 class=\"odsv-sheet__title\" id=\"demo-sheet-t\">Einrichtung abschließen?</h3>\n<p class=\"odsv-sheet__text\">Dein Stand bleibt auf diesem Gerät gespeichert.</p>\n<div class=\"odsv-sheet__actions\">\n<button class=\"odsv-btn odsv-btn--primary\" data-odsv-sheet-close=\"\" type=\"button\">Abschließen</button>\n<button class=\"odsv-btn odsv-btn--ghost\" data-odsv-sheet-close=\"\" type=\"button\">Schließen</button>\n</div>\n</div>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "tile",
+   "name": "Icon-Kachel",
+   "use": "App-Icon-artige Kachel über Karten oder Headline-Gruppen.",
+   "avoid": "Mehr als eine gelbe Kachel je Ansicht.",
+   "root_classes": [
+    "odsv-tile"
+   ],
+   "classes": [
+    "odsv-tile",
+    "odsv-tile--accent",
+    "odsv-tile--lg",
+    "odsv-tile--sm",
+    "odsv-tile--xl"
+   ],
+   "elements": [],
+   "modifiers": [
+    "accent",
+    "lg",
+    "sm",
+    "xl"
+   ],
+   "variants": {
+    "tile--accent": "gelber Verlauf (Hauptmoment)",
+    "tile--sm": "44 px",
+    "tile--lg": "88 px",
+    "tile--xl": "96 px (Hero)"
+   },
+   "states": {},
+   "rules": [
+    "Dekorativ: aria-hidden=\"true\"."
+   ],
+   "a11y": [],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#kacheln",
+   "examples": [
+    {
+     "title": "",
+     "captions": [
+      "Dunkel · 72 px",
+      "Gelb · 72 px",
+      "Groß · 88 px",
+      "Hero · 96 px",
+      "Klein · 44 px"
+     ],
+     "html": "<span aria-hidden=\"true\" class=\"odsv-tile\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-chart\"></use></svg></span>\n<span aria-hidden=\"true\" class=\"odsv-tile odsv-tile--accent\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-user\"></use></svg></span>\n<span aria-hidden=\"true\" class=\"odsv-tile odsv-tile--lg\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-shield\"></use></svg></span>\n<span aria-hidden=\"true\" class=\"odsv-tile odsv-tile--xl odsv-tile--accent\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-bell\"></use></svg></span>\n<span aria-hidden=\"true\" class=\"odsv-tile odsv-tile--sm\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-clock\"></use></svg></span>"
+    }
+   ]
+  },
+  {
+   "id": "empty-loading",
+   "name": "Leer- und Ladezustand",
+   "use": "Sagt, was fehlt und was als Nächstes geht; Skelett/Ladekreis beim Laden.",
+   "avoid": "„Ups“, Schuldzuweisung, Leerzustand ohne Handlung.",
+   "root_classes": [
+    "odsv-empty",
+    "odsv-skeleton",
+    "odsv-spinner"
+   ],
+   "classes": [
+    "odsv-empty",
+    "odsv-empty__text",
+    "odsv-empty__title",
+    "odsv-skeleton",
+    "odsv-skeleton--block",
+    "odsv-skeleton--circle",
+    "odsv-skeleton--short",
+    "odsv-skeleton--text",
+    "odsv-skeleton--title",
+    "odsv-spinner"
+   ],
+   "elements": [
+    "text",
+    "title"
+   ],
+   "modifiers": [
+    "block",
+    "circle",
+    "short",
+    "text",
+    "title"
+   ],
+   "variants": {
+    "skeleton--title|text|short|block|circle": "Platzhalterformen"
+   },
+   "states": {},
+   "rules": [
+    "Leerzustand: Icon-Kachel, __title, __text, eine Handlung (Button)."
+   ],
+   "a11y": [
+    "Behälter aria-busy=\"true\", Meldung role=\"status\"; Puls entfällt bei reduzierter Bewegung."
+   ],
+   "js": "",
+   "content_limits": {
+    "title": "≤ 40 Zeichen",
+    "text": "1 Satz mit nächster Handlung"
+   },
+   "reference": "web/index.html#leer",
+   "examples": [
+    {
+     "title": "Leerzustand",
+     "captions": [],
+     "html": "<div class=\"odsv-empty\">\n<span aria-hidden=\"true\" class=\"odsv-tile\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-search\"></use></svg></span>\n<h3 class=\"odsv-empty__title\">Keine Daten für diesen Zeitraum</h3>\n<p class=\"odsv-empty__text\">Wähle einen anderen Zeitraum oder setze die Filter zurück.</p>\n<button class=\"odsv-btn odsv-btn--ghost odsv-btn--md\" type=\"button\">Filter zurücksetzen</button>\n</div>"
+    },
+    {
+     "title": "Skelett und Ladekreis",
+     "captions": [],
+     "html": "<div class=\"odsv-stack\">\n<div aria-busy=\"true\" class=\"odsv-card\">\n<div class=\"odsv-stack odsv-stack--3\">\n<span class=\"odsv-skeleton odsv-skeleton--title\"></span>\n<span class=\"odsv-skeleton odsv-skeleton--text\"></span>\n<span class=\"odsv-skeleton odsv-skeleton--text\"></span>\n<span class=\"odsv-skeleton odsv-skeleton--short\"></span>\n</div>\n</div>\n<span class=\"odsv-stage__loading\" role=\"status\" style=\"position:static;transform:none;align-self:flex-start\"><span aria-hidden=\"true\" class=\"odsv-spinner\"></span>Lädt …</span>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "chart",
+   "name": "Diagramm-Rahmen",
+   "use": "Rahmen mit Aussage-Titel, Legende, Zeichenfläche und Quelle; Zeichnen über odsv-charts.js oder eigene SVG mit den .odsv-dv-N-Klassen.",
+   "avoid": "Diagramm ohne Quelle, Themen-Titel statt Aussage, Status- und Reihenfarben im selben Diagramm.",
+   "root_classes": [
+    "odsv-chart",
+    "odsv-legend",
+    "odsv-swatch",
+    "odsv-stackbar",
+    "odsv-dv",
+    "odsv-axis-text",
+    "odsv-axis-title",
+    "odsv-axis-line",
+    "odsv-grid-line",
+    "odsv-data-line",
+    "odsv-data-area",
+    "odsv-data-bar",
+    "odsv-data-point",
+    "odsv-data-slice",
+    "odsv-data-label",
+    "odsv-data-dash",
+    "odsv-cursor-line",
+    "odsv-diagram-label"
+   ],
+   "classes": [
+    "odsv-axis-line",
+    "odsv-axis-text",
+    "odsv-axis-title",
+    "odsv-chart",
+    "odsv-chart__footer",
+    "odsv-chart__header",
+    "odsv-chart__plot",
+    "odsv-chart__subtitle",
+    "odsv-chart__tip",
+    "odsv-chart__title",
+    "odsv-cursor-line",
+    "odsv-data-area",
+    "odsv-data-bar",
+    "odsv-data-dash",
+    "odsv-data-label",
+    "odsv-data-line",
+    "odsv-data-point",
+    "odsv-data-slice",
+    "odsv-diagram-label",
+    "odsv-dv-1",
+    "odsv-dv-2",
+    "odsv-dv-3",
+    "odsv-dv-4",
+    "odsv-dv-5",
+    "odsv-dv-6",
+    "odsv-dv-7",
+    "odsv-dv-context",
+    "odsv-dv-highlight",
+    "odsv-dv-negative",
+    "odsv-dv-neutral",
+    "odsv-dv-positive",
+    "odsv-grid-line",
+    "odsv-legend",
+    "odsv-legend__item",
+    "odsv-stackbar",
+    "odsv-swatch",
+    "odsv-swatch--line"
+   ],
+   "elements": [
+    "footer",
+    "header",
+    "item",
+    "plot",
+    "subtitle",
+    "tip",
+    "title"
+   ],
+   "modifiers": [
+    "line"
+   ],
+   "variants": {
+    "dv-1…dv-7": "kategoriale Farben in fester Reihenfolge",
+    "dv-highlight": "betonte Reihe",
+    "dv-context": "Kontextreihe grau",
+    "dv-neutral": "Sonstige",
+    "dv-positive|negative": "Statusbedeutung",
+    "swatch--line": "Legendenmarke als Linie"
+   },
+   "states": {},
+   "rules": [
+    "Aufbau: <figure class=\"odsv-chart\"> → __header (Eyebrow, <figcaption class=\"odsv-chart__title\">, __subtitle) → .odsv-legend → __plot → __footer (Quelle · Stand).",
+    "Ab 2 Reihen Legende, höchstens 4 Reihen direkt beschriften.",
+    "Balken beginnen bei 0; Achse endet beim nächsten runden Wert."
+   ],
+   "a11y": [
+    "SVG mit role=\"img\" und aria-label, das die Aussage enthält (label-Option)."
+   ],
+   "js": "window.ODSVCharts.line|bars|donut|spark – siehe catalog/js-api.md.",
+   "content_limits": {
+    "title": "Aussage, ≤ 60 Zeichen",
+    "subtitle": "Einheit/Bezug"
+   },
+   "reference": "web/index.html#diagramm",
+   "examples": [
+    {
+     "title": "Linie mit Legende",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><p class=\"odsv-eyebrow\">Registrierungen</p><figcaption class=\"odsv-chart__title\">Registrierungen wachsen seit Januar stetig</figcaption><p class=\"odsv-chart__subtitle\">je Monat, Anzahl</p></div>\n</div>\n<ul aria-label=\"Legende\" class=\"odsv-legend\">\n<li class=\"odsv-legend__item odsv-dv-1\"><span class=\"odsv-swatch odsv-swatch--line\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Registrierungen</span></li>\n<li class=\"odsv-legend__item odsv-dv-2\"><span class=\"odsv-swatch odsv-swatch--line\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Supportanfragen</span></li>\n</ul>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"line\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>"
+    },
+    {
+     "title": "Balken (betont) und Anteile",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-7\">\n<figure class=\"odsv-chart\"><div><figcaption class=\"odsv-chart__title\">Q4 liegt vorn</figcaption><p class=\"odsv-chart__subtitle\">Registrierungen je Quartal</p></div><div class=\"odsv-chart__plot\" data-demo-chart=\"bars\"></div></figure>\n</div>\n<div class=\"odsv-col-12 odsv-col-md-5\">\n<figure class=\"odsv-chart\"><div><figcaption class=\"odsv-chart__title\">62 % sind fertig</figcaption><p class=\"odsv-chart__subtitle\">Aufträge nach Status</p></div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"donut\"></div>\n<ul class=\"odsv-legend\"><li class=\"odsv-legend__item odsv-dv-1\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Abgeschlossen</span></li><li class=\"odsv-legend__item odsv-dv-2\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">In Arbeit</span></li><li class=\"odsv-legend__item odsv-dv-neutral\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Offen</span></li></ul>\n</figure>\n</div>\n</div>"
+    },
+    {
+     "title": "Gestapelter Einzelbalken",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<figcaption class=\"odsv-chart__title\">Anteile nach Plattform</figcaption>\n<div aria-label=\"Web 52 Prozent, iOS 31 Prozent, Android 17 Prozent\" class=\"odsv-stackbar\" role=\"img\">\n<span class=\"odsv-dv-1\" style=\"flex:52\"></span><span class=\"odsv-dv-2\" style=\"flex:31\"></span><span class=\"odsv-dv-3\" style=\"flex:17\"></span>\n</div>\n<ul class=\"odsv-legend\"><li class=\"odsv-legend__item odsv-dv-1\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Web · 52 %</span></li><li class=\"odsv-legend__item odsv-dv-2\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">iOS · 31 %</span></li><li class=\"odsv-legend__item odsv-dv-3\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Android · 17 %</span></li></ul>\n</figure>"
+    }
+   ]
+  },
+  {
+   "id": "label3d",
+   "name": "Labels für 3D und Diagramme",
+   "use": "Pillen mit Hinweislinie über 3D-Bühnen oder Illustrationen; nummerierte Marken für schmale Flächen.",
+   "avoid": "Mehr als ein betontes Label je Ansicht.",
+   "root_classes": [
+    "odsv-label3d",
+    "odsv-marker",
+    "odsv-stage",
+    "odsv-leader",
+    "odsv-lineart"
+   ],
+   "classes": [
+    "odsv-label3d",
+    "odsv-label3d--bad",
+    "odsv-label3d--static",
+    "odsv-label3d--strong",
+    "odsv-label3d--wrong",
+    "odsv-leader",
+    "odsv-lineart",
+    "odsv-lineart--dim",
+    "odsv-lineart--marker",
+    "odsv-marker",
+    "odsv-stage",
+    "odsv-stage__controls",
+    "odsv-stage__hint",
+    "odsv-stage__loading"
+   ],
+   "elements": [
+    "controls",
+    "hint",
+    "loading"
+   ],
+   "modifiers": [
+    "bad",
+    "dim",
+    "marker",
+    "static",
+    "strong",
+    "wrong"
+   ],
+   "variants": {
+    "label3d--strong": "betont (gelb)",
+    "label3d--bad": "Problem (roter Rand)",
+    "label3d--wrong": "falsch (rot gefüllt)",
+    "label3d--static": "im Fluss statt absolut",
+    "lineart--dim": "gedämpfte Linie",
+    "lineart--marker": "gelbe Markierung"
+   },
+   "states": {},
+   "rules": [
+    "Labels im Overlay aria-hidden; dieselbe Information als Liste daneben.",
+    "Position relativ zur Bühnenmitte (calc(50% ± px)), nicht absolut in px vom Rand."
+   ],
+   "a11y": [
+    "Bühne: role=\"img\" mit aria-label."
+   ],
+   "js": "",
+   "content_limits": {
+    "label": "1–2 Wörter"
+   },
+   "reference": "web/index.html#labels3d",
+   "examples": [
+    {
+     "title": "Varianten",
+     "captions": [
+      "Neutral",
+      "Betont (eins je Ansicht)",
+      "Problem",
+      "Falsch",
+      "Marke"
+     ],
+     "html": "<span class=\"odsv-label3d odsv-label3d--static\">Bauteil</span>\n<span class=\"odsv-label3d odsv-label3d--static odsv-label3d--strong\">Zielposition</span>\n<span class=\"odsv-label3d odsv-label3d--static odsv-label3d--bad\">Kollision</span>\n<span class=\"odsv-label3d odsv-label3d--static odsv-label3d--wrong\">Falsch</span>\n<span class=\"odsv-cluster odsv-cluster--2\"><span aria-hidden=\"true\" class=\"odsv-marker\">1</span><span class=\"odsv-body-small\">Komponente</span></span>"
+    },
+    {
+     "title": "Auf einer Bühne",
+     "captions": [],
+     "html": "<div class=\"odsv-stage\" style=\"min-height:220px\">\n<p class=\"odsv-stage__hint\">Wischen zum Drehen</p>\n<svg aria-label=\"Schema: Komponente in einem Gehäuse\" height=\"220\" role=\"img\" style=\"position:absolute;inset:0\" viewbox=\"0 0 400 220\" width=\"100%\">\n<rect class=\"odsv-lineart\" height=\"70\" rx=\"14\" width=\"180\" x=\"110\" y=\"95\"></rect>\n<path class=\"odsv-lineart odsv-lineart--dim\" d=\"M290 130h40\" stroke-dasharray=\"6 5\"></path>\n<circle class=\"odsv-lineart--marker\" cx=\"200\" cy=\"130\" r=\"9\"></circle>\n</svg>\n<span aria-hidden=\"true\" class=\"odsv-label3d odsv-label3d--strong\" style=\"left:50%;top:120px;margin-top:-30px\">Komponente</span>\n<span aria-hidden=\"true\" class=\"odsv-label3d\" style=\"left:calc(50% + 130px);top:130px\">Gehäuse</span>\n<div class=\"odsv-stage__controls\"><button aria-label=\"Zurücksetzen\" class=\"odsv-icon-btn\" type=\"button\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-plus\"></use></svg></button></div>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "signet",
+   "name": "Signet und Wortmarke",
+   "use": "Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Berge, Fahrrad, Outdoor, Route). Erzählmoment: Situations-Signet (Erfolg, Fail, Konflikt, Einigung, Idee, Frage, In Arbeit, Neustart). Liste: catalog/signets.json.",
+   "avoid": "Signet-Verlauf als Button, Text, Diagrammfarbe oder Fläche; mehrere Signet-Varianten auf einer Seite; umgefärbte oder selbst gezeichnete Varianten.",
+   "root_classes": [
+    "odsv-signet-card",
+    "odsv-signet",
+    "odsv-signet-arc",
+    "odsv-signet-dot",
+    "odsv-signet-mark",
+    "odsv-wordmark",
+    "odsv-gradient-signet"
+   ],
+   "classes": [
+    "odsv-gradient-signet",
+    "odsv-signet",
+    "odsv-signet-arc",
+    "odsv-signet-arc--1",
+    "odsv-signet-arc--2",
+    "odsv-signet-arc--3",
+    "odsv-signet-arc--4",
+    "odsv-signet-arc--draw",
+    "odsv-signet-card",
+    "odsv-signet-card--landscape",
+    "odsv-signet-card__svg",
+    "odsv-signet-dot",
+    "odsv-signet-mark",
+    "odsv-wordmark"
+   ],
+   "elements": [
+    "svg"
+   ],
+   "modifiers": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "draw",
+    "landscape"
+   ],
+   "variants": {
+    "<use href=\"#odsv-signet-THEMA\"/>": "Themen: ai, network, data, code, mountains, bike, outdoor, route · Situationen: success, fail, conflict, agreement, idea, question, progress, restart · ohne Suffix = Basis",
+    "signet-card--landscape": "Karte 4:3 für Kopfbereiche",
+    "signet-mark": "Signet ohne Karte, 48 px (Mindestgröße für Themen-Signets)",
+    "signet-arc--1…4": "Bögen (Basis-Signet als Einzelpfade)",
+    "signet-arc--draw": "Zeichen-Animation"
+   },
+   "states": {},
+   "rules": [
+    "Basis/Thema: ein Signet je Produkt/Seite/Präsentation, groß höchstens einmal; Auswahl nach dem Kernthema, im Zweifel Basis.",
+    "Situation: höchstens eins je Ansicht/Folie, nie mit Themen-Signet in derselben Ansicht, nie als Statusanzeige (dafür Callout/Badge).",
+    "Karte: <svg class=\"odsv-signet-card__svg\" viewBox=\"0 0 400 400\" preserveAspectRatio=\"xMaxYMid slice\">.",
+    "Wortmarke unten links in gesperrten Versalien; die Grammatik hält diese Zone frei.",
+    "Immer auf dunklem Grund (auch im hellen Theme in der dunklen Karte).",
+    "Neue Varianten nur über tools/build_signets.py, geprüft mit tools/check_signets.js."
+   ],
+   "a11y": [
+    "SVG role=\"img\" mit aria-label, das das Motiv beschreibt."
+   ],
+   "js": "",
+   "content_limits": {
+    "wordmark": "1–3 Zeilen à ≤ 20 Zeichen"
+   },
+   "reference": "web/index.html#signet",
+   "examples": [
+    {
+     "title": "Basis-Signet",
+     "captions": [],
+     "html": "<div class=\"odsv-signet-card\" style=\"max-width:360px\">\n<svg aria-label=\"Signet aus vier Bögen und einem gelben Kreis\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet\"></use></svg>\n<p class=\"odsv-wordmark\">Produktname<br/>Untertitel</p>\n</div>"
+    },
+    {
+     "title": "Signet-Familie",
+     "captions": [],
+     "html": "<ul class=\"odsv-grid\" role=\"list\">\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Basis: vier Bögen und ein gelber Punkt\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet\"></use></svg>\n<p class=\"odsv-wordmark\">Signal / Wirkung<br/>Basis</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet KI: Vierstrahl-Funke mit gelbem Kern\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-ai\"></use></svg>\n<p class=\"odsv-wordmark\">KI<br/>Technik</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Netzwerk: vier Verbindungen zu einem gelben Knoten\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-network\"></use></svg>\n<p class=\"odsv-wordmark\">Netzwerk<br/>Technik</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Daten: vier steigende Säulen mit gelbem Punkt\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-data\"></use></svg>\n<p class=\"odsv-wordmark\">Daten<br/>Technik</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Code: vier spitze Klammern mit gelbem Cursor\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-code\"></use></svg>\n<p class=\"odsv-wordmark\">Code<br/>Technik</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Berge: Grat mit zwei Gipfeln und gelber Sonne\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-mountains\"></use></svg>\n<p class=\"odsv-wordmark\">Berge<br/>Lifestyle</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Fahrrad: Räder und Rahmen mit gelbem Tretlager\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-bike\"></use></svg>\n<p class=\"odsv-wordmark\">Fahrrad<br/>Lifestyle</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Outdoor: Zelt mit gekreuzten Stangen und gelber Sonne\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-outdoor\"></use></svg>\n<p class=\"odsv-wordmark\">Outdoor<br/>Lifestyle</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Route: Serpentine bergauf zum gelben Ziel\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-route\"></use></svg>\n<p class=\"odsv-wordmark\">Route<br/>Lifestyle</p>\n</div></li>\n</ul>"
+    },
+    {
+     "title": "Situationen",
+     "captions": [],
+     "html": "<ul class=\"odsv-grid\" role=\"list\">\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Erfolg: Haken erreicht den gelben Punkt, Strahlen darüber\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-success\"></use></svg>\n<p class=\"odsv-wordmark\">Erfolg<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Fail: Kurve steigt und bricht zum gelben Punkt ein\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-fail\"></use></svg>\n<p class=\"odsv-wordmark\">Fail<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Konflikt: zwei Pfeile prallen am gelben Punkt aufeinander\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-conflict\"></use></svg>\n<p class=\"odsv-wordmark\">Konflikt<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Einigung: zwei Wege treffen sich am gelben Punkt und gehen gemeinsam weiter\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-agreement\"></use></svg>\n<p class=\"odsv-wordmark\">Einigung<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Idee: Glühbirne mit gelbem Glühfaden und Strahlen\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-idea\"></use></svg>\n<p class=\"odsv-wordmark\">Idee<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Frage: Fragezeichen mit gelbem Punkt\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-question\"></use></svg>\n<p class=\"odsv-wordmark\">Frage<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet In Arbeit: Ring aus vier Bogenstücken um einen gelben Punkt\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-progress\"></use></svg>\n<p class=\"odsv-wordmark\">In Arbeit<br/>Situation</p>\n</div></li>\n<li class=\"odsv-col-12 odsv-col-sm-6 odsv-col-lg-4\"><div class=\"odsv-signet-card\">\n<svg aria-label=\"Signet Neustart: Kreispfeil um einen gelben Punkt\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-restart\"></use></svg>\n<p class=\"odsv-wordmark\">Neustart<br/>Situation</p>\n</div></li>\n</ul>"
+    },
+    {
+     "title": "Querformat und kleine Größen",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\"><div class=\"odsv-signet-card odsv-signet-card--landscape\"><svg aria-label=\"Signet Netzwerk: vier Verbindungen zu einem gelben Knoten\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-network\"></use></svg><p class=\"odsv-wordmark\">Plattform<br/>Integration</p></div></div>\n<div class=\"odsv-col-12 odsv-col-md-6\"><div class=\"odsv-signet-card odsv-signet-card--landscape\"><svg aria-label=\"Signet Berge: Grat mit zwei Gipfeln und gelber Sonne\" class=\"odsv-signet-card__svg\" preserveaspectratio=\"xMaxYMid slice\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-mountains\"></use></svg><p class=\"odsv-wordmark\">Touren<br/>Sommer 2027</p></div></div>\n<div class=\"odsv-col-12\"><div class=\"odsv-cluster odsv-cluster--6\"><svg aria-label=\"Signet Basis: vier Bögen und ein gelber Punkt\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet\"></use></svg><svg aria-label=\"Signet KI: Vierstrahl-Funke mit gelbem Kern\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-ai\"></use></svg><svg aria-label=\"Signet Netzwerk: vier Verbindungen zu einem gelben Knoten\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-network\"></use></svg><svg aria-label=\"Signet Daten: vier steigende Säulen mit gelbem Punkt\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-data\"></use></svg><svg aria-label=\"Signet Code: vier spitze Klammern mit gelbem Cursor\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-code\"></use></svg><svg aria-label=\"Signet Berge: Grat mit zwei Gipfeln und gelber Sonne\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-mountains\"></use></svg><svg aria-label=\"Signet Fahrrad: Räder und Rahmen mit gelbem Tretlager\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-bike\"></use></svg><svg aria-label=\"Signet Outdoor: Zelt mit gekreuzten Stangen und gelber Sonne\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-outdoor\"></use></svg><svg aria-label=\"Signet Route: Serpentine bergauf zum gelben Ziel\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-route\"></use></svg><svg aria-label=\"Signet Erfolg: Haken erreicht den gelben Punkt, Strahlen darüber\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-success\"></use></svg><svg aria-label=\"Signet Fail: Kurve steigt und bricht zum gelben Punkt ein\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-fail\"></use></svg><svg aria-label=\"Signet Konflikt: zwei Pfeile prallen am gelben Punkt aufeinander\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-conflict\"></use></svg><svg aria-label=\"Signet Einigung: zwei Wege treffen sich am gelben Punkt und gehen gemeinsam weiter\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-agreement\"></use></svg><svg aria-label=\"Signet Idee: Glühbirne mit gelbem Glühfaden und Strahlen\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-idea\"></use></svg><svg aria-label=\"Signet Frage: Fragezeichen mit gelbem Punkt\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-question\"></use></svg><svg aria-label=\"Signet In Arbeit: Ring aus vier Bogenstücken um einen gelben Punkt\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-progress\"></use></svg><svg aria-label=\"Signet Neustart: Kreispfeil um einen gelben Punkt\" class=\"odsv-signet-mark\" role=\"img\" viewbox=\"0 0 400 400\"><use href=\"#odsv-signet-restart\"></use></svg></div></div>\n</div>"
+    }
+   ],
+   "signets": [
+    {
+     "id": "odsv-signet",
+     "group": "Basis",
+     "name": "Signal / Wirkung",
+     "meaning": "Standard für alle Themen",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-ai",
+     "group": "Technik",
+     "name": "KI",
+     "meaning": "Funke: Intelligenz, Generierung, Assistenz",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-ai\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-network",
+     "group": "Technik",
+     "name": "Netzwerk",
+     "meaning": "Knoten und Verbindungen: Vernetzung, Plattform, Integration",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-network\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-data",
+     "group": "Technik",
+     "name": "Daten",
+     "meaning": "Steigende Säulen: Analyse, Kennzahlen, Wachstum",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-data\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-code",
+     "group": "Technik",
+     "name": "Code",
+     "meaning": "Klammern und Cursor: Entwicklung, Software, Engineering",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-code\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-mountains",
+     "group": "Lifestyle",
+     "name": "Berge",
+     "meaning": "Gestaffelte Grate und Sonne: Alpin, Wandern, Weitblick",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-mountains\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-bike",
+     "group": "Lifestyle",
+     "name": "Fahrrad",
+     "meaning": "Räder und Rahmen: Radfahren, Mobilität, Touren",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-bike\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-outdoor",
+     "group": "Lifestyle",
+     "name": "Outdoor",
+     "meaning": "Zelt unter der Sonne: Draußen, Camping, Abenteuer",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-outdoor\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-route",
+     "group": "Lifestyle",
+     "name": "Route",
+     "meaning": "Geschwungene Strecke zum Ziel: Training, Tour, Fortschritt",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-route\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-success",
+     "group": "Situation",
+     "name": "Erfolg",
+     "meaning": "Haken erreicht das Ziel, Strahlen feiern: Erfolg, Meilenstein, Abschluss",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-success\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-fail",
+     "group": "Situation",
+     "name": "Fail",
+     "meaning": "Kurve steigt und bricht ein: Misserfolg, Rückschlag, Learnings",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-fail\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-conflict",
+     "group": "Situation",
+     "name": "Konflikt",
+     "meaning": "Zwei Pfeile prallen aufeinander: Konflikt, Zielkonflikt, Reibung",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-conflict\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-agreement",
+     "group": "Situation",
+     "name": "Einigung",
+     "meaning": "Zwei Wege werden einer: Einigung, Lösung, Zusammenarbeit",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-agreement\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-idea",
+     "group": "Situation",
+     "name": "Idee",
+     "meaning": "Glühbirne mit Strahlen: Idee, Innovation, Vorschlag",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-idea\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-question",
+     "group": "Situation",
+     "name": "Frage",
+     "meaning": "Fragezeichen: offene Frage, Unklarheit, Diskussion",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-question\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-progress",
+     "group": "Situation",
+     "name": "In Arbeit",
+     "meaning": "Ring aus Bogenstücken: in Arbeit, läuft, Zwischenstand",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-progress\"/></svg>"
+    },
+    {
+     "id": "odsv-signet-restart",
+     "group": "Situation",
+     "name": "Neustart",
+     "meaning": "Kreispfeil: Neustart, Iteration, Wiederholung",
+     "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-restart\"/></svg>"
+    }
+   ]
+  },
+  {
+   "id": "list-facts",
+   "name": "Liste und Fakten",
+   "use": "Aufzählung (Punkte gelb) oder nummerierte Liste; Fakten als <dl>.",
+   "avoid": "Mehr als 7 Punkte ohne Gliederung.",
+   "root_classes": [
+    "odsv-list",
+    "odsv-facts"
+   ],
+   "classes": [
+    "odsv-facts",
+    "odsv-facts--cols",
+    "odsv-list",
+    "odsv-list--numbered"
+   ],
+   "elements": [],
+   "modifiers": [
+    "cols",
+    "numbered"
+   ],
+   "variants": {
+    "list--numbered": "nummeriert",
+    "facts--cols": "zwei Spalten ab 600 px"
+   },
+   "states": {},
+   "rules": [
+    "Als Karte: zusätzlich .odsv-card an <ul>/<ol>/<dl>."
+   ],
+   "a11y": [],
+   "js": "",
+   "content_limits": {
+    "item": "≤ 1 Zeile"
+   },
+   "reference": "web/index.html#weitere",
+   "examples": [
+    {
+     "title": "Liste und Fakten",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\"><ul class=\"odsv-list odsv-card\"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>\n<div class=\"odsv-col-12 odsv-col-md-6\"><ol class=\"odsv-list odsv-list--numbered odsv-card\"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>\n<div class=\"odsv-col-12\"><dl class=\"odsv-facts odsv-facts--cols odsv-card\"><div><dt>Version</dt><dd>1.0.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>\n</div>"
+    }
+   ]
+  },
+  {
+   "id": "hgroup",
+   "name": "Headline-Gruppe",
+   "use": "Dreiklang Eyebrow → Headline → Zweitsatz als Block, optional mit Icon-Kachel.",
+   "avoid": "Headline ohne Zweitsatz.",
+   "root_classes": [
+    "odsv-hgroup"
+   ],
+   "classes": [
+    "odsv-hgroup",
+    "odsv-hgroup--center",
+    "odsv-hgroup--compact"
+   ],
+   "elements": [],
+   "modifiers": [
+    "center",
+    "compact"
+   ],
+   "variants": {
+    "hgroup--center": "zentriert (Sektionsauftakt)",
+    "hgroup--compact": "Dashboard-Seitenkopf"
+   },
+   "states": {},
+   "rules": [],
+   "a11y": [],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#weitere",
+   "examples": [
+    {
+     "title": "Headline-Gruppe (Dreiklang)",
+     "captions": [],
+     "html": "<header class=\"odsv-hgroup odsv-hgroup--center\">\n<span aria-hidden=\"true\" class=\"odsv-tile odsv-tile--accent\"><svg class=\"odsv-icon\"><use href=\"#odsv-icon-shield\"></use></svg></span>\n<p class=\"odsv-eyebrow\">Zum Schluss</p>\n<h2 class=\"odsv-h1\">Zusammenfassung</h2>\n<p class=\"odsv-sub\">Alles Wichtige auf einen Blick.</p>\n</header>"
+    }
+   ]
+  },
+  {
+   "id": "toast",
+   "name": "Toast",
+   "use": "Kurze Bestätigung nach einer Handlung („Stand gespeichert“).",
+   "avoid": "Fehler, die eine Handlung erfordern (dafür Callout am Ort).",
+   "root_classes": [
+    "odsv-toast"
+   ],
+   "classes": [
+    "odsv-toast",
+    "odsv-toast--fixed"
+   ],
+   "elements": [],
+   "modifiers": [
+    "fixed"
+   ],
+   "variants": {
+    "toast--fixed": "am unteren Rand fixiert"
+   },
+   "states": {},
+   "rules": [
+    "Ein- und Ausblenden steuert die Anwendung (odsv.js tut es nicht): nach ca. 4 s ausblenden, nicht während Fokus oder Hover."
+   ],
+   "a11y": [
+    "role=\"status\"."
+   ],
+   "js": "",
+   "content_limits": {
+    "text": "≤ 40 Zeichen"
+   },
+   "reference": "web/index.html#weitere",
+   "examples": [
+    {
+     "title": "Toast",
+     "captions": [],
+     "html": "<div class=\"odsv-toast\" role=\"status\"><svg aria-hidden=\"true\" class=\"odsv-icon\"><use href=\"#odsv-icon-check\"></use></svg>Stand gespeichert</div>"
+    }
+   ]
+  },
+  {
+   "id": "footer",
+   "name": "Fußbereich",
+   "use": "Stand, Quellen, Impressum links; Wortmarke rechts.",
+   "avoid": "",
+   "root_classes": [
+    "odsv-footer"
+   ],
+   "classes": [
+    "odsv-footer",
+    "odsv-footer__grid"
+   ],
+   "elements": [
+    "grid"
+   ],
+   "modifiers": [],
+   "variants": {},
+   "states": {},
+   "rules": [],
+   "a11y": [],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#weitere",
+   "examples": [
+    {
+     "title": "Fußbereich",
+     "captions": [],
+     "html": "<footer class=\"odsv-footer\"><div class=\"odsv-footer__grid\"><p>Stand 17.11.2026 · <a href=\"#weitere\">Quellen</a> · <a href=\"#weitere\">Impressum</a></p><span class=\"odsv-wordmark\">Produktname</span></div></footer>"
+    }
+   ]
+  },
+  {
+   "id": "utilities",
+   "name": "Hilfsklassen",
+   "use": ".odsv-sr-only (nur Screenreader), .odsv-mt-0|4|8 (Abstand oben), .odsv-hide-lg, .odsv-no-print, .odsv-reveal (Einblenden beim Scrollen), .odsv-fit-tight (setzt odsv.js).",
+   "avoid": "Hilfsklassen statt Komponenten-Modifier.",
+   "root_classes": [
+    "odsv-sr-only",
+    "odsv-mt",
+    "odsv-hide-lg",
+    "odsv-no-print",
+    "odsv-reveal",
+    "odsv-fit-tight",
+    "odsv-anchor"
+   ],
+   "classes": [
+    "odsv-anchor",
+    "odsv-fit-tight",
+    "odsv-hide-lg",
+    "odsv-mt-0",
+    "odsv-mt-4",
+    "odsv-mt-8",
+    "odsv-no-print",
+    "odsv-reveal",
+    "odsv-sr-only"
+   ],
+   "elements": [],
+   "modifiers": [],
+   "variants": {},
+   "states": {},
+   "rules": [],
+   "a11y": [],
+   "js": "",
+   "content_limits": {},
+   "reference": "web/index.html#weitere",
+   "examples": []
+  }
+ ]
+}

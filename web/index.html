@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>ODSV v1.0 – Design-System, Web-Umsetzung</title>
+<meta name="description" content="ODSV v1.0: Referenzseite mit Farben, Typografie, Abständen und allen Komponenten als kopierbares HTML.">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="odsv.css">
+<link rel="stylesheet" href="docs.css">
+<script src="odsv.js"></script>
+</head>
+<body>
+<!--ODSV-SPRITE--><svg xmlns="http://www.w3.org/2000/svg" class="odsv-sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+
+<symbol id="odsv-icon-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="odsv-icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="odsv-icon-chevron" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+<symbol id="odsv-icon-chevron-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
+<symbol id="odsv-icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+<symbol id="odsv-icon-trend-up" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+<symbol id="odsv-icon-trend-down" viewBox="0 0 24 24"><path d="M7 7l10 10M17 8v9H8"/></symbol>
+<symbol id="odsv-icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></symbol>
+<symbol id="odsv-icon-warning" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.5v.01"/></symbol>
+<symbol id="odsv-icon-error" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+<symbol id="odsv-icon-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2.5"/><path d="M22 10.5v3M6 10.5v3M10 10.5v3"/></symbol>
+<symbol id="odsv-icon-sound" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 010 6M18 6.5a8 8 0 010 11"/></symbol>
+<symbol id="odsv-icon-led" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/></symbol>
+<symbol id="odsv-icon-car" viewBox="0 0 24 24"><path d="M4 15.5v-4l2-5h12l2 5v4"/><path d="M4 11.5h16M4 15.5h16M4 15.5V18h3v-2.5M17 15.5V18h3v-2.5M7.5 13.5v.01M16.5 13.5v.01"/></symbol>
+<symbol id="odsv-icon-bolt" viewBox="0 0 24 24"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></symbol>
+<symbol id="odsv-icon-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.1L3.5 17.2a2 2 0 003 3l5.8-5.8a4 4 0 005.1-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+<symbol id="odsv-icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="odsv-icon-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+<symbol id="odsv-icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.8-3.8 4-6 7.5-6s6.7 2.2 7.5 6"/></symbol>
+<symbol id="odsv-icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="odsv-icon-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+<symbol id="odsv-icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4.5a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 014 18.5v-11A1.5 1.5 0 015.5 6H10"/></symbol>
+<symbol id="odsv-icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="odsv-icon-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+<symbol id="odsv-icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="odsv-icon-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="odsv-icon-chart" viewBox="0 0 24 24"><path d="M3.5 3.5v17h17"/><path d="M8 16v-4M12.5 16V8M17 16v-6.5"/></symbol>
+<symbol id="odsv-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="odsv-icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></symbol>
+<symbol id="odsv-icon-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V7a2.5 2.5 0 00-2.5-2.5H7A2.5 2.5 0 004.5 7v6A2.5 2.5 0 007 15.5h1.5"/></symbol>
+<symbol id="odsv-icon-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z"/></symbol>
+<symbol id="odsv-icon-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8-7.5 9.5-4.3-1.5-7.5-5-7.5-9.5V6z"/></symbol>
+<symbol id="odsv-icon-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1112 0v5.5l1.5 2h-15z"/><path d="M10 21h4"/></symbol>
+<symbol id="odsv-signet" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M266.8 52.6A180 180 0 0 0 266.8 347.4" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M289.7 85.3A140 140 0 0 0 289.7 314.7" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M312.6 118.1A100 100 0 0 0 312.6 281.9" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M335.6 150.9A60 60 0 0 0 335.6 249.1" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="400" cy="200" r="34" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-ai" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M276.0 72.0Q289.4 170.6 388.0 184.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M388.0 184.0Q289.4 197.4 276.0 296.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M276.0 296.0Q262.6 197.4 164.0 184.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M164.0 184.0Q262.6 170.6 276.0 72.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="276" cy="184" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-network" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M242.5 156.4L170.7 111.6M130.0 100.0a22 22 0 1 0 44.0 0a22 22 0 1 0 -44.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M311.3 134.2L324.4 102.5M312.0 84.0a20 20 0 1 0 40.0 0a20 20 0 1 0 -40.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M244.2 218.2L198.4 250.5M162.0 262.0a20 20 0 1 0 40.0 0a20 20 0 1 0 -40.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M328.4 226.7L374.9 276.0M368.0 292.0a22 22 0 1 0 44.0 0a22 22 0 1 0 -44.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="290" cy="186" r="32" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-data" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M196 286L196 250" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M252 286L252 212" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M308 286L308 174" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M364 286L364 136" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="364" cy="80" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-code" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M257.7 80.0 L192.0 186.0 L257.7 292.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M291.0 107.0 L242.0 186.0 L291.0 265.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M324.2 134.0 L292.0 186.0 L324.2 238.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M358.1 160.0 L342.0 186.0 L358.1 212.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="398" cy="186" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-mountains" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M150.0 286.0 L210.0 182.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M210.0 182.0 L266.0 248.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M266.0 248.0 L332.0 108.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M332.0 108.0 L410.0 236.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="250" cy="100" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-bike" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M120.0 232.0a56 56 0 1 0 112.0 0a56 56 0 1 0 -112.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M312.0 232.0a56 56 0 1 0 112.0 0a56 56 0 1 0 -112.0 0Z" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M176 232L268 232L244 156L346 156L268 232M346 156L368 232" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M244 156L238 124M206 124L256 124M346 156L340 124L376 124" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="268" cy="232" r="24" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-outdoor" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M180 284L298 68" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M384 284L266 68" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M246 284L282 206L318 284" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M156 284L404 284" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="372" cy="98" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-route" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M168 280L332 280A31 31 0 0 0 332 218" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M332 218L182 218A31 31 0 0 1 182 156" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M182 156L332 156A31 31 0 0 0 332 94" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M332 94L244 94" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="186" cy="94" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-success" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M334.0 104.0L334.0 70.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M373.8 127.0L403.3 110.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M294.2 127.0L268.2 112.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M178.0 222.0 L228.0 272.0 L304.0 186.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="334" cy="150" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-fail" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M140.0 250.0 L200.0 186.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M200.0 186.0 L248.0 214.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M248.0 214.0 L318.0 104.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M318 104L356 236" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="366" cy="290" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-conflict" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M130 188L232 188" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M200 148L240 188L200 228" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M372 148L332 188L372 228" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M424 188L340 188" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="286" cy="188" r="24" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-agreement" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M140 92C200 92 220 190 262 190" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M140 288C200 288 220 190 262 190" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M300 190L388 190" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M354 156L392 190L354 224" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="262" cy="190" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-idea" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M330.8 236.0A70 70 0 1 0 237.2 236.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M330.8 236.0L322.8 276.0L245.2 276.0L237.2 236.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M262 318.0L306 318.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M284.0 84.0L284.0 64.0M365.9 126.6L382.3 115.2M202.1 126.6L185.7 115.2" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="284" cy="184" r="24" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-question" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M229.7 110.8A62 62 0 0 1 298.8 70.9" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M298.8 70.9A62 62 0 0 1 350.0 132.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M350 132C350 186 288 172 288 228" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M288 228L288 250" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="288" cy="308" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-progress" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M265.9 83.6A104 104 0 0 1 386.4 167.9" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M386.4 204.1A104 104 0 0 1 302.1 288.4" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M265.9 288.4A104 104 0 0 1 193.9 238.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M181.6 204.1A104 104 0 0 1 186.3 150.4" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="284" cy="186" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol><symbol id="odsv-signet-restart" viewBox="0 0 400 400" fill="none" stroke="none"><path d="M233.0 103.1A98 98 0 0 1 366.9 139.0" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-1)"/><path d="M378.5 171.0A98 98 0 0 1 299.0 284.5" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-2)"/><path d="M265.0 284.5A98 98 0 0 1 187.3 162.6" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-3)"/><path d="M148.8 187.7L187.3 162.6L208.2 203.6" style="fill:none;stroke-width:26;stroke-linecap:round;stroke-linejoin:round;stroke:var(--odsv-color-signet-4)"/><circle cx="282" cy="188" r="26" style="fill:var(--odsv-color-signet-dot)"/></symbol>
+</svg><!--/ODSV-SPRITE-->
+<a class="odsv-skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="odsv-topbar docs-topbar">
+  <div class="odsv-topbar__inner">
+    <a class="odsv-brand" href="#start" aria-label="ODSV, zum Anfang">
+      <svg class="odsv-brand__mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#odsv-signet"/></svg>
+      <span class="odsv-brand__name">ODSV</span>
+    </a>
+    <span class="odsv-badge odsv-badge--accent docs-version">v1.0</span>
+    <div class="odsv-topbar__actions">
+      <button type="button" class="odsv-icon-btn odsv-theme-toggle" data-odsv-theme-toggle aria-pressed="false" aria-label="Helles Theme aktivieren">
+        <svg class="odsv-icon odsv-theme-toggle__sun" aria-hidden="true"><use href="#odsv-icon-sun"/></svg>
+        <svg class="odsv-icon odsv-theme-toggle__moon" aria-hidden="true"><use href="#odsv-icon-moon"/></svg>
+      </button>
+      <button type="button" class="odsv-icon-btn odsv-topbar__toggle" data-odsv-nav-toggle aria-expanded="false" aria-controls="docs-mobile-nav" aria-label="Seitenübersicht">
+        <svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-menu"/></svg>
+      </button>
+    </div>
+    <nav class="odsv-topbar__nav" id="docs-mobile-nav" aria-label="Seitenübersicht"><ul class="odsv-nav" data-docs-nav></ul></nav>
+  </div>
+</header>
+
+<div class="docs-shell">
+  <aside class="docs-side" aria-label="Seitenübersicht">
+    <nav aria-label="Abschnitte"><ul class="odsv-nav odsv-nav--stacked" data-docs-nav></ul></nav>
+  </aside>
+
+  <main class="docs-main" id="inhalt">
+
+    <!-- ================= START ================= -->
+    <section class="docs-hero docs-section" id="start" data-nav="Überblick" data-group="Start" style="border-top:0;margin-top:0;padding-top:var(--odsv-space-10)">
+      <div class="docs-hero__text">
+        <p class="odsv-eyebrow">Design-System · Version 1.0</p>
+        <h1 class="odsv-display">ODSV</h1>
+        <p class="odsv-sub">Dunkel, gesperrt, ein gelber Akzent.</p>
+        <p class="odsv-body">Referenz der Web-Umsetzung: Tokens, Typografie und alle Komponenten live in jedem Zustand, jeweils mit kopierbarem HTML. Mobile-first, Theme dunkel und hell, ohne Bibliothek.</p>
+        <div class="odsv-cluster">
+          <a class="odsv-btn odsv-btn--primary" href="#farben">Farben ansehen</a>
+          <a class="odsv-btn odsv-btn--ghost" href="examples/website.html">Beispiel: Website</a>
+          <a class="odsv-btn odsv-btn--ghost" href="examples/dashboard.html">Beispiel: Dashboard</a>
+        </div>
+      </div>
+      <div class="odsv-signet-card">
+        <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet: vier Bögen im Verlauf von Pink über Orange zu Gelb, davor ein gelber Kreis"><use href="#odsv-signet"/></svg>
+        <p class="odsv-wordmark">ODSV<br>Design-System</p>
+      </div>
+    </section>
+
+    <section class="docs-section" id="einbindung" data-nav="Einbindung" data-group="Start">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">In drei Zeilen</p>
+        <h2 class="odsv-h1">Einbindung</h2>
+        <p class="odsv-sub">Tokens, Bibliothek, Verhalten – in dieser Reihenfolge.</p>
+      </div>
+      <template class="docs-src" data-nolive="1">
+        <link rel="stylesheet" href="tokens.css">
+        <link rel="stylesheet" href="odsv.css">
+        <script src="odsv.js"></script>
+        <!-- optional: Diagramme ohne Bibliothek -->
+        <script src="odsv-charts.js" defer></script>
+      </template>
+      <div class="odsv-callout odsv-callout--info docs-block">
+        <p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-info"/></svg><span class="odsv-callout__label">Hinweis</span></p>
+        <p class="odsv-callout__text">Icons als Inline-Sprite einbetten (<code class="odsv-code-inline">icons.svg</code> in den <code class="odsv-code-inline">body</code> kopieren). Über <code class="odsv-code-inline">file://</code> blockiert der Browser externe <code class="odsv-code-inline">&lt;use href="icons.svg#…"&gt;</code>-Verweise; über HTTP funktionieren beide Wege.</p>
+      </div>
+    </section>
+
+    <!-- ================= GRUNDLAGEN ================= -->
+    <section class="docs-section" id="farben" data-nav="Farben" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Farben</h2>
+        <p class="odsv-sub">Hex und Kontrast werden live aus den Tokens gelesen – im aktiven Theme.</p>
+      </div>
+      <p class="docs-note">Kontrast nach WCAG 2.2, transparente Farben vorher auf den Grund gerechnet. Textstufen bis <code>text-faint</code> erreichen ≥ 4,5:1 auf Grund und Karte 1. Kartenränder (<code>border-subtle</code>) sind bewusst unter 3:1: Dekor, nie alleiniger Träger einer Information.</p>
+      <div id="docs-colors"><noscript><p class="docs-note">Für die Farbliste wird JavaScript benötigt.</p></noscript></div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Signet-Verlauf</h3>
+        <div class="docs-grad odsv-gradient-signet" role="img" aria-label="Verlauf Pink, Orange, Gelb"></div>
+        <p class="docs-note"><code>gradient-signet</code>: genau einmal groß je Produkt (Hero, Titelmoment). Nie als Button, Text, Diagrammfarbe oder Fläche.</p>
+      </div>
+    </section>
+
+    <section class="docs-section" id="typografie" data-nav="Typografie" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Typografie</h2>
+        <p class="odsv-sub">Systemschrift, gesperrte Versalien für Headlines.</p>
+      </div>
+      <div class="docs-type">
+        <div class="docs-type__row"><p class="odsv-eyebrow">Eyebrow über jeder Headline</p><div class="docs-type__meta"><b>.odsv-eyebrow</b><span>11,5 px</span><span>500</span><span>0,2 em</span><span>Versalien</span></div></div>
+        <div class="docs-type__row"><p class="odsv-display">Design-System</p><div class="docs-type__meta"><b>.odsv-display</b><span>28 → 64 px</span><span>600</span><span>0,2 em</span><span>Versalien</span><span>Zeilenhöhe 1,25</span></div></div>
+        <div class="docs-type__row"><p class="odsv-h1">Seitentitel</p><div class="docs-type__meta"><b>.odsv-h1</b><span>22 → 40 px</span><span>600</span><span>0,2 em</span><span>Versalien</span></div></div>
+        <div class="docs-type__row"><p class="odsv-h2">Abschnitt</p><div class="docs-type__meta"><b>.odsv-h2</b><span>24 px</span><span>600</span><span>0,12 em</span><span>Versalien</span></div></div>
+        <div class="docs-type__row"><p class="odsv-h3">Karten-Headline in normaler Schreibweise</p><div class="docs-type__meta"><b>.odsv-h3</b><span>20 → 24 px</span><span>700</span><span>−0,005 em</span></div></div>
+        <div class="docs-type__row"><p class="odsv-h4">Kleine Überschrift</p><div class="docs-type__meta"><b>.odsv-h4</b><span>17 px</span><span>700</span></div></div>
+        <div class="docs-type__row"><p class="odsv-sub">Grauer Zweitsatz erklärt in einem Satz.</p><div class="docs-type__meta"><b>.odsv-sub</b><span>17 → 20 px</span><span>400</span><span>muted</span></div></div>
+        <div class="docs-type__row"><p class="odsv-body">Fließtext steht in 17 px bei Zeilenhöhe 1,5 und ist höchstens 640 px breit. Kurze Absätze, ein Gedanke je Absatz.</p><div class="docs-type__meta"><b>.odsv-body</b><span>17 px</span><span>400</span><span>1,5</span></div></div>
+        <div class="docs-type__row"><p class="odsv-body-small">Erklärtext in Karten und Tabellen.</p><div class="docs-type__meta"><b>.odsv-body-small</b><span>15 px</span><span>400</span></div></div>
+        <div class="docs-type__row"><p class="odsv-small">Fußnote, Hinweiszeile, Quelle.</p><div class="docs-type__meta"><b>.odsv-small</b><span>14 px</span><span>400</span></div></div>
+        <div class="docs-type__row"><p class="odsv-caption">Achsentext, Zeitstempel – kleinste Größe.</p><div class="docs-type__meta"><b>.odsv-caption</b><span>12 px</span><span>400</span><span>faint</span></div></div>
+        <div class="docs-type__row"><p class="odsv-label">Label in Versalien</p><div class="docs-type__meta"><b>.odsv-label</b><span>13 px</span><span>500</span><span>0,15 em</span></div></div>
+        <div class="docs-type__row"><p class="odsv-number">2</p><div class="docs-type__meta"><b>.odsv-number</b><span>40 → 48 px</span><span>600</span><span>tabular-nums</span></div></div>
+        <div class="docs-type__row"><p class="odsv-mono">const odsv = "tokens.css";</p><div class="docs-type__meta"><b>.odsv-mono</b><span>14 px</span><span>Mono</span></div></div>
+      </div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Regeln für gesperrte Versalien</h3>
+        <ul class="odsv-list">
+          <li>Höchstens drei Wörter, 24 Zeichen, zwei Zeilen. Versalien nur per Stil, nie getippt.</li>
+          <li>Nie für Fließtext, Warnungen, Fehlermeldungen oder Tabellenzellen.</li>
+          <li>Lange Wörter nicht mitten im Wort brechen: Trennstelle mit <code class="odsv-code-inline">&amp;shy;</code> vorgeben oder kürzer formulieren.</li>
+          <li>Zahlen untereinander mit <code class="odsv-code-inline">tabular-nums</code>, Einheit mit geschütztem Leerzeichen.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="docs-section" id="layout" data-nav="Layout" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Layout</h2>
+        <p class="odsv-sub">Container, 12 Spalten, Stack und Cluster.</p>
+      </div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Raster</h3>
+        <p class="docs-note">Mobil stapeln alle Kinder; <code>odsv-col-N</code> gilt immer, <code>-sm-</code> ab 600, <code>-md-</code> ab 768, <code>-lg-</code> ab 1024, <code>-xl-</code> ab 1280 px.</p>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-md-4"><div class="docs-box">md-4</div></div>
+            <div class="odsv-col-md-4"><div class="docs-box">md-4</div></div>
+            <div class="odsv-col-md-4"><div class="docs-box">md-4</div></div>
+            <div class="odsv-col-6 odsv-col-lg-3"><div class="docs-box">6 / lg-3</div></div>
+            <div class="odsv-col-6 odsv-col-lg-3"><div class="docs-box">6 / lg-3</div></div>
+            <div class="odsv-col-12 odsv-col-lg-6"><div class="docs-box">12 / lg-6</div></div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Stack und Cluster</h3>
+        <template class="docs-src">
+          <div class="odsv-stack odsv-stack--3">
+            <div class="docs-box">Stack (Abstand 12 px)</div>
+            <div class="docs-box">zweites Kind</div>
+            <div class="odsv-cluster">
+              <span class="odsv-badge">Cluster</span><span class="odsv-badge odsv-badge--accent">bricht um</span><span class="odsv-badge odsv-badge--info">Abstand 12 px</span>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Container und Sektion</h3>
+        <template class="docs-src">
+          <section class="odsv-section odsv-section--rule">
+            <div class="odsv-container">
+              <div class="odsv-section-head">
+                <p class="odsv-eyebrow">Eyebrow</p>
+                <h2 class="odsv-h1">Headline</h2>
+                <p class="odsv-sub">Zweitsatz erklärt.</p>
+              </div>
+              <!-- Inhalt: max. 1120 px, Seitenrand 20 → 40 px -->
+            </div>
+          </section>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="abstaende" data-nav="Abstände" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Abstände</h2>
+        <p class="odsv-sub">4er-Raster – <code class="odsv-code-inline">var(--odsv-space-N)</code>.</p>
+      </div>
+      <div class="docs-space" id="docs-space"></div>
+    </section>
+
+    <section class="docs-section" id="radien" data-nav="Radien, Rahmen, Ebenen" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Radien</h2>
+        <p class="odsv-sub">Große Radien für Karten, kleine für Bedienelemente.</p>
+      </div>
+      <div class="docs-radii" id="docs-radii"></div>
+      <div class="docs-block">
+        <h3 class="odsv-h3">Ebenen statt Schatten</h3>
+        <p class="docs-note">Tiefe entsteht durch Flächenstufen mit 1-px-Rand. Schatten gibt es nur für Überlagerungen (Sheet, Tooltip).</p>
+        <div class="docs-elev">
+          <div style="background:var(--odsv-color-bg-base)">Ebene 0<br><code>bg-base</code></div>
+          <div style="background:var(--odsv-color-surface-1)">Ebene 1<br><code>surface-1</code></div>
+          <div style="background:var(--odsv-color-surface-2)">Ebene 2<br><code>surface-2</code></div>
+          <div style="background:var(--odsv-color-surface-3)">Ebene 3<br><code>surface-3</code></div>
+          <div style="background:var(--odsv-color-surface-overlay);box-shadow:var(--odsv-shadow-overlay)">Überlagerung<br><code>shadow-overlay</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section" id="bewegung" data-nav="Bewegung" data-group="Grundlagen">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Grundlagen</p>
+        <h2 class="odsv-h1">Bewegung</h2>
+        <p class="odsv-sub">Ruhig, genau, 200 bis 400 Millisekunden.</p>
+      </div>
+      <div class="odsv-cluster"><button type="button" class="odsv-btn odsv-btn--secondary odsv-btn--md" id="docs-motion-play">Abspielen</button><span class="docs-note">Mit reduzierter Bewegung springen alle Dauern auf 0,01 ms.</span></div>
+      <div class="docs-motion docs-block" id="docs-motion"></div>
+      <p class="docs-note">Easings: <code>standard</code> cubic-bezier(0.2, 0.8, 0.2, 1) · <code>in-out</code> cubic-bezier(0.65, 0, 0.35, 1) · <code>exit</code> cubic-bezier(0.4, 0, 1, 1). Gedrückt: Skalierung 0,98.</p>
+    </section>
+
+    <!-- ================= KOMPONENTEN ================= -->
+    <section class="docs-section" id="buttons" data-nav="Button" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Button</h2>
+        <p class="odsv-sub">Ein Primär-Button je Ansicht, Verb auf dem Button.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Varianten</h3>
+        <template class="docs-src" data-captions="Primär|Sekundär|Ghost|Gefährlich">
+          <button type="button" class="odsv-btn odsv-btn--primary">Projekt starten</button>
+          <button type="button" class="odsv-btn odsv-btn--secondary">Zur Übersicht</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost">Bericht öffnen</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost odsv-btn--danger">Löschen</button>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Zustände: Primär</h3>
+        <template class="docs-src" data-captions="Ruhe|Hover|Gedrückt|Fokus|Laden|Deaktiviert">
+          <button type="button" class="odsv-btn odsv-btn--primary">Weiter</button>
+          <button type="button" class="odsv-btn odsv-btn--primary is-hover">Weiter</button>
+          <button type="button" class="odsv-btn odsv-btn--primary is-active">Weiter</button>
+          <button type="button" class="odsv-btn odsv-btn--primary is-focus">Weiter</button>
+          <button type="button" class="odsv-btn odsv-btn--primary is-loading" aria-busy="true">Lädt …</button>
+          <button type="button" class="odsv-btn odsv-btn--primary" disabled>Weiter</button>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Zustände: Sekundär und Ghost</h3>
+        <template class="docs-src" data-captions="Sekundär Ruhe|Sekundär Hover|Sekundär Deaktiviert|Ghost Ruhe|Ghost Hover|Ghost Fokus">
+          <button type="button" class="odsv-btn odsv-btn--secondary">Zurück</button>
+          <button type="button" class="odsv-btn odsv-btn--secondary is-hover">Zurück</button>
+          <button type="button" class="odsv-btn odsv-btn--secondary" disabled>Zurück</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost">Teilen</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost is-hover">Teilen</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost is-focus">Teilen</button>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Größen, Icon und volle Breite</h3>
+        <template class="docs-src" data-captions="L · 52 px|M · 44 px|S · 36 px|Mit Icon|Icon-Button">
+          <button type="button" class="odsv-btn odsv-btn--secondary">Groß</button>
+          <button type="button" class="odsv-btn odsv-btn--secondary odsv-btn--md">Mittel</button>
+          <button type="button" class="odsv-btn odsv-btn--secondary odsv-btn--sm">Klein</button>
+          <button type="button" class="odsv-btn odsv-btn--primary odsv-btn--md"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-download"/></svg>Herunterladen</button>
+          <button type="button" class="odsv-btn odsv-btn--ghost odsv-btn--md odsv-btn--icon" aria-label="Einstellungen"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-settings"/></svg></button>
+        </template>
+        <template class="docs-src">
+          <button type="button" class="odsv-btn odsv-btn--primary odsv-btn--block">Projekt starten</button>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="links" data-nav="Link" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Link</h2>
+        <p class="odsv-sub">Im Fließtext immer unterstrichen.</p>
+      </div>
+      <template class="docs-src">
+        <p class="odsv-body">Die <a class="odsv-link" href="#links">Bedienungsanleitung (PDF, 1,2 MB)</a> enthält alle Details. <a class="odsv-link" href="https://example.org">Externer Link<svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-external"/></svg></a></p>
+        <p class="odsv-small"><a class="odsv-link odsv-link--muted" href="#links">Überspringen</a> · <button type="button" class="odsv-textbtn">Zurücksetzen</button> · <a class="odsv-link is-hover" href="#links">Hover</a></p>
+      </template>
+    </section>
+
+    <section class="docs-section" id="karten" data-nav="Karte" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Karte</h2>
+        <p class="odsv-sub">Fläche, 1-px-Rand, großer Radius, kein Schatten.</p>
+      </div>
+      <template class="docs-src" data-captions="Standard · Ebene 1|Ebene 2|Klickbar|Kompakt|Akzent|Status Erfolg|Status Warnung|Status Fehler" data-wide="1">
+        <div class="odsv-card"><p class="odsv-label odsv-card__label">Vorbereitung</p><h3 class="odsv-card__title">Zugang anlegen</h3><p class="odsv-card__text">Konto erstellen und Rolle festlegen.</p></div>
+        <div class="odsv-card odsv-card--level-2"><h3 class="odsv-card__title">Ebene 2</h3><p class="odsv-card__text">Für Karte in Karte und Hover.</p></div>
+        <a class="odsv-card odsv-card--interactive" href="#karten"><h3 class="odsv-card__title">Klickbar</h3><p class="odsv-card__text">Hover hebt auf Ebene 2.</p></a>
+        <div class="odsv-card odsv-card--compact"><h3 class="odsv-card__title">Kompakt</h3><p class="odsv-card__text">Dashboard: Radius 20, Abstand 16.</p></div>
+        <div class="odsv-card odsv-card--accent"><h3 class="odsv-card__title">Akzent</h3><p class="odsv-card__text">Sparsam für Empfehlungen.</p></div>
+        <div class="odsv-card odsv-card--success"><h3 class="odsv-card__title">Erfolg</h3><p class="odsv-card__text">Rand in Statusfarbe.</p></div>
+        <div class="odsv-card odsv-card--warning"><h3 class="odsv-card__title">Warnung</h3><p class="odsv-card__text">Rand in Statusfarbe.</p></div>
+        <div class="odsv-card odsv-card--danger"><h3 class="odsv-card__title">Fehler</h3><p class="odsv-card__text">Rand in Statusfarbe.</p></div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="kpi" data-nav="KPI und Spec-Kachel" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">KPI</h2>
+        <p class="odsv-sub">Label, Wert, Veränderung mit Bezug.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">KPI-Reihe mit Trend</h3>
+        <template class="docs-src">
+          <div class="odsv-grid odsv-grid--dashboard">
+            <div class="odsv-col-6 odsv-col-lg-3"><dl class="odsv-kpi">
+              <dt class="odsv-kpi__label">Aktive Nutzer</dt>
+              <dd class="odsv-kpi__value">1.284</dd>
+              <dd class="odsv-kpi__row"><span class="odsv-trend odsv-trend--positive"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-trend-up"/></svg>+4,2 %</span><span class="odsv-kpi__note">ggü. Vormonat</span></dd>
+            </dl></div>
+            <div class="odsv-col-6 odsv-col-lg-3"><dl class="odsv-kpi">
+              <dt class="odsv-kpi__label">Ø Bearbeitungszeit</dt>
+              <dd class="odsv-kpi__value">22<span class="odsv-kpi__unit">min</span></dd>
+              <dd class="odsv-kpi__row"><span class="odsv-trend odsv-trend--negative"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-trend-up"/></svg>+1,5 min</span><span class="odsv-kpi__note">ggü. Vormonat</span></dd>
+            </dl></div>
+            <div class="odsv-col-6 odsv-col-lg-3"><dl class="odsv-kpi">
+              <dt class="odsv-kpi__label">Supportanfragen</dt>
+              <dd class="odsv-kpi__value">96</dd>
+              <dd class="odsv-kpi__row"><span class="odsv-trend odsv-trend--neutral"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-minus"/></svg>±0 %</span><span class="odsv-kpi__note">ggü. Vormonat</span></dd>
+            </dl></div>
+            <div class="odsv-col-6 odsv-col-lg-3"><dl class="odsv-kpi">
+              <dt class="odsv-kpi__label">Abschlussquote</dt>
+              <dd class="odsv-kpi__value">–</dd>
+              <dd class="odsv-kpi__note">Noch keine Daten für diesen Zeitraum.</dd>
+            </dl></div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Leit-KPI und KPI mit Ziel</h3>
+        <template class="docs-src">
+          <div class="odsv-grid odsv-grid--dashboard">
+            <div class="odsv-col-12 odsv-col-md-6"><dl class="odsv-kpi odsv-kpi--lg odsv-kpi--lead">
+              <dt class="odsv-kpi__label">Nutzer gesamt</dt>
+              <dd class="odsv-kpi__value">12.480</dd>
+              <dd class="odsv-kpi__note">Stand 17.11.2026 · alle Regionen</dd>
+            </dl></div>
+            <div class="odsv-col-12 odsv-col-md-6"><dl class="odsv-kpi">
+              <dt class="odsv-kpi__label">Jahresziel</dt>
+              <dd class="odsv-kpi__value">82<span class="odsv-kpi__unit">% von 1.200</span></dd>
+              <dd class="odsv-kpi__goal">
+                <ol class="odsv-progress odsv-progress--dashed" role="img" aria-label="82 Prozent von 1.200">
+                  <li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0.1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li>
+                </ol>
+              </dd>
+            </dl></div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Spec-Gruppe (2 × 2)</h3>
+        <template class="docs-src">
+          <dl class="odsv-specs">
+            <div class="odsv-spec"><dt class="odsv-spec__label">Dauer</dt><dd class="odsv-spec__value">ca.&nbsp;15&nbsp;Minuten</dd></div>
+            <div class="odsv-spec"><dt class="odsv-spec__label">Aufwand</dt><dd class="odsv-spec__value">Gering</dd></div>
+            <div class="odsv-spec"><dt class="odsv-spec__label">Version</dt><dd class="odsv-spec__value">1.0</dd></div>
+            <div class="odsv-spec"><dt class="odsv-spec__label">Gilt für</dt><dd class="odsv-spec__value"><em>Web</em> &amp; Mobil</dd></div>
+          </dl>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="schritt" data-nav="Schritt-Karte" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Schritt-Karte</h2>
+        <p class="odsv-sub">Große Nummer oben rechts, Illustration, kurze Headline.</p>
+      </div>
+      <template class="docs-src">
+        <ol class="odsv-grid">
+          <li class="odsv-col-12 odsv-col-md-6">
+            <article class="odsv-step odsv-step--active">
+              <span class="odsv-step__num" aria-hidden="true">2</span>
+              <div class="odsv-step__media" aria-hidden="true">
+                <svg viewBox="0 0 220 120" class="odsv-lineart"><rect x="30" y="34" width="120" height="58" rx="12"/><path d="M150 52h24a8 8 0 018 8v12a8 8 0 01-8 8h-24" class="odsv-lineart--dim"/><path d="M62 63h56" class="odsv-lineart--marker"/></svg>
+              </div>
+              <h3 class="odsv-step__title"><span class="odsv-sr-only">Schritt 2: </span>Daten importieren</h3>
+              <p class="odsv-step__text">Vorhandene Daten als CSV-Datei hochladen und Spalten zuordnen.</p>
+              <a class="odsv-link odsv-link--muted odsv-step__skip" href="#schritt">Überspringen</a>
+            </article>
+          </li>
+          <li class="odsv-col-12 odsv-col-md-6">
+            <article class="odsv-step odsv-step--inactive">
+              <span class="odsv-step__num" aria-hidden="true">3</span>
+              <div class="odsv-step__media" aria-hidden="true">
+                <svg viewBox="0 0 220 120" class="odsv-lineart"><circle cx="110" cy="60" r="30"/><path d="M110 40v20l14 8" class="odsv-lineart--marker"/></svg>
+              </div>
+              <h3 class="odsv-step__title"><span class="odsv-sr-only">Schritt 3: </span>Team einladen</h3>
+              <p class="odsv-step__text">Inaktive Karten bleiben lesbar und bedienbar.</p>
+            </article>
+          </li>
+        </ol>
+      </template>
+    </section>
+
+    <section class="docs-section" id="fortschritt" data-nav="Fortschrittsleiste" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Fortschritt</h2>
+        <p class="odsv-sub">Segmente statt Prozentring.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Kapitelleiste</h3>
+        <p class="docs-note">Segmente sind Links, aktives Segment trägt <code>aria-current="step"</code>. Mit <code>data-odsv-scrollprogress</code> folgt die Füllung dem Scroll (live in <a class="odsv-link" href="examples/website.html">Beispiel: Website</a>).</p>
+        <template class="docs-src">
+          <nav aria-label="Kapitel">
+            <ol class="odsv-progress">
+              <li class="odsv-progress__seg" style="--p:1"><a class="odsv-progress__link" href="#fortschritt" aria-label="Überblick"><span class="odsv-progress__bar"></span></a></li>
+              <li class="odsv-progress__seg" style="--p:1"><a class="odsv-progress__link" href="#fortschritt" aria-label="Grundlagen"><span class="odsv-progress__bar"></span></a></li>
+              <li class="odsv-progress__seg" style="--p:0.55" aria-current="step"><a class="odsv-progress__link" href="#fortschritt" aria-label="Umsetzung" aria-current="step"><span class="odsv-progress__bar"></span></a></li>
+              <li class="odsv-progress__seg" style="--p:0"><a class="odsv-progress__link" href="#fortschritt" aria-label="Test"><span class="odsv-progress__bar"></span></a></li>
+              <li class="odsv-progress__seg" style="--p:0"><a class="odsv-progress__link" href="#fortschritt" aria-label="Abschluss"><span class="odsv-progress__bar"></span></a></li>
+            </ol>
+          </nav>
+          <p class="odsv-eyebrow odsv-mt-4">Umsetzung</p>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Zähl-Leiste (Checkliste)</h3>
+        <template class="docs-src">
+          <div class="odsv-progress__meta"><span class="odsv-body-small" role="status">7 von 12</span></div>
+          <ol class="odsv-progress odsv-progress--dashed odsv-progress--success" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="7" aria-valuetext="7 von 12 erledigt">
+            <li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:1"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li><li class="odsv-progress__seg" style="--p:0"><span class="odsv-progress__bar"></span></li>
+          </ol>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="segment" data-nav="Segment-Umschalter" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Umschalter</h2>
+        <p class="odsv-sub">Wechselt einen Wert; Pfeiltasten wandern durch die Segmente.</p>
+      </div>
+      <template class="docs-src" data-captions="Standard|Gegenwahl (inverse)|Mit Icon|Klein" data-wide="1">
+        <div class="odsv-segmented" role="radiogroup" aria-label="Zeitraum" data-odsv-segmented>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="true" data-value="7">7 Tage</button>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="false" data-value="30">30 Tage</button>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="false" data-value="90">90 Tage</button>
+        </div>
+        <div class="odsv-segmented odsv-segmented--inverse" role="radiogroup" aria-label="Antwort" data-odsv-segmented>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="false" data-value="ja">Ja</button>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="true" data-value="nein">Nein</button>
+        </div>
+        <div class="odsv-segmented" role="radiogroup" aria-label="Ansicht" data-odsv-segmented>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="true" data-value="chart"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-chart"/></svg>Diagramm</button>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="false" data-value="table">Tabelle</button>
+        </div>
+        <div class="odsv-segmented odsv-segmented--sm" role="radiogroup" aria-label="Dichte" data-odsv-segmented>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="false" data-value="a">Bequem</button>
+          <button type="button" class="odsv-segmented__item" role="radio" aria-checked="true" data-value="b">Kompakt</button>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="checkliste" data-nav="Checkliste" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Checkliste</h2>
+        <p class="odsv-sub">Abgehakt wird grün; der Stand bleibt auf diesem Gerät.</p>
+      </div>
+      <template class="docs-src">
+        <div class="odsv-checklist" data-odsv-checklist="docs-demo">
+          <div class="odsv-checklist__summary">
+            <ol class="odsv-progress odsv-progress--dashed" data-odsv-checklist-progress></ol>
+            <div class="odsv-progress__meta"><span class="odsv-body-small" role="status" data-odsv-checklist-count>0 von 4</span><button type="button" class="odsv-textbtn" data-odsv-checklist-reset>Zurücksetzen</button></div>
+            <p class="odsv-caption">Dein Fortschritt bleibt auf diesem Gerät gespeichert.</p>
+          </div>
+          <fieldset class="odsv-fieldset">
+            <legend class="odsv-label odsv-checklist__title">Vorbereitung</legend>
+            <ul class="odsv-checklist__items">
+              <li><label class="odsv-check"><input type="checkbox" class="odsv-checkbox" data-id="anleitung"><span class="odsv-check__body"><span class="odsv-check__title">Anleitung</span><span class="odsv-check__text">Anleitung gelesen</span></span></label></li>
+              <li><label class="odsv-check"><input type="checkbox" class="odsv-checkbox" data-id="material"><span class="odsv-check__body"><span class="odsv-check__title">Daten</span><span class="odsv-check__text">Daten für den Import vorbereitet</span></span></label></li>
+              <li><label class="odsv-check"><input type="checkbox" class="odsv-checkbox" data-id="zugang"><span class="odsv-check__body"><span class="odsv-check__title">Zugang</span><span class="odsv-check__text">Konto angelegt und Rolle zugewiesen</span></span></label></li>
+              <li><label class="odsv-check"><input type="checkbox" class="odsv-checkbox" data-id="team"><span class="odsv-check__body"><span class="odsv-check__title">Team</span><span class="odsv-check__text">Teammitglieder eingeladen</span></span></label></li>
+            </ul>
+          </fieldset>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="akkordeon" data-nav="Akkordeon" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Akkordeon</h2>
+        <p class="odsv-sub">Natives details/summary – nie für Warnungen.</p>
+      </div>
+      <template class="docs-src">
+        <div>
+          <details class="odsv-accordion" open>
+            <summary>Wie lange dauert die Einrichtung?</summary>
+            <div class="odsv-accordion__body"><p>Rund 15 Minuten, ohne Installation.</p></div>
+          </details>
+          <details class="odsv-accordion">
+            <summary>Welche Dateiformate werden unterstützt?</summary>
+            <div class="odsv-accordion__body"><p>CSV und XLSX.</p></div>
+          </details>
+          <details class="odsv-accordion odsv-accordion--last">
+            <summary>Funktioniert das auch auf dem Smartphone?</summary>
+            <div class="odsv-accordion__body"><p>Ja, alle Ansichten sind für Mobilgeräte optimiert.</p></div>
+          </details>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="tabellen" data-nav="Tabelle" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Tabelle</h2>
+        <p class="odsv-sub">Haarlinien, Zahlen rechts, drei Dichten.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Bequem (Website)</h3>
+        <template class="docs-src">
+          <div class="odsv-table-wrap" role="region" aria-label="Tarife" tabindex="0">
+            <table class="odsv-table">
+              <caption class="odsv-sr-only">Tarife mit Preis und Nutzerzahl</caption>
+              <thead><tr><th scope="col">Tarif</th><th scope="col" class="odsv-table__num">€/Monat</th><th scope="col" class="odsv-table__num">Nutzer</th><th scope="col">Status</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Team</th><td class="odsv-table__num">49</td><td class="odsv-table__num">25</td><td><span class="odsv-badge odsv-badge--success"><span class="odsv-badge__dot"></span>Aktiv</span></td></tr>
+                <tr><th scope="row">Basis</th><td class="odsv-table__num">19</td><td class="odsv-table__num">5</td><td><span class="odsv-badge">Bereit</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Kompakt, klickbar mit Auswahl</h3>
+        <template class="docs-src">
+          <div class="odsv-table-wrap" role="region" aria-label="Aufträge" tabindex="0">
+            <table class="odsv-table odsv-table--compact odsv-table--hover">
+              <caption class="odsv-sr-only">Aufträge</caption>
+              <thead><tr><th scope="col">Auftrag</th><th scope="col">Bereich</th><th scope="col" class="odsv-table__num">Minuten</th><th scope="col">Status</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">A-1042</th><td>Vertrieb</td><td class="odsv-table__num">24</td><td><span class="odsv-badge odsv-badge--success"><span class="odsv-badge__dot"></span>Fertig</span></td></tr>
+                <tr aria-selected="true"><th scope="row">A-1043</th><td>Einkauf</td><td class="odsv-table__num">31</td><td><span class="odsv-badge odsv-badge--warning"><span class="odsv-badge__dot"></span>In Arbeit</span></td></tr>
+                <tr><th scope="row">A-1044</th><td>Logistik</td><td class="odsv-table__num">–</td><td><span class="odsv-badge odsv-badge--danger"><span class="odsv-badge__dot"></span>Fehler</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Dicht (nur Zeigergerät)</h3>
+        <template class="docs-src">
+          <div class="odsv-table-wrap" role="region" aria-label="Meldungen" tabindex="0">
+            <table class="odsv-table odsv-table--dense">
+              <caption class="odsv-sr-only">Meldungen</caption>
+              <thead><tr><th scope="col">Zeit</th><th scope="col">Quelle</th><th scope="col" class="odsv-table__num">Wert</th></tr></thead>
+              <tbody>
+                <tr><td>09:12</td><td>Sensor A</td><td class="odsv-table__num">21,4</td></tr>
+                <tr><td>09:13</td><td>Sensor B</td><td class="odsv-table__num">22,0</td></tr>
+                <tr><td>09:14</td><td>Sensor A</td><td class="odsv-table__num">21,9</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="callouts" data-nav="Hinweis (Callout)" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Hinweis</h2>
+        <p class="odsv-sub">Status immer mit Icon und Wort.</p>
+      </div>
+      <template class="docs-src">
+        <div class="odsv-stack">
+          <div class="odsv-callout odsv-callout--warning" role="note">
+            <p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-warning"/></svg><span class="odsv-callout__label">Vorsicht</span></p>
+            <p class="odsv-callout__title">Änderungen nicht gespeichert</p>
+            <p class="odsv-callout__text">Erst speichern, dann die Seite verlassen. Warnungen stehen vor dem Schritt, in voller Länge.</p>
+          </div>
+          <div class="odsv-callout odsv-callout--info"><p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-info"/></svg><span class="odsv-callout__label">Hinweis</span></p><p class="odsv-callout__text">Zusatzinformation, die den Ablauf nicht stoppt.</p></div>
+          <div class="odsv-callout odsv-callout--success" role="status"><p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-check"/></svg><span class="odsv-callout__label">Richtig</span></p><p class="odsv-callout__text">Der Import ist abgeschlossen. Alle Datensätze wurden übernommen.</p></div>
+          <div class="odsv-callout odsv-callout--danger" role="alert"><p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-error"/></svg><span class="odsv-callout__label">Falsch</span></p><p class="odsv-callout__text">Die Datei enthält ungültige Zeilen. Bitte korrigieren und erneut hochladen.</p></div>
+          <div class="odsv-callout"><p class="odsv-callout__head"><span class="odsv-callout__label">Gut zu wissen</span></p><p class="odsv-callout__text">Neutral: ein Merksatz ohne Status.</p></div>
+          <div class="odsv-callout odsv-callout--banner odsv-callout--warning"><p class="odsv-callout__head"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-warning"/></svg><span class="odsv-callout__label">Vorsicht</span></p><p class="odsv-callout__text">Kompaktes Banner mit getöntem Grund.</p></div>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="badges" data-nav="Badge und Pill" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Badge</h2>
+        <p class="odsv-sub">Ein bis zwei Wörter, nicht klickbar. Klickbar ist die Pille.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Badges</h3>
+        <template class="docs-src">
+          <div class="odsv-cluster">
+            <span class="odsv-badge">Neutral</span>
+            <span class="odsv-badge odsv-badge--accent">Neu</span>
+            <span class="odsv-badge odsv-badge--success"><span class="odsv-badge__dot"></span>Aktiv</span>
+            <span class="odsv-badge odsv-badge--warning"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-warning"/></svg>Vorsicht</span>
+            <span class="odsv-badge odsv-badge--danger"><span class="odsv-badge__dot"></span>Fehler</span>
+            <span class="odsv-badge odsv-badge--info"><span class="odsv-badge__dot"></span>Info</span>
+          </div>
+          <div class="odsv-cluster odsv-mt-4">
+            <span class="odsv-badge odsv-badge--solid odsv-badge--success">Fertig</span>
+            <span class="odsv-badge odsv-badge--solid odsv-badge--warning">Offen</span>
+            <span class="odsv-badge odsv-badge--solid odsv-badge--danger">Alarm</span>
+            <span class="odsv-badge odsv-badge--solid odsv-badge--info">Info</span>
+            <span class="odsv-badge odsv-badge--count" aria-label="3 neue Meldungen">3</span>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Pillen (Filter)</h3>
+        <template class="docs-src">
+          <div class="odsv-cluster odsv-cluster--2" role="group" aria-label="Filter">
+            <button type="button" class="odsv-pill" aria-pressed="true">Alle</button>
+            <button type="button" class="odsv-pill" aria-pressed="false">Offen</button>
+            <button type="button" class="odsv-pill" aria-pressed="false">Fertig</button>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="tabs" data-nav="Tabs" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Tabs</h2>
+        <p class="odsv-sub">Wechseln Ansichten; Pfeiltasten, Pos1 und Ende.</p>
+      </div>
+      <template class="docs-src">
+        <div>
+          <div class="odsv-tabs" role="tablist" aria-label="Bereiche" data-odsv-tabs>
+            <button type="button" class="odsv-tab" role="tab" id="dt-1" aria-selected="true" aria-controls="dp-1">Übersicht</button>
+            <button type="button" class="odsv-tab" role="tab" id="dt-2" aria-selected="false" aria-controls="dp-2" tabindex="-1">Qualität</button>
+            <button type="button" class="odsv-tab" role="tab" id="dt-3" aria-selected="false" aria-controls="dp-3" tabindex="-1">Support</button>
+            <button type="button" class="odsv-tab" role="tab" aria-selected="false" disabled>Archiv</button>
+          </div>
+          <div class="odsv-tabpanel" role="tabpanel" id="dp-1" aria-labelledby="dt-1" tabindex="0"><p class="odsv-body">Inhalt der Übersicht.</p></div>
+          <div class="odsv-tabpanel" role="tabpanel" id="dp-2" aria-labelledby="dt-2" tabindex="0" hidden><p class="odsv-body">Inhalt der Qualität.</p></div>
+          <div class="odsv-tabpanel" role="tabpanel" id="dp-3" aria-labelledby="dt-3" tabindex="0" hidden><p class="odsv-body">Inhalt des Supports.</p></div>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="formulare" data-nav="Formularfelder" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Formulare</h2>
+        <p class="odsv-sub">Sichtbares Label, Fehler als Text am Feld.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Textfelder und Zustände</h3>
+        <template class="docs-src" data-captions="Ruhe|Hover|Fokus|Fehler|Deaktiviert|Nur lesen" data-wide="1">
+          <div class="odsv-field"><label class="odsv-field__label" for="f1">Projektname</label><input class="odsv-input" id="f1" type="text" placeholder="z. B. Website-Relaunch" autocomplete="off"></div>
+          <div class="odsv-field"><label class="odsv-field__label" for="f2">Projektname</label><input class="odsv-input is-hover" id="f2" type="text" value="Website-Relaunch"></div>
+          <div class="odsv-field"><label class="odsv-field__label" for="f3">Projektname</label><input class="odsv-input is-focus" id="f3" type="text" value="Website-Relaunch"></div>
+          <div class="odsv-field is-invalid"><label class="odsv-field__label" for="f4">E-Mail</label><input class="odsv-input" id="f4" type="email" value="name@" aria-invalid="true" aria-describedby="f4e"><p class="odsv-field__error" id="f4e" role="alert"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-error"/></svg>Bitte eine vollständige Adresse angeben.</p></div>
+          <div class="odsv-field"><label class="odsv-field__label" for="f5">Projekt-ID</label><input class="odsv-input" id="f5" type="text" value="PRJ-0042" disabled></div>
+          <div class="odsv-field"><label class="odsv-field__label" for="f6">Erstellt von</label><input class="odsv-input" id="f6" type="text" value="Admin" readonly></div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Suche, Auswahl, Textbereich</h3>
+        <template class="docs-src">
+          <div class="odsv-stack odsv-stack--6">
+            <div class="odsv-field"><label class="odsv-field__label" for="g1">Suche</label><div class="odsv-search"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-search"/></svg><input class="odsv-input" id="g1" type="search" placeholder="Auftrag suchen"></div></div>
+            <div class="odsv-field"><label class="odsv-field__label" for="g2">Bereich <span class="odsv-field__opt">(optional)</span></label><div class="odsv-select"><select class="odsv-select__control" id="g2"><option>Vertrieb</option><option>Einkauf</option><option>Logistik</option></select><svg class="odsv-icon odsv-select__icon" aria-hidden="true"><use href="#odsv-icon-chevron-down"/></svg></div><p class="odsv-field__hint">Der Bereich steuert, wer das Projekt sieht.</p></div>
+            <div class="odsv-field"><label class="odsv-field__label" for="g3">Anmerkung</label><textarea class="odsv-textarea" id="g3" rows="3" placeholder="Was ist dir aufgefallen?"></textarea></div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Checkbox, Radio, Schalter</h3>
+        <template class="docs-src">
+          <div class="odsv-stack odsv-stack--2">
+            <label class="odsv-option"><input type="checkbox" class="odsv-checkbox" checked>Bedingungen gelesen</label>
+            <label class="odsv-option"><input type="checkbox" class="odsv-checkbox">Newsletter abonnieren</label>
+            <label class="odsv-option"><input type="checkbox" class="odsv-checkbox" disabled>Nicht verfügbar</label>
+            <fieldset class="odsv-fieldset"><legend class="odsv-label">Sichtbarkeit</legend>
+              <label class="odsv-option"><input type="radio" class="odsv-radio" name="ort" checked>Privat</label>
+              <label class="odsv-option"><input type="radio" class="odsv-radio" name="ort">Öffentlich</label>
+            </fieldset>
+            <label class="odsv-option"><input type="checkbox" class="odsv-switch" role="switch" checked>Benachrichtigungen: an</label>
+            <label class="odsv-option"><input type="checkbox" class="odsv-switch" role="switch">Automatisch speichern: aus</label>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="tooltip" data-nav="Tooltip" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Tooltip</h2>
+        <p class="odsv-sub">Benennt Icon-Buttons, nie nötige Information.</p>
+      </div>
+      <p class="docs-note">Erscheint nach 300 ms bei Hover und sofort bei Fokus; Escape schließt. Auf Touch gibt es keinen Hover: Inhalt muss anders erreichbar sein. Links dauerhaft geöffnet (<code>is-open</code>), rechts per Hover oder Fokus.</p>
+      <template class="docs-src">
+        <div class="odsv-cluster odsv-cluster--6" style="padding-top:var(--odsv-space-12)">
+          <span class="odsv-tooltip is-open"><button type="button" class="odsv-icon-btn" aria-describedby="tt1"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-download"/></svg><span class="odsv-sr-only">Herunterladen</span></button><span class="odsv-tooltip__content" role="tooltip" id="tt1">Anleitung herunterladen</span></span>
+          <span class="odsv-tooltip odsv-tooltip--start"><button type="button" class="odsv-btn odsv-btn--ghost odsv-btn--md" aria-describedby="tt2">Ausgerichtet links</button><span class="odsv-tooltip__content" role="tooltip" id="tt2">Linksbündig zum Auslöser, falls der Rand knapp ist.</span></span>
+        </div>
+      </template>
+    </section>
+
+    <section class="docs-section" id="navigation" data-nav="Navigation und Top-Bar" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Navigation</h2>
+        <p class="odsv-sub">Klebende Top-Bar mit Unschärfe, mobil als Menü.</p>
+      </div>
+      <p class="docs-note">Diese Seite nutzt die Top-Bar selbst (oben). Die Demo unten ist die statische Variante.</p>
+      <div class="docs-block"><h3 class="odsv-h3">Top-Bar</h3>
+        <template class="docs-src">
+          <header class="odsv-topbar odsv-topbar--static">
+            <div class="odsv-topbar__inner">
+              <a class="odsv-brand" href="#navigation"><span class="odsv-brand__name">Produktname</span></a>
+              <nav class="odsv-topbar__nav" id="demo-nav" aria-label="Hauptnavigation">
+                <ul class="odsv-nav">
+                  <li><a class="odsv-nav__link" href="#navigation" aria-current="page">Übersicht</a></li>
+                  <li><a class="odsv-nav__link" href="#navigation">Berichte</a></li>
+                  <li><a class="odsv-nav__link" href="#navigation">Hilfe</a></li>
+                </ul>
+              </nav>
+              <div class="odsv-topbar__actions">
+                <button type="button" class="odsv-icon-btn odsv-topbar__toggle" data-odsv-nav-toggle aria-expanded="false" aria-controls="demo-nav" aria-label="Menü"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-menu"/></svg></button>
+              </div>
+            </div>
+          </header>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Seitenleiste (Dashboard ab 1024 px)</h3>
+        <template class="docs-src" data-surface="1">
+          <nav aria-label="Bereiche" style="max-width:264px">
+            <ul class="odsv-sidebar__nav">
+              <li><a class="odsv-sidebar__link" href="#navigation" aria-current="page"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-chart"/></svg><span class="odsv-sidebar__text">Übersicht</span></a></li>
+              <li><a class="odsv-sidebar__link" href="#navigation"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-wrench"/></svg><span class="odsv-sidebar__text">Aufträge</span></a></li>
+              <li><a class="odsv-sidebar__link" href="#navigation"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-settings"/></svg><span class="odsv-sidebar__text">Einstellungen</span></a></li>
+            </ul>
+          </nav>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="sheet" data-nav="Bottom-Sheet" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Bottom-Sheet</h2>
+        <p class="odsv-sub">Grabber, fette Aufforderung, gelber Button.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Im Fluss</h3>
+        <template class="docs-src">
+          <div class="odsv-sheet odsv-sheet--inline">
+            <div class="odsv-sheet__panel">
+              <span class="odsv-sheet__grabber" aria-hidden="true"></span>
+              <h3 class="odsv-sheet__title">Bereit für den Start?</h3>
+              <p class="odsv-sheet__text">Die Einrichtung führt dich in fünf Schritten durch.</p>
+              <div class="odsv-sheet__actions">
+                <a class="odsv-btn odsv-btn--primary" href="#sheet">Einrichtung starten</a>
+                <a class="odsv-link odsv-link--muted" href="#sheet">Später</a>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Modal</h3>
+        <p class="docs-note">Escape schließt, Fokus geht hinein und zurück, Tab bleibt im Sheet.</p>
+        <template class="docs-src">
+          <button type="button" class="odsv-btn odsv-btn--secondary odsv-btn--md" data-odsv-sheet-open="#demo-sheet">Sheet öffnen</button>
+          <div class="odsv-sheet" id="demo-sheet" role="dialog" aria-modal="true" aria-labelledby="demo-sheet-t" hidden>
+            <div class="odsv-sheet__backdrop" data-odsv-sheet-close></div>
+            <div class="odsv-sheet__panel">
+              <span class="odsv-sheet__grabber" aria-hidden="true"></span>
+              <h3 class="odsv-sheet__title" id="demo-sheet-t">Einrichtung abschließen?</h3>
+              <p class="odsv-sheet__text">Dein Stand bleibt auf diesem Gerät gespeichert.</p>
+              <div class="odsv-sheet__actions">
+                <button type="button" class="odsv-btn odsv-btn--primary" data-odsv-sheet-close>Abschließen</button>
+                <button type="button" class="odsv-btn odsv-btn--ghost" data-odsv-sheet-close>Schließen</button>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="kacheln" data-nav="Icon-Kachel" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Icon-Kachel</h2>
+        <p class="odsv-sub">App-Icon-artig; Gelb nur für den Hauptmoment.</p>
+      </div>
+      <template class="docs-src" data-captions="Dunkel · 72 px|Gelb · 72 px|Groß · 88 px|Hero · 96 px|Klein · 44 px">
+        <span class="odsv-tile" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-chart"/></svg></span>
+        <span class="odsv-tile odsv-tile--accent" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-user"/></svg></span>
+        <span class="odsv-tile odsv-tile--lg" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-shield"/></svg></span>
+        <span class="odsv-tile odsv-tile--xl odsv-tile--accent" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-bell"/></svg></span>
+        <span class="odsv-tile odsv-tile--sm" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-clock"/></svg></span>
+      </template>
+    </section>
+
+    <section class="docs-section" id="leer" data-nav="Leer- und Ladezustand" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Leer und Laden</h2>
+        <p class="odsv-sub">Sagt, was fehlt, und was als Nächstes geht.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Leerzustand</h3>
+        <template class="docs-src">
+          <div class="odsv-empty">
+            <span class="odsv-tile" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-search"/></svg></span>
+            <h3 class="odsv-empty__title">Keine Daten für diesen Zeitraum</h3>
+            <p class="odsv-empty__text">Wähle einen anderen Zeitraum oder setze die Filter zurück.</p>
+            <button type="button" class="odsv-btn odsv-btn--ghost odsv-btn--md">Filter zurücksetzen</button>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Skelett und Ladekreis</h3>
+        <template class="docs-src">
+          <div class="odsv-stack">
+            <div class="odsv-card" aria-busy="true">
+              <div class="odsv-stack odsv-stack--3">
+                <span class="odsv-skeleton odsv-skeleton--title"></span>
+                <span class="odsv-skeleton odsv-skeleton--text"></span>
+                <span class="odsv-skeleton odsv-skeleton--text"></span>
+                <span class="odsv-skeleton odsv-skeleton--short"></span>
+              </div>
+            </div>
+            <span class="odsv-stage__loading" style="position:static;transform:none;align-self:flex-start" role="status"><span class="odsv-spinner" aria-hidden="true"></span>Lädt …</span>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="diagramm" data-nav="Diagramm-Rahmen" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Diagramm</h2>
+        <p class="odsv-sub">Rahmen mit Titel als Aussage, Legende, Achsen-Typo, Quelle.</p>
+      </div>
+      <p class="docs-note">Das SVG zeichnet <code>odsv-charts.js</code> (ohne Bibliothek) in <code>.odsv-chart__plot</code>; Farben und Typo kommen aus den Klassen <code>odsv-dv-N</code>, <code>odsv-axis-text</code>, <code>odsv-grid-line</code>, <code>odsv-data-line</code>. Beim Überfahren erscheint ein Daten-Tooltip.</p>
+      <div class="docs-block"><h3 class="odsv-h3">Linie mit Legende</h3>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><p class="odsv-eyebrow">Registrierungen</p><figcaption class="odsv-chart__title">Registrierungen wachsen seit Januar stetig</figcaption><p class="odsv-chart__subtitle">je Monat, Anzahl</p></div>
+            </div>
+            <ul class="odsv-legend" aria-label="Legende">
+              <li class="odsv-legend__item odsv-dv-1"><span class="odsv-swatch odsv-swatch--line"></span><span style="color:var(--odsv-color-text-secondary)">Registrierungen</span></li>
+              <li class="odsv-legend__item odsv-dv-2"><span class="odsv-swatch odsv-swatch--line"></span><span style="color:var(--odsv-color-text-secondary)">Supportanfragen</span></li>
+            </ul>
+            <div class="odsv-chart__plot" data-demo-chart="line"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Balken (betont) und Anteile</h3>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-7">
+              <figure class="odsv-chart"><div><figcaption class="odsv-chart__title">Q4 liegt vorn</figcaption><p class="odsv-chart__subtitle">Registrierungen je Quartal</p></div><div class="odsv-chart__plot" data-demo-chart="bars"></div></figure>
+            </div>
+            <div class="odsv-col-12 odsv-col-md-5">
+              <figure class="odsv-chart"><div><figcaption class="odsv-chart__title">62 % sind fertig</figcaption><p class="odsv-chart__subtitle">Aufträge nach Status</p></div>
+                <div class="odsv-chart__plot" data-demo-chart="donut"></div>
+                <ul class="odsv-legend"><li class="odsv-legend__item odsv-dv-1"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">Abgeschlossen</span></li><li class="odsv-legend__item odsv-dv-2"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">In Arbeit</span></li><li class="odsv-legend__item odsv-dv-neutral"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">Offen</span></li></ul>
+              </figure>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Gestapelter Einzelbalken</h3>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <figcaption class="odsv-chart__title">Anteile nach Plattform</figcaption>
+            <div class="odsv-stackbar" role="img" aria-label="Web 52 Prozent, iOS 31 Prozent, Android 17 Prozent">
+              <span class="odsv-dv-1" style="flex:52"></span><span class="odsv-dv-2" style="flex:31"></span><span class="odsv-dv-3" style="flex:17"></span>
+            </div>
+            <ul class="odsv-legend"><li class="odsv-legend__item odsv-dv-1"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">Web · 52 %</span></li><li class="odsv-legend__item odsv-dv-2"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">iOS · 31 %</span></li><li class="odsv-legend__item odsv-dv-3"><span class="odsv-swatch"></span><span style="color:var(--odsv-color-text-secondary)">Android · 17 %</span></li></ul>
+          </figure>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="labels3d" data-nav="Labels für 3D und Diagramme" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Labels</h2>
+        <p class="odsv-sub">Pillen mit Hinweislinie, nummerierte Marken für schmale Flächen.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Varianten</h3>
+        <template class="docs-src" data-captions="Neutral|Betont (eins je Ansicht)|Problem|Falsch|Marke" data-wide="1">
+          <span class="odsv-label3d odsv-label3d--static">Bauteil</span>
+          <span class="odsv-label3d odsv-label3d--static odsv-label3d--strong">Zielposition</span>
+          <span class="odsv-label3d odsv-label3d--static odsv-label3d--bad">Kollision</span>
+          <span class="odsv-label3d odsv-label3d--static odsv-label3d--wrong">Falsch</span>
+          <span class="odsv-cluster odsv-cluster--2"><span class="odsv-marker" aria-hidden="true">1</span><span class="odsv-body-small">Komponente</span></span>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Auf einer Bühne</h3>
+        <p class="docs-note">Labels im Overlay sind <code>aria-hidden</code>; dieselbe Information steht als Liste daneben.</p>
+        <template class="docs-src">
+          <div class="odsv-stage" style="min-height:220px">
+            <p class="odsv-stage__hint">Wischen zum Drehen</p>
+            <svg viewBox="0 0 400 220" width="100%" height="220" role="img" aria-label="Schema: Komponente in einem Gehäuse" style="position:absolute;inset:0">
+              <rect x="110" y="95" width="180" height="70" rx="14" class="odsv-lineart"/>
+              <path d="M290 130h40" class="odsv-lineart odsv-lineart--dim" stroke-dasharray="6 5"/>
+              <circle cx="200" cy="130" r="9" class="odsv-lineart--marker"/>
+            </svg>
+            <span class="odsv-label3d odsv-label3d--strong" style="left:50%;top:120px;margin-top:-30px" aria-hidden="true">Komponente</span>
+            <span class="odsv-label3d" style="left:calc(50% + 130px);top:130px" aria-hidden="true">Gehäuse</span>
+            <div class="odsv-stage__controls"><button type="button" class="odsv-icon-btn" aria-label="Zurücksetzen"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-plus"/></svg></button></div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="signet" data-nav="Signet und Wortmarke" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Signet</h2>
+        <p class="odsv-sub">Eine Grammatik, siebzehn Motive.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Basis-Signet</h3>
+      <template class="docs-src">
+        <div class="odsv-signet-card" style="max-width:360px">
+          <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet aus vier Bögen und einem gelben Kreis"><use href="#odsv-signet"/></svg>
+          <p class="odsv-wordmark">Produktname<br>Untertitel</p>
+        </div>
+      </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Signet-Familie</h3>
+        <p class="odsv-body-small docs-note">Alle Varianten folgen derselben Grammatik: vier Striche à 26 Einheiten mit runden Enden, Farbfolge Pink → Orange → Hellorange → Gelb, genau ein gelber Punkt als Fokus, Motiv rechts, Wortmarken-Zone unten links frei. Je Produkt bzw. Präsentation <strong>ein</strong> Signet, groß höchstens einmal. Auswahl nach dem Kernthema; im Zweifel das Basis-Signet. Eigenständige SVG-Dateien: <code>web/signets/</code>, Folienbilder: <code>pptx/signets/</code>.</p>
+        <template class="docs-src">
+        <ul class="odsv-grid" role="list">
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Basis: vier Bögen und ein gelber Punkt"><use href="#odsv-signet"/></svg>
+            <p class="odsv-wordmark">Signal / Wirkung<br>Basis</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet KI: Vierstrahl-Funke mit gelbem Kern"><use href="#odsv-signet-ai"/></svg>
+            <p class="odsv-wordmark">KI<br>Technik</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Netzwerk: vier Verbindungen zu einem gelben Knoten"><use href="#odsv-signet-network"/></svg>
+            <p class="odsv-wordmark">Netzwerk<br>Technik</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Daten: vier steigende Säulen mit gelbem Punkt"><use href="#odsv-signet-data"/></svg>
+            <p class="odsv-wordmark">Daten<br>Technik</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Code: vier spitze Klammern mit gelbem Cursor"><use href="#odsv-signet-code"/></svg>
+            <p class="odsv-wordmark">Code<br>Technik</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Berge: Grat mit zwei Gipfeln und gelber Sonne"><use href="#odsv-signet-mountains"/></svg>
+            <p class="odsv-wordmark">Berge<br>Lifestyle</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Fahrrad: Räder und Rahmen mit gelbem Tretlager"><use href="#odsv-signet-bike"/></svg>
+            <p class="odsv-wordmark">Fahrrad<br>Lifestyle</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Outdoor: Zelt mit gekreuzten Stangen und gelber Sonne"><use href="#odsv-signet-outdoor"/></svg>
+            <p class="odsv-wordmark">Outdoor<br>Lifestyle</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Route: Serpentine bergauf zum gelben Ziel"><use href="#odsv-signet-route"/></svg>
+            <p class="odsv-wordmark">Route<br>Lifestyle</p>
+          </div></li>
+        </ul>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Situationen</h3>
+        <p class="odsv-body-small docs-note">Erzähl-Signets für Momente einer Geschichte – Retrospektive, Projektbericht, Lessons Learned. Sie zeigen <strong>keinen Status</strong> an (dafür Callout und Badge in Statusfarben) und dürfen mehrfach je Dokument vorkommen: höchstens eines je Ansicht oder Folie, nie zusammen mit einem Themen-Signet.</p>
+        <template class="docs-src">
+        <ul class="odsv-grid" role="list">
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Erfolg: Haken erreicht den gelben Punkt, Strahlen darüber"><use href="#odsv-signet-success"/></svg>
+            <p class="odsv-wordmark">Erfolg<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Fail: Kurve steigt und bricht zum gelben Punkt ein"><use href="#odsv-signet-fail"/></svg>
+            <p class="odsv-wordmark">Fail<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Konflikt: zwei Pfeile prallen am gelben Punkt aufeinander"><use href="#odsv-signet-conflict"/></svg>
+            <p class="odsv-wordmark">Konflikt<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Einigung: zwei Wege treffen sich am gelben Punkt und gehen gemeinsam weiter"><use href="#odsv-signet-agreement"/></svg>
+            <p class="odsv-wordmark">Einigung<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Idee: Glühbirne mit gelbem Glühfaden und Strahlen"><use href="#odsv-signet-idea"/></svg>
+            <p class="odsv-wordmark">Idee<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Frage: Fragezeichen mit gelbem Punkt"><use href="#odsv-signet-question"/></svg>
+            <p class="odsv-wordmark">Frage<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet In Arbeit: Ring aus vier Bogenstücken um einen gelben Punkt"><use href="#odsv-signet-progress"/></svg>
+            <p class="odsv-wordmark">In Arbeit<br>Situation</p>
+          </div></li>
+          <li class="odsv-col-12 odsv-col-sm-6 odsv-col-lg-4"><div class="odsv-signet-card">
+            <svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Neustart: Kreispfeil um einen gelben Punkt"><use href="#odsv-signet-restart"/></svg>
+            <p class="odsv-wordmark">Neustart<br>Situation</p>
+          </div></li>
+        </ul>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Querformat und kleine Größen</h3>
+        <p class="odsv-body-small docs-note"><code>.odsv-signet-card--landscape</code> (4:3) für Kopfbereiche und Teaser – die Grammatik hält die Motive im sichtbaren Bereich. Als Marke ohne Karte ab 48 px; darunter nur das Basis-Signet oder das Favicon.</p>
+        <template class="docs-src">
+        <div class="odsv-grid">
+          <div class="odsv-col-12 odsv-col-md-6"><div class="odsv-signet-card odsv-signet-card--landscape"><svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Netzwerk: vier Verbindungen zu einem gelben Knoten"><use href="#odsv-signet-network"/></svg><p class="odsv-wordmark">Plattform<br>Integration</p></div></div>
+          <div class="odsv-col-12 odsv-col-md-6"><div class="odsv-signet-card odsv-signet-card--landscape"><svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet Berge: Grat mit zwei Gipfeln und gelber Sonne"><use href="#odsv-signet-mountains"/></svg><p class="odsv-wordmark">Touren<br>Sommer 2027</p></div></div>
+          <div class="odsv-col-12"><div class="odsv-cluster odsv-cluster--6"><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Basis: vier Bögen und ein gelber Punkt"><use href="#odsv-signet"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet KI: Vierstrahl-Funke mit gelbem Kern"><use href="#odsv-signet-ai"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Netzwerk: vier Verbindungen zu einem gelben Knoten"><use href="#odsv-signet-network"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Daten: vier steigende Säulen mit gelbem Punkt"><use href="#odsv-signet-data"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Code: vier spitze Klammern mit gelbem Cursor"><use href="#odsv-signet-code"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Berge: Grat mit zwei Gipfeln und gelber Sonne"><use href="#odsv-signet-mountains"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Fahrrad: Räder und Rahmen mit gelbem Tretlager"><use href="#odsv-signet-bike"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Outdoor: Zelt mit gekreuzten Stangen und gelber Sonne"><use href="#odsv-signet-outdoor"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Route: Serpentine bergauf zum gelben Ziel"><use href="#odsv-signet-route"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Erfolg: Haken erreicht den gelben Punkt, Strahlen darüber"><use href="#odsv-signet-success"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Fail: Kurve steigt und bricht zum gelben Punkt ein"><use href="#odsv-signet-fail"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Konflikt: zwei Pfeile prallen am gelben Punkt aufeinander"><use href="#odsv-signet-conflict"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Einigung: zwei Wege treffen sich am gelben Punkt und gehen gemeinsam weiter"><use href="#odsv-signet-agreement"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Idee: Glühbirne mit gelbem Glühfaden und Strahlen"><use href="#odsv-signet-idea"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Frage: Fragezeichen mit gelbem Punkt"><use href="#odsv-signet-question"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet In Arbeit: Ring aus vier Bogenstücken um einen gelben Punkt"><use href="#odsv-signet-progress"/></svg><svg class="odsv-signet-mark" viewBox="0 0 400 400" role="img" aria-label="Signet Neustart: Kreispfeil um einen gelben Punkt"><use href="#odsv-signet-restart"/></svg></div></div>
+        </div>
+        </template>
+      </div>
+    </section>
+
+    <section class="docs-section" id="weitere" data-nav="Weitere Bausteine" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Bausteine</h2>
+        <p class="odsv-sub">Headline-Gruppe, Liste, Fakten, Toast, Fuß.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Headline-Gruppe (Dreiklang)</h3>
+        <template class="docs-src">
+          <header class="odsv-hgroup odsv-hgroup--center">
+            <span class="odsv-tile odsv-tile--accent" aria-hidden="true"><svg class="odsv-icon"><use href="#odsv-icon-shield"/></svg></span>
+            <p class="odsv-eyebrow">Zum Schluss</p>
+            <h2 class="odsv-h1">Zusammenfassung</h2>
+            <p class="odsv-sub">Alles Wichtige auf einen Blick.</p>
+          </header>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Liste und Fakten</h3>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-6"><ul class="odsv-list odsv-card"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>
+            <div class="odsv-col-12 odsv-col-md-6"><ol class="odsv-list odsv-list--numbered odsv-card"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>
+            <div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.0.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Toast</h3>
+        <template class="docs-src">
+          <div class="odsv-toast" role="status"><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-check"/></svg>Stand gespeichert</div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Fußbereich</h3>
+        <template class="docs-src">
+          <footer class="odsv-footer"><div class="odsv-footer__grid"><p>Stand 17.11.2026 · <a href="#weitere">Quellen</a> · <a href="#weitere">Impressum</a></p><span class="odsv-wordmark">Produktname</span></div></footer>
+        </template>
+      </div>
+    </section>
+
+    <!-- ================= ICONS, DATENVIS, REGELN ================= -->
+    <section class="docs-section" id="icons" data-nav="Icons" data-group="Bibliothek">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Sprite</p>
+        <h2 class="odsv-h1">Icons</h2>
+        <p class="odsv-sub">24-px-Raster, 2 px Strich, runde Enden. Klick kopiert das Snippet.</p>
+      </div>
+      <div class="docs-icons" id="docs-icons"></div>
+      <div class="docs-block"><h3 class="odsv-h3">Größen</h3>
+        <template class="docs-src" data-captions="18 px|22 px (Standard)|44 px (Kachel)">
+          <svg class="odsv-icon odsv-icon--sm" aria-hidden="true"><use href="#odsv-icon-bolt"/></svg>
+          <svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-bolt"/></svg>
+          <svg class="odsv-icon odsv-icon--lg" aria-hidden="true"><use href="#odsv-icon-bolt"/></svg>
+        </template>
+      </div>
+      <p class="docs-note">Icons stehen nie allein für eine Handlung ohne Namen: sichtbarer Text oder <code>aria-label</code>.</p>
+    </section>
+
+    <section class="docs-section" id="datenvis" data-nav="Datenvis-Paletten" data-group="Bibliothek">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Diagramme</p>
+        <h2 class="odsv-h1">Paletten</h2>
+        <p class="odsv-sub">Kategorial, sequenziell, divergierend, Zustand.</p>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Kategorial</h3><div class="docs-pal" id="docs-pal-cat"></div>
+        <p class="docs-note">Feste Reihenfolge, nie umsortieren. Gelb (1) ist die betonte Reihe; wer gleich gewichtete Reihen braucht, beginnt bei Blau. Ab der 8. Reihe: „Sonstige“ in Grau. Streudiagramm: dunkel höchstens 5, hell höchstens 3 Farben.</p></div>
+      <div class="docs-block"><h3 class="odsv-h3">Sequenziell</h3><div class="docs-pal" id="docs-pal-seq"></div><p class="docs-note">Menge: im dunklen Theme dunkel = wenig, hell = viel; im hellen Theme umgekehrt.</p></div>
+      <div class="docs-block"><h3 class="odsv-h3">Divergierend</h3><div class="docs-pal" id="docs-pal-div"></div><p class="docs-note">Richtung über und unter einer Basis; die Mitte ist neutrales Grau.</p></div>
+      <div class="docs-block"><h3 class="odsv-h3">Betonung und Zustand</h3><div class="docs-pal" id="docs-pal-sem"></div><p class="docs-note">Pink, Orange und Grün der kategorialen Palette sind keine Statusfarben. Bedeutet eine Reihe gut oder schlecht, trägt sie Statusfarben mit Icon und Wort.</p></div>
+    </section>
+
+    <section class="docs-section" id="regeln" data-nav="Regeln" data-group="Bibliothek">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Kurzfassung</p>
+        <h2 class="odsv-h1">Regeln</h2>
+        <p class="odsv-sub">Sieben Prinzipien, in Do und Don't.</p>
+      </div>
+      <div class="docs-rules">
+        <div class="docs-rule docs-rule--do"><p class="odsv-label">Do</p><ul>
+          <li>Karten in <code class="odsv-code-inline">surface-1</code> mit 1-px-Rand; Tiefe durch Flächenstufen.</li>
+          <li>Ein gelber Button je Ansicht, eine gelbe Zahl je Kachelgruppe.</li>
+          <li>Eyebrow → Versalien-Headline → grauer Zweitsatz.</li>
+          <li>Weiße Line-Art, 2–3 px, runde Enden.</li>
+          <li>Segmentierte Leiste und Zähler zeigen Fortschritt.</li>
+          <li>Bewegung 200–400 ms, eine zur Zeit.</li>
+          <li>Warnungen in voller Länge vor dem Schritt.</li>
+        </ul></div>
+        <div class="docs-rule docs-rule--dont"><p class="odsv-label">Don't</p><ul>
+          <li>Schlagschatten unter Karten, farbige Sektionshintergründe.</li>
+          <li>Gelb als Dekor, für „Warnung“ oder als gelber Fließtext.</li>
+          <li>Headline als ganzer Satz in Versalien.</li>
+          <li>Stockfotos, 3D-Glanz, Emoji, mehrfarbige Icons.</li>
+          <li>Prozentringe, Konfetti, Fortschritt nur über Farbe.</li>
+          <li>Federn, Schleifen, Parallax, Scroll-Hijacking.</li>
+          <li>Hinweise in Fußnoten verstecken, Superlative.</li>
+        </ul></div>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Technik</h3>
+        <ul class="odsv-list">
+          <li>Nur Tokens: <code class="odsv-code-inline">var(--odsv-…)</code>, keine Hex-Werte in <code class="odsv-code-inline">odsv.css</code>.</li>
+          <li>Theme: <code class="odsv-code-inline">data-theme="light"</code> an <code class="odsv-code-inline">html</code> oder an einem Teilbereich; Druck schaltet automatisch auf Hell.</li>
+          <li>Dichte je Seite: <code class="odsv-code-inline">data-density="comfortable | compact | dense"</code> am <code class="odsv-code-inline">body</code>.</li>
+          <li>Reduzierte Bewegung: Dauern und Wege werden in den Tokens auf null gesetzt.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="odsv-footer"><div class="odsv-footer__grid"><p>ODSV v1.0.0 · Stand 17.11.2026 · Werte: <code class="odsv-code-inline">tokens/tokens.json</code></p><span class="odsv-wordmark">ODSV</span></div></footer>
+  </main>
+</div>
+
+<script src="odsv-charts.js"></script>
+<script src="docs.js"></script>
+</body>
+</html>

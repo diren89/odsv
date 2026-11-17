@@ -1,0 +1,1588 @@
+{
+  "$description": "ODSV v1.0.0 – Abbildung der Design-Tokens auf PowerPoint (OOXML). Maße in Zoll (in) und EMU (1 in = 914400 EMU, 1 pt = 12700 EMU). Farben ohne #. Abgeleitet aus tokens.json; bei Abweichung gilt tokens.json.",
+  "version": "1.0.0",
+  "units": {
+    "emuPerInch": 914400,
+    "emuPerPoint": 12700,
+    "pxPerInchAtReference": 96,
+    "note": "Referenz: Folie 13,333 in ≙ 1280 px. Web-px ÷ 96 = Zoll auf der Folie."
+  },
+  "slide": {
+    "format": "16:9",
+    "widthIn": 13.333,
+    "heightIn": 7.5,
+    "widthEmu": 12192000,
+    "heightEmu": 6858000
+  },
+  "grid": {
+    "columns": 12,
+    "marginXIn": 0.6667,
+    "marginXEmu": 609600,
+    "marginTopIn": 0.3,
+    "marginBottomIn": 0.3,
+    "contentWidthIn": 12.0,
+    "contentWidthEmu": 10972800,
+    "gutterIn": 0.2,
+    "gutterEmu": 182880,
+    "columnWidthIn": 0.8167,
+    "columnWidthEmu": 746760,
+    "columnX": {
+      "1": {
+        "in": 0.667,
+        "emu": 609600
+      },
+      "2": {
+        "in": 1.683,
+        "emu": 1539240
+      },
+      "3": {
+        "in": 2.7,
+        "emu": 2468880
+      },
+      "4": {
+        "in": 3.717,
+        "emu": 3398520
+      },
+      "5": {
+        "in": 4.733,
+        "emu": 4328160
+      },
+      "6": {
+        "in": 5.75,
+        "emu": 5257800
+      },
+      "7": {
+        "in": 6.767,
+        "emu": 6187440
+      },
+      "8": {
+        "in": 7.783,
+        "emu": 7117080
+      },
+      "9": {
+        "in": 8.8,
+        "emu": 8046720
+      },
+      "10": {
+        "in": 9.817,
+        "emu": 8976360
+      },
+      "11": {
+        "in": 10.833,
+        "emu": 9906000
+      },
+      "12": {
+        "in": 11.85,
+        "emu": 10835640
+      }
+    },
+    "spanWidth": {
+      "1": {
+        "in": 0.817,
+        "emu": 746760
+      },
+      "2": {
+        "in": 1.833,
+        "emu": 1676400
+      },
+      "3": {
+        "in": 2.85,
+        "emu": 2606040
+      },
+      "4": {
+        "in": 3.867,
+        "emu": 3535680
+      },
+      "5": {
+        "in": 4.883,
+        "emu": 4465320
+      },
+      "6": {
+        "in": 5.9,
+        "emu": 5394960
+      },
+      "7": {
+        "in": 6.917,
+        "emu": 6324600
+      },
+      "8": {
+        "in": 7.933,
+        "emu": 7254240
+      },
+      "9": {
+        "in": 8.95,
+        "emu": 8183880
+      },
+      "10": {
+        "in": 9.967,
+        "emu": 9113520
+      },
+      "11": {
+        "in": 10.983,
+        "emu": 10043160
+      },
+      "12": {
+        "in": 12.0,
+        "emu": 10972800
+      }
+    },
+    "baselineIn": 0.05,
+    "note": "Alle Positionen auf 0,05 in runden (≈ 4er-Raster der Website bei 96 px/in)."
+  },
+  "zones": {
+    "progress": {
+      "x": 0.667,
+      "y": 0.3,
+      "w": 12.0,
+      "h": 0.04,
+      "segmentGapIn": 0.08,
+      "note": "ein Segment je Kapitel; erledigt/aktiv progress.fill, offen progress.track"
+    },
+    "eyebrow": {
+      "x": 0.667,
+      "y": 0.62,
+      "w": 12.0,
+      "h": 0.3
+    },
+    "headline": {
+      "x": 0.667,
+      "y": 0.95,
+      "w": 12.0,
+      "h": 0.7
+    },
+    "sub": {
+      "x": 0.667,
+      "y": 1.65,
+      "w": 8.95,
+      "h": 0.45
+    },
+    "body": {
+      "x": 0.667,
+      "y": 2.35,
+      "w": 12.0,
+      "h": 4.3
+    },
+    "footer": {
+      "x": 0.667,
+      "y": 6.95,
+      "w": 12.0,
+      "h": 0.25
+    }
+  },
+  "footer": {
+    "wordmark": {
+      "x": 0.667,
+      "y": 6.95,
+      "w": 6.0,
+      "h": 0.25,
+      "style": "footer"
+    },
+    "source": {
+      "x": 4.733,
+      "y": 6.95,
+      "w": 5.9,
+      "h": 0.25,
+      "style": "footer",
+      "align": "right",
+      "optional": true
+    },
+    "page": {
+      "x": 11.85,
+      "y": 6.95,
+      "w": 0.817,
+      "h": 0.25,
+      "style": "footer",
+      "align": "right"
+    }
+  },
+  "fonts": {
+    "major": {
+      "latin": "Arial",
+      "role": "Display/Headlines",
+      "preferredIfInstalled": "Helvetica Neue",
+      "fallbackChain": [
+        "Helvetica Neue",
+        "Arial",
+        "Helvetica",
+        "sans-serif"
+      ]
+    },
+    "minor": {
+      "latin": "Arial",
+      "role": "Text",
+      "preferredIfInstalled": "Helvetica Neue",
+      "fallbackChain": [
+        "Helvetica Neue",
+        "Arial",
+        "Helvetica",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "latin": "Consolas",
+      "fallback": "Courier New",
+      "role": "Code, IDs"
+    },
+    "rationale": [
+      "Ein PowerPoint-Theme kennt je Rolle genau EINE Schrift, keine Fallback-Kette wie CSS. Fehlt sie, ersetzt PowerPoint sie stillschweigend – gesperrte Versalien brechen dann anders um.",
+      "Die Web-Schriften des Systems (SF Pro, Inter) sind auf Windows nicht vorhanden; SF Pro darf laut Apple-Lizenz nicht weitergegeben oder eingebettet werden. Helvetica Neue gibt es nur auf macOS.",
+      "Arial ist die einzige neutrale Grotesk, die auf Windows und macOS ohne Installation vorhanden ist; deshalb steht Arial im Theme. Helvetica Neue ist nur für Decks zulässig, die ausschließlich auf dem Mac gezeigt oder als PDF verteilt werden.",
+      "Arial hat kein Halbfett (600): Headlines stehen in Fett (b=\"1\"). Die weite Sperrung nimmt die Schwere zurück.",
+      "Mono: Consolas ist auf Windows vorhanden, auf dem Mac in der Regel nur mit installiertem Office – vor Weitergabe prüfen, sonst Courier New."
+    ]
+  },
+  "tracking": {
+    "note": "OOXML-Attribut spc an <a:rPr> in 1/100 pt, ABSOLUT (nicht relativ zur Größe): spc = Größe in pt × Laufweite in em × 100. Nach der letzten Versalie eines zentrierten Textes entsteht optisch Überhang – zentrierte Versalien-Zeilen vermeiden oder linksbündig setzen.",
+    "em": {
+      "display": 0.2,
+      "headline": 0.15,
+      "eyebrow": 0.2,
+      "label": 0.15,
+      "chip": 0.12,
+      "wordmark": 0.14
+    },
+    "spcTable": {
+      "10": {
+        "0.12em": 120,
+        "0.15em": 150,
+        "0.2em": 200
+      },
+      "11": {
+        "0.12em": 132,
+        "0.15em": 165,
+        "0.2em": 220
+      },
+      "12": {
+        "0.12em": 144,
+        "0.15em": 180,
+        "0.2em": 240
+      },
+      "14": {
+        "0.12em": 168,
+        "0.15em": 210,
+        "0.2em": 280
+      },
+      "16": {
+        "0.12em": 192,
+        "0.15em": 240,
+        "0.2em": 320
+      },
+      "18": {
+        "0.12em": 216,
+        "0.15em": 270,
+        "0.2em": 360
+      },
+      "20": {
+        "0.12em": 240,
+        "0.15em": 300,
+        "0.2em": 400
+      },
+      "24": {
+        "0.12em": 288,
+        "0.15em": 360,
+        "0.2em": 480
+      },
+      "28": {
+        "0.12em": 336,
+        "0.15em": 420,
+        "0.2em": 560
+      },
+      "32": {
+        "0.12em": 384,
+        "0.15em": 480,
+        "0.2em": 640
+      },
+      "36": {
+        "0.12em": 432,
+        "0.15em": 540,
+        "0.2em": 720
+      },
+      "40": {
+        "0.12em": 480,
+        "0.15em": 600,
+        "0.2em": 800
+      },
+      "44": {
+        "0.12em": 528,
+        "0.15em": 660,
+        "0.2em": 880
+      },
+      "54": {
+        "0.12em": 648,
+        "0.15em": 810,
+        "0.2em": 1080
+      }
+    }
+  },
+  "textStyles": {
+    "display": {
+      "font": "major",
+      "sizePt": 44,
+      "bold": true,
+      "caps": true,
+      "trackingEm": 0.2,
+      "spc": 880,
+      "lineSpacing": 1.15,
+      "color": "text.primary"
+    },
+    "chapter": {
+      "font": "major",
+      "sizePt": 54,
+      "bold": true,
+      "caps": true,
+      "trackingEm": 0.2,
+      "spc": 1080,
+      "lineSpacing": 1.15,
+      "color": "text.primary"
+    },
+    "headline": {
+      "font": "major",
+      "sizePt": 28,
+      "bold": true,
+      "caps": true,
+      "trackingEm": 0.15,
+      "spc": 420,
+      "lineSpacing": 1.2,
+      "color": "text.primary"
+    },
+    "eyebrow": {
+      "font": "minor",
+      "sizePt": 12,
+      "bold": false,
+      "caps": true,
+      "trackingEm": 0.2,
+      "spc": 240,
+      "lineSpacing": 1.2,
+      "color": "text.secondary"
+    },
+    "sub": {
+      "font": "minor",
+      "sizePt": 18,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.3,
+      "color": "text.muted"
+    },
+    "sub-large": {
+      "font": "minor",
+      "sizePt": 24,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.3,
+      "color": "text.muted"
+    },
+    "body": {
+      "font": "minor",
+      "sizePt": 18,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.4,
+      "color": "text.body",
+      "spaceAfterPt": 8
+    },
+    "body-small": {
+      "font": "minor",
+      "sizePt": 16,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.35,
+      "color": "text.body"
+    },
+    "body-small-muted": {
+      "font": "minor",
+      "sizePt": 16,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.35,
+      "color": "text.muted"
+    },
+    "card-title": {
+      "font": "major",
+      "sizePt": 20,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.primary"
+    },
+    "label": {
+      "font": "minor",
+      "sizePt": 11,
+      "bold": false,
+      "caps": true,
+      "trackingEm": 0.15,
+      "spc": 165,
+      "lineSpacing": 1.2,
+      "color": "text.secondary"
+    },
+    "kpi-hero": {
+      "font": "major",
+      "sizePt": 120,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.0,
+      "color": "accent.text"
+    },
+    "kpi": {
+      "font": "major",
+      "sizePt": 54,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.0,
+      "color": "text.primary"
+    },
+    "kpi-tile": {
+      "font": "major",
+      "sizePt": 28,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.1,
+      "color": "text.primary"
+    },
+    "number-large": {
+      "font": "major",
+      "sizePt": 72,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.0,
+      "color": "text.primary"
+    },
+    "number": {
+      "font": "major",
+      "sizePt": 40,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.0,
+      "color": "text.primary"
+    },
+    "quote": {
+      "font": "minor",
+      "sizePt": 32,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.3,
+      "color": "text.primary"
+    },
+    "prompt": {
+      "font": "major",
+      "sizePt": 28,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.primary"
+    },
+    "agenda": {
+      "font": "minor",
+      "sizePt": 24,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.primary"
+    },
+    "table": {
+      "font": "minor",
+      "sizePt": 14,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.body"
+    },
+    "table-head": {
+      "font": "minor",
+      "sizePt": 11,
+      "bold": false,
+      "caps": true,
+      "trackingEm": 0.15,
+      "spc": 165,
+      "lineSpacing": 1.2,
+      "color": "text.secondary"
+    },
+    "chart-axis": {
+      "font": "minor",
+      "sizePt": 12,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.faint"
+    },
+    "chart-label": {
+      "font": "minor",
+      "sizePt": 12,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.secondary"
+    },
+    "chip": {
+      "font": "minor",
+      "sizePt": 10,
+      "bold": true,
+      "caps": true,
+      "trackingEm": 0.12,
+      "spc": 120,
+      "lineSpacing": 1.2,
+      "color": "text.primary"
+    },
+    "button": {
+      "font": "minor",
+      "sizePt": 18,
+      "bold": true,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "accent.on"
+    },
+    "caption": {
+      "font": "minor",
+      "sizePt": 12,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.faint"
+    },
+    "footer": {
+      "font": "minor",
+      "sizePt": 10,
+      "bold": false,
+      "caps": true,
+      "trackingEm": 0.14,
+      "spc": 140,
+      "lineSpacing": 1.2,
+      "color": "text.faint"
+    },
+    "code": {
+      "font": "mono",
+      "sizePt": 14,
+      "bold": false,
+      "caps": false,
+      "trackingEm": 0,
+      "spc": 0,
+      "lineSpacing": 1.2,
+      "color": "text.body"
+    }
+  },
+  "capacity": {
+    "note": "Faustwert Arial Bold, Versalien: Zeichenbreite ≈ 0,70 em + Laufweite.",
+    "charsPerLine": {
+      "chapter 54 pt / 12 Spalten": 17,
+      "display 44 pt / 7 Spalten": 12,
+      "headline 28 pt / 12 Spalten": 34
+    },
+    "minimumPt": {
+      "body": 16,
+      "caption": 12,
+      "footer": 10
+    }
+  },
+  "shapes": {
+    "radiusIn": {
+      "card": 0.28,
+      "card-sm": 0.2,
+      "tile": 0.23,
+      "button": 0.15,
+      "inset": 0.16,
+      "pill": "h/2"
+    },
+    "roundRectAdj": "adj = Radius ÷ min(Breite, Höhe) × 100000 (höchstens 50000)",
+    "linePt": {
+      "hairline": 0.75,
+      "control": 1.25,
+      "emphasis": 1.5,
+      "lineart": 2.25,
+      "dataLine": 2.25,
+      "segment": 3.0
+    },
+    "cardPaddingIn": 0.3,
+    "cardGapIn": 0.2,
+    "shadow": "keiner",
+    "iconTileIn": {
+      "default": 1.0,
+      "small": 0.75
+    }
+  },
+  "themes": {
+    "dark": {
+      "name": "ODSV Dark",
+      "colorScheme": {
+        "dk1": "000000",
+        "lt1": "FFFFFF",
+        "dk2": "1C1C1E",
+        "lt2": "A1A1A6",
+        "accent1": "FFE94D",
+        "accent2": "4797FF",
+        "accent3": "EC3A78",
+        "accent4": "2FCFC2",
+        "accent5": "F5893A",
+        "accent6": "B9A1FF",
+        "hlink": "FFE94D",
+        "folHlink": "CCCCCC"
+      },
+      "clrMap": {
+        "bg1": "dk1",
+        "tx1": "lt1",
+        "bg2": "dk2",
+        "tx2": "lt2"
+      },
+      "roles": {
+        "background": "000000",
+        "card": "1C1C1E",
+        "card-2": "232325",
+        "border": "2C2C2E",
+        "border-strong": "48484A",
+        "text.primary": "FFFFFF",
+        "text.body": "E6E6E6",
+        "text.secondary": "CCCCCC",
+        "text.muted": "A1A1A6",
+        "text.faint": "8E8E93",
+        "accent.fill": "FFE94D",
+        "accent.fill-end": "F5D400",
+        "accent.text": "FFE94D",
+        "accent.line": "FFE94D",
+        "accent.on": "000000",
+        "success": "30D158",
+        "warning": "FF9F0A",
+        "danger": "FF453A",
+        "info": "64D2FF",
+        "progress.fill": "FFFFFF",
+        "chart.grid": "2C2C2E",
+        "chart.axis": "48484A",
+        "chart.neutral": "8E8E93",
+        "chart.context": "636366",
+        "progress.track": "616161",
+        "signet": [
+          "EC3A78",
+          "EE6A2C",
+          "F09A35",
+          "F3C340"
+        ]
+      },
+      "chart": {
+        "seriesOrder": [
+          "FFE94D",
+          "4797FF",
+          "EC3A78",
+          "2FCFC2",
+          "F5893A",
+          "B9A1FF",
+          "8FD46A"
+        ],
+        "sequential": [
+          "5C5216",
+          "7C6F1E",
+          "9D8D27",
+          "BEAB31",
+          "DFCA3D",
+          "FFE94D"
+        ],
+        "diverging": [
+          "9CC6FF",
+          "4797FF",
+          "2F65AD",
+          "535356",
+          "A35A2A",
+          "F5893A",
+          "FFC59A"
+        ]
+      }
+    },
+    "light": {
+      "name": "ODSV Light",
+      "colorScheme": {
+        "dk1": "000000",
+        "lt1": "FFFFFF",
+        "dk2": "58585C",
+        "lt2": "F5F5F7",
+        "accent1": "A67C00",
+        "accent2": "1F6FE0",
+        "accent3": "C2185B",
+        "accent4": "0C968B",
+        "accent5": "D9641A",
+        "accent6": "7A5AE0",
+        "hlink": "6B5800",
+        "folHlink": "58585C"
+      },
+      "clrMap": {
+        "bg1": "lt1",
+        "tx1": "dk1",
+        "bg2": "lt2",
+        "tx2": "dk2"
+      },
+      "roles": {
+        "background": "FFFFFF",
+        "card": "F5F5F7",
+        "card-2": "EBEBF0",
+        "border": "D2D2D7",
+        "border-strong": "A1A1A6",
+        "text.primary": "000000",
+        "text.body": "1D1D1F",
+        "text.secondary": "3A3A3C",
+        "text.muted": "58585C",
+        "text.faint": "68686D",
+        "accent.fill": "FFE94D",
+        "accent.fill-end": "F5D400",
+        "accent.text": "6B5800",
+        "accent.line": "8A7200",
+        "accent.on": "000000",
+        "success": "146C2E",
+        "warning": "804900",
+        "danger": "C8102E",
+        "info": "1F5FC4",
+        "progress.fill": "000000",
+        "chart.grid": "E5E5EA",
+        "chart.axis": "A1A1A6",
+        "chart.neutral": "86868B",
+        "chart.context": "A1A1A6",
+        "progress.track": "878787",
+        "signet": [
+          "EC3A78",
+          "EE6A2C",
+          "F09A35",
+          "F3C340"
+        ]
+      },
+      "chart": {
+        "seriesOrder": [
+          "A67C00",
+          "1F6FE0",
+          "C2185B",
+          "0C968B",
+          "D9641A",
+          "7A5AE0",
+          "3F8F1F"
+        ],
+        "sequential": [
+          "C9AC25",
+          "A88C00",
+          "8A7200",
+          "6B5800",
+          "4D3F00",
+          "2E2600"
+        ],
+        "diverging": [
+          "0F3F8C",
+          "1F5FC4",
+          "4F8FEA",
+          "ABABB0",
+          "D9641A",
+          "A84300",
+          "6E2B00"
+        ]
+      }
+    }
+  },
+  "chartRules": {
+    "order": "accent1–accent6 = kategoriale Slots 1–6; Slot 7 von Hand; ab Reihe 8 „Sonstige“ in chart.neutral. Reihenfolge nie umsortieren.",
+    "singleSeries": "eine Reihe: accent1 (Gelb); Vergleichsreihe chart.neutral.",
+    "focus": "Fokus-Muster: betonte Reihe accent1, alle übrigen chart.context.",
+    "gridlines": "nur waagrecht, 0,75 pt, chart.grid; keine Rahmenlinie um die Zeichnungsfläche.",
+    "axis": "Achsentext 12 pt text.faint; Achsenlinie 0,75 pt chart.axis; keine Teilstriche.",
+    "bars": "Abstandsbreite 60 %; Reihenüberlappung 0 %; keine 3D-Effekte, keine Verläufe.",
+    "lines": "2,25 pt, runde Enden; Marker nur am letzten Punkt.",
+    "labels": "Datenbeschriftung 12 pt in text.secondary – nie in der Reihenfarbe.",
+    "legend": "oben links, 12 pt, ohne Rahmen; entfällt bei einer Reihe."
+  },
+  "layouts": [
+    {
+      "name": "title",
+      "title": "Titel",
+      "use": "Erste Folie. Signet-Moment.",
+      "progress": false,
+      "footer": false,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 2.25,
+          "w": 6.917,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "title": {
+          "x": 0.667,
+          "y": 2.65,
+          "w": 6.917,
+          "h": 1.75,
+          "style": "display",
+          "maxChars": 12,
+          "lines": 2,
+          "anchor": "top"
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 4.55,
+          "w": 5.9,
+          "h": 0.9,
+          "style": "sub-large"
+        },
+        "meta": {
+          "x": 0.667,
+          "y": 6.35,
+          "w": 5.9,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "signet": {
+          "x": 7.783,
+          "y": 0.667,
+          "w": 4.883,
+          "h": 6.167,
+          "style": "card",
+          "fill": "bg.subtle",
+          "radius": 0.28,
+          "content": "Signet im Verlauf gradient.signet; Wortmarke unten links (0,3 in Innenabstand)"
+        }
+      },
+      "rules": [
+        "Einziger Ort für den Signet-Verlauf.",
+        "Titel höchstens 2 Zeilen à 12 Zeichen; längere Titel: 36 pt / spc 720.",
+        "Kein Seitenfuß, keine Fortschrittsleiste."
+      ]
+    },
+    {
+      "name": "chapter",
+      "title": "Kapiteltrenner",
+      "use": "Beginn eines Kapitels.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "number": {
+          "x": 9.817,
+          "y": 0.62,
+          "w": 2.85,
+          "h": 1.2,
+          "style": "number-large",
+          "align": "right"
+        },
+        "eyebrow": {
+          "x": 0.667,
+          "y": 2.55,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 2.9,
+          "w": 12.0,
+          "h": 1.9,
+          "style": "chapter",
+          "maxChars": 17,
+          "lines": 2,
+          "anchor": "top"
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 4.95,
+          "w": 7.933,
+          "h": 0.6,
+          "style": "sub-large"
+        }
+      },
+      "rules": [
+        "Kapitelnummer oben rechts wie bei der Schritt-Karte.",
+        "Fortschrittsleiste zeigt das aktive Kapitel.",
+        "Sonst leer – keine Bilder, keine Listen."
+      ]
+    },
+    {
+      "name": "agenda",
+      "title": "Agenda",
+      "use": "Überblick, höchstens 6 Punkte.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "list": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 7.933,
+          "h": 4.2,
+          "style": "agenda",
+          "rows": 6,
+          "rowHeight": 0.7,
+          "content": "je Zeile: Nummer 24 pt (0,8 in breit, text.muted; aktiv accent.text) + Titel 24 pt; Haarlinie darunter"
+        },
+        "aside": {
+          "x": 8.8,
+          "y": 2.35,
+          "w": 3.867,
+          "h": 4.2,
+          "style": "card",
+          "optional": true,
+          "content": "Icon-Kachel oder Zeitangaben"
+        }
+      },
+      "rules": [
+        "Mehr als 6 Punkte: Kapitel zusammenfassen.",
+        "Als Zwischenstand wiederverwendbar: aktive Zeile weiß, übrige text.muted."
+      ]
+    },
+    {
+      "name": "content-1",
+      "title": "Inhalt, eine Spalte",
+      "use": "Eine Aussage mit Begründung.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "body": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 7.933,
+          "h": 4.3,
+          "style": "body",
+          "content": "höchstens 5 Punkte oder 80 Wörter"
+        },
+        "aside": {
+          "x": 8.8,
+          "y": 2.35,
+          "w": 3.867,
+          "h": 4.3,
+          "style": "card",
+          "optional": true,
+          "content": "Icon-Kachel, Hinweis-Karte oder leer"
+        }
+      },
+      "rules": [
+        "Textspalte nie breiter als 8 Spalten (Lesebreite).",
+        "Listenpunkte: gelber Punkt 0,08 in, Text 18 pt."
+      ]
+    },
+    {
+      "name": "content-2",
+      "title": "Inhalt, zwei Spalten",
+      "use": "Zwei gleichrangige Gedanken.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "left": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 5.9,
+          "h": 4.3,
+          "style": "card",
+          "padding": 0.3,
+          "content": "Label 11 pt · Karten-Headline 20 pt fett · Text 16 pt"
+        },
+        "right": {
+          "x": 6.767,
+          "y": 2.35,
+          "w": 5.9,
+          "h": 4.3,
+          "style": "card",
+          "padding": 0.3
+        }
+      },
+      "rules": [
+        "Beide Karten gleich hoch.",
+        "Variante 7 + 5 Spalten für Text + Bild/Illustration."
+      ]
+    },
+    {
+      "name": "kpi",
+      "title": "KPI / Zahl groß",
+      "use": "Eine Zahl trägt die Folie.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "label": {
+          "x": 0.667,
+          "y": 1.95,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "label"
+        },
+        "value": {
+          "x": 0.667,
+          "y": 2.3,
+          "w": 12.0,
+          "h": 2.1,
+          "style": "kpi-hero",
+          "content": "Zahl in accent.text, Einheit/Vorsatz in text.primary"
+        },
+        "sentence": {
+          "x": 0.667,
+          "y": 4.5,
+          "w": 7.933,
+          "h": 0.7,
+          "style": "sub-large"
+        },
+        "tiles": {
+          "x": 0.667,
+          "y": 5.4,
+          "w": 12.0,
+          "h": 1.25,
+          "style": "kpi-tiles",
+          "optional": true,
+          "count": 3,
+          "content": "3 Kacheln à 4 Spalten: Label 11 pt, Wert 28 pt"
+        }
+      },
+      "rules": [
+        "Keine Versalien-Headline – die Zahl ist die Headline.",
+        "Zahl höchstens 9 Zeichen einschließlich Einheit bei 120 pt; sonst 96 pt.",
+        "Quelle im Seitenfuß."
+      ]
+    },
+    {
+      "name": "chart",
+      "title": "Diagramm",
+      "use": "Ein Diagramm, eine Kernaussage.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "chart": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 7.933,
+          "h": 4.3,
+          "style": "chart-frame",
+          "padding": 0.3,
+          "content": "Diagramm-Rahmen: Karte, Plot innen 7,33 × 3,70 in"
+        },
+        "insight": {
+          "x": 8.8,
+          "y": 2.35,
+          "w": 3.867,
+          "h": 4.3,
+          "style": "insight",
+          "content": "Label „KERNAUSSAGE“ 11 pt · Aussage 20 pt fett · Erläuterung 16 pt muted"
+        }
+      },
+      "rules": [
+        "Headline nennt die Aussage, nicht das Thema.",
+        "Variante Vollbreite: Diagramm 12 Spalten, Aussage als Zweitsatz.",
+        "Höchstens 4 Reihen direkt beschriftet; Legende oben links im Rahmen."
+      ]
+    },
+    {
+      "name": "image",
+      "title": "Bild / Vollbild",
+      "use": "Foto, Rendering oder 3D-Standbild.",
+      "progress": false,
+      "footer": true,
+      "placeholders": {
+        "image": {
+          "x": 0,
+          "y": 0,
+          "w": 13.333,
+          "h": 7.5,
+          "style": "image",
+          "content": "randabfallend; darüber Verlauf gradient.fade-down gespiegelt (unten 45 % Höhe, Schwarz 0 → 85 %)"
+        },
+        "eyebrow": {
+          "x": 0.667,
+          "y": 5.3,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 5.63,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 6.3,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        }
+      },
+      "rules": [
+        "Text steht nur auf dem abgedunkelten Bereich (Kontrast ≥ 4,5:1 prüfen).",
+        "Variante „Bild in Karte“: Karte cx(6)…12, Text links 5 Spalten.",
+        "Nur Seitenzahl im Fuß."
+      ]
+    },
+    {
+      "name": "quote",
+      "title": "Zitat",
+      "use": "Eine Stimme, wörtlich.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "mark": {
+          "x": 0.667,
+          "y": 2.2,
+          "w": 0.8,
+          "h": 0.8,
+          "style": "lineart",
+          "content": "Anführungszeichen als Line-Art in accent.line"
+        },
+        "quote": {
+          "x": 1.683,
+          "y": 2.1,
+          "w": 9.967,
+          "h": 2.9,
+          "style": "quote",
+          "maxWords": 30
+        },
+        "name": {
+          "x": 1.683,
+          "y": 5.2,
+          "w": 9.967,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "role": {
+          "x": 1.683,
+          "y": 5.52,
+          "w": 9.967,
+          "h": 0.35,
+          "style": "body-small-muted"
+        }
+      },
+      "rules": [
+        "Normale Schreibweise, keine Versalien.",
+        "Kein Porträt nötig; wenn doch: Kreis 1,0 in links neben dem Namen."
+      ]
+    },
+    {
+      "name": "process",
+      "title": "Prozess / Schritte",
+      "use": "3 bis 5 Schritte in Reihenfolge.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "segments": {
+          "x": 0.667,
+          "y": 2.2,
+          "w": 12.0,
+          "h": 0.04,
+          "style": "segments",
+          "content": "ein Segment je Schritt, Lücke 0,08 in"
+        },
+        "cards": {
+          "x": 0.667,
+          "y": 2.4,
+          "w": 12.0,
+          "h": 4.25,
+          "style": "step-cards",
+          "count": 4,
+          "cardWidth": 2.85,
+          "gap": 0.2,
+          "padding": 0.28,
+          "content": "je Karte: Nummer 40 pt oben rechts · Line-Art 1,4 in hoch · Titel 20 pt fett · Satz 14 pt muted"
+        }
+      },
+      "rules": [
+        "3 Schritte: je 4 Spalten (3,867 in); 4: je 3 Spalten (2,850 in); 5: je 2,240 in bei 0,2 in Lücke.",
+        "Aktiver Schritt: Rand border.active, übrige Karten 45 % Deckkraft (nur beim schrittweisen Zeigen)."
+      ]
+    },
+    {
+      "name": "compare",
+      "title": "Vergleich",
+      "use": "Zwei Optionen, richtig/falsch, vorher/nachher.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "a": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 5.9,
+          "h": 4.3,
+          "style": "card",
+          "padding": 0.3,
+          "content": "Kopf: Icon + Label · Titel 20 pt fett · bis zu 5 Zeilen 16 pt"
+        },
+        "b": {
+          "x": 6.767,
+          "y": 2.35,
+          "w": 5.9,
+          "h": 4.3,
+          "style": "card",
+          "padding": 0.3
+        }
+      },
+      "rules": [
+        "Richtig/Falsch: Icon (Haken/Kreuz) + Wort, nie nur Grün/Rot.",
+        "Empfohlene Option: Rand 1,5 pt accent.line.",
+        "Zeilen beider Karten stehen auf gleicher Höhe."
+      ]
+    },
+    {
+      "name": "table",
+      "title": "Tabelle",
+      "use": "Wenige, vergleichbare Werte.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "style": "eyebrow"
+        },
+        "headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "style": "headline",
+          "maxChars": 34,
+          "lines": 1
+        },
+        "sub": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "style": "sub"
+        },
+        "table": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 12.0,
+          "h": 4.3,
+          "style": "table",
+          "headerHeight": 0.42,
+          "rowHeight": 0.48,
+          "maxRows": 8,
+          "maxCols": 6
+        }
+      },
+      "rules": [
+        "Nur waagrechte Haarlinien (0,75 pt, border.subtle); keine Zebrastreifen.",
+        "Kopf: 11 pt Versalien, text.secondary. Erste Spalte fett weiß, Zahlen rechtsbündig.",
+        "Mehr als 8 Zeilen: aufteilen oder in den Anhang."
+      ]
+    },
+    {
+      "name": "closing",
+      "title": "Abschluss",
+      "use": "Nächster Schritt, Kontakt.",
+      "progress": false,
+      "footer": false,
+      "placeholders": {
+        "sheet": {
+          "x": 3.717,
+          "y": 1.75,
+          "w": 5.9,
+          "h": 4.2,
+          "style": "card",
+          "radius": 0.28,
+          "padding": 0.4,
+          "content": "Bottom-Sheet-Motiv"
+        },
+        "grabber": {
+          "x": 6.467,
+          "y": 1.95,
+          "w": 0.4,
+          "h": 0.055,
+          "style": "grabber"
+        },
+        "prompt": {
+          "x": 4.117,
+          "y": 2.35,
+          "w": 5.1,
+          "h": 1.5,
+          "style": "prompt",
+          "align": "center",
+          "anchor": "middle"
+        },
+        "button": {
+          "x": 5.067,
+          "y": 4.05,
+          "w": 3.2,
+          "h": 0.6,
+          "style": "button",
+          "content": "gelbe Fläche, Radius 0,15 in, Text 18 pt fett schwarz"
+        },
+        "contact": {
+          "x": 4.117,
+          "y": 4.95,
+          "w": 5.1,
+          "h": 0.6,
+          "style": "body-small-muted",
+          "align": "center"
+        },
+        "wordmark": {
+          "x": 0.667,
+          "y": 6.95,
+          "w": 12.0,
+          "h": 0.25,
+          "style": "footer",
+          "align": "center"
+        }
+      },
+      "rules": [
+        "Eine Aufforderung, ein Button.",
+        "Kein „Danke für Ihre Aufmerksamkeit“ als einziger Inhalt."
+      ]
+    },
+    {
+      "name": "image-card",
+      "title": "Bild in Karte",
+      "use": "Bild in einer Karte rechts, erklärender Text links.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "Eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "idx": 13
+        },
+        "Headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "idx": 0
+        },
+        "Text": {
+          "x": 0.667,
+          "y": 2.35,
+          "w": 4.883,
+          "h": 4.3,
+          "idx": 15
+        },
+        "Bild": {
+          "x": 6.767,
+          "y": 2.35,
+          "w": 5.9,
+          "h": 4.3,
+          "idx": 16
+        }
+      },
+      "rules": [
+        "Bild mit Alternativtext.",
+        "Text höchstens 3 Aufzählungspunkte.",
+        "Bild 28 pt Radius, 0,75-pt-Rand."
+      ]
+    },
+    {
+      "name": "title-only",
+      "title": "Nur Titel",
+      "use": "Freie Gestaltung unter Eyebrow, Headline und Zweitsatz (Karten, Kacheln, Buttons in ODSV-Maßen).",
+      "progress": true,
+      "footer": true,
+      "placeholders": {
+        "Eyebrow": {
+          "x": 0.667,
+          "y": 0.62,
+          "w": 12.0,
+          "h": 0.3,
+          "idx": 13
+        },
+        "Headline": {
+          "x": 0.667,
+          "y": 0.95,
+          "w": 12.0,
+          "h": 0.7,
+          "idx": 0
+        },
+        "Zweitsatz": {
+          "x": 0.667,
+          "y": 1.65,
+          "w": 8.95,
+          "h": 0.45,
+          "idx": 14
+        }
+      },
+      "rules": [
+        "Eigene Formen nur in ODSV-Farben und -Radien.",
+        "Raster 12 Spalten, Rand 0,6 in einhalten."
+      ]
+    },
+    {
+      "name": "blank",
+      "title": "Leer",
+      "use": "Leere Folie mit Fortschrittsleiste und Seitenfuß.",
+      "progress": true,
+      "footer": true,
+      "placeholders": {},
+      "rules": [
+        "Nur für Sonderfälle (Vollbild-Grafik, Einbettung).",
+        "Fortschrittsleiste und Fuß bleiben."
+      ]
+    }
+  ]
+}

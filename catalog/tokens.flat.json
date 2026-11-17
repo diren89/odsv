@@ -1,0 +1,2279 @@
+{
+ "version": "1.0.0",
+ "tokens": {
+  "--odsv-color-bg-base": {
+   "path": "color.bg.base",
+   "type": "color",
+   "description": "Seitengrund, Foliengrund",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-bg-subtle": {
+   "path": "color.bg.subtle",
+   "type": "color",
+   "description": "abgesetzte Sektion, Signet-Karte",
+   "dark": "#0A0A0A",
+   "light": "#F5F5F7",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-bg-stage": {
+   "path": "color.bg.stage",
+   "type": "color",
+   "description": "Bühne für 3D, Explosionszeichnung, Diagramm im Vollbild",
+   "dark": "#050505",
+   "light": "#F5F5F7",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-bg-inverse": {
+   "path": "color.bg.inverse",
+   "type": "color",
+   "description": "Umgekehrte Fläche (hell auf dunkel), z. B. Gegenwahl im Umschalter",
+   "dark": "#FFFFFF",
+   "light": "#000000"
+  },
+  "--odsv-color-surface-1": {
+   "path": "color.surface.1",
+   "type": "color",
+   "description": "Karte (Ebene 1)",
+   "dark": "#1C1C1E",
+   "light": "#F5F5F7",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-surface-2": {
+   "path": "color.surface.2",
+   "type": "color",
+   "description": "Karte in Karte, Hover (Ebene 2)",
+   "dark": "#232325",
+   "light": "#EBEBF0",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-surface-3": {
+   "path": "color.surface.3",
+   "type": "color",
+   "description": "gedrückt, ausgewählte Zeile (Ebene 3)",
+   "dark": "#2C2C2E",
+   "light": "#E5E5EA",
+   "print": "#F5F5F7"
+  },
+  "--odsv-color-surface-overlay": {
+   "path": "color.surface.overlay",
+   "type": "color",
+   "description": "Ghost-Button, Label-Pille, Tooltip (90 %)",
+   "dark": "#1C1C1EE6",
+   "light": "#FFFFFFE6",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-surface-bar": {
+   "path": "color.surface.bar",
+   "type": "color",
+   "description": "Top-Bar mit Blur (72 %)",
+   "dark": "#000000B8",
+   "light": "#FFFFFFCC",
+   "print": "#FFFFFF"
+  },
+  "--odsv-color-surface-scrim": {
+   "path": "color.surface.scrim",
+   "type": "color",
+   "description": "Abdunklung hinter Sheet/Dialog (60 %)",
+   "dark": "#00000099",
+   "light": "#00000066"
+  },
+  "--odsv-color-surface-inverse": {
+   "path": "color.surface.inverse",
+   "type": "color",
+   "description": "helle Fläche auf dunklem Grund (Sekundär-Button, aktiver Chip)",
+   "dark": "#F2F2F7",
+   "light": "#1D1D1F"
+  },
+  "--odsv-color-border-subtle": {
+   "path": "color.border.subtle",
+   "type": "color",
+   "description": "dekorativ: Kartenrand, Trennlinie (1,2–1,5:1 – kein Informationsträger)",
+   "dark": "#2C2C2E",
+   "light": "#D2D2D7",
+   "print": "#86868B"
+  },
+  "--odsv-color-border-strong": {
+   "path": "color.border.strong",
+   "type": "color",
+   "description": "betonte Trennung, Label-Pille",
+   "dark": "#48484A",
+   "light": "#A1A1A6"
+  },
+  "--odsv-color-border-control": {
+   "path": "color.border.control",
+   "type": "color",
+   "description": "Rand von Formularfeldern/Checkboxen, ≥ 3:1 auf allen Flächen",
+   "dark": "#7C7C80",
+   "light": "#808085"
+  },
+  "--odsv-color-border-active": {
+   "path": "color.border.active",
+   "type": "color",
+   "description": "aktive Karte (28 % Weiß)",
+   "dark": "#FFFFFF47",
+   "light": "#00000059"
+  },
+  "--odsv-color-border-inverse": {
+   "path": "color.border.inverse",
+   "type": "color",
+   "description": "Rand auf umgekehrter Fläche",
+   "dark": "#FFFFFF",
+   "light": "#000000"
+  },
+  "--odsv-color-text-primary": {
+   "path": "color.text.primary",
+   "type": "color",
+   "description": "Headlines, Werte",
+   "dark": "#FFFFFF",
+   "light": "#000000"
+  },
+  "--odsv-color-text-body": {
+   "path": "color.text.body",
+   "type": "color",
+   "description": "Fließtext (≙ Weiß 90 %)",
+   "dark": "#E6E6E6",
+   "light": "#1D1D1F",
+   "print": "#000000"
+  },
+  "--odsv-color-text-secondary": {
+   "path": "color.text.secondary",
+   "type": "color",
+   "description": "Eyebrow, Label (≙ Weiß 80 %)",
+   "dark": "#CCCCCC",
+   "light": "#3A3A3C"
+  },
+  "--odsv-color-text-muted": {
+   "path": "color.text.muted",
+   "type": "color",
+   "description": "grauer Zweitsatz, Erklärtext",
+   "dark": "#A1A1A6",
+   "light": "#58585C",
+   "print": "#3A3A3C"
+  },
+  "--odsv-color-text-faint": {
+   "path": "color.text.faint",
+   "type": "color",
+   "description": "Fußnote, Achsentext – kleinste zulässige Textfarbe",
+   "dark": "#8E8E93",
+   "light": "#68686D",
+   "print": "#3A3A3C"
+  },
+  "--odsv-color-text-disabled": {
+   "path": "color.text.disabled",
+   "type": "color",
+   "description": "deaktiviert – nie für Information",
+   "dark": "#636366",
+   "light": "#A1A1A6"
+  },
+  "--odsv-color-text-inverse": {
+   "path": "color.text.inverse",
+   "type": "color",
+   "description": "Text auf umgekehrter Fläche",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-text-link": {
+   "path": "color.text.link",
+   "type": "color",
+   "description": "Link: weiß + unterstrichen",
+   "dark": "{color.text.primary}"
+  },
+  "--odsv-color-text-link-hover": {
+   "path": "color.text.link-hover",
+   "type": "color",
+   "description": "Linkfarbe bei Hover",
+   "dark": "{color.accent.text}"
+  },
+  "--odsv-color-accent-fill": {
+   "path": "color.accent.fill",
+   "type": "color",
+   "description": "Akzentgelb: Fläche (Button, Marker, aktives Element)",
+   "dark": "#FFE94D"
+  },
+  "--odsv-color-accent-fill-end": {
+   "path": "color.accent.fill-end",
+   "type": "color",
+   "description": "Verlaufsende Primär-Button",
+   "dark": "#F5D400"
+  },
+  "--odsv-color-accent-hover": {
+   "path": "color.accent.hover",
+   "type": "color",
+   "description": "Primär-Button Hover",
+   "dark": "#FFF07A",
+   "light": "#FFF07A"
+  },
+  "--odsv-color-accent-pressed": {
+   "path": "color.accent.pressed",
+   "type": "color",
+   "description": "Primär-Button gedrückt",
+   "dark": "#E6C800",
+   "light": "#F5D400"
+  },
+  "--odsv-color-accent-text": {
+   "path": "color.accent.text",
+   "type": "color",
+   "description": "Akzent als Text/Zahl – ab 18 px oder fett",
+   "dark": "#FFE94D",
+   "light": "#6B5800"
+  },
+  "--odsv-color-accent-line": {
+   "path": "color.accent.line",
+   "type": "color",
+   "description": "Akzent als Linie/Icon/Rand",
+   "dark": "#FFE94D",
+   "light": "#8A7200"
+  },
+  "--odsv-color-accent-subtle": {
+   "path": "color.accent.subtle",
+   "type": "color",
+   "description": "getönte Fläche (14 %)",
+   "dark": "#FFE94D24",
+   "light": "#FFE94D59"
+  },
+  "--odsv-color-accent-on": {
+   "path": "color.accent.on",
+   "type": "color",
+   "description": "Text auf Akzentfläche",
+   "dark": "#000000"
+  },
+  "--odsv-color-accent-tile-start": {
+   "path": "color.accent.tile-start",
+   "type": "color",
+   "description": "Icon-Kachel gelb: Verlaufsbeginn",
+   "dark": "#FFD84D"
+  },
+  "--odsv-color-accent-tile-end": {
+   "path": "color.accent.tile-end",
+   "type": "color",
+   "description": "Icon-Kachel gelb: Verlaufsende",
+   "dark": "#E0A800"
+  },
+  "--odsv-color-accent-on-tile": {
+   "path": "color.accent.on-tile",
+   "type": "color",
+   "description": "Icon/Grafik auf gelber Kachel",
+   "dark": "#1A1500"
+  },
+  "--odsv-color-action-primary-bg": {
+   "path": "color.action.primary.bg",
+   "type": "color",
+   "description": "Primär-Button Fläche (Verlauf bis bg-end)",
+   "dark": "{color.accent.fill}"
+  },
+  "--odsv-color-action-primary-bg-end": {
+   "path": "color.action.primary.bg-end",
+   "type": "color",
+   "description": "Primär-Button Verlaufsende",
+   "dark": "{color.accent.fill-end}"
+  },
+  "--odsv-color-action-primary-hover": {
+   "path": "color.action.primary.hover",
+   "type": "color",
+   "description": "Primär-Button Hover",
+   "dark": "{color.accent.hover}"
+  },
+  "--odsv-color-action-primary-pressed": {
+   "path": "color.action.primary.pressed",
+   "type": "color",
+   "description": "Primär-Button gedrückt",
+   "dark": "{color.accent.pressed}"
+  },
+  "--odsv-color-action-primary-fg": {
+   "path": "color.action.primary.fg",
+   "type": "color",
+   "description": "Primär-Button Schrift",
+   "dark": "{color.accent.on}"
+  },
+  "--odsv-color-action-primary-border": {
+   "path": "color.action.primary.border",
+   "type": "color",
+   "description": "im dunklen Theme ohne Rand",
+   "dark": "#FFE94D00",
+   "light": "#8A7200"
+  },
+  "--odsv-color-action-secondary-bg": {
+   "path": "color.action.secondary.bg",
+   "type": "color",
+   "description": "Sekundär-Button Fläche",
+   "dark": "#F2F2F7",
+   "light": "#1D1D1F"
+  },
+  "--odsv-color-action-secondary-hover": {
+   "path": "color.action.secondary.hover",
+   "type": "color",
+   "description": "Sekundär-Button Hover",
+   "dark": "#FFFFFF",
+   "light": "#3A3A3C"
+  },
+  "--odsv-color-action-secondary-pressed": {
+   "path": "color.action.secondary.pressed",
+   "type": "color",
+   "description": "Sekundär-Button gedrückt",
+   "dark": "#D9D9DE",
+   "light": "#000000"
+  },
+  "--odsv-color-action-secondary-fg": {
+   "path": "color.action.secondary.fg",
+   "type": "color",
+   "description": "Sekundär-Button Schrift",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-action-secondary-border": {
+   "path": "color.action.secondary.border",
+   "type": "color",
+   "description": "Sekundär-Button Rand (unsichtbar, hält die Höhe gleich)",
+   "dark": "#F2F2F700",
+   "light": "#1D1D1F00"
+  },
+  "--odsv-color-action-ghost-bg": {
+   "path": "color.action.ghost.bg",
+   "type": "color",
+   "description": "Ghost-Button Fläche",
+   "dark": "{color.surface.overlay}"
+  },
+  "--odsv-color-action-ghost-hover": {
+   "path": "color.action.ghost.hover",
+   "type": "color",
+   "description": "Ghost-Button Hover",
+   "dark": "{color.surface.2}"
+  },
+  "--odsv-color-action-ghost-pressed": {
+   "path": "color.action.ghost.pressed",
+   "type": "color",
+   "description": "Ghost-Button gedrückt",
+   "dark": "{color.surface.3}"
+  },
+  "--odsv-color-action-ghost-fg": {
+   "path": "color.action.ghost.fg",
+   "type": "color",
+   "description": "Ghost-Button Schrift",
+   "dark": "{color.text.primary}"
+  },
+  "--odsv-color-action-ghost-border": {
+   "path": "color.action.ghost.border",
+   "type": "color",
+   "description": "Ghost-Button Rand",
+   "dark": "{color.border.subtle}"
+  },
+  "--odsv-color-action-disabled-bg": {
+   "path": "color.action.disabled.bg",
+   "type": "color",
+   "description": "Fläche deaktivierter Buttons",
+   "dark": "#2C2C2E",
+   "light": "#E5E5EA"
+  },
+  "--odsv-color-action-disabled-fg": {
+   "path": "color.action.disabled.fg",
+   "type": "color",
+   "description": "4,3:1 auf disabled.bg – lesbar, aber sichtbar zurückgenommen",
+   "dark": "#8E8E93",
+   "light": "#68686D"
+  },
+  "--odsv-color-status-success-base": {
+   "path": "color.status.success.base",
+   "type": "color",
+   "description": "Fläche, Icon, Linie",
+   "dark": "#30D158",
+   "light": "#146C2E"
+  },
+  "--odsv-color-status-success-text": {
+   "path": "color.status.success.text",
+   "type": "color",
+   "description": "Status als Textfarbe (AA auf allen Flächen des Themes)",
+   "dark": "#30D158",
+   "light": "#146C2E"
+  },
+  "--odsv-color-status-success-subtle": {
+   "path": "color.status.success.subtle",
+   "type": "color",
+   "description": "getönter Hintergrund für Callouts/Badges",
+   "dark": "#30D15829",
+   "light": "#146C2E1A"
+  },
+  "--odsv-color-status-success-border": {
+   "path": "color.status.success.border",
+   "type": "color",
+   "description": "Rand für Status success (Badge, Callout)",
+   "dark": "#30D15880",
+   "light": "#146C2E80"
+  },
+  "--odsv-color-status-success-on": {
+   "path": "color.status.success.on",
+   "type": "color",
+   "description": "Text/Icon auf base",
+   "dark": "#04210D",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-status-warning-base": {
+   "path": "color.status.warning.base",
+   "type": "color",
+   "description": "Fläche, Icon, Linie",
+   "dark": "#FF9F0A",
+   "light": "#804900"
+  },
+  "--odsv-color-status-warning-text": {
+   "path": "color.status.warning.text",
+   "type": "color",
+   "description": "Status als Textfarbe (AA auf allen Flächen des Themes)",
+   "dark": "#FF9F0A",
+   "light": "#804900"
+  },
+  "--odsv-color-status-warning-subtle": {
+   "path": "color.status.warning.subtle",
+   "type": "color",
+   "description": "getönter Hintergrund für Callouts/Badges",
+   "dark": "#FF9F0A29",
+   "light": "#FF9F0A33"
+  },
+  "--odsv-color-status-warning-border": {
+   "path": "color.status.warning.border",
+   "type": "color",
+   "description": "Rand für Status warning (Badge, Callout)",
+   "dark": "#FF9F0A80",
+   "light": "#80490080"
+  },
+  "--odsv-color-status-warning-on": {
+   "path": "color.status.warning.on",
+   "type": "color",
+   "description": "Text/Icon auf base",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-status-danger-base": {
+   "path": "color.status.danger.base",
+   "type": "color",
+   "description": "Fläche, Icon, Linie",
+   "dark": "#FF453A",
+   "light": "#C8102E"
+  },
+  "--odsv-color-status-danger-text": {
+   "path": "color.status.danger.text",
+   "type": "color",
+   "description": "Status als Textfarbe (AA auf allen Flächen des Themes)",
+   "dark": "#FF6961",
+   "light": "#C8102E"
+  },
+  "--odsv-color-status-danger-subtle": {
+   "path": "color.status.danger.subtle",
+   "type": "color",
+   "description": "getönter Hintergrund für Callouts/Badges",
+   "dark": "#FF453A29",
+   "light": "#C8102E1A"
+  },
+  "--odsv-color-status-danger-border": {
+   "path": "color.status.danger.border",
+   "type": "color",
+   "description": "Rand für Status danger (Badge, Callout)",
+   "dark": "#FF453A80",
+   "light": "#C8102E80"
+  },
+  "--odsv-color-status-danger-on": {
+   "path": "color.status.danger.on",
+   "type": "color",
+   "description": "Text/Icon auf base",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-status-info-base": {
+   "path": "color.status.info.base",
+   "type": "color",
+   "description": "Fläche, Icon, Linie",
+   "dark": "#64D2FF",
+   "light": "#1F5FC4"
+  },
+  "--odsv-color-status-info-text": {
+   "path": "color.status.info.text",
+   "type": "color",
+   "description": "Status als Textfarbe (AA auf allen Flächen des Themes)",
+   "dark": "#64D2FF",
+   "light": "#1F5FC4"
+  },
+  "--odsv-color-status-info-subtle": {
+   "path": "color.status.info.subtle",
+   "type": "color",
+   "description": "getönter Hintergrund für Callouts/Badges",
+   "dark": "#64D2FF24",
+   "light": "#1F5FC41A"
+  },
+  "--odsv-color-status-info-border": {
+   "path": "color.status.info.border",
+   "type": "color",
+   "description": "Rand für Status info (Badge, Callout)",
+   "dark": "#64D2FF80",
+   "light": "#1F5FC480"
+  },
+  "--odsv-color-status-info-on": {
+   "path": "color.status.info.on",
+   "type": "color",
+   "description": "Text/Icon auf base",
+   "dark": "#000000",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-focus-ring": {
+   "path": "color.focus.ring",
+   "type": "color",
+   "description": "Fokusring 2 px, 3 px Abstand",
+   "dark": "#FFE94D",
+   "light": "#000000"
+  },
+  "--odsv-color-focus-ring-on-accent": {
+   "path": "color.focus.ring-on-accent",
+   "type": "color",
+   "description": "Fokusring auf gelben Flächen",
+   "dark": "#FFFFFF",
+   "light": "#000000"
+  },
+  "--odsv-color-progress-track": {
+   "path": "color.progress.track",
+   "type": "color",
+   "description": "offenes Segment (38 % Weiß ≙ #616161 auf Schwarz, ≥ 3:1)",
+   "dark": "#FFFFFF61",
+   "light": "#00000078"
+  },
+  "--odsv-color-progress-track-current": {
+   "path": "color.progress.track-current",
+   "type": "color",
+   "description": "Spur des aktiven Segments (48 %)",
+   "dark": "#FFFFFF7A",
+   "light": "#00000099"
+  },
+  "--odsv-color-progress-fill": {
+   "path": "color.progress.fill",
+   "type": "color",
+   "description": "erledigt/aktiv",
+   "dark": "#FFFFFF",
+   "light": "#000000"
+  },
+  "--odsv-color-progress-fill-success": {
+   "path": "color.progress.fill-success",
+   "type": "color",
+   "description": "Checklisten-Fortschritt",
+   "dark": "{color.status.success.base}"
+  },
+  "--odsv-color-signet-1": {
+   "path": "color.signet.1",
+   "type": "color",
+   "description": "Pink",
+   "dark": "#EC3A78"
+  },
+  "--odsv-color-signet-2": {
+   "path": "color.signet.2",
+   "type": "color",
+   "description": "Orange",
+   "dark": "#EE6A2C"
+  },
+  "--odsv-color-signet-3": {
+   "path": "color.signet.3",
+   "type": "color",
+   "description": "Bernstein",
+   "dark": "#F09A35"
+  },
+  "--odsv-color-signet-4": {
+   "path": "color.signet.4",
+   "type": "color",
+   "description": "Goldgelb",
+   "dark": "#F3C340"
+  },
+  "--odsv-color-signet-dot": {
+   "path": "color.signet.dot",
+   "type": "color",
+   "description": "Kern/Quelle",
+   "dark": "#FFE94D"
+  },
+  "--odsv-color-lineart-stroke": {
+   "path": "color.lineart.stroke",
+   "type": "color",
+   "description": "Hauptlinie",
+   "dark": "#F2F2F7",
+   "light": "#1D1D1F"
+  },
+  "--odsv-color-lineart-dim": {
+   "path": "color.lineart.dim",
+   "type": "color",
+   "description": "Nebenlinie, gestrichelt, Pfeil",
+   "dark": "#8E8E93",
+   "light": "#6E6E73"
+  },
+  "--odsv-color-lineart-leader": {
+   "path": "color.lineart.leader",
+   "type": "color",
+   "description": "Hinweislinie",
+   "dark": "#636366",
+   "light": "#86868B"
+  },
+  "--odsv-color-lineart-face-dark": {
+   "path": "color.lineart.face-dark",
+   "type": "color",
+   "description": "Line-Art: dunkle Seitenfläche (3D-Wirkung)",
+   "dark": "#131315",
+   "light": "#E9E9EE"
+  },
+  "--odsv-color-lineart-face-mid": {
+   "path": "color.lineart.face-mid",
+   "type": "color",
+   "description": "Line-Art: mittlere Fläche",
+   "dark": "#1F1F22",
+   "light": "#F7F7FA"
+  },
+  "--odsv-color-lineart-face-top": {
+   "path": "color.lineart.face-top",
+   "type": "color",
+   "description": "Line-Art: Oberseite",
+   "dark": "#28282B",
+   "light": "#FFFFFF"
+  },
+  "--odsv-color-lineart-recess": {
+   "path": "color.lineart.recess",
+   "type": "color",
+   "description": "Line-Art: Vertiefung/Öffnung",
+   "dark": "#050506",
+   "light": "#D4D4DA"
+  },
+  "--odsv-color-lineart-hand": {
+   "path": "color.lineart.hand",
+   "type": "color",
+   "description": "Hand-Geste, flächig",
+   "dark": "#FFFFFF",
+   "light": "#1D1D1F"
+  },
+  "--odsv-color-lineart-marker": {
+   "path": "color.lineart.marker",
+   "type": "color",
+   "description": "Positionsmarke mit Nummer",
+   "dark": "{color.accent.fill}",
+   "light": "#FFE94D"
+  },
+  "--odsv-color-lineart-on-marker": {
+   "path": "color.lineart.on-marker",
+   "type": "color",
+   "description": "Linie/Text auf gelber Markierung",
+   "dark": "#111111"
+  },
+  "--odsv-gradient-signet": {
+   "path": "gradient.signet",
+   "type": "gradient",
+   "description": "Signet-Verlauf Pink → Orange → Gelb. Nur für Signet/Titelmoment, nie für UI-Flächen oder Text.",
+   "dark": [
+    {
+     "color": "{color.signet.1}",
+     "position": 0
+    },
+    {
+     "color": "{color.signet.2}",
+     "position": 0.38
+    },
+    {
+     "color": "{color.signet.3}",
+     "position": 0.68
+    },
+    {
+     "color": "{color.signet.4}",
+     "position": 1
+    }
+   ]
+  },
+  "--odsv-gradient-action-primary": {
+   "path": "gradient.action-primary",
+   "type": "gradient",
+   "description": "Primär-Button",
+   "dark": [
+    {
+     "color": "{color.action.primary.bg}",
+     "position": 0
+    },
+    {
+     "color": "{color.action.primary.bg-end}",
+     "position": 1
+    }
+   ]
+  },
+  "--odsv-gradient-tile-accent": {
+   "path": "gradient.tile-accent",
+   "type": "gradient",
+   "description": "gelbe Icon-Kachel",
+   "dark": [
+    {
+     "color": "{color.accent.tile-start}",
+     "position": 0
+    },
+    {
+     "color": "{color.accent.tile-end}",
+     "position": 1
+    }
+   ]
+  },
+  "--odsv-gradient-tile-dark": {
+   "path": "gradient.tile-dark",
+   "type": "gradient",
+   "description": "dunkle Icon-Kachel",
+   "dark": [
+    {
+     "color": "#2C2C2E",
+     "position": 0
+    },
+    {
+     "color": "#1A1A1C",
+     "position": 1
+    }
+   ],
+   "light": [
+    {
+     "color": "#FFFFFF",
+     "position": 0
+    },
+    {
+     "color": "#EBEBF0",
+     "position": 1
+    }
+   ]
+  },
+  "--odsv-gradient-fade-down": {
+   "path": "gradient.fade-down",
+   "type": "gradient",
+   "description": "Text über Bühne lesbar halten",
+   "dark": [
+    {
+     "color": "{color.bg.base}",
+     "position": 0
+    },
+    {
+     "color": "#00000000",
+     "position": 1
+    }
+   ],
+   "light": [
+    {
+     "color": "{color.bg.base}",
+     "position": 0
+    },
+    {
+     "color": "#FFFFFF00",
+     "position": 1
+    }
+   ]
+  },
+  "--odsv-dataviz-categorical-1": {
+   "path": "dataviz.categorical.1",
+   "type": "color",
+   "description": "Gelb – Hauptreihe · 17,0:1 auf Schwarz",
+   "dark": "#FFE94D",
+   "light": "#A67C00"
+  },
+  "--odsv-dataviz-categorical-2": {
+   "path": "dataviz.categorical.2",
+   "type": "color",
+   "description": "Blau · 7,1:1",
+   "dark": "#4797FF",
+   "light": "#1F6FE0"
+  },
+  "--odsv-dataviz-categorical-3": {
+   "path": "dataviz.categorical.3",
+   "type": "color",
+   "description": "Pink · 5,4:1",
+   "dark": "#EC3A78",
+   "light": "#C2185B"
+  },
+  "--odsv-dataviz-categorical-4": {
+   "path": "dataviz.categorical.4",
+   "type": "color",
+   "description": "Türkis · 10,8:1",
+   "dark": "#2FCFC2",
+   "light": "#0C968B"
+  },
+  "--odsv-dataviz-categorical-5": {
+   "path": "dataviz.categorical.5",
+   "type": "color",
+   "description": "Orange · 8,5:1",
+   "dark": "#F5893A",
+   "light": "#D9641A"
+  },
+  "--odsv-dataviz-categorical-6": {
+   "path": "dataviz.categorical.6",
+   "type": "color",
+   "description": "Violett · 9,6:1",
+   "dark": "#B9A1FF",
+   "light": "#7A5AE0"
+  },
+  "--odsv-dataviz-categorical-7": {
+   "path": "dataviz.categorical.7",
+   "type": "color",
+   "description": "Grün · 11,8:1",
+   "dark": "#8FD46A",
+   "light": "#3F8F1F"
+  },
+  "--odsv-dataviz-neutral": {
+   "path": "dataviz.neutral",
+   "type": "color",
+   "description": "„Sonstige“, Vergleichs-/Vorjahresreihe",
+   "dark": "#8E8E93",
+   "light": "#86868B"
+  },
+  "--odsv-dataviz-context": {
+   "path": "dataviz.context",
+   "type": "color",
+   "description": "zurückgenommene Kontextreihen (Fokus-Muster: eine Reihe gelb, Rest grau)",
+   "dark": "#636366",
+   "light": "#A1A1A6"
+  },
+  "--odsv-dataviz-highlight": {
+   "path": "dataviz.highlight",
+   "type": "color",
+   "description": "Betonte Datenreihe (Fokus-Muster)",
+   "dark": "{color.accent.fill}",
+   "light": "#A67C00"
+  },
+  "--odsv-dataviz-sequential-1": {
+   "path": "dataviz.sequential.1",
+   "type": "color",
+   "description": "Sequenziell Stufe 1 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#5C5216",
+   "light": "#C9AC25"
+  },
+  "--odsv-dataviz-sequential-2": {
+   "path": "dataviz.sequential.2",
+   "type": "color",
+   "description": "Sequenziell Stufe 2 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#7C6F1E",
+   "light": "#A88C00"
+  },
+  "--odsv-dataviz-sequential-3": {
+   "path": "dataviz.sequential.3",
+   "type": "color",
+   "description": "Sequenziell Stufe 3 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#9D8D27",
+   "light": "#8A7200"
+  },
+  "--odsv-dataviz-sequential-4": {
+   "path": "dataviz.sequential.4",
+   "type": "color",
+   "description": "Sequenziell Stufe 4 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#BEAB31",
+   "light": "#6B5800"
+  },
+  "--odsv-dataviz-sequential-5": {
+   "path": "dataviz.sequential.5",
+   "type": "color",
+   "description": "Sequenziell Stufe 5 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#DFCA3D",
+   "light": "#4D3F00"
+  },
+  "--odsv-dataviz-sequential-6": {
+   "path": "dataviz.sequential.6",
+   "type": "color",
+   "description": "Sequenziell Stufe 6 von 6 (dunkel = wenig, hell = viel im dunklen Theme)",
+   "dark": "#FFE94D",
+   "light": "#2E2600"
+  },
+  "--odsv-dataviz-diverging-neg-3": {
+   "path": "dataviz.diverging.neg-3",
+   "type": "color",
+   "description": "Divergierend negativ, Stufe 3 (Blau)",
+   "dark": "#9CC6FF",
+   "light": "#0F3F8C"
+  },
+  "--odsv-dataviz-diverging-neg-2": {
+   "path": "dataviz.diverging.neg-2",
+   "type": "color",
+   "description": "Divergierend negativ, Stufe 2 (Blau)",
+   "dark": "#4797FF",
+   "light": "#1F5FC4"
+  },
+  "--odsv-dataviz-diverging-neg-1": {
+   "path": "dataviz.diverging.neg-1",
+   "type": "color",
+   "description": "Divergierend negativ, Stufe 1 (Blau)",
+   "dark": "#2F65AD",
+   "light": "#4F8FEA"
+  },
+  "--odsv-dataviz-diverging-mid": {
+   "path": "dataviz.diverging.mid",
+   "type": "color",
+   "description": "Divergierend: neutrale Mitte",
+   "dark": "#535356",
+   "light": "#ABABB0"
+  },
+  "--odsv-dataviz-diverging-pos-1": {
+   "path": "dataviz.diverging.pos-1",
+   "type": "color",
+   "description": "Divergierend positiv, Stufe 1 (Orange)",
+   "dark": "#A35A2A",
+   "light": "#D9641A"
+  },
+  "--odsv-dataviz-diverging-pos-2": {
+   "path": "dataviz.diverging.pos-2",
+   "type": "color",
+   "description": "Divergierend positiv, Stufe 2 (Orange)",
+   "dark": "#F5893A",
+   "light": "#A84300"
+  },
+  "--odsv-dataviz-diverging-pos-3": {
+   "path": "dataviz.diverging.pos-3",
+   "type": "color",
+   "description": "Divergierend positiv, Stufe 3 (Orange)",
+   "dark": "#FFC59A",
+   "light": "#6E2B00"
+  },
+  "--odsv-dataviz-positive": {
+   "path": "dataviz.positive",
+   "type": "color",
+   "description": "nur wenn die Reihe „gut“ bedeutet",
+   "dark": "{color.status.success.base}"
+  },
+  "--odsv-dataviz-negative": {
+   "path": "dataviz.negative",
+   "type": "color",
+   "description": "nur wenn die Reihe „schlecht“ bedeutet",
+   "dark": "{color.status.danger.base}"
+  },
+  "--odsv-dataviz-grid": {
+   "path": "dataviz.grid",
+   "type": "color",
+   "description": "Gitterlinien, 1 px",
+   "dark": "#2C2C2E",
+   "light": "#E5E5EA"
+  },
+  "--odsv-dataviz-axis": {
+   "path": "dataviz.axis",
+   "type": "color",
+   "description": "Achsen-/Basislinie",
+   "dark": "#48484A",
+   "light": "#A1A1A6"
+  },
+  "--odsv-dataviz-axis-text": {
+   "path": "dataviz.axis-text",
+   "type": "color",
+   "description": "Achsenbeschriftung",
+   "dark": "{color.text.faint}"
+  },
+  "--odsv-dataviz-label": {
+   "path": "dataviz.label",
+   "type": "color",
+   "description": "Datenbeschriftung, Legende",
+   "dark": "{color.text.secondary}"
+  },
+  "--odsv-dataviz-cursor": {
+   "path": "dataviz.cursor",
+   "type": "color",
+   "description": "Fadenkreuz",
+   "dark": "#8E8E93",
+   "light": "#6E6E73"
+  },
+  "--odsv-dataviz-gap": {
+   "path": "dataviz.gap",
+   "type": "color",
+   "description": "2-px-Fuge zwischen Flächen = Farbe der Diagrammfläche",
+   "dark": "{color.surface.1}"
+  },
+  "--odsv-font-family-display": {
+   "path": "font.family.display",
+   "type": "fontFamily",
+   "description": "Headlines, Zahlen. Keine Webfont-Pflicht: Systemschrift zuerst.",
+   "dark": [
+    "SF Pro Display",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Helvetica Neue",
+    "Inter",
+    "Segoe UI",
+    "Roboto",
+    "Arial",
+    "sans-serif"
+   ]
+  },
+  "--odsv-font-family-text": {
+   "path": "font.family.text",
+   "type": "fontFamily",
+   "description": "Fließtext, UI",
+   "dark": [
+    "SF Pro Text",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Helvetica Neue",
+    "Inter",
+    "Segoe UI",
+    "Roboto",
+    "Arial",
+    "sans-serif"
+   ]
+  },
+  "--odsv-font-family-mono": {
+   "path": "font.family.mono",
+   "type": "fontFamily",
+   "description": "Code, IDs, Messwerte in Tabellen",
+   "dark": [
+    "ui-monospace",
+    "SF Mono",
+    "SFMono-Regular",
+    "Menlo",
+    "Consolas",
+    "Liberation Mono",
+    "monospace"
+   ]
+  },
+  "--odsv-font-size-11": {
+   "path": "font.size.11",
+   "type": "dimension",
+   "description": "Schriftstufe 11 px",
+   "dark": "0.6875rem"
+  },
+  "--odsv-font-size-12": {
+   "path": "font.size.12",
+   "type": "dimension",
+   "description": "Schriftstufe 12 px",
+   "dark": "0.75rem",
+   "print": "8pt"
+  },
+  "--odsv-font-size-13": {
+   "path": "font.size.13",
+   "type": "dimension",
+   "description": "Schriftstufe 13 px",
+   "dark": "0.8125rem"
+  },
+  "--odsv-font-size-14": {
+   "path": "font.size.14",
+   "type": "dimension",
+   "description": "Schriftstufe 14 px",
+   "dark": "0.875rem",
+   "print": "9pt"
+  },
+  "--odsv-font-size-15": {
+   "path": "font.size.15",
+   "type": "dimension",
+   "description": "Schriftstufe 15 px",
+   "dark": "0.9375rem",
+   "print": "10pt"
+  },
+  "--odsv-font-size-16": {
+   "path": "font.size.16",
+   "type": "dimension",
+   "description": "Schriftstufe 16 px",
+   "dark": "1rem"
+  },
+  "--odsv-font-size-17": {
+   "path": "font.size.17",
+   "type": "dimension",
+   "description": "Schriftstufe 17 px",
+   "dark": "1.0625rem",
+   "print": "11pt"
+  },
+  "--odsv-font-size-20": {
+   "path": "font.size.20",
+   "type": "dimension",
+   "description": "Schriftstufe 20 px",
+   "dark": "1.25rem"
+  },
+  "--odsv-font-size-22": {
+   "path": "font.size.22",
+   "type": "dimension",
+   "description": "Schriftstufe 22 px",
+   "dark": "1.375rem"
+  },
+  "--odsv-font-size-24": {
+   "path": "font.size.24",
+   "type": "dimension",
+   "description": "Schriftstufe 24 px",
+   "dark": "1.5rem"
+  },
+  "--odsv-font-size-28": {
+   "path": "font.size.28",
+   "type": "dimension",
+   "description": "Schriftstufe 28 px",
+   "dark": "1.75rem"
+  },
+  "--odsv-font-size-32": {
+   "path": "font.size.32",
+   "type": "dimension",
+   "description": "Schriftstufe 32 px",
+   "dark": "2rem"
+  },
+  "--odsv-font-size-40": {
+   "path": "font.size.40",
+   "type": "dimension",
+   "description": "Schriftstufe 40 px",
+   "dark": "2.5rem"
+  },
+  "--odsv-font-size-48": {
+   "path": "font.size.48",
+   "type": "dimension",
+   "description": "Schriftstufe 48 px",
+   "dark": "3rem"
+  },
+  "--odsv-font-size-64": {
+   "path": "font.size.64",
+   "type": "dimension",
+   "description": "Schriftstufe 64 px",
+   "dark": "4rem"
+  },
+  "--odsv-font-size-80": {
+   "path": "font.size.80",
+   "type": "dimension",
+   "description": "Schriftstufe 80 px",
+   "dark": "5rem"
+  },
+  "--odsv-font-size-eyebrow": {
+   "path": "font.size.eyebrow",
+   "type": "dimension",
+   "description": "11,5 px",
+   "dark": "0.71875rem"
+  },
+  "--odsv-font-size-display": {
+   "path": "font.size.display",
+   "type": "dimension",
+   "description": "fluide Display-Headline 28 → 64 px",
+   "dark": "clamp(1.75rem, 0.9rem + 4.4vw, 4rem)"
+  },
+  "--odsv-font-size-headline": {
+   "path": "font.size.headline",
+   "type": "dimension",
+   "description": "fluide Sektions-Headline 22 → 40 px",
+   "dark": "clamp(1.375rem, 0.9rem + 2.4vw, 2.5rem)"
+  },
+  "--odsv-font-size-title": {
+   "path": "font.size.title",
+   "type": "dimension",
+   "description": "Karten-Headline 20 → 24 px",
+   "dark": "clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem)"
+  },
+  "--odsv-font-size-subtitle": {
+   "path": "font.size.subtitle",
+   "type": "dimension",
+   "description": "grauer Zweitsatz 17 → 20 px",
+   "dark": "clamp(1.0625rem, 1rem + 0.35vw, 1.25rem)"
+  },
+  "--odsv-font-size-number": {
+   "path": "font.size.number",
+   "type": "dimension",
+   "description": "Schrittnummer 40 → 48 px",
+   "dark": "clamp(2.5rem, 2rem + 2vw, 3rem)"
+  },
+  "--odsv-font-size-kpi": {
+   "path": "font.size.kpi",
+   "type": "dimension",
+   "description": "große Kennzahl 36 → 64 px",
+   "dark": "clamp(2.25rem, 1.5rem + 3.6vw, 4rem)"
+  },
+  "--odsv-font-weight-regular": {
+   "path": "font.weight.regular",
+   "type": "fontWeight",
+   "description": "Fließtext",
+   "dark": 400
+  },
+  "--odsv-font-weight-medium": {
+   "path": "font.weight.medium",
+   "type": "fontWeight",
+   "description": "Eyebrow, Label, Chip",
+   "dark": 500
+  },
+  "--odsv-font-weight-semibold": {
+   "path": "font.weight.semibold",
+   "type": "fontWeight",
+   "description": "Headlines, Buttons, Zahlen",
+   "dark": 600
+  },
+  "--odsv-font-weight-bold": {
+   "path": "font.weight.bold",
+   "type": "fontWeight",
+   "description": "Karten-Headline h3/h4",
+   "dark": 700
+  },
+  "--odsv-font-tracking-display": {
+   "path": "font.tracking.display",
+   "type": "dimension",
+   "description": "Versalien-Headline",
+   "dark": "0.2em"
+  },
+  "--odsv-font-tracking-display-tight": {
+   "path": "font.tracking.display-tight",
+   "type": "dimension",
+   "description": "Versalien-Headline bei wenig Platz (Dashboard-Titel, lange Wörter mobil)",
+   "dark": "0.12em"
+  },
+  "--odsv-font-tracking-eyebrow": {
+   "path": "font.tracking.eyebrow",
+   "type": "dimension",
+   "description": "Laufweite Eyebrow (Versalien)",
+   "dark": "0.2em"
+  },
+  "--odsv-font-tracking-label": {
+   "path": "font.tracking.label",
+   "type": "dimension",
+   "description": "Labels, Tabellenkopf, Checklisten-Label",
+   "dark": "0.15em"
+  },
+  "--odsv-font-tracking-chip": {
+   "path": "font.tracking.chip",
+   "type": "dimension",
+   "description": "Pillen/Diagramm-Labels 11 px, KPI-Label",
+   "dark": "0.12em"
+  },
+  "--odsv-font-tracking-wordmark": {
+   "path": "font.tracking.wordmark",
+   "type": "dimension",
+   "description": "Laufweite Wortmarke",
+   "dark": "0.14em"
+  },
+  "--odsv-font-tracking-normal": {
+   "path": "font.tracking.normal",
+   "type": "dimension",
+   "description": "Keine Laufweite (Fließtext)",
+   "dark": "0em"
+  },
+  "--odsv-font-tracking-tight": {
+   "path": "font.tracking.tight",
+   "type": "dimension",
+   "description": "fette Karten-Headline",
+   "dark": "-0.005em"
+  },
+  "--odsv-font-leading-tight": {
+   "path": "font.leading.tight",
+   "type": "number",
+   "description": "Kennzahlen",
+   "dark": 1.1
+  },
+  "--odsv-font-leading-snug": {
+   "path": "font.leading.snug",
+   "type": "number",
+   "description": "Headlines",
+   "dark": 1.25
+  },
+  "--odsv-font-leading-normal": {
+   "path": "font.leading.normal",
+   "type": "number",
+   "description": "Zweitsatz, kleine Texte",
+   "dark": 1.4
+  },
+  "--odsv-font-leading-body": {
+   "path": "font.leading.body",
+   "type": "number",
+   "description": "Fließtext",
+   "dark": 1.5
+  },
+  "--odsv-text-display": {
+   "path": "text.display",
+   "type": "typography",
+   "description": "H1/Hero. Versalien, höchstens 3 Wörter.",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.display}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.display}",
+    "lineHeight": "{font.leading.snug}"
+   }
+  },
+  "--odsv-text-headline": {
+   "path": "text.headline",
+   "type": "typography",
+   "description": "H2 je Sektion. Versalien.",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.headline}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.display}",
+    "lineHeight": "{font.leading.snug}"
+   }
+  },
+  "--odsv-text-title": {
+   "path": "text.title",
+   "type": "typography",
+   "description": "Karten-Headline, normale Schreibweise",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.title}",
+    "fontWeight": "{font.weight.bold}",
+    "letterSpacing": "{font.tracking.tight}",
+    "lineHeight": "{font.leading.snug}"
+   }
+  },
+  "--odsv-text-subtitle": {
+   "path": "text.subtitle",
+   "type": "typography",
+   "description": "grauer Zweitsatz (color.text.muted)",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.subtitle}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-body": {
+   "path": "text.body",
+   "type": "typography",
+   "description": "Fließtext 17 px, Zeilenhöhe 1,5",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.17}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.body}"
+   }
+  },
+  "--odsv-text-body-small": {
+   "path": "text.body-small",
+   "type": "typography",
+   "description": "Erklärtext in Karten, Tabellen",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.15}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-small": {
+   "path": "text.small",
+   "type": "typography",
+   "description": "Fußnote, Hinweiszeile",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.14}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-caption": {
+   "path": "text.caption",
+   "type": "typography",
+   "description": "Achsen, Zeitstempel – kleinste Fließgröße",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.12}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-eyebrow": {
+   "path": "text.eyebrow",
+   "type": "typography",
+   "description": "über jeder Headline",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.eyebrow}",
+    "fontWeight": "{font.weight.medium}",
+    "letterSpacing": "{font.tracking.eyebrow}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-label": {
+   "path": "text.label",
+   "type": "typography",
+   "description": "Formular-/Checklisten-Label, Tabellenkopf",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.13}",
+    "fontWeight": "{font.weight.medium}",
+    "letterSpacing": "{font.tracking.label}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-chip": {
+   "path": "text.chip",
+   "type": "typography",
+   "description": "Pille, 3D-/Diagramm-Label",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.11}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.chip}",
+    "lineHeight": "{font.leading.tight}"
+   }
+  },
+  "--odsv-text-kpi": {
+   "path": "text.kpi",
+   "type": "typography",
+   "description": "große Kennzahl, tabular-nums",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.kpi}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.tight}"
+   }
+  },
+  "--odsv-text-kpi-small": {
+   "path": "text.kpi-small",
+   "type": "typography",
+   "description": "Kennzahl in kleiner Kachel (ab lg: font.size.32)",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.24}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.tight}"
+   }
+  },
+  "--odsv-text-number": {
+   "path": "text.number",
+   "type": "typography",
+   "description": "Schrittnummer",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.number}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.tight}"
+   }
+  },
+  "--odsv-text-button": {
+   "path": "text.button",
+   "type": "typography",
+   "description": "Button-Beschriftung",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.17}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.snug}"
+   }
+  },
+  "--odsv-text-button-small": {
+   "path": "text.button-small",
+   "type": "typography",
+   "description": "Beschriftung kleiner Buttons",
+   "dark": {
+    "fontFamily": "{font.family.text}",
+    "fontSize": "{font.size.15}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.snug}"
+   }
+  },
+  "--odsv-text-wordmark": {
+   "path": "text.wordmark",
+   "type": "typography",
+   "description": "Wortmarke in gesperrten Versalien",
+   "dark": {
+    "fontFamily": "{font.family.display}",
+    "fontSize": "{font.size.15}",
+    "fontWeight": "{font.weight.semibold}",
+    "letterSpacing": "{font.tracking.wordmark}",
+    "lineHeight": "{font.leading.normal}"
+   }
+  },
+  "--odsv-text-code": {
+   "path": "text.code",
+   "type": "typography",
+   "description": "Code und IDs",
+   "dark": {
+    "fontFamily": "{font.family.mono}",
+    "fontSize": "{font.size.14}",
+    "fontWeight": "{font.weight.regular}",
+    "letterSpacing": "{font.tracking.normal}",
+    "lineHeight": "{font.leading.body}"
+   }
+  },
+  "--odsv-space-0": {
+   "path": "space.0",
+   "type": "dimension",
+   "description": "Abstand Stufe 0 (4er-Raster)",
+   "dark": "0px"
+  },
+  "--odsv-space-1": {
+   "path": "space.1",
+   "type": "dimension",
+   "description": "Abstand Stufe 1 (4er-Raster)",
+   "dark": "4px"
+  },
+  "--odsv-space-2": {
+   "path": "space.2",
+   "type": "dimension",
+   "description": "Abstand Stufe 2 (4er-Raster)",
+   "dark": "8px"
+  },
+  "--odsv-space-3": {
+   "path": "space.3",
+   "type": "dimension",
+   "description": "Abstand Stufe 3 (4er-Raster)",
+   "dark": "12px"
+  },
+  "--odsv-space-4": {
+   "path": "space.4",
+   "type": "dimension",
+   "description": "Abstand Stufe 4 (4er-Raster)",
+   "dark": "16px"
+  },
+  "--odsv-space-5": {
+   "path": "space.5",
+   "type": "dimension",
+   "description": "Abstand Stufe 5 (4er-Raster)",
+   "dark": "20px"
+  },
+  "--odsv-space-6": {
+   "path": "space.6",
+   "type": "dimension",
+   "description": "Abstand Stufe 6 (4er-Raster)",
+   "dark": "24px"
+  },
+  "--odsv-space-8": {
+   "path": "space.8",
+   "type": "dimension",
+   "description": "Abstand Stufe 8 (4er-Raster)",
+   "dark": "32px"
+  },
+  "--odsv-space-10": {
+   "path": "space.10",
+   "type": "dimension",
+   "description": "Abstand Stufe 10 (4er-Raster)",
+   "dark": "40px"
+  },
+  "--odsv-space-12": {
+   "path": "space.12",
+   "type": "dimension",
+   "description": "Abstand Stufe 12 (4er-Raster)",
+   "dark": "48px"
+  },
+  "--odsv-space-16": {
+   "path": "space.16",
+   "type": "dimension",
+   "description": "Abstand Stufe 16 (4er-Raster)",
+   "dark": "64px"
+  },
+  "--odsv-space-20": {
+   "path": "space.20",
+   "type": "dimension",
+   "description": "Abstand Stufe 20 (4er-Raster)",
+   "dark": "80px"
+  },
+  "--odsv-space-24": {
+   "path": "space.24",
+   "type": "dimension",
+   "description": "Abstand Stufe 24 (4er-Raster)",
+   "dark": "96px"
+  },
+  "--odsv-space-32": {
+   "path": "space.32",
+   "type": "dimension",
+   "description": "Abstand Stufe 32 (4er-Raster)",
+   "dark": "128px"
+  },
+  "--odsv-space-38": {
+   "path": "space.38",
+   "type": "dimension",
+   "description": "Abstand Stufe 38 (4er-Raster)",
+   "dark": "152px"
+  },
+  "--odsv-layout-gutter": {
+   "path": "layout.gutter",
+   "type": "dimension",
+   "description": "Seitenrand",
+   "dark": "clamp(20px, 5vw, 40px)"
+  },
+  "--odsv-layout-section-y": {
+   "path": "layout.section-y",
+   "type": "dimension",
+   "description": "vertikaler Sektionsabstand",
+   "dark": "clamp(72px, 12vw, 152px)"
+  },
+  "--odsv-layout-maxw": {
+   "path": "layout.maxw",
+   "type": "dimension",
+   "description": "Inhaltsbreite Website",
+   "dark": "1120px"
+  },
+  "--odsv-layout-maxw-text": {
+   "path": "layout.maxw-text",
+   "type": "dimension",
+   "description": "Lesebreite Fließtext",
+   "dark": "640px"
+  },
+  "--odsv-layout-maxw-wide": {
+   "path": "layout.maxw-wide",
+   "type": "dimension",
+   "description": "Inhaltsbreite Dashboard",
+   "dark": "1600px"
+  },
+  "--odsv-layout-bar-height": {
+   "path": "layout.bar-height",
+   "type": "dimension",
+   "description": "Top-Bar (ab lg 76 px)",
+   "dark": "72px"
+  },
+  "--odsv-layout-columns": {
+   "path": "layout.columns",
+   "type": "number",
+   "description": "Spaltenzahl des Rasters",
+   "dark": 12
+  },
+  "--odsv-layout-grid-gap": {
+   "path": "layout.grid-gap",
+   "type": "dimension",
+   "description": "Kachelraster mobil (ab lg 14 px)",
+   "dark": "12px"
+  },
+  "--odsv-layout-grid-gap-dashboard": {
+   "path": "layout.grid-gap-dashboard",
+   "type": "dimension",
+   "description": "Rasterlücke im Dashboard",
+   "dark": "16px"
+  },
+  "--odsv-layout-card-padding": {
+   "path": "layout.card-padding",
+   "type": "dimension",
+   "description": "Innenabstand Karte",
+   "dark": "24px"
+  },
+  "--odsv-layout-card-padding-compact": {
+   "path": "layout.card-padding-compact",
+   "type": "dimension",
+   "description": "Dashboard-Dichte „kompakt“",
+   "dark": "16px"
+  },
+  "--odsv-layout-sidebar-width": {
+   "path": "layout.sidebar-width",
+   "type": "dimension",
+   "description": "Dashboard-Navigation",
+   "dark": "264px"
+  },
+  "--odsv-layout-sidebar-width-collapsed": {
+   "path": "layout.sidebar-width-collapsed",
+   "type": "dimension",
+   "description": "Seitenleiste eingeklappt",
+   "dark": "72px"
+  },
+  "--odsv-size-control-lg": {
+   "path": "size.control-lg",
+   "type": "dimension",
+   "description": "Button Standard",
+   "dark": "52px"
+  },
+  "--odsv-size-control-md": {
+   "path": "size.control-md",
+   "type": "dimension",
+   "description": "Button klein, Chip, Icon-Button, Formularfeld kompakt",
+   "dark": "44px"
+  },
+  "--odsv-size-control-sm": {
+   "path": "size.control-sm",
+   "type": "dimension",
+   "description": "nur Dashboard mit Zeigergerät",
+   "dark": "36px"
+  },
+  "--odsv-size-control-xs": {
+   "path": "size.control-xs",
+   "type": "dimension",
+   "description": "nur dichte Tabellen/Toolbars, Zeigergerät, ≥ 24 px Zielgröße",
+   "dark": "28px"
+  },
+  "--odsv-size-touch-min": {
+   "path": "size.touch-min",
+   "type": "dimension",
+   "description": "kleinste Trefferfläche bei Touch",
+   "dark": "44px"
+  },
+  "--odsv-size-field": {
+   "path": "size.field",
+   "type": "dimension",
+   "description": "Formularfeld",
+   "dark": "52px"
+  },
+  "--odsv-size-icon-sm": {
+   "path": "size.icon-sm",
+   "type": "dimension",
+   "description": "Icon in Buttons und Umschaltern",
+   "dark": "18px"
+  },
+  "--odsv-size-icon-md": {
+   "path": "size.icon-md",
+   "type": "dimension",
+   "description": "Icon in Icon-Buttons und Navigation",
+   "dark": "22px"
+  },
+  "--odsv-size-icon-lg": {
+   "path": "size.icon-lg",
+   "type": "dimension",
+   "description": "Icon in Kacheln",
+   "dark": "44px"
+  },
+  "--odsv-size-tile": {
+   "path": "size.tile",
+   "type": "dimension",
+   "description": "Icon-Kachel mobil",
+   "dark": "72px"
+  },
+  "--odsv-size-tile-lg": {
+   "path": "size.tile-lg",
+   "type": "dimension",
+   "description": "Icon-Kachel ab md",
+   "dark": "88px"
+  },
+  "--odsv-size-tile-xl": {
+   "path": "size.tile-xl",
+   "type": "dimension",
+   "description": "Icon-Kachel Hero/Folie",
+   "dark": "96px"
+  },
+  "--odsv-size-checkbox": {
+   "path": "size.checkbox",
+   "type": "dimension",
+   "description": "Checkbox und Radio",
+   "dark": "26px"
+  },
+  "--odsv-size-grabber-width": {
+   "path": "size.grabber-width",
+   "type": "dimension",
+   "description": "Bottom-Sheet-Griff Breite",
+   "dark": "36px"
+  },
+  "--odsv-size-grabber-height": {
+   "path": "size.grabber-height",
+   "type": "dimension",
+   "description": "Bottom-Sheet-Griff Höhe",
+   "dark": "5px"
+  },
+  "--odsv-size-segment-height": {
+   "path": "size.segment-height",
+   "type": "dimension",
+   "description": "Strichstärke Fortschrittssegment",
+   "dark": "3px"
+  },
+  "--odsv-size-segment-gap": {
+   "path": "size.segment-gap",
+   "type": "dimension",
+   "description": "Abstand zwischen Fortschrittssegmenten",
+   "dark": "6px"
+  },
+  "--odsv-size-bullet": {
+   "path": "size.bullet",
+   "type": "dimension",
+   "description": "gelber Listenpunkt",
+   "dark": "7px"
+  },
+  "--odsv-size-marker": {
+   "path": "size.marker",
+   "type": "dimension",
+   "description": "nummerierte Positionsmarke",
+   "dark": "19px"
+  },
+  "--odsv-size-row-comfortable": {
+   "path": "size.row-comfortable",
+   "type": "dimension",
+   "description": "Tabellenzeile Website",
+   "dark": "52px"
+  },
+  "--odsv-size-row-compact": {
+   "path": "size.row-compact",
+   "type": "dimension",
+   "description": "Tabellenzeile Dashboard Standard",
+   "dark": "40px"
+  },
+  "--odsv-size-row-dense": {
+   "path": "size.row-dense",
+   "type": "dimension",
+   "description": "Tabellenzeile Dashboard dicht",
+   "dark": "32px"
+  },
+  "--odsv-radius-segment": {
+   "path": "radius.segment",
+   "type": "dimension",
+   "description": "Fortschrittssegment",
+   "dark": "2px"
+  },
+  "--odsv-radius-checkbox": {
+   "path": "radius.checkbox",
+   "type": "dimension",
+   "description": "Checkbox",
+   "dark": "7px"
+  },
+  "--odsv-radius-sm": {
+   "path": "radius.sm",
+   "type": "dimension",
+   "description": "Tooltip, Skip-Link, Tabellen-Zelle mit Fokus",
+   "dark": "10px"
+  },
+  "--odsv-radius-control-inner": {
+   "path": "radius.control-inner",
+   "type": "dimension",
+   "description": "Icon-Button, Segment im Umschalter",
+   "dark": "12px"
+  },
+  "--odsv-radius-control": {
+   "path": "radius.control",
+   "type": "dimension",
+   "description": "Button, Formularfeld",
+   "dark": "14px"
+  },
+  "--odsv-radius-inset": {
+   "path": "radius.inset",
+   "type": "dimension",
+   "description": "Karte in Karte, Umschalter, Medienfläche",
+   "dark": "16px"
+  },
+  "--odsv-radius-card-sm": {
+   "path": "radius.card-sm",
+   "type": "dimension",
+   "description": "KPI-Gruppe, Dashboard-Karte, kleine Icon-Kachel",
+   "dark": "20px"
+  },
+  "--odsv-radius-tile": {
+   "path": "radius.tile",
+   "type": "dimension",
+   "description": "Icon-Kachel",
+   "dark": "22px"
+  },
+  "--odsv-radius-card": {
+   "path": "radius.card",
+   "type": "dimension",
+   "description": "Karte, Bottom-Sheet oben",
+   "dark": "28px"
+  },
+  "--odsv-radius-pill": {
+   "path": "radius.pill",
+   "type": "dimension",
+   "description": "Pille, Badge, Umschalter",
+   "dark": "999px"
+  },
+  "--odsv-border-width-hairline": {
+   "path": "border.width.hairline",
+   "type": "dimension",
+   "description": "Kartenrand, Trennlinie",
+   "dark": "1px"
+  },
+  "--odsv-border-width-control": {
+   "path": "border.width.control",
+   "type": "dimension",
+   "description": "Checkbox, Formularfeld",
+   "dark": "1.5px"
+  },
+  "--odsv-border-width-focus": {
+   "path": "border.width.focus",
+   "type": "dimension",
+   "description": "Breite des Fokusrings",
+   "dark": "2px"
+  },
+  "--odsv-border-width-emphasis": {
+   "path": "border.width.emphasis",
+   "type": "dimension",
+   "description": "Warn-Karte links/umlaufend",
+   "dark": "2px"
+  },
+  "--odsv-border-focus-offset": {
+   "path": "border.focus-offset",
+   "type": "dimension",
+   "description": "Abstand des Fokusrings",
+   "dark": "3px"
+  },
+  "--odsv-border-stroke-icon": {
+   "path": "border.stroke.icon",
+   "type": "dimension",
+   "description": "UI-Icon 24 px",
+   "dark": "2px"
+  },
+  "--odsv-border-stroke-icon-tile": {
+   "path": "border.stroke.icon-tile",
+   "type": "dimension",
+   "description": "Icon in Kachel 44–52 px",
+   "dark": "2.4px"
+  },
+  "--odsv-border-stroke-illustration": {
+   "path": "border.stroke.illustration",
+   "type": "dimension",
+   "description": "Illustration, Bereich 2–3 px",
+   "dark": "2.5px"
+  },
+  "--odsv-border-stroke-leader": {
+   "path": "border.stroke.leader",
+   "type": "dimension",
+   "description": "Hinweislinie",
+   "dark": "1px"
+  },
+  "--odsv-border-stroke-data-line": {
+   "path": "border.stroke.data-line",
+   "type": "dimension",
+   "description": "Linie im Diagramm",
+   "dark": "2px"
+  },
+  "--odsv-shadow-none": {
+   "path": "shadow.none",
+   "type": "shadow",
+   "description": "Kein Schatten (Standard: Tiefe über Flächenstufen)",
+   "dark": {
+    "color": "#00000000",
+    "offsetX": "0px",
+    "offsetY": "0px",
+    "blur": "0px",
+    "spread": "0px"
+   }
+  },
+  "--odsv-shadow-overlay": {
+   "path": "shadow.overlay",
+   "type": "shadow",
+   "description": "Tooltip, Popover, Menü",
+   "dark": {
+    "color": "#00000099",
+    "offsetX": "0px",
+    "offsetY": "8px",
+    "blur": "32px",
+    "spread": "0px"
+   },
+   "light": {
+    "color": "#00000026",
+    "offsetX": "0px",
+    "offsetY": "8px",
+    "blur": "24px",
+    "spread": "0px"
+   },
+   "print": {
+    "color": "#00000000",
+    "offsetX": "0px",
+    "offsetY": "0px",
+    "blur": "0px",
+    "spread": "0px"
+   }
+  },
+  "--odsv-shadow-sheet": {
+   "path": "shadow.sheet",
+   "type": "shadow",
+   "description": "Bottom-Sheet, Dialog",
+   "dark": {
+    "color": "#000000B3",
+    "offsetX": "0px",
+    "offsetY": "-8px",
+    "blur": "40px",
+    "spread": "0px"
+   },
+   "light": {
+    "color": "#0000002E",
+    "offsetX": "0px",
+    "offsetY": "-8px",
+    "blur": "32px",
+    "spread": "0px"
+   },
+   "print": {
+    "color": "#00000000",
+    "offsetX": "0px",
+    "offsetY": "0px",
+    "blur": "0px",
+    "spread": "0px"
+   }
+  },
+  "--odsv-shadow-glow-accent": {
+   "path": "shadow.glow-accent",
+   "type": "shadow",
+   "description": "sparsam: Live-/Aktiv-Marker",
+   "dark": [
+    {
+     "color": "#FFE94D66",
+     "offsetX": "0px",
+     "offsetY": "0px",
+     "blur": "0px",
+     "spread": "1px"
+    },
+    {
+     "color": "#FFE94D40",
+     "offsetX": "0px",
+     "offsetY": "0px",
+     "blur": "24px",
+     "spread": "0px"
+    }
+   ],
+   "light": {
+    "color": "#8A720066",
+    "offsetX": "0px",
+    "offsetY": "0px",
+    "blur": "0px",
+    "spread": "2px"
+   }
+  },
+  "--odsv-shadow-glow-danger": {
+   "path": "shadow.glow-danger",
+   "type": "shadow",
+   "description": "sparsam: Alarmzustand",
+   "dark": [
+    {
+     "color": "#FF453A66",
+     "offsetX": "0px",
+     "offsetY": "0px",
+     "blur": "0px",
+     "spread": "1px"
+    },
+    {
+     "color": "#FF453A40",
+     "offsetX": "0px",
+     "offsetY": "0px",
+     "blur": "24px",
+     "spread": "0px"
+    }
+   ],
+   "light": {
+    "color": "#C8102E66",
+    "offsetX": "0px",
+    "offsetY": "0px",
+    "blur": "0px",
+    "spread": "2px"
+   }
+  },
+  "--odsv-shadow-text-on-stage": {
+   "path": "shadow.text-on-stage",
+   "type": "shadow",
+   "description": "text-shadow für Hinweise über 3D/Bild",
+   "dark": {
+    "color": "#000000",
+    "offsetX": "0px",
+    "offsetY": "1px",
+    "blur": "8px",
+    "spread": "0px"
+   },
+   "light": {
+    "color": "#FFFFFF",
+    "offsetX": "0px",
+    "offsetY": "1px",
+    "blur": "8px",
+    "spread": "0px"
+   }
+  },
+  "--odsv-blur-bar": {
+   "path": "blur.bar",
+   "type": "dimension",
+   "description": "backdrop-filter der Top-Bar",
+   "dark": "20px"
+  },
+  "--odsv-opacity-inactive": {
+   "path": "opacity.inactive",
+   "type": "number",
+   "description": "nicht aktive Schritt-Karte. Die Website nutzte 0,45 – damit fiel Text unter 4,5:1. Grauer Text wird in inaktiven Karten auf text.body gesetzt.",
+   "dark": 0.6,
+   "light": 0.7
+  },
+  "--odsv-opacity-disabled": {
+   "path": "opacity.disabled",
+   "type": "number",
+   "description": "Deckkraft deaktivierter Bedienelemente",
+   "dark": 0.4
+  },
+  "--odsv-opacity-poster": {
+   "path": "opacity.poster",
+   "type": "number",
+   "description": "Deckkraft des Posterbilds vor dem Laden von 3D/Video",
+   "dark": 0.8
+  },
+  "--odsv-motion-duration-instant": {
+   "path": "motion.duration.instant",
+   "type": "duration",
+   "description": "Hover-Farbe, Tastendruck",
+   "dark": "100ms"
+  },
+  "--odsv-motion-duration-fast": {
+   "path": "motion.duration.fast",
+   "type": "duration",
+   "description": "Button, Checkbox, Umschalter",
+   "dark": "200ms"
+  },
+  "--odsv-motion-duration-base": {
+   "path": "motion.duration.base",
+   "type": "duration",
+   "description": "Einblenden, Kartenwechsel, Sheet",
+   "dark": "300ms"
+  },
+  "--odsv-motion-duration-slow": {
+   "path": "motion.duration.slow",
+   "type": "duration",
+   "description": "Zeichnen von Linien, große Flächen",
+   "dark": "400ms"
+  },
+  "--odsv-motion-duration-stage": {
+   "path": "motion.duration.stage",
+   "type": "duration",
+   "description": "Bühne ein-/ausblenden",
+   "dark": "500ms"
+  },
+  "--odsv-motion-duration-camera": {
+   "path": "motion.duration.camera",
+   "type": "duration",
+   "description": "Kamerafahrt, Explosionsweg",
+   "dark": "1000ms"
+  },
+  "--odsv-motion-duration-hint": {
+   "path": "motion.duration.hint",
+   "type": "duration",
+   "description": "Hand-Geste",
+   "dark": "2000ms"
+  },
+  "--odsv-motion-duration-spin": {
+   "path": "motion.duration.spin",
+   "type": "duration",
+   "description": "Ladekreis, linear",
+   "dark": "900ms"
+  },
+  "--odsv-motion-duration-stagger": {
+   "path": "motion.duration.stagger",
+   "type": "duration",
+   "description": "Versatz zwischen Geschwistern (50–80 ms)",
+   "dark": "60ms"
+  },
+  "--odsv-motion-easing-standard": {
+   "path": "motion.easing.standard",
+   "type": "cubicBezier",
+   "description": "Fades, Slides",
+   "dark": [
+    0.2,
+    0.8,
+    0.2,
+    1
+   ]
+  },
+  "--odsv-motion-easing-in-out": {
+   "path": "motion.easing.in-out",
+   "type": "cubicBezier",
+   "description": "Kamera, Zeichnen, Wege",
+   "dark": [
+    0.65,
+    0,
+    0.35,
+    1
+   ]
+  },
+  "--odsv-motion-easing-exit": {
+   "path": "motion.easing.exit",
+   "type": "cubicBezier",
+   "description": "Ausblenden",
+   "dark": [
+    0.4,
+    0,
+    1,
+    1
+   ]
+  },
+  "--odsv-motion-easing-linear": {
+   "path": "motion.easing.linear",
+   "type": "cubicBezier",
+   "description": "scrollgekoppelter Fortschritt",
+   "dark": [
+    0,
+    0,
+    1,
+    1
+   ]
+  },
+  "--odsv-motion-distance-rise": {
+   "path": "motion.distance.rise",
+   "type": "dimension",
+   "description": "Weg beim Aufsteigen (Karten, Toast)",
+   "dark": "12px"
+  },
+  "--odsv-motion-distance-reveal": {
+   "path": "motion.distance.reveal",
+   "type": "dimension",
+   "description": "Weg beim Einblenden im Scroll",
+   "dark": "16px"
+  },
+  "--odsv-motion-distance-sheet": {
+   "path": "motion.distance.sheet",
+   "type": "dimension",
+   "description": "Weg beim Öffnen des Bottom-Sheets",
+   "dark": "40px"
+  },
+  "--odsv-motion-scale-press": {
+   "path": "motion.scale-press",
+   "type": "number",
+   "description": "Skalierung beim Drücken (Button)",
+   "dark": 0.98
+  },
+  "--odsv-breakpoint-xs": {
+   "path": "breakpoint.xs",
+   "type": "dimension",
+   "description": "darunter: engere Buttons/Wortmarke",
+   "dark": "380px"
+  },
+  "--odsv-breakpoint-sm": {
+   "path": "breakpoint.sm",
+   "type": "dimension",
+   "description": "ab hier zwei Spalten, Primär-Button min. 240 px",
+   "dark": "600px"
+  },
+  "--odsv-breakpoint-md": {
+   "path": "breakpoint.md",
+   "type": "dimension",
+   "description": "2–4 Spalten",
+   "dark": "768px"
+  },
+  "--odsv-breakpoint-lg": {
+   "path": "breakpoint.lg",
+   "type": "dimension",
+   "description": "12 Spalten, Bühne neben Text",
+   "dark": "1024px"
+  },
+  "--odsv-breakpoint-xl": {
+   "path": "breakpoint.xl",
+   "type": "dimension",
+   "description": "breiter Desktop",
+   "dark": "1280px"
+  },
+  "--odsv-breakpoint-2xl": {
+   "path": "breakpoint.2xl",
+   "type": "dimension",
+   "description": "Dashboard breit",
+   "dark": "1536px"
+  },
+  "--odsv-z-base": {
+   "path": "z.base",
+   "type": "number",
+   "description": "Grundebene",
+   "dark": 0
+  },
+  "--odsv-z-raised": {
+   "path": "z.raised",
+   "type": "number",
+   "description": "leicht angehoben (Tooltip im Diagramm, Labels)",
+   "dark": 1
+  },
+  "--odsv-z-stage-ui": {
+   "path": "z.stage-ui",
+   "type": "number",
+   "description": "Bedienelemente auf Bühne/Diagramm",
+   "dark": 4
+  },
+  "--odsv-z-sticky": {
+   "path": "z.sticky",
+   "type": "number",
+   "description": "klebende Bühne, Tabellenkopf",
+   "dark": 20
+  },
+  "--odsv-z-sheet": {
+   "path": "z.sheet",
+   "type": "number",
+   "description": "Bottom-Sheet im Fluss",
+   "dark": 30
+  },
+  "--odsv-z-topbar": {
+   "path": "z.topbar",
+   "type": "number",
+   "description": "klebende Top-Bar",
+   "dark": 60
+  },
+  "--odsv-z-overlay": {
+   "path": "z.overlay",
+   "type": "number",
+   "description": "Scrim, Hand-Geste",
+   "dark": 70
+  },
+  "--odsv-z-modal": {
+   "path": "z.modal",
+   "type": "number",
+   "description": "Modales Sheet",
+   "dark": 80
+  },
+  "--odsv-z-tooltip": {
+   "path": "z.tooltip",
+   "type": "number",
+   "description": "Tooltip",
+   "dark": 85
+  },
+  "--odsv-z-toast": {
+   "path": "z.toast",
+   "type": "number",
+   "description": "Toast (oberste Ebene)",
+   "dark": 90
+  },
+  "--odsv-z-skip": {
+   "path": "z.skip",
+   "type": "number",
+   "description": "Sprunglink",
+   "dark": 100
+  }
+ }
+}

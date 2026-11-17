@@ -1,0 +1,24 @@
+const { chromium } = (() => { try { return require('playwright'); } catch (e) { return require('/opt/npm-tools/node_modules/playwright'); } })();
+const CHROME = process.env.CHROME_PATH || (require('fs').existsSync('/usr/bin/google-chrome') ? '/usr/bin/google-chrome' : undefined);
+(async () => {
+  const b = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
+  const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+  const p = await ctx.newPage(); const errs = [];
+  p.on('console', m => m.type() === 'error' && errs.push(m.text())); p.on('pageerror', e => errs.push(e.message));
+  await p.goto('file:///home/claude/odsv/web/index.html'); await p.waitForTimeout(500);
+  const r = {};
+  await p.click('[data-odsv-theme-toggle]'); r.theme = await p.evaluate(() => document.documentElement.dataset.theme + '|' + localStorage.getItem('odsv-theme'));
+  await p.click('[data-odsv-theme-toggle]');
+  await p.focus('#dt-1'); await p.keyboard.press('ArrowRight'); r.tab = await p.evaluate(() => [document.getElementById('dp-2').hidden, document.getElementById('dp-1').hidden, document.activeElement.id].join());
+  const seg = (await p.$$('[data-odsv-segmented] [role=radio]'))[0]; await seg.focus(); await p.keyboard.press('ArrowRight');
+  r.seg = await p.evaluate(() => [...document.querySelectorAll('[data-odsv-segmented]')[0].querySelectorAll('[role=radio]')].map(x => x.getAttribute('aria-checked')).join());
+  const cb = await p.$('[data-odsv-checklist] input'); await cb.scrollIntoViewIfNeeded(); await cb.check({ force: true });
+  r.count = await p.textContent('[data-odsv-checklist-count]'); r.ls = await p.evaluate(() => localStorage.getItem('odsv-checklist:docs-demo'));
+  await p.reload(); await p.waitForTimeout(400); r.persist = await p.textContent('[data-odsv-checklist-count]');
+  await p.click('[data-odsv-sheet-open]'); await p.waitForTimeout(500); r.sheet = await p.evaluate(() => document.getElementById('demo-sheet').classList.contains('is-open'));
+  await p.keyboard.press('Escape'); await p.waitForTimeout(600); r.sheetClosed = await p.evaluate(() => document.getElementById('demo-sheet').hidden);
+  await ctx.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await p.click('.docs-snippet > summary'); const cp = await p.$('.docs-snippet[open] [data-odsv-copy]'); await cp.scrollIntoViewIfNeeded(); await cp.click(); r.copy = await cp.textContent();
+  console.log(JSON.stringify(r, null, 1), 'errors:', errs);
+  await b.close();
+})();

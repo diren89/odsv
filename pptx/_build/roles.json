@@ -1,0 +1,170 @@
+[
+ {
+  "name": "Titel",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 1,
+   "meta": 14
+  }
+ },
+ {
+  "name": "Kapiteltrenner",
+  "map": {
+   "number": 13,
+   "eyebrow": 14,
+   "title": 0,
+   "sub": 15
+  }
+ },
+ {
+  "name": "Agenda",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "body": 15,
+   "aside": 16
+  }
+ },
+ {
+  "name": "Inhalt einspaltig",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "body": 15,
+   "aside": 16
+  }
+ },
+ {
+  "name": "Zwei Spalten",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "label0": 15,
+   "title0": 16,
+   "text0": 17,
+   "label1": 18,
+   "title1": 19,
+   "text1": 20
+  }
+ },
+ {
+  "name": "KPI drei Zahlen",
+  "map": {
+   "eyebrow": 13,
+   "label": 0,
+   "value": 15,
+   "sentence": 16,
+   "tl0": 17,
+   "tv0": 18,
+   "tl1": 19,
+   "tv1": 20,
+   "tl2": 21,
+   "tv2": 22
+  }
+ },
+ {
+  "name": "Diagramm",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "chart": 15,
+   "ilabel": 16,
+   "itext": 17,
+   "inote": 18
+  }
+ },
+ {
+  "name": "Bild vollflächig",
+  "map": {
+   "image": 13,
+   "eyebrow": 14,
+   "title": 0,
+   "sub": 15
+  }
+ },
+ {
+  "name": "Bild in Karte",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "body": 15,
+   "image": 16
+  }
+ },
+ {
+  "name": "Zitat",
+  "map": {
+   "quote": 13,
+   "name": 14,
+   "role": 15
+  }
+ },
+ {
+  "name": "Prozess vier Schritte",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "n0": 15,
+   "t0": 16,
+   "x0": 17,
+   "n1": 18,
+   "t1": 19,
+   "x1": 20,
+   "n2": 21,
+   "t2": 22,
+   "x2": 23,
+   "n3": 24,
+   "t3": 25,
+   "x3": 26
+  }
+ },
+ {
+  "name": "Vergleich",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "head0": 15,
+   "title0": 16,
+   "text0": 17,
+   "head1": 18,
+   "title1": 19,
+   "text1": 20
+  }
+ },
+ {
+  "name": "Tabelle",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14,
+   "table": 15
+  }
+ },
+ {
+  "name": "Abschluss",
+  "map": {
+   "prompt": 0,
+   "button": 14,
+   "contact": 15
+  }
+ },
+ {
+  "name": "Nur Titel",
+  "map": {
+   "eyebrow": 13,
+   "title": 0,
+   "sub": 14
+  }
+ },
+ {
+  "name": "Leer",
+  "map": {}
+ }
+]

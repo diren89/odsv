@@ -1,0 +1,238 @@
+/* Dokumentationsseite: erzeugt Navigation, Farbfelder (Hex + Kontrast live aus den Tokens), Abstände, Radien,
+   Bewegung, Icon-Raster, Paletten und rendert alle Komponenten-Demos samt kopierbarem HTML aus <template class="docs-src">. */
+(function () {
+  'use strict';
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var P = '--odsv-';
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  var de = function (n, d) { return Number(n).toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d }); };
+
+  /* ---------- Farbe: lesen, mischen, Kontrast ---------- */
+  var probe = el('span'); probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none'; document.body.appendChild(probe);
+  function readColor(v) {
+    probe.style.color = 'var(' + P + v + ')';
+    var m = getComputedStyle(probe).color.match(/[\d.]+/g) || [0, 0, 0];
+    return { r: +m[0], g: +m[1], b: +m[2], a: m[3] === undefined ? 1 : +m[3] };
+  }
+  function over(c, bg) { return { r: c.r * c.a + bg.r * (1 - c.a), g: c.g * c.a + bg.g * (1 - c.a), b: c.b * c.a + bg.b * (1 - c.a), a: 1 }; }
+  function lum(c) { var f = function (x) { x /= 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  function hex(c) {
+    var h = function (n) { return ('0' + Math.round(n).toString(16)).slice(-2); };
+    return ('#' + h(c.r) + h(c.g) + h(c.b) + (c.a < 0.999 ? h(c.a * 255) : '')).toUpperCase();
+  }
+  function grade(r) { return r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AA (Großtext/UI)' : 'unter 3:1'; }
+
+  /* name, Rolle, Kontrast gegen [var,…] (für Flächen: Text darauf; "text:" = Vordergrund gegen Fläche) */
+  var COLORS = [
+    ['Flächen', 'Bühne und Karten – Tiefe entsteht durch Stufen, nicht durch Schatten.', [
+      ['color-bg-base', 'Seite, Folie', ['color-text-primary']],
+      ['color-bg-subtle', 'Signet-Karte, abgesetzte Sektion', ['color-text-primary']],
+      ['color-bg-stage', '3D, Explosionszeichnung, Vollbild-Diagramm', ['color-text-primary']],
+      ['color-surface-1', 'Karte', ['color-text-primary']],
+      ['color-surface-2', 'Karte in Karte, Hover', ['color-text-primary']],
+      ['color-surface-3', 'gedrückt, ausgewählte Zeile', ['color-text-primary']],
+      ['color-surface-inverse', 'umgekehrte Fläche (Gegenwahl)', ['color-text-inverse']]]],
+    ['Text', 'Fünf deckende Stufen; alle ≥ 4,5:1 auf Grund und Karte 1.', [
+      ['color-text-primary', 'Headline, betonter Wert', ['color-bg-base', 'color-surface-1']],
+      ['color-text-body', 'Fließtext', ['color-bg-base', 'color-surface-1']],
+      ['color-text-secondary', 'Eyebrow, Label', ['color-bg-base', 'color-surface-1']],
+      ['color-text-muted', 'Zweitsatz, Erklärtext', ['color-bg-base', 'color-surface-1']],
+      ['color-text-faint', 'Fußnote, Achsen (nicht auf Karte 3)', ['color-bg-base', 'color-surface-1']],
+      ['color-text-disabled', 'deaktiviert – nie für Information', ['color-bg-base', 'color-surface-1']]]],
+    ['Akzent', 'Akzentgelb: eine Handlung, eine Zahl, ein Marker.', [
+      ['color-accent-fill', 'Primär-Button (Verlauf bis fill-end), Marker', ['color-bg-base']],
+      ['color-accent-fill-end', 'Ende des Button-Verlaufs', ['color-bg-base']],
+      ['color-accent-hover', 'Hover Primär', ['color-bg-base']],
+      ['color-accent-pressed', 'Gedrückt Primär', ['color-bg-base']],
+      ['color-accent-text', 'betonte Kennzahl, Icon', ['color-bg-base', 'color-surface-1']],
+      ['color-accent-line', 'aktiver Strich, Rand', ['color-bg-base']],
+      ['color-accent-on', 'Schrift auf Gelb', ['color-accent-fill']],
+      ['color-accent-subtle', 'getönter Grund', ['color-text-primary']],
+      ['color-focus-ring', 'Fokusring', ['color-bg-base']]]],
+    ['Status', 'Immer Icon + Wort; nie Farbe allein.', [
+      ['color-status-success-base', 'Erfolg: Fläche, Icon', ['color-surface-1']],
+      ['color-status-success-text', 'Erfolg: Text', ['color-surface-1']],
+      ['color-status-warning-base', 'Warnung: Fläche, Icon', ['color-surface-1']],
+      ['color-status-warning-text', 'Warnung: Text', ['color-surface-1']],
+      ['color-status-danger-base', 'Fehler: Fläche, Icon', ['color-surface-1']],
+      ['color-status-danger-text', 'Fehler: Text', ['color-surface-1']],
+      ['color-status-info-base', 'Info: Fläche, Icon', ['color-surface-1']],
+      ['color-status-info-text', 'Info: Text', ['color-surface-1']]]],
+    ['Linien', 'Kartenränder sind Dekor; Bedienelemente nutzen border-control (≥ 3:1).', [
+      ['color-border-subtle', 'Kartenrand, Trennlinie (Dekor)', ['color-bg-base']],
+      ['color-border-strong', 'Label-Pille, Tabellenkopf', ['color-bg-base']],
+      ['color-border-control', 'Formularfeld, Checkbox', ['color-bg-base', 'color-surface-1']],
+      ['color-border-active', 'aktive Karte', ['color-bg-base']]]],
+    ['Signet', 'Nur Signet/Titelmoment – nie als Button, Text oder Diagrammfarbe.', [
+      ['color-signet-1', 'Bogen 1 (Pink)', null], ['color-signet-2', 'Bogen 2 (Orange)', null],
+      ['color-signet-3', 'Bogen 3', null], ['color-signet-4', 'Bogen 4', null], ['color-signet-dot', 'Kern', null]]]
+  ];
+
+  function renderColors() {
+    var host = $('#docs-colors'); if (!host) return;
+    host.innerHTML = '';
+    COLORS.forEach(function (g) {
+      var blk = el('div', 'docs-block');
+      blk.appendChild(el('h3', 'odsv-h3', g[0]));
+      blk.appendChild(el('p', 'docs-note', g[1]));
+      var grid = el('div', 'docs-swatches');
+      g[2].forEach(function (c) {
+        var col = readColor(c[0]);
+        var base = readColor('color-bg-base');
+        var rows = '';
+        (c[2] || []).forEach(function (ag) {
+          var other = over(readColor(ag), base), mine = over(col, other);
+          var r = ratio(mine, other);
+          rows += '<span class="docs-sw__ratio">' + de(r, 2) + ':1 · ' + grade(r) + ' <span class="odsv-caption">vs ' + ag.replace('color-', '') + '</span></span>';
+        });
+        var card = el('div', 'docs-sw',
+          '<div class="docs-sw__chip" style="background:var(' + P + c[0] + ')"></div><div class="docs-sw__meta">' +
+          '<span class="docs-sw__name">' + P + c[0] + '</span><span class="docs-sw__hex">' + hex(col) + '</span><span>' + c[1] + '</span>' + rows + '</div>');
+        grid.appendChild(card);
+      });
+      blk.appendChild(grid);
+      host.appendChild(blk);
+    });
+  }
+
+  /* ---------- Abstände, Radien, Bewegung ---------- */
+  function renderSpace() {
+    var h = $('#docs-space'); if (!h) return;
+    [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32].forEach(function (n) {
+      var row = el('div', 'docs-space__row', '<code>space-' + n + '</code><span>' + n * 4 + ' px</span><div class="docs-space__bar" style="width:min(100%,var(' + P + 'space-' + n + '))"></div>');
+      h.appendChild(row);
+    });
+  }
+  function renderRadii() {
+    var h = $('#docs-radii'); if (!h) return;
+    [['segment', 'Segment'], ['checkbox', 'Checkbox'], ['sm', 'klein'], ['control-inner', 'Bedienelement innen'], ['control', 'Bedienelement'], ['inset', 'Einsatz'], ['card-sm', 'Karte klein'], ['tile', 'Kachel'], ['card', 'Karte'], ['pill', 'Pille']].forEach(function (r) {
+      probe.style.borderRadius = 'var(' + P + 'radius-' + r[0] + ')';
+      var px = getComputedStyle(probe).borderTopLeftRadius; probe.style.borderRadius = '';
+      h.appendChild(el('div', 'docs-radius', '<div class="docs-radius__box" style="border-radius:var(' + P + 'radius-' + r[0] + ')"></div><span><code>radius-' + r[0] + '</code><br>' + r[1] + ' · ' + (r[0] === 'pill' ? '∞' : parseFloat(px) + ' px') + '</span>'));
+    });
+  }
+  function renderMotion() {
+    var h = $('#docs-motion'); if (!h) return;
+    var rows = [['instant', 'standard', '100 ms · Hover'], ['fast', 'standard', '200 ms · Button'], ['base', 'standard', '300 ms · Einblenden'], ['slow', 'in-out', '400 ms · Linien'], ['stage', 'standard', '500 ms · Bühne'], ['camera', 'in-out', '1000 ms · Kamera']];
+    rows.forEach(function (r) {
+      h.appendChild(el('div', 'docs-motion__row', '<span><code>' + r[0] + '</code><br>' + r[2] + '</span><div class="docs-motion__track"><div class="docs-motion__dot" style="transition:transform var(' + P + 'motion-duration-' + r[0] + ') var(' + P + 'motion-easing-' + r[1] + ')"></div></div>'));
+    });
+    var btn = $('#docs-motion-play');
+    function size() { var t = $('.docs-motion__track', h); if (t) h.style.setProperty('--_run', Math.max(0, t.clientWidth - 29) + 'px'); }
+    size(); window.addEventListener('resize', size);
+    btn.addEventListener('click', function () { size(); h.classList.toggle('is-playing'); });
+  }
+
+  /* ---------- Paletten ---------- */
+  function pal(host, vars, labels) {
+    var h = $(host); if (!h) return;
+    vars.forEach(function (v, i) { h.appendChild(el('div', '', '<span>' + (labels ? labels[i] : i + 1) + '</span>')).style.background = 'var(' + P + v + ')'; });
+  }
+
+  /* ---------- Demos aus <template> ---------- */
+  function dedent(t) {
+    var lines = t.replace(/\t/g, '  ').split('\n');
+    while (lines.length && !lines[0].trim()) lines.shift();
+    while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+    var min = Infinity;
+    lines.forEach(function (l) { if (l.trim()) min = Math.min(min, l.match(/^ */)[0].length); });
+    return lines.map(function (l) { return l.slice(min === Infinity ? 0 : min); }).join('\n');
+  }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var demoN = 0;
+  function renderDemos() {
+    $$('template.docs-src').forEach(function (tpl) {
+      var n = ++demoN, raw = dedent(tpl.innerHTML);
+      var demo = el('div', 'docs-demo');
+      var stage = el('div', 'docs-demo__stage' + (tpl.dataset.surface ? ' docs-demo__stage--surface' : ''));
+      var caps = tpl.dataset.captions ? tpl.dataset.captions.split('|') : null;
+      if (caps) {
+        stage.classList.add('docs-demo__stage--states'); if (tpl.dataset.wide) stage.classList.add('docs-demo__stage--wide-states');
+        var frag = tpl.content.cloneNode(true), kids = Array.prototype.filter.call(frag.childNodes, function (c) { return c.nodeType === 1; });
+        kids.forEach(function (k, i) { var f = el('figure'); f.appendChild(k); f.appendChild(el('figcaption', '', caps[i] || '')); stage.appendChild(f); });
+      } else if (!tpl.dataset.nolive) stage.appendChild(tpl.content.cloneNode(true));
+      if (!tpl.dataset.nolive) demo.appendChild(stage);
+      var det = el('details', 'docs-snippet');
+      det.innerHTML = '<summary><svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-chevron"/></svg>HTML ansehen</summary>' +
+        '<div class="docs-snippet__actions"><button type="button" class="odsv-btn odsv-btn--ghost odsv-btn--sm" data-odsv-copy="#snip-' + n + '">Kopieren</button></div>' +
+        '<pre tabindex="0"><code id="snip-' + n + '">' + esc(raw) + '</code></pre>';
+      demo.appendChild(det);
+      tpl.replaceWith(demo);
+      if (window.ODSV && window.ODSV.init) window.ODSV.init(demo);
+    });
+  }
+
+  /* ---------- Icons ---------- */
+  function copy(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    } catch (e) { /* weiter mit Fallback */ }
+    return new Promise(function (res, rej) {
+      try { var t = el('textarea'); t.value = text; t.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(t); t.select(); var ok = document.execCommand('copy'); t.remove(); ok ? res() : rej(); } catch (e) { rej(e); }
+    });
+  }
+  function renderIcons() {
+    var h = $('#docs-icons'); if (!h) return;
+    $$('symbol[id^="odsv-icon-"]').forEach(function (s) {
+      var name = s.id.replace('odsv-icon-', '');
+      var b = el('button', 'docs-icon', '<svg class="odsv-icon" aria-hidden="true"><use href="#' + s.id + '"/></svg><span>' + name + '</span>');
+      b.type = 'button'; b.title = 'Snippet kopieren: ' + name;
+      b.addEventListener('click', function () {
+        var span = $('span', b), old = span.textContent;
+        var snip = '<svg class="odsv-icon" aria-hidden="true"><use href="#' + s.id + '"/></svg>';
+        var done = function (m) { span.textContent = m; setTimeout(function () { span.textContent = old; }, 1400); };
+        try { copy(snip).then(function () { done('Kopiert'); }, function () { done('Nicht möglich'); }); } catch (e) { done('Nicht möglich'); }
+      });
+      h.appendChild(b);
+    });
+  }
+
+  /* ---------- Navigation ---------- */
+  function renderNav() {
+    var secs = $$('.docs-section[data-nav]'), groups = [], map = {};
+    secs.forEach(function (s) { var g = s.dataset.group || ''; if (!map[g]) { map[g] = []; groups.push(g); } map[g].push(s); });
+    function build(ul, cls) {
+      groups.forEach(function (g) {
+        if (g) ul.appendChild(el('li', 'odsv-nav__group', '<span class="odsv-eyebrow">' + g + '</span>'));
+        map[g].forEach(function (s) { ul.appendChild(el('li', '', '<a class="odsv-nav__link" href="#' + s.id + '">' + s.dataset.nav + '</a>')); });
+      });
+    }
+    $$('[data-docs-nav]').forEach(function (ul) { build(ul); });
+    var links = $$('[data-docs-nav] a');
+    if (!('IntersectionObserver' in window)) return;
+    var cur = null;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) cur = e.target.id; });
+      links.forEach(function (a) { if (a.getAttribute('href') === '#' + cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---------- Diagramm-Demos ---------- */
+  function renderCharts() {
+    if (!window.ODSVCharts) return;
+    var C = window.ODSVCharts;
+    var months = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+    $$('[data-demo-chart="line"]').forEach(function (e) {
+      C.line(e, { labels: months, series: [{ name: 'Registrierungen', values: [42, 48, 55, 51, 63, 70, 74, 69, 81, 88, 92, 97], cls: 'odsv-dv-1', area: true }, { name: 'Supportanfragen', values: [18, 17, 21, 19, 22, 20, 24, 21, 23, 22, 25, 24], cls: 'odsv-dv-2' }], height: 220, label: 'Registrierungen steigen von 42 im Januar auf 97 im Dezember; Supportanfragen bleiben zwischen 17 und 25.' });
+    });
+    $$('[data-demo-chart="bars"]').forEach(function (e) {
+      C.bars(e, { labels: ['Q1', 'Q2', 'Q3', 'Q4'], values: [145, 184, 224, 277], colors: ['odsv-dv-context', 'odsv-dv-context', 'odsv-dv-context', 'odsv-dv-highlight'], height: 200, label: 'Registrierungen je Quartal; Q4 ist mit 277 am höchsten.' });
+    });
+    $$('[data-demo-chart="donut"]').forEach(function (e) {
+      C.donut(e, { items: [{ label: 'Abgeschlossen', value: 62, cls: 'odsv-dv-1' }, { label: 'In Arbeit', value: 24, cls: 'odsv-dv-2' }, { label: 'Offen', value: 14, cls: 'odsv-dv-neutral' }], size: 180, center: { value: '62 %', label: 'fertig' }, label: '62 Prozent abgeschlossen, 24 in Arbeit, 14 offen.' });
+    });
+  }
+
+  function init() {
+    renderDemos(); renderColors(); renderSpace(); renderRadii(); renderMotion(); renderIcons(); renderNav(); renderCharts();
+    pal('#docs-pal-cat', ['dataviz-categorical-1', 'dataviz-categorical-2', 'dataviz-categorical-3', 'dataviz-categorical-4', 'dataviz-categorical-5', 'dataviz-categorical-6', 'dataviz-categorical-7']);
+    pal('#docs-pal-seq', ['dataviz-sequential-1', 'dataviz-sequential-2', 'dataviz-sequential-3', 'dataviz-sequential-4', 'dataviz-sequential-5', 'dataviz-sequential-6']);
+    pal('#docs-pal-div', ['dataviz-diverging-neg-3', 'dataviz-diverging-neg-2', 'dataviz-diverging-neg-1', 'dataviz-diverging-mid', 'dataviz-diverging-pos-1', 'dataviz-diverging-pos-2', 'dataviz-diverging-pos-3'], ['−3', '−2', '−1', '0', '+1', '+2', '+3']);
+    pal('#docs-pal-sem', ['dataviz-highlight', 'dataviz-context', 'dataviz-neutral', 'dataviz-positive', 'dataviz-negative'], ['betont', 'Kontext', 'Sonstige', 'positiv', 'negativ']);
+    document.addEventListener('odsv:theme', function () { renderColors(); if (window.ODSVCharts) window.ODSVCharts.redraw(); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
