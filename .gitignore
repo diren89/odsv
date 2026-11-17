@@ -8,3 +8,4 @@ pptx/_build/base.pptx
 pptx/_preview/slide*
 pptx/_preview/*.pdf
 ~$*.pptx
+/site/
