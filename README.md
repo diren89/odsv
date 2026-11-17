@@ -15,5 +15,11 @@ Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Pr
 | `templates/` | Startvorlagen: `website.html`, `dashboard.html`, `deck_example.py` |
 | `pptx/` | `ODSV-Vorlage.potx` (16 Layouts), Beispielpräsentation, `odsv_pptx.py` (Helfer), `signets/` (Folienbilder) |
 | `tools/` | Erzeuger und Prüfungen, `validate.sh` führt alles aus |
+| `tools/build_site.py`, `tools/site/` | Website im Stil eines Komponenten-Explorers (Storys mit Theme, Breite und Code, Tokens, Icons, Signets, Richtlinien); erzeugt `site/` |
 
 Änderungen immer in `tokens/tokens.json`, `web/odsv.css` und `catalog/src/components.meta.py`, danach `bash tools/validate.sh`.
+
+## Website
+
+`python3 tools/build_site.py` erzeugt `site/`: reines HTML, CSS und JS, läuft direkt per Doppelklick auf `site/index.html` oder auf jedem statischen Host. Zum lokalen Ansehen über HTTP: `python3 -m http.server -d site`.
+Veröffentlichen über GitHub Pages: `.github/workflows/pages.yml` baut und veröffentlicht bei jedem Push auf `main` (einmalig unter Settings → Pages die Quelle „GitHub Actions“ wählen). `site/` wird nicht eingecheckt.
