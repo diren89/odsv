@@ -1,20 +1,21 @@
 # ODSV Design-System 1.1.0
 
-> Dunkles, markenneutrales Design-System für Websites, Dashboards und Präsentationen: gesperrte Versalien-Headlines, ein gelber Akzent (#FFE94D), dunkle Karten (#1C1C1E, Radius 28), Line-Art, segmentierte Fortschrittsleiste. Sprache Deutsch. Werte nur über CSS-Variablen `--odsv-*`.
+> ODSV (OneDay Super Visuals) ist ein dunkles, markenneutrales Design-System für Websites, Dashboards und Präsentationen: gesperrte Versalien-Headlines, ein gelber Akzent (#FFE94D), dunkle Karten (#1C1C1E, Radius 28), Line-Art, segmentierte Fortschrittsleiste. Sprache Deutsch. Werte nur über CSS-Variablen `--odsv-*`, Klassen nur aus `catalog/classes.json`.
 
-Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Arbeitsablauf, Inhaltsgrenzen, Definition of Done).
+Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Lint-Meldung → Behebung, Arbeitsablauf, Inhaltsgrenzen, Absicht → Komponente, Definition of Done, „Wenn etwas fehlt“). Arbeiten im Repo selbst: CLAUDE.md (Quellen vs. erzeugte Dateien, Einrichtung). Gerendert: https://diren89.github.io/odsv/
 
 ## Referenz
 - [AGENTS.md](AGENTS.md): Anleitung für AI-Agents
-- [catalog/COMPONENTS.md](catalog/COMPONENTS.md): Komponenten mit Zweck, Abgrenzung, Varianten, Regeln, Beispiel-HTML
-- [catalog/components.json](catalog/components.json): dasselbe maschinenlesbar
+- [catalog/components.json](catalog/components.json): 31 Komponenten mit Zweck, Abgrenzung, Klassen, Varianten, Zuständen, Regeln, A11y, Inhaltsgrenzen, Beispiel-HTML; lesbar: [catalog/COMPONENTS.md](catalog/COMPONENTS.md)
+- [catalog/charts.json](catalog/charts.json): 14 Diagrammformen von `ODSVCharts` – Aufgabe der Daten, wann/nicht, Optionen mit Typ/Pflicht/Standard, Grenzen, Beispielaufruf, Markup
 - [catalog/classes.json](catalog/classes.json): alle gültigen Klassen
 - [catalog/tokens.flat.json](catalog/tokens.flat.json): alle Tokens mit Wert (dunkel/hell) und Beschreibung
-- [catalog/icons.json](catalog/icons.json): Icon-Namen
-- [catalog/signets.json](catalog/signets.json): Signet-Familie (Basis, 8 Themen, 8 Situationen wie Erfolg, Fail, Konflikt); SVG-Dateien in web/signets/
-- [catalog/js-api.md](catalog/js-api.md): odsv.js (data-Attribute) und odsv-charts.js
-- [catalog/pptx-layouts.json](catalog/pptx-layouts.json): Folienlayouts, Platzhalter-Rollen, Zeichengrenzen
-- [SPEC.md](SPEC.md): vollständige Spezifikation
+- [catalog/icons.json](catalog/icons.json): 33 Icon-Namen
+- [catalog/signets.json](catalog/signets.json): 17 Signets (Basis, 8 Themen, 8 Situationen wie Erfolg, Fail, Konflikt); SVG-Dateien in web/signets/
+- [catalog/js-api.md](catalog/js-api.md): odsv.js (data-Attribute, globale API, Events) und odsv-charts.js (alle Formen, gemeinsames Verhalten, Markup)
+- [catalog/pptx-layouts.json](catalog/pptx-layouts.json): 16 Folienlayouts, Platzhalter-Rollen, Zeichengrenzen
+- [SPEC.md](SPEC.md): vollständige Spezifikation (7.3 welches Diagramm wann, 8.3 Bedienung und Tabellenansicht)
+- [GAPS.md](GAPS.md): Lückenanalysen, offene Punkte
 
 ## Bausteine
 - [web/tokens.css](web/tokens.css), [web/odsv.css](web/odsv.css), [web/odsv.js](web/odsv.js), [web/odsv-charts.js](web/odsv-charts.js), [web/icons.svg](web/icons.svg)
@@ -22,5 +23,6 @@ Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Arbeitsablauf, 
 - [pptx/ODSV-Vorlage.potx](pptx/ODSV-Vorlage.potx), [pptx/odsv_pptx.py](pptx/odsv_pptx.py)
 
 ## Prüfen
-- `node tools/lint-html.js seite.html`: ODSV-Regeln für erzeugtes HTML
-- `bash tools/validate.sh [--full]`: alles erzeugen und prüfen
+- `node tools/lint-html.js seite.html`: ODSV-Regeln für erzeugtes HTML (18 Regel-IDs, Behebung in AGENTS.md 3.1)
+- `bash tools/validate.sh [--full]`: alles erzeugen und prüfen, auch die Doku gegen den Code (`tools/check_docs.py`)
+- `python3 tools/build_site.py`: Website nach `site/` (Storys je Komponente, Grundlagen, Richtlinien)

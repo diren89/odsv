@@ -80,7 +80,7 @@ ODSVCharts.slope(el, { from: '2025', to: '2026', items: [{ label: 'Hamburg', a: 
 ODSVCharts.multiples(el, { labels, series: [{ name, values, cls }], columns, height: 120, context: true, yMax, yFormat, label });
 
 ODSVCharts.donut(el, { items: [{ label, value, cls }], size: 200, center: { value: '62 %', label: 'fertig' }, label });
-ODSVCharts.spark(el, values, 'odsv-dv-1');       // Sparkline ohne Achsen, letzter Punkt markiert
+ODSVCharts.spark(el, values, 'odsv-dv-1');       // Sparkline ohne Achsen, letzter Punkt markiert; el mit data-odsv-spark, damit redraw() sie mitzeichnet
 ODSVCharts.redraw();                              // alle neu zeichnen (läuft bei odsv:theme automatisch)
 ODSVCharts.format(-1234.5)                        // "−1.234,5"
 ```
@@ -107,4 +107,5 @@ ODSVCharts.format(-1234.5)                        // "−1.234,5"
 - Balken und Säulen beginnen immer bei 0. `yMax` nur setzen, wenn mehrere Diagramme vergleichbar sein müssen.
 - Streudiagramm dunkel höchstens 5, hell höchstens 3 Farben. Heatmap nur in `dv-seq`, Abweichung nur in `dv-div`.
 - Der Donut hat höchstens 3 Teile, „Offen“ oder „Sonstige“ in `odsv-dv-neutral`.
+- Sparkline-Container tragen `data-odsv-spark` (und eine Höhe, z. B. 32 px): `ODSVCharts.redraw()` zeichnet nur `.odsv-chart__plot` und `[data-odsv-spark]` neu.
 - Daten gelangen als Text ins SVG und in die Tabelle (`textContent`); Tooltip-Inhalte werden maskiert.

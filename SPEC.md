@@ -6,7 +6,7 @@ ODSV ist ein markenneutrales System für **Websites, Dashboards und Präsentatio
 
 **Für AI-Agents:** Einstieg ist `AGENTS.md`; maschinenlesbar sind `catalog/` (Komponenten, Klassen, Tokens, Icons, Folienlayouts) und die Prüfwerkzeuge `tools/lint-html.js` und `tools/validate.sh` (Kapitel 15).
 
-**So liest man Token-Namen:** `color.text.muted` (JSON-Pfad) = `--odsv-color-text-muted` (CSS) = Rolle `text.muted` in `pptx.json`.
+**So liest man Token-Namen:** `color.text.muted` (JSON-Pfad) = `--odsv-color-text-muted` (CSS) = Rolle `text.muted` in `pptx.json`. Im Fließtext steht oft die **Kurzform ohne `color.`**: `text.primary|body|secondary|muted|faint|disabled|inverse|link|link-hover`, `border.*`, `surface.*`, `bg.*`, `accent.*`, `action.*`, `status.*`, `focus.*`, `progress.*`, `signet.*`, `lineart.*` sind **Farbrollen** (`--odsv-color-…`). Dagegen sind `text.display|headline|title|subtitle|body|body-small|small|caption|eyebrow|label|chip|kpi|kpi-small|number|button|button-small|wordmark|code` **Textstile** (`--odsv-text-…-size|weight|tracking|leading|family|transform`). `text.body` ist beides: als Farbe `color.text.body`, als Stil `--odsv-text-body-*`. Alle Namen mit Wert und Beschreibung: `catalog/tokens.flat.json`.
 
 Inhalt: 1 Markenidee · 2 Ton · 3 Farbe · 4 Typografie · 5 Raster · 6 Komponenten · 7 Dashboards · 8 Diagramme · 9 Präsentationen · 10 Illustration · 11 Bewegung · 12 Barrierefreiheit · 13 Dateistruktur · 14 Versionierung · 15 Agenten-Schnittstelle
 
@@ -896,7 +896,7 @@ Jedes Layout hat benannte Platzhalter (Rollen wie `eyebrow`, `title`, `sub`, `bo
 - **Raster 24 px**, Strich 2 px, runde Enden und Ecken, keine Füllung, 2 px Schutzrand. In Kacheln 44–52 px mit 2,4 px Strich. Farbe `currentColor`.
 - **Größen:** 18 px (in Buttons, Umschalter) · 22 px (Icon-Button, Navigation) · 44/52 px (Kachel).
 - **Ausnahme gefüllt:** Status-Icons in Callouts (Warndreieck, Kreis-i) dürfen gefüllt sein, damit sie bei 20 px tragen.
-- **Bestand v1.0:** `web/icons.svg` mit 33 Strich-Icons und 9 Signets (10.6) als SVG-Sprite. Fehlende Icons aus einem offenen Strich-Satz mit denselben Maßen ergänzen (z. B. Lucide: 24er-Raster, 2 px, runde Enden). Pflicht-Icons, die jedes Produkt braucht: Haken, Kreuz, Plus, Pfeil rechts/links/oben/unten, Chevron, Warnung, Info, Suche, Schließen, Menü, Vollbild, Drehen, Filter, Kalender, Herunterladen, Externer Link.
+- **Bestand:** `web/icons.svg` mit 33 Strich-Icons und 17 Signets (10.6) als SVG-Sprite; Namen in `catalog/icons.json`. **Von der Pflichtliste fehlen noch:** Pfeil links/oben/unten, Vollbild, Drehen. Bis sie ergänzt sind: `arrow` bzw. `chevron` per CSS drehen (`transform: rotate(…)`) oder aus Lucide mit denselben Maßen übernehmen und im Produkt vermerken. Fehlende Icons aus einem offenen Strich-Satz mit denselben Maßen ergänzen (z. B. Lucide: 24er-Raster, 2 px, runde Enden). Pflicht-Icons, die jedes Produkt braucht: Haken, Kreuz, Plus, Pfeil rechts/links/oben/unten, Chevron, Warnung, Info, Suche, Schließen, Menü, Vollbild, Drehen, Filter, Kalender, Herunterladen, Externer Link.
 - Icons stehen nie allein für eine Handlung ohne Namen (sichtbar oder `aria-label`).
 
 ### 10.5 Signet und Bild
@@ -1065,7 +1065,7 @@ Semantische Versionierung `MAJOR.MINOR.PATCH`, Stand in `tokens.json → $extens
 | Stufe | Wann | Beispiel |
 |---|---|---|
 | MAJOR | Token entfernt oder umbenannt; Rolle ändert Bedeutung; Folienraster ändert Maße | `color.text.faint` entfällt |
-| MINOR | neues Token, neue Komponente, neues Layout, neues Theme | Icon-Satz, `components.css` |
+| MINOR | neues Token, neue Komponente, neues Layout, neues Theme | Analyse-Diagramme (v1.1.0), neues Icon |
 | PATCH | Wert korrigiert ohne Rollenwechsel, Text in der Spezifikation | Kontrastkorrektur einer Farbe |
 
 - Entfernte Tokens bleiben eine MINOR-Version lang als Alias mit `$deprecated` erhalten.

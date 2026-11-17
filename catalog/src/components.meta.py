@@ -21,7 +21,7 @@ META = {
   variants={"container--wide":"breiter Container (Dashboard)","container--text":"Lesebreite für Fließtext","section--tight":"weniger Innenabstand","section--rule":"Haarlinie oben","grid--dashboard":"Dashboard-Raster, Lücke 16 px","stack--N":"Abstand space-N zwischen Kindern (1,2,3,6,8,12)","cluster--2|6":"Abstand space-2/space-6","cluster--between|center|start":"Verteilung","section-head--center":"zentrierter Sektionskopf"},
   rules=["Mobile-First: .odsv-col-12 als Basis, ab Breakpoint überschreiben (sm 600, md 768, lg 1024, xl 1280).","Karten/Kacheln in einer Rasterzeile werden automatisch gleich hoch.","Breite Inhalte (Tabellen) in .odsv-scroll-x bzw. .odsv-table-wrap, nie die Seite seitlich scrollen lassen."],
   a11y=["Reihenfolge im DOM = Lesereihenfolge; Raster nicht per order umsortieren."],
-  content={}),
+  content={"Spalten": "12er-Raster; Lesebreite höchstens 640 px", "Sektionen": "je Sektion ein Dreiklang"}),
 "icon": dict(
   name="Icon", section="icons", roots=["icon"],
   use="Line-Icons aus dem Sprite web/icons.svg: <svg class=\"odsv-icon\" aria-hidden=\"true\"><use href=\"#odsv-icon-NAME\"/></svg>.",
@@ -29,7 +29,7 @@ META = {
   variants={"icon--sm":"18 px (in Buttons)","icon--lg":"44 px (Kachel)"},
   rules=["24er-Raster, Strich 2 px, runde Enden, Farbe currentColor.","Verfügbare Namen siehe catalog/icons.json; fehlende aus Lucide (gleiche Maße) ergänzen."],
   a11y=["Dekorativ: aria-hidden=\"true\". Allein stehend (Icon-Button): Name per aria-label oder .odsv-sr-only."],
-  content={}),
+  content={"Größe": "18 px in Buttons, 22 px Icon-Button/Navigation, 44–52 px in Kacheln"}),
 "button": dict(
   name="Button", section="buttons", roots=["btn","icon-btn"],
   use="Handlungen auslösen. Primär = die eine Haupthandlung der Ansicht.",
@@ -46,7 +46,7 @@ META = {
   variants={"link--muted":"leiser Link in Grau","link--plain":"ohne Unterstreichung (nur in Navigation)","textbtn":"Button im Link-Stil für leise Aktionen ohne Navigation"},
   rules=["Im Fließtext immer unterstrichen.","Linktext nennt das Ziel; Dateien mit Typ und Größe: „Bericht (PDF, 1,2 MB)“.","Externe Links mit Icon external."],
   a11y=["Leise Links: Trefferfläche ≥ 24 px (Maus) bzw. 44 px (Touch) – erledigt odsv.css."],
-  content={}),
+  content={"Linktext": "nennt das Ziel, 1–6 Wörter; Datei mit Typ und Größe"}),
 "card": dict(
   name="Karte", section="karten", roots=["card"],
   use="Gruppiert zusammengehörige Inhalte auf einer Fläche (surface-1, 1-px-Rand, Radius 28).",
@@ -79,7 +79,7 @@ META = {
   states={"aria-current=\"step\"":"aktives Segment","--p (0…1)":"Füllgrad eines Segments per style"},
   rules=["Kapitelleiste: Segmente sind Links mit aria-label; data-odsv-scrollprogress koppelt die Füllung an den Scroll.","Zähler daneben als Text: „7 von 12“."],
   a11y=["Zähl-Leiste: role=\"img\" + aria-label oder role=\"progressbar\" mit aria-valuenow."],
-  content={}),
+  content={"Segmente": "Kapitelleiste 2–12, Folien fest 7", "Zähler": "„n von m“"}),
 "segmented": dict(
   name="Segment-Umschalter", section="segment", roots=["segmented"],
   use="Einen Wert aus 2–4 Optionen wählen, die Ansicht wechselt sofort (Zeitraum, Diagramm/Tabelle).",
@@ -115,7 +115,7 @@ META = {
   states={"aria-selected=\"true\" an <tr>":"ausgewählte Zeile"},
   rules=["Immer in .odsv-table-wrap (role=\"region\", aria-label, tabindex=\"0\") – scrollt seitlich statt die Seite.","Zahlen rechtsbündig, Text links; Kopf in Versalien klein."],
   a11y=["<caption> (gern .odsv-sr-only), <th scope>."],
-  content={}),
+  content={"Kopf": "1–3 Wörter je Spalte, Einheit im Kopf statt in jeder Zelle", "Zeilen": "ab ca. 20 Zeilen Filter oder Seitenwechsel anbieten"}),
 "callout": dict(
   name="Hinweis (Callout)", section="callouts", roots=["callout"],
   use="Status- oder Sicherheitshinweis mit Icon und Wort.",
@@ -184,7 +184,7 @@ META = {
   use="App-Icon-artige Kachel über Karten oder Headline-Gruppen.",
   avoid="Mehr als eine gelbe Kachel je Ansicht.",
   variants={"tile--accent":"gelber Verlauf (Hauptmoment)","tile--sm":"44 px","tile--lg":"88 px","tile--xl":"96 px (Hero)"},
-  rules=["Dekorativ: aria-hidden=\"true\"."], a11y=[], content={}),
+  rules=["Dekorativ: aria-hidden=\"true\"."], a11y=["Rein dekorativ (aria-hidden=\"true\") – die Bedeutung steht im Text daneben.", "Kein Bedienelement: klickbar ist die Karte oder der Button, nicht die Kachel."], content={"Icon": "genau 1 Strich-Icon, keine Schrift in der Kachel"}),
 "empty-loading": dict(
   name="Leer- und Ladezustand", section="leer", roots=["empty","skeleton","spinner"],
   use="Sagt, was fehlt und was als Nächstes geht; Skelett/Ladekreis beim Laden.",
@@ -231,13 +231,13 @@ META = {
   use="Aufzählung (Punkte gelb) oder nummerierte Liste; Fakten als <dl>.",
   avoid="Mehr als 7 Punkte ohne Gliederung.",
   variants={"list--numbered":"nummeriert","facts--cols":"zwei Spalten ab 600 px"},
-  rules=["Als Karte: zusätzlich .odsv-card an <ul>/<ol>/<dl>."], a11y=[], content={"item":"≤ 1 Zeile"}),
+  rules=["Als Karte: zusätzlich .odsv-card an <ul>/<ol>/<dl>."], a11y=["Echte Listen-Elemente (<ul>, <ol>, <dl>) – Screenreader zählen die Einträge.", "Gelbe Aufzählungspunkte sind Dekor; Reihenfolge, die zählt, als <ol>."], content={"item":"≤ 1 Zeile"}),
 "hgroup": dict(
   name="Headline-Gruppe", section="weitere", roots=["hgroup"],
   use="Dreiklang Eyebrow → Headline → Zweitsatz als Block, optional mit Icon-Kachel.",
   avoid="Headline ohne Zweitsatz.",
   variants={"hgroup--center":"zentriert (Sektionsauftakt)","hgroup--compact":"Dashboard-Seitenkopf"},
-  rules=[], a11y=[], content={}),
+  rules=["Reihenfolge fest: optional .odsv-tile → .odsv-eyebrow (<p>) → Headline (<h1>/<h2> mit .odsv-display, .odsv-h1 oder .odsv-h2) → .odsv-sub.", "Zentriert nur als Sektionsauftakt; im Dashboard-Seitenkopf --compact, dort nennt der Zweitsatz Stand und Bezug („Stand 17.11.2026, 09:00 Uhr · alle Märkte“).", "Höchstens eine Icon-Kachel, und nur, wenn sie das Thema der Sektion trägt."], a11y=["Eine Überschriftenebene je Gruppe; Eyebrow und Zweitsatz sind <p>, nie Überschriften.", "Icon-Kachel dekorativ: aria-hidden=\"true\"."], content={"eyebrow": "1–4 Wörter", "headline": "1–3 Wörter, ≤ 24 Zeichen", "sub": "1 Satz, ≤ 90 Zeichen"}),
 "toast": dict(
   name="Toast", section="weitere", roots=["toast"],
   use="Kurze Bestätigung nach einer Handlung („Stand gespeichert“).",
@@ -246,9 +246,9 @@ META = {
   rules=["Ein- und Ausblenden steuert die Anwendung (odsv.js tut es nicht): nach ca. 4 s ausblenden, nicht während Fokus oder Hover."], a11y=["role=\"status\"."], content={"text":"≤ 40 Zeichen"}),
 "footer": dict(
   name="Fußbereich", section="weitere", roots=["footer"],
-  use="Stand, Quellen, Impressum links; Wortmarke rechts.", avoid="", variants={}, rules=[], a11y=[], content={}),
+  use="Stand, Quellen, Impressum links; Wortmarke rechts.", avoid="", variants={}, rules=["Links: „Produktname · Stand TT.MM.JJJJ“, Quellenliste, Impressum/Datenschutz; rechts die Wortmarke.", "Quellen als nummerierte Liste mit Links; Anmerkungen im Text mit hochgestellter Nummer verweisen hierher.", "Kein zweiter Primär-Button, keine Navigation wiederholen."], a11y=["Als <footer> (Landmarke contentinfo); Links mit sprechendem Text.", "13 px in text.muted erreicht ≥ 4,5:1 auf Grund und Karte 1."], content={"Stand": "Datum im Format TT.MM.JJJJ", "Quellen": "je Eintrag Titel, Herausgeber, Jahr"}),
 "utilities": dict(
   name="Hilfsklassen", section="weitere", roots=["sr-only","mt","hide-lg","no-print","reveal","fit-tight","anchor"],
   use=".odsv-sr-only (nur Screenreader), .odsv-mt-0|4|8 (Abstand oben), .odsv-hide-lg, .odsv-no-print, .odsv-reveal (Einblenden beim Scrollen), .odsv-fit-tight (setzt odsv.js).",
-  avoid="Hilfsklassen statt Komponenten-Modifier.", variants={}, rules=[], a11y=[], content={}),
+  avoid="Hilfsklassen statt Komponenten-Modifier.", variants={}, rules=[".odsv-sr-only für Text, der nur vorgelesen wird (z. B. <caption>, Name eines Icon-Buttons).", ".odsv-mt-0|4|8 nur, wenn kein Layout-Primitiv (.odsv-stack) passt.", ".odsv-reveal blendet einmalig beim Scrollen ein; ohne JavaScript und bei reduzierter Bewegung ist der Inhalt sofort sichtbar.", ".odsv-fit-tight setzt nur odsv.js (ODSV.fit), nie von Hand.", ".odsv-no-print für Bedienelemente, die im Druck nichts bedeuten."], a11y=["Nie Inhalte mit .odsv-hide-lg verstecken, die auf großen Bildschirmen fehlen würden – nur Dopplungen (z. B. mobiles Menü)."], content={}),
 }

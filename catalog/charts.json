@@ -1,0 +1,991 @@
+{
+ "version": "1.1.0",
+ "generated_by": "tools/build_catalog.py",
+ "source": "catalog/src/charts.meta.py",
+ "script": "web/odsv-charts.js",
+ "choose_by": "task (SPEC 7.3)",
+ "markup": {
+  "figure": "<figure class=\"odsv-chart\"> → .odsv-chart__header (Eyebrow, <figcaption class=\"odsv-chart__title\">, .odsv-chart__subtitle, .odsv-chart__tools) → .odsv-legend → .odsv-chart__plot → .odsv-chart__footer",
+  "table_button": "<button class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" type=\"button\" data-odsv-chart-table aria-expanded=\"false\"><span data-odsv-label>Daten als Tabelle</span></button>",
+  "legend_toggle": "<li><button class=\"odsv-legend__item\" type=\"button\" aria-pressed=\"true\" data-odsv-series=\"Name\"><span class=\"odsv-swatch odsv-swatch--line odsv-dv-1\"></span>Name</button></li>",
+  "palettes": {
+   "Zugehörigkeit": "odsv-dv-1…7",
+   "Betonung": "odsv-dv-highlight + odsv-dv-context",
+   "Sonstige": "odsv-dv-neutral",
+   "Status": "odsv-dv-positive|negative",
+   "Menge": "odsv-dv-seq-1…6",
+   "Richtung": "odsv-dv-div-neg|div-pos (Stufen -3 … 3, div-mid)"
+  }
+ },
+ "helpers": {
+  "redraw": "alle Diagramme neu zeichnen; läuft bei odsv:theme automatisch",
+  "format": "Zahl → deutscher Text mit echtem Minuszeichen, z. B. −1.234,5",
+  "stats": "Fünf-Punkte-Zusammenfassung {n, min, q1, med, q3, max, out[]} wie im boxplot"
+ },
+ "charts": [
+  {
+   "id": "line",
+   "call": "ODSVCharts.line(el, options)",
+   "task": "Verlauf über Zeit",
+   "use": "bis 4 Reihen über eine Zeitachse; Ereignis, Zielwert, Endbeschriftung",
+   "avoid": "Säulen für lange Zeitreihen; mehr als 4 Reihen (→ multiples)",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": "x-Achse, z. B. Monate"
+    },
+    {
+     "name": "series",
+     "type": "array<{name:string, values:array<number|null>, cls?:string, area?:boolean, dash?:boolean}>",
+     "required": true,
+     "desc": "null = Lücke; Fläche nur bei einer Reihe"
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": "Einheit einmal oben an der Achse"
+    },
+    {
+     "name": "annotations",
+     "type": "array<{at:number, label:string}>",
+     "required": false,
+     "desc": "Ereignis: Index in labels"
+    },
+    {
+     "name": "target",
+     "type": "{value:number, label?:string}",
+     "required": false,
+     "desc": "Zielwert, gestrichelt"
+    },
+    {
+     "name": "endLabels",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": "Reihen am Linienende beschriften"
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 240,
+     "desc": ""
+    },
+    {
+     "name": "yMin",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yTicks",
+     "type": "number",
+     "required": false,
+     "default": 4,
+     "desc": ""
+    },
+    {
+     "name": "yFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "series": 4,
+    "labels": 36
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": true,
+   "example": "ODSVCharts.line(el, { labels: ['Jan','Feb','Mär'], series: [{ name: 'Web', values: [62, 64, 71], cls: 'odsv-dv-1' }], unit: 'Tsd. €', label: 'Web steigt von 62 auf 71 Tausend Euro.' })"
+  },
+  {
+   "id": "bars",
+   "call": "ODSVCharts.bars(el, options)",
+   "task": "Vergleich über wenige Zeitpunkte",
+   "use": "eine Reihe, bis 12 Säulen; Fokus-Muster dv-highlight + dv-context",
+   "avoid": "lange Zeitreihen; Kategorien mit langen Namen (→ hbars)",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "values",
+     "type": "array<number>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "colors",
+     "type": "array<string>",
+     "required": false,
+     "desc": "Klasse je Säule"
+    },
+    {
+     "name": "cls",
+     "type": "string",
+     "required": false,
+     "default": "odsv-dv-1",
+     "desc": ""
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 240,
+     "desc": ""
+    },
+    {
+     "name": "yMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yTicks",
+     "type": "number",
+     "required": false,
+     "default": 4,
+     "desc": ""
+    },
+    {
+     "name": "yFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "labels": 12
+   },
+   "keyboard": false,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.bars(el, { labels: ['Q1','Q2','Q3','Q4'], values: [145,184,224,277], colors: ['odsv-dv-context','odsv-dv-context','odsv-dv-context','odsv-dv-highlight'], label: 'Q4 ist mit 277 am höchsten.' })"
+  },
+  {
+   "id": "columns",
+   "call": "ODSVCharts.columns(el, options)",
+   "task": "Teile und Summe / Vergleich mehrerer Reihen über wenige Zeitpunkte",
+   "use": "mode grouped (Teile vergleichen), stacked (Summe und Teile), percent (Anteile)",
+   "avoid": "mehr als 4 Teile je Säule; lange Zeitreihen",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "series",
+     "type": "array<{name:string, values:array<number>, cls:string}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "mode",
+     "type": "enum(grouped|stacked|percent)",
+     "required": false,
+     "default": "grouped",
+     "desc": ""
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 260,
+     "desc": ""
+    },
+    {
+     "name": "yMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "valueFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "series": 4,
+    "labels": 12
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": true,
+   "example": "ODSVCharts.columns(el, { labels: ['Q1','Q2'], mode: 'stacked', series: [{ name: 'Bestand', values: [120,124], cls: 'odsv-dv-2' }, { name: 'Neukunden', values: [24,38], cls: 'odsv-dv-1' }], label: 'Neukunden wachsen von 24 auf 38.' })"
+  },
+  {
+   "id": "hbars",
+   "call": "ODSVCharts.hbars(el, options)",
+   "task": "Vergleich von Kategorien",
+   "use": "waagrecht, absteigend sortiert; eine Kategorie betont",
+   "avoid": "Kreis; senkrechte Säulen mit schrägen Beschriftungen",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "values",
+     "type": "array<number>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "colors",
+     "type": "array<string>",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "cls",
+     "type": "string",
+     "required": false,
+     "default": "odsv-dv-1",
+     "desc": ""
+    },
+    {
+     "name": "sort",
+     "type": "boolean",
+     "required": false,
+     "default": true,
+     "desc": "absteigend"
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "axisFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "labelWidth",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "labels": 12
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.hbars(el, { labels: ['Berlin','Hamburg'], values: [1840,1120], colors: ['odsv-dv-highlight','odsv-dv-context'], label: 'Berlin führt mit 1.840 Bestellungen.' })"
+  },
+  {
+   "id": "diverging",
+   "call": "ODSVCharts.diverging(el, options)",
+   "task": "Abweichung von Ziel oder Null",
+   "use": "Balken ab Nulllinie, negativ dv-div-neg, positiv dv-div-pos, Werte mit Vorzeichen",
+   "avoid": "Rot/Grün ohne Vorzeichen",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "values",
+     "type": "array<number>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "negLabel",
+     "type": "string",
+     "required": false,
+     "desc": "z. B. „unter Plan“"
+    },
+    {
+     "name": "posLabel",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "sort",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "axisFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "labels": 12
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.diverging(el, { labels: ['Vertrieb','Technik'], values: [8.5,-6.1], negLabel: 'unter Plan', posLabel: 'über Plan', label: 'Vertrieb liegt 8,5 Punkte über Plan, Technik 6,1 darunter.' })"
+  },
+  {
+   "id": "funnel",
+   "call": "ODSVCharts.funnel(el, options)",
+   "task": "Ablauf / Trichter",
+   "use": "abgestufte Einzelfarbe dv-seq; Wert und Quote zum Vorschritt",
+   "avoid": "bunte Stufen",
+   "options": [
+    {
+     "name": "steps",
+     "type": "array<{label:string, value:number}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "name",
+     "type": "string",
+     "required": false,
+     "desc": "Spaltenkopf der Tabelle"
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "steps": 7
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.funnel(el, { steps: [{ label: 'Besuch', value: 48200 }, { label: 'Kauf', value: 3100 }], label: 'Von 48.200 Besuchen kaufen 3.100.' })"
+  },
+  {
+   "id": "histogram",
+   "call": "ODSVCharts.histogram(el, options)",
+   "task": "Verteilung einer Größe",
+   "use": "Klassen gleicher Breite; Median oder Mittelwert markieren; n im Zweitsatz",
+   "avoid": "zu wenige Werte (unter ca. 30)",
+   "options": [
+    {
+     "name": "values",
+     "type": "array<number>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "binWidth",
+     "type": "number",
+     "required": false,
+     "desc": "Klassenbreite; sonst aus bins"
+    },
+    {
+     "name": "bins",
+     "type": "number",
+     "required": false,
+     "default": 10,
+     "desc": ""
+    },
+    {
+     "name": "mark",
+     "type": "enum(median|mean)",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "default": "Anzahl",
+     "desc": ""
+    },
+    {
+     "name": "xFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "cls",
+     "type": "string",
+     "required": false,
+     "default": "odsv-dv-2",
+     "desc": ""
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 220,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "bins": 30
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.histogram(el, { values: zeiten, binWidth: 0.5, mark: 'median', xFormat: v => ODSVCharts.format(v) + ' h', label: 'Die meisten Tickets sind nach 1 bis 2 Stunden gelöst.' })"
+  },
+  {
+   "id": "boxplot",
+   "call": "ODSVCharts.boxplot(el, options)",
+   "task": "Verteilung je Gruppe vergleichen",
+   "use": "Strich = Spanne bis 1,5 × IQR, dicker Strich = mittlere Hälfte, Punkt = Median, Ringe = Ausreißer",
+   "avoid": "Gruppen mit sehr wenigen Werten (Punkte zeigen)",
+   "options": [
+    {
+     "name": "groups",
+     "type": "array<{label:string, values:array<number>, cls?:string}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "unit",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "min",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "max",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "groups": 10
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.boxplot(el, { groups: [{ label: 'Team A', values: a }, { label: 'Team B', values: b, cls: 'odsv-dv-highlight' }], label: 'Team B streut am stärksten.' })"
+  },
+  {
+   "id": "scatter",
+   "call": "ODSVCharts.scatter(el, options)",
+   "task": "Zusammenhang zweier Größen",
+   "use": "Punkte oder Blasen (r = dritte Größe); Trendlinie mit R²",
+   "avoid": "mehr als 5 Farben (hell 3); Trendlinie bei wenigen Punkten",
+   "options": [
+    {
+     "name": "series",
+     "type": "array<{name:string, cls:string, points:array<{x:number, y:number, r?:number, label?:string, highlight?:boolean}>}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "xLabel",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yLabel",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "sizeName",
+     "type": "string",
+     "required": false,
+     "desc": "Name der Blasengröße"
+    },
+    {
+     "name": "trend",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": ""
+    },
+    {
+     "name": "xZero",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": ""
+    },
+    {
+     "name": "yZero",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": ""
+    },
+    {
+     "name": "xMin",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "xMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yMin",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "xFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "yFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 300,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "series": 5,
+    "series_light": 3,
+    "points": 500
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": true,
+   "example": "ODSVCharts.scatter(el, { series: [{ name: 'Online', cls: 'odsv-dv-2', points: [{ x: 10, y: 52 }, { x: 25, y: 81 }] }], xLabel: 'Budget, Tsd. €', yLabel: 'Leads', trend: true, label: 'Mehr Budget bringt mehr Leads.' })"
+  },
+  {
+   "id": "heatmap",
+   "call": "ODSVCharts.heatmap(el, options)",
+   "task": "Größe über zwei Dimensionen",
+   "use": "6 Stufen dv-seq mit Skala; leere Zelle = null",
+   "avoid": "Regenbogen; divergierende Daten ohne Mittelwert",
+   "options": [
+    {
+     "name": "rows",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "cols",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "values",
+     "type": "array<array<number|null>>",
+     "required": true,
+     "desc": "Zeilen × Spalten"
+    },
+    {
+     "name": "min",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "max",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "scaleTitle",
+     "type": "string",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "showValues",
+     "type": "boolean",
+     "required": false,
+     "default": true,
+     "desc": "Zahl in der Zelle ab 40 px Zellbreite"
+    },
+    {
+     "name": "cellHeight",
+     "type": "number",
+     "required": false,
+     "default": 30,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "cols": 24,
+    "rows": 20
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.heatmap(el, { rows: ['Mo','Di'], cols: ['9','10'], values: [[83,101],[80,98]], scaleTitle: 'Anfragen je Stunde', label: 'Spitze montags um 10 Uhr mit 101 Anfragen.' })"
+  },
+  {
+   "id": "slope",
+   "call": "ODSVCharts.slope(el, options)",
+   "task": "Rang oder Wert an zwei Zeitpunkten",
+   "use": "eine Reihe betont (cls), Rest Kontext",
+   "avoid": "mehr als zwei Zeitpunkte (→ line)",
+   "options": [
+    {
+     "name": "from",
+     "type": "string",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "to",
+     "type": "string",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "items",
+     "type": "array<{label:string, a:number, b:number, cls?:string}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "format",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "min",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "max",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "zero",
+     "type": "boolean",
+     "required": false,
+     "default": false,
+     "desc": ""
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "items": 12
+   },
+   "keyboard": true,
+   "table": true,
+   "legend_toggle": true,
+   "example": "ODSVCharts.slope(el, { from: '2025', to: '2026', items: [{ label: 'Hamburg', a: 68, b: 81, cls: 'odsv-dv-highlight' }, { label: 'Berlin', a: 74, b: 76 }], label: 'Hamburg steigt von 68 auf 81.' })"
+  },
+  {
+   "id": "multiples",
+   "call": "ODSVCharts.multiples(el, options)",
+   "task": "viele Reihen",
+   "use": "kleine Vielfache mit gleicher Achse; übrige Reihen als Kontext",
+   "avoid": "eine Linie je Farbe ab der 8. Reihe",
+   "options": [
+    {
+     "name": "labels",
+     "type": "array<string>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "series",
+     "type": "array<{name:string, values:array<number>, cls?:string}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "columns",
+     "type": "number",
+     "required": false,
+     "desc": "sonst nach Breite"
+    },
+    {
+     "name": "height",
+     "type": "number",
+     "required": false,
+     "default": 120,
+     "desc": ""
+    },
+    {
+     "name": "context",
+     "type": "boolean",
+     "required": false,
+     "default": true,
+     "desc": ""
+    },
+    {
+     "name": "yMax",
+     "type": "number",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "yFormat",
+     "type": "function",
+     "required": false,
+     "desc": "Zahl → Text; Standard ODSVCharts.format (deutsch, echtes Minus)."
+    },
+    {
+     "name": "cls",
+     "type": "string",
+     "required": false,
+     "default": "odsv-dv-highlight",
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "series": 12
+   },
+   "keyboard": false,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.multiples(el, { labels: monate, series: regionen, columns: 2, label: 'Nur Region Ost wächst durchgehend.' })"
+  },
+  {
+   "id": "donut",
+   "call": "ODSVCharts.donut(el, options)",
+   "task": "Anteile an einem Ganzen (wenige Teile)",
+   "use": "bis 3 Teile, „Offen“/„Sonstige“ in dv-neutral, Wert in der Mitte",
+   "avoid": "mehr als 3 Teile (→ hbars oder .odsv-stackbar)",
+   "options": [
+    {
+     "name": "items",
+     "type": "array<{label:string, value:number, cls:string}>",
+     "required": true,
+     "desc": ""
+    },
+    {
+     "name": "size",
+     "type": "number",
+     "required": false,
+     "default": 200,
+     "desc": ""
+    },
+    {
+     "name": "center",
+     "type": "{value:string, label:string}",
+     "required": false,
+     "desc": ""
+    },
+    {
+     "name": "label",
+     "type": "string",
+     "required": true,
+     "desc": "Aussage mit den wichtigsten Zahlen; wird zum aria-label (role=\"img\")."
+    }
+   ],
+   "limits": {
+    "items": 3
+   },
+   "keyboard": false,
+   "table": true,
+   "legend_toggle": false,
+   "example": "ODSVCharts.donut(el, { items: [{ label: 'Fertig', value: 62, cls: 'odsv-dv-1' }, { label: 'Offen', value: 38, cls: 'odsv-dv-neutral' }], center: { value: '62 %', label: 'fertig' }, label: '62 Prozent sind fertig.' })"
+  },
+  {
+   "id": "spark",
+   "call": "ODSVCharts.spark(el, values, cls)",
+   "task": "Verlauf ohne Details (in KPI-Kachel)",
+   "use": "Linie 4:1 ohne Achsen, letzter Punkt markiert; Aufruf ODSVCharts.spark(el, values, cls)",
+   "avoid": "als alleinige Datenquelle (Wert steht daneben)",
+   "options": [
+    {
+     "name": "values",
+     "type": "array<number>",
+     "required": true,
+     "desc": "2. Argument"
+    },
+    {
+     "name": "cls",
+     "type": "string",
+     "required": false,
+     "default": "odsv-dv-1",
+     "desc": "3. Argument"
+    }
+   ],
+   "limits": {
+    "values": 60
+   },
+   "keyboard": false,
+   "table": false,
+   "legend_toggle": false,
+   "example": "ODSVCharts.spark(el, [3, 5, 4, 7], 'odsv-dv-1')"
+  }
+ ]
+}

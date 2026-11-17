@@ -10,14 +10,14 @@ Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Pr
 | `SPEC.md` | Vollständige Spezifikation (Prinzipien, Farbe, Typo, Raster, Komponenten, Dashboards, Diagramme, Folien, Bewegung, Barrierefreiheit, Agenten-Schnittstelle) |
 | `GAPS.md` | Lückenanalysen und Prüfberichte |
 | `tokens/` | `tokens.json` (Quelle, DTCG, alle Tokens beschrieben), `tokens.css`, `pptx.json` |
-| `catalog/` | erzeugt: Komponenten (`components.json`, `COMPONENTS.md`), Klassen, Icons, Tokens flach, Folienlayouts, JS-API |
+| `catalog/` | erzeugt: Komponenten (`components.json`, `COMPONENTS.md`), Diagrammformen (`charts.json`), Klassen, Icons, Tokens flach, Folienlayouts; von Hand: `js-api.md`; Quellen in `catalog/src/` |
 | `web/` | `odsv.css`, `odsv.js`, `odsv-charts.js`, `icons.svg` (Icons + 17 Signets), `signets/` (SVG-Dateien), Referenzseite, Beispiele |
 | `templates/` | Startvorlagen: `website.html`, `dashboard.html`, `deck_example.py` |
 | `pptx/` | `ODSV-Vorlage.potx` (16 Layouts), Beispielpräsentation, `odsv_pptx.py` (Helfer), `signets/` (Folienbilder) |
 | `tools/` | Erzeuger und Prüfungen, `validate.sh` führt alles aus |
 | `tools/build_site.py`, `tools/site/` | Website im Stil eines Komponenten-Explorers (Storys mit Theme, Breite und Code, Tokens, Icons, Signets, Richtlinien); erzeugt `site/` |
 
-Änderungen immer in `tokens/tokens.json`, `web/odsv.css` und `catalog/src/components.meta.py`, danach `bash tools/validate.sh`.
+Änderungen immer in den Quellen (Liste in [`CLAUDE.md`](CLAUDE.md): u. a. `tokens/tokens.json`, `web/odsv.css`, `web/odsv-charts.js`, `catalog/src/*.meta.py`), danach `bash tools/validate.sh`.
 
 ## Website
 

@@ -170,5 +170,26 @@ for c in components:
         ex = c['examples'][0]
         md += [f"**Beispiel{(' – ' + ex['title']) if ex['title'] else ''}** (weitere in `components.json`, live: `{c['reference']}`)", '', '```html', ex['html'][:2400] + ('\n<!-- … gekürzt -->' if len(ex['html']) > 2400 else ''), '```', '']
 (CAT / 'COMPONENTS.md').write_text('\n'.join(md))
-print(f'Katalog: {len(components)} Komponenten, {len(all_classes)} Klassen, {len(icons)} Icons, {len(flat)} Tokens, {len(layouts)} Folienlayouts')
-if uncovered: sys.exit(1)
+
+# --- Diagrammformen (catalog/charts.json) --------------------------------------------------------
+CH = runpy.run_path(str(CAT / 'src' / 'charts.meta.py'))
+charts_js = (ROOT / 'web' / 'odsv-charts.js').read_text()
+exported = re.findall(r'(\w+):', re.search(r'window\.ODSVCharts = \{(.*?)\};', charts_js, re.S).group(1))
+undescribed = [f for f in exported if f not in CH['CHARTS'] and f not in CH['HELPERS']]
+if undescribed: print('WARNUNG – ODSVCharts-Funktionen ohne Eintrag in catalog/src/charts.meta.py:', ', '.join(undescribed))
+stale = [f for f in list(CH['CHARTS']) + list(CH['HELPERS']) if f not in exported]
+if stale: print('WARNUNG – charts.meta.py beschreibt Funktionen, die odsv-charts.js nicht exportiert:', ', '.join(stale))
+charts = []
+for fid, c in CH['CHARTS'].items():
+    opts = dict(c['options'])
+    if not c.get('decorative'): opts = {**opts, **CH['COMMON']}
+    charts.append({'id': fid, 'call': f'ODSVCharts.{fid}(el, options)' if fid != 'spark' else 'ODSVCharts.spark(el, values, cls)',
+                   'task': c['task'], 'use': c['use'], 'avoid': c['avoid'],
+                   'options': [{'name': k, 'type': v.get('type', ''), 'required': bool(v.get('required')), **({'default': v['default']} if 'default' in v else {}), 'desc': v.get('desc', '')} for k, v in opts.items()],
+                   'limits': c.get('limits', {}), 'keyboard': c.get('keyboard', False), 'table': c.get('table', False), 'legend_toggle': c.get('legend_toggle', False),
+                   'example': c['example']})
+dump('charts.json', {'version': version, 'generated_by': 'tools/build_catalog.py', 'source': 'catalog/src/charts.meta.py',
+                     'script': 'web/odsv-charts.js', 'choose_by': 'task (SPEC 7.3)', 'markup': CH['MARKUP'], 'helpers': CH['HELPERS'], 'charts': charts})
+
+print(f'Katalog: {len(components)} Komponenten, {len(all_classes)} Klassen, {len(icons)} Icons, {len(flat)} Tokens, {len(layouts)} Folienlayouts, {len(charts)} Diagrammformen')
+if uncovered or undescribed or stale: sys.exit(1)

@@ -108,6 +108,8 @@
 
 - Reihenfolge im DOM = Lesereihenfolge; Raster nicht per order umsortieren.
 
+**Inhaltsgrenzen:** Spalten: 12er-Raster; Lesebreite höchstens 640 px · Sektionen: je Sektion ein Dreiklang
+
 **Beispiel – Raster** (weitere in `components.json`, live: `web/index.html#layout`)
 
 ```html
@@ -141,6 +143,8 @@
 **Barrierefreiheit**
 
 - Dekorativ: aria-hidden="true". Allein stehend (Icon-Button): Name per aria-label oder .odsv-sr-only.
+
+**Inhaltsgrenzen:** Größe: 18 px in Buttons, 22 px Icon-Button/Navigation, 44–52 px in Kacheln
 
 **Beispiel – Größen** (weitere in `components.json`, live: `web/index.html#icons`)
 
@@ -215,6 +219,8 @@
 **Barrierefreiheit**
 
 - Leise Links: Trefferfläche ≥ 24 px (Maus) bzw. 44 px (Touch) – erledigt odsv.css.
+
+**Inhaltsgrenzen:** Linktext: nennt das Ziel, 1–6 Wörter; Datei mit Typ und Größe
 
 **Beispiel** (weitere in `components.json`, live: `web/index.html#links`)
 
@@ -406,6 +412,8 @@
 
 - Zähl-Leiste: role="img" + aria-label oder role="progressbar" mit aria-valuenow.
 
+**Inhaltsgrenzen:** Segmente: Kapitelleiste 2–12, Folien fest 7 · Zähler: „n von m“
+
 **Beispiel – Kapitelleiste** (weitere in `components.json`, live: `web/index.html#fortschritt`)
 
 ```html
@@ -586,6 +594,8 @@
 **Barrierefreiheit**
 
 - <caption> (gern .odsv-sr-only), <th scope>.
+
+**Inhaltsgrenzen:** Kopf: 1–3 Wörter je Spalte, Einheit im Kopf statt in jeder Zelle · Zeilen: ab ca. 20 Zeilen Filter oder Seitenwechsel anbieten
 
 **Beispiel – Bequem (Website)** (weitere in `components.json`, live: `web/index.html#tabellen`)
 
@@ -924,6 +934,13 @@
 
 - Dekorativ: aria-hidden="true".
 
+**Barrierefreiheit**
+
+- Rein dekorativ (aria-hidden="true") – die Bedeutung steht im Text daneben.
+- Kein Bedienelement: klickbar ist die Karte oder der Button, nicht die Kachel.
+
+**Inhaltsgrenzen:** Icon: genau 1 Strich-Icon, keine Schrift in der Kachel
+
 **Beispiel** (weitere in `components.json`, live: `web/index.html#kacheln`)
 
 ```html
@@ -1197,6 +1214,11 @@
 
 - Als Karte: zusätzlich .odsv-card an <ul>/<ol>/<dl>.
 
+**Barrierefreiheit**
+
+- Echte Listen-Elemente (<ul>, <ol>, <dl>) – Screenreader zählen die Einträge.
+- Gelbe Aufzählungspunkte sind Dekor; Reihenfolge, die zählt, als <ol>.
+
 **Inhaltsgrenzen:** item: ≤ 1 Zeile
 
 **Beispiel – Liste und Fakten** (weitere in `components.json`, live: `web/index.html#weitere`)
@@ -1220,6 +1242,19 @@
 |---|---|
 | `hgroup--center` | zentriert (Sektionsauftakt) |
 | `hgroup--compact` | Dashboard-Seitenkopf |
+
+**Regeln**
+
+- Reihenfolge fest: optional .odsv-tile → .odsv-eyebrow (<p>) → Headline (<h1>/<h2> mit .odsv-display, .odsv-h1 oder .odsv-h2) → .odsv-sub.
+- Zentriert nur als Sektionsauftakt; im Dashboard-Seitenkopf --compact, dort nennt der Zweitsatz Stand und Bezug („Stand 17.11.2026, 09:00 Uhr · alle Märkte“).
+- Höchstens eine Icon-Kachel, und nur, wenn sie das Thema der Sektion trägt.
+
+**Barrierefreiheit**
+
+- Eine Überschriftenebene je Gruppe; Eyebrow und Zweitsatz sind <p>, nie Überschriften.
+- Icon-Kachel dekorativ: aria-hidden="true".
+
+**Inhaltsgrenzen:** eyebrow: 1–4 Wörter · headline: 1–3 Wörter, ≤ 24 Zeichen · sub: 1 Satz, ≤ 90 Zeichen
 
 **Beispiel – Headline-Gruppe (Dreiklang)** (weitere in `components.json`, live: `web/index.html#weitere`)
 
@@ -1266,6 +1301,19 @@
 
 **Elemente:** `__grid`
 
+**Regeln**
+
+- Links: „Produktname · Stand TT.MM.JJJJ“, Quellenliste, Impressum/Datenschutz; rechts die Wortmarke.
+- Quellen als nummerierte Liste mit Links; Anmerkungen im Text mit hochgestellter Nummer verweisen hierher.
+- Kein zweiter Primär-Button, keine Navigation wiederholen.
+
+**Barrierefreiheit**
+
+- Als <footer> (Landmarke contentinfo); Links mit sprechendem Text.
+- 13 px in text.muted erreicht ≥ 4,5:1 auf Grund und Karte 1.
+
+**Inhaltsgrenzen:** Stand: Datum im Format TT.MM.JJJJ · Quellen: je Eintrag Titel, Herausgeber, Jahr
+
 **Beispiel – Fußbereich** (weitere in `components.json`, live: `web/index.html#weitere`)
 
 ```html
@@ -1278,3 +1326,15 @@
 **Wofür:** .odsv-sr-only (nur Screenreader), .odsv-mt-0|4|8 (Abstand oben), .odsv-hide-lg, .odsv-no-print, .odsv-reveal (Einblenden beim Scrollen), .odsv-fit-tight (setzt odsv.js).
 
 **Nicht für:** Hilfsklassen statt Komponenten-Modifier.
+
+**Regeln**
+
+- .odsv-sr-only für Text, der nur vorgelesen wird (z. B. <caption>, Name eines Icon-Buttons).
+- .odsv-mt-0|4|8 nur, wenn kein Layout-Primitiv (.odsv-stack) passt.
+- .odsv-reveal blendet einmalig beim Scrollen ein; ohne JavaScript und bei reduzierter Bewegung ist der Inhalt sofort sichtbar.
+- .odsv-fit-tight setzt nur odsv.js (ODSV.fit), nie von Hand.
+- .odsv-no-print für Bedienelemente, die im Druck nichts bedeuten.
+
+**Barrierefreiheit**
+
+- Nie Inhalte mit .odsv-hide-lg verstecken, die auf großen Bildschirmen fehlen würden – nur Dopplungen (z. B. mobiles Menü).

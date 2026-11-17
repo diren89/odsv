@@ -1,6 +1,6 @@
 # ODSV – Lückenanalyse
 
-Stand 17.11.2026 · bezogen auf ODSV v1.0.0
+Stand 17.11.2026 · bezogen auf ODSV v1.0.0, Status nachgeführt für v1.1.0 (Abschnitt 7)
 
 Frage: Was fehlte dem Ausgangsstil – einer einzelnen, scrollbasierten Produktseite –, um als System für **Websites, Dashboards und Präsentationen** zu taugen, und wie schließt ODSV die Lücke?
 
@@ -55,7 +55,7 @@ Diese Punkte waren schon im Ausgangsstil Schwächen. Alle Zahlen nachgerechnet m
 | Keine Regeln für Achsen, Gitter, Legende, Tooltip | SPEC 8.2 | geschlossen |
 | Keine Auswahlhilfe für Diagrammtypen | SPEC 7.3 | geschlossen |
 | Keine Farben für PowerPoint-Diagramme | `accent1–6` = kategoriale Slots 1–6, `pptx.json → chartRules` | geschlossen |
-| Kein Diagramm-Code | Regeln in SPEC 8; `web/odsv-charts.js` liegt vor, Abgleich offen | teilweise (3.1) |
+| Kein Diagramm-Code | `web/odsv-charts.js` zeichnet seit v1.1.0 alle Formen aus SPEC 7.3 mit Tastatur, Tabellenansicht und Legenden-Schalter (SPEC 8.3); maschinenlesbar `catalog/charts.json` | geschlossen (v1.1.0) |
 
 ### 2.3 Typografie
 
@@ -109,7 +109,7 @@ Im Ausgangsstil vorhanden und übernommen: Button (3 Arten), Eyebrow, Headline-G
 |---|---|---|
 | Line-Art-Farben nur im Code der Explosionszeichnung fest verdrahtet | `color.lineart.*` für Dunkel und Hell | geschlossen |
 | Regeln für Line-Art, Hand, Explosionszeichnung nur verstreut | SPEC 10.1–10.3 | geschlossen |
-| **Kein Icon-Satz** – Icons waren je Stelle von Hand gezeichnet | Maße und Pflichtliste festgelegt; `web/icons.svg` liegt vor, Abgleich offen | teilweise (3.1) |
+| **Kein Icon-Satz** – Icons waren je Stelle von Hand gezeichnet | Maße und Pflichtliste festgelegt; `web/icons.svg` mit 33 Icons gegen die Pflichtliste geprüft: es fehlen Pfeil links/oben/unten, Vollbild, Drehen | teilweise (3.1) |
 | Signet war an ein Produktthema gebunden | allgemeine Bauregel SPEC 10.5 | geschlossen (Regel) |
 | Helle Bilder auf schwarzem Grund ungeregelt | Regel „helle Karte“ SPEC 10.5 | geschlossen |
 
@@ -134,8 +134,8 @@ Parallel zu dieser Analyse sind `web/` und `pptx/` entstanden. Geprüft wurde nu
 |---|---|---|
 | **Abgleich `web/odsv.css` ↔ SPEC 6** | Datei liegt vor (857 Zeilen). Ob alle 24 Komponenten mit Varianten und Zuständen der Spezifikation entsprechen, ist nicht geprüft. | Komponente für Komponente gegen SPEC 6 prüfen; Abweichungen in eine der beiden Richtungen bereinigen |
 | **Abgleich `pptx/ODSV-Vorlage.pptx` ↔ SPEC 9.3** | Vorlage liegt vor (18 Folien, 16 Layouts); Spezifikation, `pptx.json` und `catalog/pptx-layouts.json` nennen alle 16, Rollen sind aus der Vorlage abgeleitet. Positionen der 13 Kernlayouts sind nicht maßgenau gegen die Vorlage verglichen. Auf Windows und Mac nicht geöffnet. | Layoutliste und Maße angleichen; in PowerPoint auf beiden Systemen öffnen, Umbruch der Versalien prüfen |
-| **Icon-Satz** | `web/icons.svg` enthält 33 Icons und das Signet. Nicht geprüft gegen die Pflichtliste und die Maße aus SPEC 10.4. | abgleichen, fehlende ergänzen |
-| **Diagramm-Code** | `web/odsv-charts.js` liegt vor; nicht gegen SPEC 8 geprüft. | abgleichen |
+| **Icon-Satz** | `web/icons.svg` enthält 33 Icons und 17 Signets. Gegen die Pflichtliste aus SPEC 10.4 geprüft (v1.1.0): es fehlen `arrow-left`, `arrow-up`, `arrow-down`, `fullscreen`, `rotate`. Maße nicht maschinell geprüft. | fehlende fünf im 24er-Raster ergänzen (MINOR), bis dahin `arrow` drehen |
+| ~~Diagramm-Code~~ | geschlossen in v1.1.0: alle Formen aus SPEC 7.3, Bedienung nach SPEC 8.2/8.3, gerendert geprüft in beiden Themes und bei 390 px. | – |
 | **Signet-Baukasten** | Je Produkt eine eigene Form; kein Generator. | – |
 
 ### 3.2 Bekannte Grenzen
@@ -169,7 +169,7 @@ Parallel zu dieser Analyse sind `web/` und `pptx/` entstanden. Geprüft wurde nu
 
 ## 4. Empfohlene nächste Schritte
 
-1. `web/` und `pptx/` gegen SPEC 6, 8, 9.3 und 10.4 abgleichen (siehe 3.1).
+1. `web/` und `pptx/` gegen SPEC 6, 9.3 und 10.4 abgleichen (siehe 3.1); SPEC 8 ist seit v1.1.0 abgeglichen.
 2. Vorlage auf Windows und Mac in PowerPoint öffnen: Umbruch der Versalien, Farbzuordnung, Diagrammfarben.
 3. Helles Theme und Druck an einer echten Seite ansehen.
 4. Bestehende Seiten schrittweise auf ODSV-Tokens umstellen.
@@ -226,3 +226,25 @@ Beim Abgleich gefundene Fehler im Code:
 - Der Listen-Reset `ul[class], ol[class]` war spezifischer als die Abstandshelfer `.odsv-mt-*` und als `.odsv-card` (Innenabstand). Jetzt steht er in `:where()`.
 - Leise Links in `.odsv-sheet__actions` waren seit der Trefferflächen-Regel nicht mehr zentriert.
 - Im Dashboard-Beispiel fehlte bei drei Diagrammen die Quelle.
+
+---
+
+## 7. Dokumentations-Audit und Agenten-Workflows (v1.1.0, 17.11.2026)
+
+Vorgehen: Alle Doku-Dateien (`README.md`, `AGENTS.md`, `CLAUDE.md`, `SPEC.md`, `llms.txt`, `web/README.md`, `pptx/README.md`, `catalog/js-api.md`) maschinell gegen Katalog und Code abgeglichen: genannte Pfade, Zählungen, Klassen, Token-Namen, Lint-Regel-IDs, `data-odsv-*`-Hooks und `ODSVCharts`-Funktionen. Dazu Durchsicht auf Lücken im Arbeitsablauf von Agents.
+
+| Lücke | Befund | Geschlossen durch |
+|---|---|---|
+| Veraltete Zahl | SPEC 10.4 nannte 9 Signets (es sind 17) | korrigiert |
+| Pflicht-Icons | 5 Icons der Pflichtliste fehlen, nirgends vermerkt | in SPEC 10.4 und 3.1 benannt, mit Übergangslösung |
+| Mehrdeutige Kurznamen | `text.muted` (Farbe) und `text.title` (Textstil) sehen gleich aus | Leseregel in SPEC (Kopf) ordnet jede Kurzform eindeutig zu |
+| Falsche Quellenangabe | CLAUDE.md erklärte alle `catalog/*.md` für erzeugt; `js-api.md` wird aber von Hand gepflegt | CLAUDE.md: Quellen/Erzeugt als Tabelle, inkl. `web/docs.js`, `charts.meta.py`, Website |
+| Undokumentierte Lint-Regeln | `akzent` und `icon` meldet `lint-html.js`, AGENTS.md erklärte sie nicht | AGENTS.md §3 ergänzt, neue Tabelle „Meldung → Behebung“ für alle 18 Regeln |
+| Lücken in „Absicht → Komponente“ | 11 von 31 Komponenten ohne Eintrag | AGENTS.md §7 vollständig |
+| Unvollständige Katalogeinträge | Headline-Gruppe und Fußbereich ohne Regeln/A11y, Hilfsklassen ohne Regeln, weitere ohne Inhaltsgrenzen | `components.meta.py` ergänzt |
+| Diagramm-Optionen nur als Prosa | Agents mussten `js-api.md` parsen | `catalog/charts.json`: Aufgabe, wann/nicht, Optionen mit Typ/Pflicht/Standard, Grenzen, Beispiel je Form; Build scheitert bei undokumentierter Funktion |
+| Kein Ablauf für Systemänderungen an Diagrammen und Website | – | AGENTS.md §9 erweitert |
+| Einrichtung auf macOS | Playwright ohne Browser, Chrome-Pfad, Signet-PNGs ändern sich bytegenau | CLAUDE.md |
+| Doku kann wieder veralten | – | `tools/check_docs.py` in `validate.sh`: Zählungen, Pfade, Lint-IDs, Hooks, Diagrammfunktionen, Abdeckung von §7 |
+
+Offen bleibt: die fünf Pflicht-Icons (3.1), der Abgleich `odsv.css` ↔ SPEC 6 Komponente für Komponente, der Maßabgleich der Folienvorlage.

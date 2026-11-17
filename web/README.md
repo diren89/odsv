@@ -9,7 +9,7 @@ Dunkles Design-System (gesperrte Versalien, gelber Akzent, dunkle Karten mit gro
 | `tokens.css` | Kopie von `../tokens/tokens.css` (erzeugt, nicht ändern; mit `node tools/build-web.js` aktualisieren) |
 | `odsv.css` | Komponentenbibliothek, Präfix `.odsv-`, nur `var(--odsv-…)` |
 | `odsv.js` | optionales Verhalten (Theme, Segment, Tabs, Checkliste, Scroll-Fortschritt, Menü, Sheet, Kopieren) |
-| `odsv-charts.js` | optional: Linie, Balken, Donut, Sparkline als handgeschriebenes SVG |
+| `odsv-charts.js` | optional: 14 Diagrammformen als SVG (Linie, Säulen gruppiert/gestapelt, Balken, Abweichung, Trichter, Histogramm, Boxplot, Streudiagramm, Heatmap, Steigung, kleine Vielfache, Donut, Sparkline) mit Tastatur, Tabellenansicht und Legenden-Schalter; Optionen in `../catalog/charts.json` |
 | `icons.svg` | Sprite, 33 Line-Art-Icons + Signet (`#odsv-icon-…`, `#odsv-signet`) |
 | `index.html` | Referenzseite (`docs.css`, `docs.js` gehören nur dazu) |
 | `examples/website.html`, `examples/dashboard.html` | Beispiele |
@@ -39,7 +39,7 @@ Vollständig mit Zweck, Varianten, Regeln und Referenz-Markup: `../catalog/COMPO
 - **Button/Link:** `odsv-btn` + `--primary|--secondary|--ghost|--danger`, `--md|--sm|--icon|--block`, `is-loading`; `odsv-icon-btn`, `odsv-link(--muted|--plain)`, `odsv-textbtn`
 - **Karten:** `odsv-card` + `--level-0|2|3|inset|stage|outline|accent|active|success|warning|danger|compact|interactive`; `odsv-kpi` (`__label|__value|__unit|__note|__row`, `--lg|--lead`), `odsv-trend--positive|negative|neutral`, `odsv-specs`/`odsv-spec`, `odsv-step` (`__num|__media|__title|__text|__skip`, `--active|--inactive`)
 - **Fortschritt/Auswahl:** `odsv-progress` (`__seg|__link|__bar|__meta`, `--dashed|--success|--thick`), `odsv-segmented` (`__item`, `--inverse|--sm|--block`), `odsv-checklist`, `odsv-check`, `odsv-checkbox`, `odsv-radio`, `odsv-switch`, `odsv-accordion` (`--card`)
-- **Daten:** `odsv-table-wrap`, `odsv-table` (`--compact|--dense|--hover|--sticky`, `__num`), `odsv-chart` (`__header|__title|__subtitle|__plot|__footer|__tip`), `odsv-legend`, `odsv-swatch`, `odsv-dv-1…7|neutral|context|highlight`, `odsv-axis-text`, `odsv-grid-line`, `odsv-data-line|bar|area|slice|point`, `odsv-stackbar`
+- **Daten:** `odsv-table-wrap`, `odsv-table` (`--compact|--dense|--hover|--sticky`, `__num`), `odsv-chart` (`__header|__title|__subtitle|__tools|__plot|__table|__multiples|__footer|__tip`), `odsv-legend`, `odsv-swatch`, `odsv-dv-1…7|neutral|context|highlight|positive|negative`, `odsv-dv-seq-1…6`, `odsv-dv-div-neg|div-pos` (Stufen, `div-mid`), `odsv-axis-text`, `odsv-grid-line`, `odsv-data-line|bar|area|slice|point|cell|bubble|whisker|box|outlier|trend|ref|event|pill|band|focus`, `odsv-stackbar`
 - **Rückmeldung:** `odsv-callout` (`__head|__label|__title|__text`, `--info|success|warning|danger|banner`), `odsv-badge` (`--accent|success|warning|danger|info|solid|count`), `odsv-pill`, `odsv-toast`, `odsv-empty`, `odsv-skeleton`, `odsv-spinner`
 - **Formulare:** `odsv-field` (`__label|__hint|__error|__opt`, `is-invalid`), `odsv-input`, `odsv-select` + `__control|__icon`, `odsv-textarea`, `odsv-search`, `odsv-option`, `odsv-fieldset`
 - **Navigation/Überlagerung:** `odsv-topbar` (`__inner|__nav|__actions|__toggle|__progress|__meta`), `odsv-brand`, `odsv-nav`, `odsv-sidebar`, `odsv-app`, `odsv-tabs`/`odsv-tab`/`odsv-tabpanel`, `odsv-tooltip` (`__content`, `--start|--end|--below`), `odsv-sheet` (`__panel|__grabber|__title|__text|__actions`, `--inline|--sticky`)
@@ -48,7 +48,7 @@ Vollständig mit Zweck, Varianten, Regeln und Referenz-Markup: `../catalog/COMPO
 
 ## Verhalten (`odsv.js`)
 
-`data-odsv-theme-toggle` · `data-odsv-segmented` · `data-odsv-tabs` · `data-odsv-checklist="schlüssel"` (+ `-count`, `-progress`, `-reset`) · `data-odsv-scrollprogress` (+ `data-odsv-scrollprogress-label`) · `data-odsv-nav-toggle` · `data-odsv-sheet-open="#id"` / `data-odsv-sheet-close` · `data-odsv-copy="#id"`. Nachträglich eingefügtes Markup: `ODSV.init(element)`. Änderungen melden `odsv:change` (Segment, Tabs) und `odsv:theme`.
+`data-odsv-theme-toggle` · `data-odsv-segmented` · `data-odsv-tabs` · `data-odsv-checklist="schlüssel"` (+ `-count`, `-progress`, `-reset`) · `data-odsv-scrollprogress` (+ `data-odsv-scrollprogress-label`) · `data-odsv-nav-toggle` · `data-odsv-sheet-open="#id"` / `data-odsv-sheet-close` · `data-odsv-copy="#id"`. Diagramme (`odsv-charts.js`): `data-odsv-chart-table` (Tabellenansicht), `data-odsv-series` (Legende als Schalter). Nachträglich eingefügtes Markup: `ODSV.init(element)`. Änderungen melden `odsv:change` (Segment, Tabs) und `odsv:theme`.
 
 ## Regeln
 
