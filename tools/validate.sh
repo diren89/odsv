@@ -12,6 +12,6 @@ step "Web-Build (tokens.css, Sprite)";  node tools/build-web.js >/dev/null && ec
 step "Katalog erzeugen";                python3 tools/build_catalog.py
 step "CSS: nur Tokens";                 node tools/check-css.js | tail -4
 step "Website erzeugen";               python3 tools/build_site.py
-step "HTML-Regeln (lint)";              node tools/lint-html.js web/index.html web/examples/website.html web/examples/dashboard.html templates/website.html templates/dashboard.html "${EXTRA[@]}"
+step "HTML-Regeln (lint)";              node tools/lint-html.js web/index.html web/examples/website.html web/examples/dashboard.html templates/website.html templates/dashboard.html ${EXTRA[@]+"${EXTRA[@]}"}
 if [[ $FULL == 1 ]]; then step "Playwright-Audit";  node tools/audit.js | awk -F'|' '{print $1,$2,$3,$4,$5}'; fi
 printf '\n✔ ODSV-Prüfung bestanden\n'

@@ -224,6 +224,74 @@
     $$('[data-demo-chart="donut"]').forEach(function (e) {
       C.donut(e, { items: [{ label: 'Abgeschlossen', value: 62, cls: 'odsv-dv-1' }, { label: 'In Arbeit', value: 24, cls: 'odsv-dv-2' }, { label: 'Offen', value: 14, cls: 'odsv-dv-neutral' }], size: 180, center: { value: '62 %', label: 'fertig' }, label: '62 Prozent abgeschlossen, 24 in Arbeit, 14 offen.' });
     });
+    /* Analyse-Diagramme – alle Werte sind Beispieldaten; Zufallswerte aus festem Startwert, damit jede Ansicht gleich aussieht. */
+    var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    function normal(m, s) { var u = 0, v = 0; while (!u) u = rnd(); while (!v) v = rnd(); return m + s * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+    $$('[data-demo-chart="line-annot"]').forEach(function (e) {
+      C.line(e, { labels: months, unit: 'Tsd. €', endLabels: true, height: 240,
+        series: [{ name: 'Web', values: [62, 64, 61, 66, 68, 71, 84, 90, 94, 99, 103, 108], cls: 'odsv-dv-1' }, { name: 'App', values: [38, 40, 43, 42, 45, 47, 49, 50, 54, 55, 57, 60], cls: 'odsv-dv-2' }, { name: 'Händler', values: [51, 50, 52, 49, 50, 48, 47, 49, 46, 45, 47, 44], cls: 'odsv-dv-3' }],
+        annotations: [{ at: 6, label: 'Relaunch' }], target: { value: 95, label: 'Ziel Web 95' },
+        label: 'Web steigt nach dem Relaunch im Juli von 71 auf 108 Tausend Euro und liegt ab Oktober über dem Ziel von 95; App wächst stetig, Händler sinkt leicht.' });
+    });
+    $$('[data-demo-chart="columns-stacked"]').forEach(function (e) {
+      C.columns(e, { labels: ['Q1', 'Q2', 'Q3', 'Q4'], mode: 'stacked', unit: 'Tsd. €', height: 240,
+        series: [{ name: 'Bestand', values: [120, 124, 126, 129], cls: 'odsv-dv-2' }, { name: 'Neukunden', values: [24, 38, 55, 71], cls: 'odsv-dv-1' }],
+        label: 'Der Umsatz steigt von 144 auf 200 Tausend Euro; der Anteil der Neukunden wächst von 24 auf 71.' });
+    });
+    $$('[data-demo-chart="columns-grouped"]').forEach(function (e) {
+      C.columns(e, { labels: ['Q1', 'Q2', 'Q3', 'Q4'], mode: 'grouped', height: 240,
+        series: [{ name: 'Nord', values: [31, 34, 38, 52], cls: 'odsv-dv-2' }, { name: 'Süd', values: [48, 50, 51, 53], cls: 'odsv-dv-4' }, { name: 'West', values: [40, 42, 39, 41], cls: 'odsv-dv-5' }],
+        label: 'Süd liegt in jedem Quartal vorn; Nord wächst von 31 auf 52 Abschlüsse und erreicht im Q4 fast Süd.' });
+    });
+    $$('[data-demo-chart="hbars"]').forEach(function (e) {
+      var cities = ['Berlin', 'Hamburg', 'München', 'Köln', 'Frankfurt', 'Stuttgart', 'Leipzig'];
+      C.hbars(e, { labels: cities, values: [1840, 1120, 1065, 860, 790, 610, 455], colors: ['odsv-dv-highlight', 'odsv-dv-context', 'odsv-dv-context', 'odsv-dv-context', 'odsv-dv-context', 'odsv-dv-context', 'odsv-dv-context'],
+        label: 'Berlin hat mit 1.840 Bestellungen die meisten, vor Hamburg mit 1.120 und München mit 1.065.' });
+    });
+    $$('[data-demo-chart="diverging"]').forEach(function (e) {
+      C.diverging(e, { labels: ['Vertrieb', 'Service', 'Marketing', 'Logistik', 'Einkauf', 'Technik'], values: [8.5, 3.2, 1.1, -2.4, -4.8, -6.1], negLabel: 'unter Plan', posLabel: 'über Plan',
+        format: function (v) { return (v > 0 ? '+' : '') + C.format(v) + ' Pp.'; }, label: 'Vertrieb liegt 8,5 Prozentpunkte über Plan; Logistik, Einkauf und Technik liegen darunter, Technik am weitesten mit minus 6,1.' });
+    });
+    $$('[data-demo-chart="funnel"]').forEach(function (e) {
+      C.funnel(e, { steps: [{ label: 'Besuch', value: 48200 }, { label: 'Produktseite', value: 21300 }, { label: 'Warenkorb', value: 6400 }, { label: 'Kasse', value: 3900 }, { label: 'Kauf', value: 3100 }],
+        label: 'Von 48.200 Besuchen erreichen 21.300 eine Produktseite; nur 30 Prozent davon legen etwas in den Warenkorb, am Ende kaufen 3.100.' });
+    });
+    $$('[data-demo-chart="histogram"]').forEach(function (e) {
+      seed = 7; var v = []; for (var i = 0; i < 240; i++) v.push(Math.max(0.1, Math.abs(normal(1.6, 0.9)) + (i % 9 === 0 ? 2.5 : 0)));
+      C.histogram(e, { values: v, binWidth: 0.5, mark: 'median', unit: 'Tickets', xFormat: function (x) { return C.format(x) + ' h'; },
+        label: '240 Tickets nach Lösungszeit; die meisten sind nach 1 bis 2 Stunden gelöst, der Median liegt bei etwa 1,7 Stunden.' });
+    });
+    $$('[data-demo-chart="boxplot"]').forEach(function (e) {
+      seed = 11; var mk = function (m, s, n) { var a = []; for (var i = 0; i < n; i++) a.push(Math.max(0.2, normal(m, s))); return a; };
+      var b = mk(2.6, 1.3, 60); b.push(8.2, 9.1);
+      C.boxplot(e, { groups: [{ label: 'Team A', values: mk(1.8, 0.5, 60) }, { label: 'Team B', values: b, cls: 'odsv-dv-highlight' }, { label: 'Team C', values: mk(2.1, 0.7, 60) }],
+        format: function (x) { return C.format(Math.round(x * 10) / 10) + ' h'; }, label: 'Team B hat den höchsten Median und die größte Streuung, mit zwei Ausreißern über 8 Stunden; Team A ist am schnellsten.' });
+    });
+    $$('[data-demo-chart="scatter"]').forEach(function (e) {
+      seed = 5; var on = [], pr = [];
+      for (var i = 0; i < 14; i++) { var x = 5 + rnd() * 45; on.push({ x: Math.round(x), y: Math.round(40 * Math.log(x) - 40 + normal(0, 8)), r: Math.round(20 + rnd() * 80), label: 'Kampagne O' + (i + 1) }); }
+      for (var j = 0; j < 6; j++) { var xp = 10 + rnd() * 35; pr.push({ x: Math.round(xp), y: Math.round(28 * Math.log(xp) - 30 + normal(0, 6)), r: Math.round(20 + rnd() * 60), label: 'Kampagne P' + (j + 1) }); }
+      on[3].highlight = true;
+      C.scatter(e, { series: [{ name: 'Online', points: on, cls: 'odsv-dv-2' }, { name: 'Print', points: pr, cls: 'odsv-dv-5' }], xLabel: 'Budget, Tsd. €', yLabel: 'Leads', sizeName: 'Umsatz, Tsd. €', trend: true, xZero: true, yZero: true,
+        label: 'Leads steigen mit dem Budget, aber flacher je höher das Budget; Online-Kampagnen erzielen bei gleichem Budget mehr Leads als Print.' });
+    });
+    $$('[data-demo-chart="heatmap"]').forEach(function (e) {
+      var days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'], hours = []; for (var hh = 7; hh <= 20; hh++) hours.push(hh + '');
+      var vals = days.map(function (d, di) { return hours.map(function (hs, hi) {
+        var hr = +hs, base = di < 5 ? 40 + 60 * Math.exp(-Math.pow(hr - 10, 2) / 3) + 50 * Math.exp(-Math.pow(hr - 14, 2) / 4) : 15 + 12 * Math.exp(-Math.pow(hr - 12, 2) / 8);
+        if (di === 6 && hr < 9) return null; return Math.round(base * (di === 4 ? 0.85 : 1)); }); });
+      C.heatmap(e, { rows: days, cols: hours, values: vals, scaleTitle: 'Anfragen je Stunde', label: 'Werktags gibt es zwei Spitzen um 10 und 14 Uhr mit bis zu rund 100 Anfragen; am Wochenende bleibt die Last unter 30.' });
+    });
+    $$('[data-demo-chart="slope"]').forEach(function (e) {
+      C.slope(e, { from: '2025', to: '2026', items: [{ label: 'Hamburg', a: 68, b: 81, cls: 'odsv-dv-highlight' }, { label: 'Berlin', a: 74, b: 76 }, { label: 'München', a: 79, b: 78 }, { label: 'Köln', a: 71, b: 73 }, { label: 'Leipzig', a: 65, b: 69 }],
+        label: 'Hamburg steigt von 68 auf 81 Punkte und überholt alle anderen Städte; München sinkt leicht von 79 auf 78.' });
+    });
+    $$('[data-demo-chart="multiples"]').forEach(function (e) {
+      C.multiples(e, { labels: months, yFormat: function (v) { return C.format(v); }, columns: 2, height: 110,
+        series: [{ name: 'Nord', values: [3.1, 3.0, 3.2, 3.4, 3.3, 3.1, 3.0, 3.2, 3.3, 3.4, 3.5, 3.6] }, { name: 'Ost', values: [1.2, 1.4, 1.5, 1.7, 1.9, 2.1, 2.3, 2.4, 2.6, 2.8, 3.0, 3.2] },
+                 { name: 'Süd', values: [4.0, 4.1, 3.9, 3.8, 4.0, 4.2, 4.1, 3.9, 3.8, 3.9, 4.0, 4.1] }, { name: 'West', values: [2.6, 2.5, 2.7, 2.6, 2.4, 2.3, 2.5, 2.4, 2.2, 2.3, 2.2, 2.1] }],
+        label: 'Umsatz je Region über zwölf Monate: Ost wächst von 1,2 auf 3,2 Millionen Euro, Süd bleibt bei rund 4, West sinkt leicht.' });
+    });
   }
 
   function init() {

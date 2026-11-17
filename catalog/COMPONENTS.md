@@ -1,4 +1,4 @@
-# ODSV 1.0.0 – Komponentenkatalog
+# ODSV 1.1.0 – Komponentenkatalog
 
 > Erzeugt von `tools/build_catalog.py` aus `catalog/src/components.meta.py`, `web/odsv.css` und `web/index.html`. Nicht von Hand ändern.
 > Maschinenlesbar: `catalog/components.json`. Gültige Klassen: `catalog/classes.json`.
@@ -28,6 +28,7 @@
 | [Icon-Kachel](#tile) | `.odsv-tile` | App-Icon-artige Kachel über Karten oder Headline-Gruppen. |
 | [Leer- und Ladezustand](#empty-loading) | `.odsv-empty` `.odsv-skeleton` `.odsv-spinner` | Sagt, was fehlt und was als Nächstes geht; Skelett/Ladekreis beim Laden. |
 | [Diagramm-Rahmen](#chart) | `.odsv-chart` `.odsv-legend` `.odsv-swatch` `.odsv-stackbar` … | Rahmen mit Aussage-Titel, Legende, Zeichenfläche und Quelle; Zeichnen über odsv-charts. |
+| [Analyse-Diagramme](#analysis) | `.odsv-data-cell` `.odsv-data-cell-text` `.odsv-data-bubble` `.odsv-data-outlier` … | Verteilung, Zusammenhang, Abweichung, Rang, Trichter, Heatmap und viele Reihen analysieren. |
 | [Labels für 3D und Diagramme](#label3d) | `.odsv-label3d` `.odsv-marker` `.odsv-stage` `.odsv-leader` … | Pillen mit Hinweislinie über 3D-Bühnen oder Illustrationen; nummerierte Marken für schmale Flächen. |
 | [Signet und Wortmarke](#signet) | `.odsv-signet-card` `.odsv-signet` `.odsv-signet-arc` `.odsv-signet-dot` … | Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Berge, Fahrrad, Outdoor, Route). |
 | [Liste und Fakten](#list-facts) | `.odsv-list` `.odsv-facts` | Aufzählung (Punkte gelb) oder nummerierte Liste; Fakten als <dl>. |
@@ -981,21 +982,26 @@
 | `dv-context` | Kontextreihe grau |
 | `dv-neutral` | Sonstige |
 | `dv-positive|negative` | Statusbedeutung |
+| `dv-seq-1…6` | Menge, sequenzielle Palette (wenig → viel) |
+| `dv-div-neg|div-pos` | Richtung unter/über Basis (Blau ↔ Orange), Stufen -3 … 3 und div-mid |
 | `swatch--line` | Legendenmarke als Linie |
+| `chart__tools` | Platz für den Tabellen-Schalter im Kopf |
 
-**Elemente:** `__footer`, `__header`, `__item`, `__plot`, `__subtitle`, `__tip`, `__title`
+**Elemente:** `__footer`, `__header`, `__item`, `__multiple`, `__multiple-title`, `__multiples`, `__plot`, `__subtitle`, `__table`, `__tip`, `__title`, `__tools`
 
 **Regeln**
 
-- Aufbau: <figure class="odsv-chart"> → __header (Eyebrow, <figcaption class="odsv-chart__title">, __subtitle) → .odsv-legend → __plot → __footer (Quelle · Stand).
+- Aufbau: <figure class="odsv-chart"> → __header (Eyebrow, <figcaption class="odsv-chart__title">, __subtitle, optional __tools) → .odsv-legend → __plot → __footer (Quelle · Stand).
 - Ab 2 Reihen Legende, höchstens 4 Reihen direkt beschriften.
 - Balken beginnen bei 0; Achse endet beim nächsten runden Wert.
+- Legendentext trägt nie die Reihenfarbe: die dv-Klasse sitzt an der .odsv-swatch, nicht am Text.
 
 **Barrierefreiheit**
 
 - SVG mit role="img" und aria-label, das die Aussage enthält (label-Option).
+- Jedes Diagramm bietet die Daten als Tabelle: Button [data-odsv-chart-table] im Kopf.
 
-**Verhalten (odsv.js):** window.ODSVCharts.line|bars|donut|spark – siehe catalog/js-api.md.
+**Verhalten (odsv.js):** window.ODSVCharts.line|bars|donut|spark; Analyseformen siehe Komponente „Analyse-Diagramme“ und catalog/js-api.md.
 
 **Inhaltsgrenzen:** title: Aussage, ≤ 60 Zeichen · subtitle: Einheit/Bezug
 
@@ -1011,6 +1017,64 @@
 <li class="odsv-legend__item odsv-dv-2"><span class="odsv-swatch odsv-swatch--line"></span><span style="color:var(--odsv-color-text-secondary)">Supportanfragen</span></li>
 </ul>
 <div class="odsv-chart__plot" data-demo-chart="line"></div>
+<p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+</figure>
+```
+
+<a id="analysis"></a>
+## Analyse-Diagramme
+
+**Wofür:** Verteilung, Zusammenhang, Abweichung, Rang, Trichter, Heatmap und viele Reihen analysieren.
+
+**Nicht für:** Zwei y-Achsen, 3D, Verläufe in Datenflächen, Regenbogen-Heatmaps, Rot/Grün ohne Vorzeichen, Streudiagramm mit mehr als 5 Farben (hell 3), Kreis statt sortierter Balken.
+
+| Klasse/Variante | Bedeutung |
+|---|---|
+| `line + annotations/target/endLabels` | Verlauf mit Ereignislinie und Pille, Zielwert gestrichelt, Reihen am Ende beschriftet |
+| `columns mode grouped|stacked|percent` | Säulen mit mehreren Reihen |
+| `hbars` | waagrecht, absteigend sortiert; eine Kategorie dv-highlight, Rest dv-context |
+| `diverging` | ab Nulllinie, negativ dv-div-neg, positiv dv-div-pos, Werte mit Vorzeichen |
+| `funnel` | abgestufte Einzelfarbe dv-seq, Wert und Quote zum Vorschritt |
+| `histogram` | Klassen gleicher Breite, optional Median oder Mittelwert |
+| `boxplot` | Strich = Spanne bis 1,5 × IQR, dicker Strich = mittlere Hälfte, Punkt = Median, Ringe = Ausreißer |
+| `scatter` | Punkte oder Blasen (r), optional Trendlinie mit R² |
+| `heatmap` | 6 Stufen dv-seq mit Skala, leere Zelle gestrichelt |
+| `slope` | zwei Zeitpunkte, eine Reihe betont, Rest Kontext |
+| `multiples` | kleine Vielfache mit gleicher Achse, übrige Reihen als Kontext |
+
+**Zustände:** `Legende aria-pressed="false"` – Reihe ausgeblendet (letzte sichtbare Reihe bleibt) · `[data-odsv-chart-table] aria-expanded="true"` – Tabelle unter der Zeichnung sichtbar · `SVG im Fokus` – Pfeiltasten wandern durch Punkte/Balken/Zellen, Wert wird angesagt, Esc schließt den Tooltip
+
+**Regeln**
+
+- Form nach Aufgabe der Daten wählen (SPEC 7.3), nicht nach Optik.
+- Titel ist die Aussage; der Zweitsatz nennt Einheit, Bezug und bei Verteilungen n.
+- Eine Sache betonen: dv-highlight für die eine Kategorie oder Reihe, Rest dv-context.
+- Menge in dv-seq, Richtung in dv-div, Zugehörigkeit in dv-1…7 – Paletten nie mischen.
+- Einheit einmal an der Achse (unit, xLabel, yLabel), nicht an jedem Wert.
+- Balken und Säulen beginnen bei 0; Streudiagramm und Boxplot dürfen ohne 0 beginnen.
+- Zu jedem Diagramm den Tabellen-Schalter anbieten.
+
+**Barrierefreiheit**
+
+- label-Option nennt die Aussage mit den wichtigsten Zahlen (role="img").
+- Tastatur: Tab fokussiert die Zeichnung, Pfeiltasten wandern, eine aria-live-Region sagt den Wert an.
+- Tabellenansicht mit Zeilen- und Spaltenköpfen für jede Form.
+- Farbe nie allein: Vorzeichen bei Abweichungen, Beschriftung der Betonung, Skala bei der Heatmap.
+
+**Verhalten (odsv.js):** window.ODSVCharts.columns|hbars|diverging|funnel|histogram|boxplot|scatter|heatmap|slope|multiples und line mit annotations, target, endLabels – siehe catalog/js-api.md.
+
+**Inhaltsgrenzen:** title: Aussage, ≤ 60 Zeichen · subtitle: Einheit, Bezug, n · Kategorien: hbars bis 12, columns bis 12 Gruppen, heatmap bis 24 Spalten · Reihen: line bis 4, columns bis 4, scatter bis 5 (hell 3), multiples bis 12
+
+**Beispiel – Verlauf mit Ereignis und Ziel** (weitere in `components.json`, live: `web/index.html#analyse`)
+
+```html
+<figure class="odsv-chart">
+<div class="odsv-chart__header">
+<div><p class="odsv-eyebrow">Umsatz</p><figcaption class="odsv-chart__title">Nach dem Relaunch übertrifft Web das Ziel</figcaption><p class="odsv-chart__subtitle">je Monat, in Tsd. €</p></div>
+<div class="odsv-chart__tools"><button aria-expanded="false" class="odsv-btn odsv-btn--ghost odsv-btn--sm" data-odsv-chart-table="" type="button"><span data-odsv-label="">Daten als Tabelle</span></button></div>
+</div>
+<ul aria-label="Reihen ein- und ausblenden" class="odsv-legend"><li><button aria-pressed="true" class="odsv-legend__item" data-odsv-series="Web" type="button"><span class="odsv-swatch odsv-swatch--line odsv-dv-1"></span>Web</button></li><li><button aria-pressed="true" class="odsv-legend__item" data-odsv-series="App" type="button"><span class="odsv-swatch odsv-swatch--line odsv-dv-2"></span>App</button></li><li><button aria-pressed="true" class="odsv-legend__item" data-odsv-series="Händler" type="button"><span class="odsv-swatch odsv-swatch--line odsv-dv-3"></span>Händler</button></li></ul>
+<div class="odsv-chart__plot" data-demo-chart="line-annot"></div>
 <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
 </figure>
 ```
@@ -1141,7 +1205,7 @@
 <div class="odsv-grid">
 <div class="odsv-col-12 odsv-col-md-6"><ul class="odsv-list odsv-card"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>
 <div class="odsv-col-12 odsv-col-md-6"><ol class="odsv-list odsv-list--numbered odsv-card"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>
-<div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.0.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
+<div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.1.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
 </div>
 ```
 

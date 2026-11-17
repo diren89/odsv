@@ -44,7 +44,7 @@ GROUPS = [
     ('Aktionen', ['button', 'link']),
     ('Inhalte', ['card', 'kpi', 'step', 'list-facts', 'tile']),
     ('Fortschritt und Auswahl', ['progress', 'segmented', 'checklist', 'accordion', 'tabs']),
-    ('Daten', ['table', 'chart', 'label3d']),
+    ('Daten', ['table', 'chart', 'analysis', 'label3d']),
     ('Rückmeldung', ['callout', 'badge', 'toast', 'empty-loading', 'tooltip']),
     ('Formulare', ['form']),
     ('Navigation', ['navigation', 'sheet', 'footer']),

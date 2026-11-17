@@ -1,6 +1,6 @@
 {
-  "$description": "ODSV v1.0.0 – Abbildung der Design-Tokens auf PowerPoint (OOXML). Maße in Zoll (in) und EMU (1 in = 914400 EMU, 1 pt = 12700 EMU). Farben ohne #. Abgeleitet aus tokens.json; bei Abweichung gilt tokens.json.",
-  "version": "1.0.0",
+  "$description": "ODSV v1.1.0 – Abbildung der Design-Tokens auf PowerPoint (OOXML). Maße in Zoll (in) und EMU (1 in = 914400 EMU, 1 pt = 12700 EMU). Farben ohne #. Abgeleitet aus tokens.json; bei Abweichung gilt tokens.json.",
+  "version": "1.1.0",
   "units": {
     "emuPerInch": 914400,
     "emuPerPoint": 12700,

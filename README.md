@@ -1,4 +1,4 @@
-# ODSV – Design-System v1.0.0
+# ODSV – Design-System v1.1.0
 
 Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Präsentationen.
 

@@ -1,4 +1,4 @@
-# ODSV v1.0 – Web-Umsetzung
+# ODSV v1.1 – Web-Umsetzung
 
 Dunkles Design-System (gesperrte Versalien, gelber Akzent, dunkle Karten mit großen Radien, segmentierte Fortschrittsleiste, Verlaufs-Signet). Werte stammen ausschließlich aus `tokens/tokens.css`; Regeln aus `SPEC.md`.
 

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
-<title>ODSV v1.0 – Design-System, Web-Umsetzung</title>
-<meta name="description" content="ODSV v1.0: Referenzseite mit Farben, Typografie, Abständen und allen Komponenten als kopierbares HTML.">
+<title>ODSV v1.1 – Design-System, Web-Umsetzung</title>
+<meta name="description" content="ODSV v1.1: Referenzseite mit Farben, Typografie, Abständen und allen Komponenten als kopierbares HTML.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="odsv.css">
 <link rel="stylesheet" href="docs.css">
@@ -57,7 +57,7 @@
       <svg class="odsv-brand__mark" viewBox="0 0 400 400" aria-hidden="true"><use href="#odsv-signet"/></svg>
       <span class="odsv-brand__name">ODSV</span>
     </a>
-    <span class="odsv-badge odsv-badge--accent docs-version">v1.0</span>
+    <span class="odsv-badge odsv-badge--accent docs-version">v1.1</span>
     <div class="odsv-topbar__actions">
       <button type="button" class="odsv-icon-btn odsv-theme-toggle" data-odsv-theme-toggle aria-pressed="false" aria-label="Helles Theme aktivieren">
         <svg class="odsv-icon odsv-theme-toggle__sun" aria-hidden="true"><use href="#odsv-icon-sun"/></svg>
@@ -904,6 +904,179 @@
       </div>
     </section>
 
+    <section class="docs-section" id="analyse" data-nav="Analyse-Diagramme" data-group="Komponenten">
+      <div class="docs-section__head">
+        <p class="odsv-eyebrow">Komponente</p>
+        <h2 class="odsv-h1">Analyse</h2>
+        <p class="odsv-sub">Verteilung, Zusammenhang, Abweichung, Rang und viele Reihen – jede Form mit Tabellenansicht.</p>
+      </div>
+      <p class="docs-note">Alle Formen zeichnet <code>odsv-charts.js</code> in <code>.odsv-chart__plot</code>. Jede Zeichnung ist per Tastatur bedienbar (Tab, Pfeiltasten, Esc), sagt den Wert an und liefert mit <code>[data-odsv-chart-table]</code> dieselben Daten als Tabelle. Legendeneinträge mit <code>data-odsv-series</code> blenden Reihen aus und ein.</p>
+      <div class="docs-block"><h3 class="odsv-h3">Verlauf mit Ereignis und Ziel</h3>
+        <p class="docs-note">Ereignis als gestrichelte Linie mit Pille, Zielwert waagrecht gestrichelt, Reihen direkt am Ende beschriftet.</p>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><p class="odsv-eyebrow">Umsatz</p><figcaption class="odsv-chart__title">Nach dem Relaunch übertrifft Web das Ziel</figcaption><p class="odsv-chart__subtitle">je Monat, in Tsd. €</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <ul class="odsv-legend" aria-label="Reihen ein- und ausblenden"><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Web"><span class="odsv-swatch odsv-swatch--line odsv-dv-1"></span>Web</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="App"><span class="odsv-swatch odsv-swatch--line odsv-dv-2"></span>App</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Händler"><span class="odsv-swatch odsv-swatch--line odsv-dv-3"></span>Händler</button></li></ul>
+            <div class="odsv-chart__plot" data-demo-chart="line-annot"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Gestapelte und gruppierte Säulen</h3>
+        <p class="docs-note">Gestapelt zeigt die Summe und ihre Teile, gruppiert den Vergleich der Teile. 100 % mit <code>mode: 'percent'</code>.</p>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Das Wachstum kommt aus Neukunden</figcaption><p class="odsv-chart__subtitle">Umsatz je Quartal, in Tsd. €</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <ul class="odsv-legend" aria-label="Reihen ein- und ausblenden"><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Bestand"><span class="odsv-swatch odsv-dv-2"></span>Bestand</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Neukunden"><span class="odsv-swatch odsv-dv-1"></span>Neukunden</button></li></ul>
+            <div class="odsv-chart__plot" data-demo-chart="columns-stacked"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Nord holt im Q4 auf</figcaption><p class="odsv-chart__subtitle">Abschlüsse je Quartal und Region</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <ul class="odsv-legend" aria-label="Reihen ein- und ausblenden"><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Nord"><span class="odsv-swatch odsv-dv-2"></span>Nord</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Süd"><span class="odsv-swatch odsv-dv-4"></span>Süd</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="West"><span class="odsv-swatch odsv-dv-5"></span>West</button></li></ul>
+            <div class="odsv-chart__plot" data-demo-chart="columns-grouped"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Rangfolge und Abweichung</h3>
+        <p class="docs-note">Kategorien als waagrechte, sortierte Balken; eine betont, Rest Kontext. Abweichung ab der Nulllinie in Blau ↔ Orange mit Vorzeichen.</p>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Berlin führt mit Abstand</figcaption><p class="odsv-chart__subtitle">Bestellungen je Stadt, November</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="hbars"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Drei Teams liegen unter Plan</figcaption><p class="odsv-chart__subtitle">Abweichung vom Ziel, in Prozentpunkten</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="diverging"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Trichter</h3>
+        <p class="docs-note">Abgestufte Einzelfarbe; je Stufe der Wert und die Quote zum Vorschritt.</p>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><p class="odsv-eyebrow">Conversion</p><figcaption class="odsv-chart__title">Der größte Verlust liegt vor dem Warenkorb</figcaption><p class="odsv-chart__subtitle">Sitzungen je Schritt, November</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="funnel"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Verteilung</h3>
+        <p class="docs-note">Histogramm mit Median; Boxplot als Strich (Spanne), dicker Strich (mittlere Hälfte) und Punkt (Median), Ausreißer als Ringe.</p>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Die meisten Tickets sind in 2 h gelöst</figcaption><p class="odsv-chart__subtitle">Lösungszeit, n = 240</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="histogram"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+            <div class="odsv-col-12 odsv-col-md-6">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Team B streut am stärksten</figcaption><p class="odsv-chart__subtitle">Lösungszeit je Team, in Stunden</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="boxplot"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Zusammenhang</h3>
+        <p class="docs-note">Streudiagramm mit Trendlinie und R²; die Blasengröße trägt eine dritte Größe.</p>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><p class="odsv-eyebrow">Marketing</p><figcaption class="odsv-chart__title">Mehr Budget, mehr Leads – mit abnehmendem Ertrag</figcaption><p class="odsv-chart__subtitle">je Kampagne; Blasengröße = Umsatz</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <ul class="odsv-legend" aria-label="Reihen ein- und ausblenden"><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Online"><span class="odsv-swatch odsv-dv-2"></span>Online</button></li><li><button class="odsv-legend__item" type="button" aria-pressed="true" data-odsv-series="Print"><span class="odsv-swatch odsv-dv-5"></span>Print</button></li></ul>
+            <div class="odsv-chart__plot" data-demo-chart="scatter"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Heatmap</h3>
+        <p class="docs-note">Sequenzielle Palette in 6 Stufen mit Skala; leere Zellen gestrichelt.</p>
+        <template class="docs-src">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><p class="odsv-eyebrow">Last</p><figcaption class="odsv-chart__title">Spitzen liegen werktags um 10 und 14 Uhr</figcaption><p class="odsv-chart__subtitle">Anfragen je Stunde und Wochentag</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="heatmap"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+        </template>
+      </div>
+      <div class="docs-block"><h3 class="odsv-h3">Steigung und kleine Vielfache</h3>
+        <p class="docs-note">Zwei Zeitpunkte als Steigungsdiagramm, eine Reihe betont. Viele Reihen als kleine Vielfache mit gleicher Achse, die übrigen Reihen als Kontext.</p>
+        <template class="docs-src">
+          <div class="odsv-grid">
+            <div class="odsv-col-12 odsv-col-md-5">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Hamburg steigt am stärksten</figcaption><p class="odsv-chart__subtitle">Zufriedenheit 2025 → 2026, Punkte</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="slope"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+            <div class="odsv-col-12 odsv-col-md-7">
+          <figure class="odsv-chart">
+            <div class="odsv-chart__header">
+              <div><figcaption class="odsv-chart__title">Nur Region Ost wächst durchgehend</figcaption><p class="odsv-chart__subtitle">Umsatz je Region, in Mio. €</p></div>
+              <div class="odsv-chart__tools"><button class="odsv-btn odsv-btn--ghost odsv-btn--sm" type="button" data-odsv-chart-table aria-expanded="false"><span data-odsv-label>Daten als Tabelle</span></button></div>
+            </div>
+            <div class="odsv-chart__plot" data-demo-chart="multiples"></div>
+            <p class="odsv-chart__footer">Quelle: Beispieldaten · Stand 17.11.2026</p>
+          </figure>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+
     <section class="docs-section" id="labels3d" data-nav="Labels für 3D und Diagramme" data-group="Komponenten">
       <div class="docs-section__head">
         <p class="odsv-eyebrow">Komponente</p>
@@ -1066,7 +1239,7 @@
           <div class="odsv-grid">
             <div class="odsv-col-12 odsv-col-md-6"><ul class="odsv-list odsv-card"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>
             <div class="odsv-col-12 odsv-col-md-6"><ol class="odsv-list odsv-list--numbered odsv-card"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>
-            <div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.0.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
+            <div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.1.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
           </div>
         </template>
       </div>
@@ -1149,7 +1322,7 @@
       </div>
     </section>
 
-    <footer class="odsv-footer"><div class="odsv-footer__grid"><p>ODSV v1.0.0 · Stand 17.11.2026 · Werte: <code class="odsv-code-inline">tokens/tokens.json</code></p><span class="odsv-wordmark">ODSV</span></div></footer>
+    <footer class="odsv-footer"><div class="odsv-footer__grid"><p>ODSV v1.1.0 · Stand 17.11.2026 · Werte: <code class="odsv-code-inline">tokens/tokens.json</code></p><span class="odsv-wordmark">ODSV</span></div></footer>
   </main>
 </div>
 

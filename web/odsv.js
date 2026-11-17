@@ -1,4 +1,4 @@
-/* ODSV v1.0 – Verhalten (optional, ohne Abhängigkeiten). Gestaltung liegt vollständig in odsv.css.
+/* ODSV v1.1 – Verhalten (optional, ohne Abhängigkeiten). Gestaltung liegt vollständig in odsv.css.
    Einbindung im <head> ohne defer, damit das gespeicherte Theme ohne Flackern gesetzt wird.
    Hooks (data-Attribute):
      [data-odsv-theme-toggle]                       Theme dunkel/hell, gespeichert in localStorage "odsv-theme"
@@ -37,7 +37,7 @@
   }
   var saved = store('get', THEME_KEY);
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-  window.ODSV = { version: '1.0.0', setTheme: function (t) { setTheme(t, true); } };
+  window.ODSV = { version: '1.1.0', setTheme: function (t) { setTheme(t, true); } };
 
   /* ---- Segment-Umschalter ---- */
   function initSegmented(group) {

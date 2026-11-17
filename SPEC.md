@@ -1,4 +1,4 @@
-# ODSV – Design-System, Spezifikation v1.0.0
+# ODSV – Design-System, Spezifikation v1.1.0
 
 Stand 17.11.2026 · Quelle der Wahrheit für Werte: `tokens/tokens.json` · Diese Datei beschreibt Regeln, nicht Werte. Wo beides steht, gilt das Token.
 
@@ -465,20 +465,21 @@ Regeln: höchstens **6 KPIs** je Seite sichtbar · jede Zahl mit Einheit, Zeitra
 
 ### 7.3 Welches Diagramm wann
 
-| Aufgabe der Daten | Form | Nicht |
-|---|---|---|
-| eine Zahl | KPI-Kachel | Tacho, Ring |
-| Verlauf über Zeit | Linie (bis 4 Reihen); Fläche nur bei einer Reihe oder gestapelten Anteilen | Säulen für lange Zeitreihen |
-| Vergleich von Kategorien | waagrechte Balken, sortiert | Kreis, senkrechte Säulen mit schrägen Beschriftungen |
-| Vergleich über wenige Zeitpunkte | Säulen (bis 12) | – |
-| Anteile an einem Ganzen | gestapelter Einzelbalken (bis 5 Teile) oder sortierte Balken | Kreis/Ring mit mehr als 3 Teilen, 3D |
-| Verteilung | Histogramm, Boxplot als Strich + Punkt | – |
-| Zusammenhang zweier Größen | Streudiagramm (höchstens 5 Farben, hell 3) | – |
-| Abweichung von Ziel/Null | Balken ab Nulllinie in divergierenden Farben | Rot/Grün ohne Vorzeichen |
-| Größe über zwei Dimensionen | Heatmap in der sequenziellen Palette | Regenbogen |
-| Rang im Zeitverlauf | Steigungsdiagramm (zwei Zeitpunkte) | – |
-| Ablauf/Trichter | Balken in abgestufter Einzelfarbe (ordinal) | bunte Stufen |
-| viele Reihen | kleine Vielfache mit gleicher Achse | eine Linie je Farbe ab der 8. Reihe |
+| Aufgabe der Daten | Form | Nicht | `odsv-charts.js` |
+|---|---|---|---|
+| eine Zahl | KPI-Kachel | Tacho, Ring | – (`spark` für den Verlauf) |
+| Verlauf über Zeit | Linie (bis 4 Reihen); Fläche nur bei einer Reihe oder gestapelten Anteilen | Säulen für lange Zeitreihen | `line` (mit `annotations`, `target`, `endLabels`) |
+| Vergleich von Kategorien | waagrechte Balken, sortiert | Kreis, senkrechte Säulen mit schrägen Beschriftungen | `hbars` |
+| Vergleich über wenige Zeitpunkte | Säulen (bis 12) | – | `bars`; mehrere Reihen `columns` (`grouped`) |
+| Teile und Summe über wenige Zeitpunkte | gestapelte Säulen (bis 4 Teile), Anteile als 100 % | mehr als 4 Teile je Säule | `columns` (`stacked`, `percent`) |
+| Anteile an einem Ganzen | gestapelter Einzelbalken (bis 5 Teile) oder sortierte Balken | Kreis/Ring mit mehr als 3 Teilen, 3D | `.odsv-stackbar`, `hbars`; `donut` bis 3 Teile |
+| Verteilung | Histogramm, Boxplot als Strich + Punkt | – | `histogram` (`mark: 'median'`), `boxplot` |
+| Zusammenhang zweier Größen | Streudiagramm (höchstens 5 Farben, hell 3) | – | `scatter` (`trend`, Blasengröße über `r`) |
+| Abweichung von Ziel/Null | Balken ab Nulllinie in divergierenden Farben | Rot/Grün ohne Vorzeichen | `diverging` |
+| Größe über zwei Dimensionen | Heatmap in der sequenziellen Palette | Regenbogen | `heatmap` |
+| Rang im Zeitverlauf | Steigungsdiagramm (zwei Zeitpunkte) | – | `slope` |
+| Ablauf/Trichter | Balken in abgestufter Einzelfarbe (ordinal) | bunte Stufen | `funnel` |
+| viele Reihen | kleine Vielfache mit gleicher Achse | eine Linie je Farbe ab der 8. Reihe | `multiples` |
 
 **Nie:** zwei y-Achsen, 3D, Verläufe in Datenflächen, Kreisdiagramme mit mehr als 3 Teilen, abgeschnittene Balkenachsen.
 
@@ -546,6 +547,21 @@ Folgen daraus:
 - **Tooltip:** Linie/Fläche: senkrechtes Fadenkreuz 1 px `dataviz.cursor` + Daten-Tooltip mit allen Reihen am Zeitpunkt · Balken/Punkt/Zelle: Tooltip je Marke. Trefferfläche größer als die Marke (mindestens 24 px). Tooltip per Tastatur erreichbar (Pfeiltasten wandern durch die Punkte).
 - **Anmerkungen:** Ereignisse als senkrechte gestrichelte Linie (`lineart.dim`) mit Label-Pille (6.20). Zielwert als waagrechte gestrichelte Linie mit Label rechts.
 - **Barrierefreiheit:** Tabellenansicht für jedes Diagramm · `aria-label` nennt die Aussage, nicht „Diagramm“ · Farbe nie alleiniger Träger (Direktbeschriftung, Strichmuster, Reihenfolge der Legende = Reihenfolge im Diagramm).
+
+
+### 8.3 Bedienung und Tabellenansicht (Web)
+
+Für alle Formen aus `odsv-charts.js` gilt dasselbe Verhalten; Markup und API in `catalog/js-api.md`, Beispiele in der Komponente „Analyse-Diagramme“.
+
+| Thema | Umsetzung |
+|---|---|
+| Aussage | `label` ist Pflicht und wird zum `aria-label` des SVG (`role="img"`). Es nennt die Aussage mit den wichtigsten Zahlen. |
+| Tastatur | Tab fokussiert die Zeichnung (Fokusring wie Bedienelemente). Pfeiltasten wandern durch Zeitpunkte, Balken, Punkte oder Zellen, Pos1/Ende springen an die Ränder, Esc schließt den Tooltip. Eine `aria-live`-Region sagt den Wert an. |
+| Tabelle | Ein Button `[data-odsv-chart-table]` im Kopf (`.odsv-chart__tools`) blendet unter der Zeichnung dieselben Daten als `.odsv-table` mit Zeilen- und Spaltenköpfen ein. Jede Form liefert ihre Tabelle selbst. |
+| Legende als Schalter | `button.odsv-legend__item[data-odsv-series][aria-pressed]` blendet die gleichnamige Reihe aus und ein. Die letzte sichtbare Reihe bleibt stehen. Die Achse bleibt gleich, damit nichts springt. Die Reihenfarbe sitzt an der `.odsv-swatch`, nicht am Text. |
+| Anmerkungen | Ereignis: senkrechte gestrichelte Linie `lineart.dim` mit Pille oben. Zielwert und Median: waagrechte bzw. senkrechte gestrichelte Linie in `dataviz.label` mit Beschriftung. Einheiten in Pillen nie versalisieren. |
+| Paletten | Zugehörigkeit `odsv-dv-1…7`, Menge `odsv-dv-seq-1…6`, Richtung `odsv-dv-div-neg`/`-pos` (Stufen `-3 … 3`, Mitte `div-mid`), Betonung `dv-highlight` + `dv-context`. Zahlen in Heatmap-Zellen wählen je Zelle die Textstufe mit dem höheren Kontrast (`text.primary` oder `text.inverse`). |
+| Grenzen | Kleine Vielfache haben keine Pfeiltasten-Navigation: Jede Teilgrafik trägt ein `aria-label` mit Anfangs- und Endwert, die Tabelle enthält alle Werte. Diagramm-Tooltips zeigen Werte, keine Interaktion darin. |
 
 ---
 
@@ -1055,6 +1071,8 @@ Semantische Versionierung `MAJOR.MINOR.PATCH`, Stand in `tokens.json → $extens
 - Entfernte Tokens bleiben eine MINOR-Version lang als Alias mit `$deprecated` erhalten.
 - Jede Änderung besteht `check_tokens.py`, bevor sie veröffentlicht wird.
 - Produkte nennen die verwendete Version (Kommentar in der CSS-Datei, Notizfeld im Folienmaster).
+
+**v1.1.0 (17.11.2026)** – Datenanalyse. `odsv-charts.js` bekommt die Formen aus 7.3, die bisher nur beschrieben waren: `columns` (gruppiert, gestapelt, 100 %), `hbars`, `diverging`, `funnel`, `histogram`, `boxplot`, `scatter` (Trend, Blasen), `heatmap`, `slope`, `multiples`; `line` mit Ereignis, Zielwert und Endbeschriftung. Für alle Formen gilt: Bedienung per Tastatur mit Ansage, Tabellenansicht, Legende als Schalter (8.3). Neue Klassen: Paletten `odsv-dv-seq-*` und `odsv-dv-div-*`, Marken `odsv-data-*`, `odsv-chart__tools`, `__table`, `__multiples`. Neue Komponente „Analyse-Diagramme“ im Katalog. Keine Token-Änderung.
 
 **v1.0.0 (17.11.2026)** – Erste Fassung. Umfang: dunkles Theme als Standard, helles Theme und Druck, Status Info, deckende Textstufen, Rand für Bedienelemente, Datenvis-Paletten, Formulare, Tabs, Tooltip, Badge, Leer- und Ladezustand, Dashboard-Dichten, Folienraster mit 16 Layouts, Komponentenbibliothek fürs Web.
 

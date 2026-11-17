@@ -1,5 +1,5 @@
 {
- "version": "1.0.0",
+ "version": "1.1.0",
  "generated_by": "tools/build_catalog.py",
  "states": [
   "is-active",
@@ -1618,26 +1618,37 @@
     "odsv-data-slice",
     "odsv-data-label",
     "odsv-data-dash",
+    "odsv-data-center",
     "odsv-cursor-line",
     "odsv-diagram-label"
    ],
    "classes": [
     "odsv-axis-line",
     "odsv-axis-text",
+    "odsv-axis-text--cat",
     "odsv-axis-title",
     "odsv-chart",
     "odsv-chart__footer",
     "odsv-chart__header",
+    "odsv-chart__multiple",
+    "odsv-chart__multiple-title",
+    "odsv-chart__multiples",
     "odsv-chart__plot",
     "odsv-chart__subtitle",
+    "odsv-chart__table",
     "odsv-chart__tip",
     "odsv-chart__title",
+    "odsv-chart__tools",
     "odsv-cursor-line",
     "odsv-data-area",
     "odsv-data-bar",
+    "odsv-data-bar--seg",
+    "odsv-data-center",
     "odsv-data-dash",
     "odsv-data-label",
+    "odsv-data-label--muted",
     "odsv-data-line",
+    "odsv-data-line--context",
     "odsv-data-point",
     "odsv-data-slice",
     "odsv-diagram-label",
@@ -1649,10 +1660,23 @@
     "odsv-dv-6",
     "odsv-dv-7",
     "odsv-dv-context",
+    "odsv-dv-div-mid",
+    "odsv-dv-div-neg",
+    "odsv-dv-div-neg-1",
+    "odsv-dv-div-neg-3",
+    "odsv-dv-div-pos",
+    "odsv-dv-div-pos-1",
+    "odsv-dv-div-pos-3",
     "odsv-dv-highlight",
     "odsv-dv-negative",
     "odsv-dv-neutral",
     "odsv-dv-positive",
+    "odsv-dv-seq-1",
+    "odsv-dv-seq-2",
+    "odsv-dv-seq-3",
+    "odsv-dv-seq-4",
+    "odsv-dv-seq-5",
+    "odsv-dv-seq-6",
     "odsv-grid-line",
     "odsv-legend",
     "odsv-legend__item",
@@ -1664,13 +1688,22 @@
     "footer",
     "header",
     "item",
+    "multiple",
+    "multiple-title",
+    "multiples",
     "plot",
     "subtitle",
+    "table",
     "tip",
-    "title"
+    "title",
+    "tools"
    ],
    "modifiers": [
-    "line"
+    "cat",
+    "context",
+    "line",
+    "muted",
+    "seg"
    ],
    "variants": {
     "dv-1…dv-7": "kategoriale Farben in fester Reihenfolge",
@@ -1678,18 +1711,23 @@
     "dv-context": "Kontextreihe grau",
     "dv-neutral": "Sonstige",
     "dv-positive|negative": "Statusbedeutung",
-    "swatch--line": "Legendenmarke als Linie"
+    "dv-seq-1…6": "Menge, sequenzielle Palette (wenig → viel)",
+    "dv-div-neg|div-pos": "Richtung unter/über Basis (Blau ↔ Orange), Stufen -3 … 3 und div-mid",
+    "swatch--line": "Legendenmarke als Linie",
+    "chart__tools": "Platz für den Tabellen-Schalter im Kopf"
    },
    "states": {},
    "rules": [
-    "Aufbau: <figure class=\"odsv-chart\"> → __header (Eyebrow, <figcaption class=\"odsv-chart__title\">, __subtitle) → .odsv-legend → __plot → __footer (Quelle · Stand).",
+    "Aufbau: <figure class=\"odsv-chart\"> → __header (Eyebrow, <figcaption class=\"odsv-chart__title\">, __subtitle, optional __tools) → .odsv-legend → __plot → __footer (Quelle · Stand).",
     "Ab 2 Reihen Legende, höchstens 4 Reihen direkt beschriften.",
-    "Balken beginnen bei 0; Achse endet beim nächsten runden Wert."
+    "Balken beginnen bei 0; Achse endet beim nächsten runden Wert.",
+    "Legendentext trägt nie die Reihenfarbe: die dv-Klasse sitzt an der .odsv-swatch, nicht am Text."
    ],
    "a11y": [
-    "SVG mit role=\"img\" und aria-label, das die Aussage enthält (label-Option)."
+    "SVG mit role=\"img\" und aria-label, das die Aussage enthält (label-Option).",
+    "Jedes Diagramm bietet die Daten als Tabelle: Button [data-odsv-chart-table] im Kopf."
    ],
-   "js": "window.ODSVCharts.line|bars|donut|spark – siehe catalog/js-api.md.",
+   "js": "window.ODSVCharts.line|bars|donut|spark; Analyseformen siehe Komponente „Analyse-Diagramme“ und catalog/js-api.md.",
    "content_limits": {
     "title": "Aussage, ≤ 60 Zeichen",
     "subtitle": "Einheit/Bezug"
@@ -1710,6 +1748,134 @@
      "title": "Gestapelter Einzelbalken",
      "captions": [],
      "html": "<figure class=\"odsv-chart\">\n<figcaption class=\"odsv-chart__title\">Anteile nach Plattform</figcaption>\n<div aria-label=\"Web 52 Prozent, iOS 31 Prozent, Android 17 Prozent\" class=\"odsv-stackbar\" role=\"img\">\n<span class=\"odsv-dv-1\" style=\"flex:52\"></span><span class=\"odsv-dv-2\" style=\"flex:31\"></span><span class=\"odsv-dv-3\" style=\"flex:17\"></span>\n</div>\n<ul class=\"odsv-legend\"><li class=\"odsv-legend__item odsv-dv-1\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Web · 52 %</span></li><li class=\"odsv-legend__item odsv-dv-2\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">iOS · 31 %</span></li><li class=\"odsv-legend__item odsv-dv-3\"><span class=\"odsv-swatch\"></span><span style=\"color:var(--odsv-color-text-secondary)\">Android · 17 %</span></li></ul>\n</figure>"
+    }
+   ]
+  },
+  {
+   "id": "analysis",
+   "name": "Analyse-Diagramme",
+   "use": "Verteilung, Zusammenhang, Abweichung, Rang, Trichter, Heatmap und viele Reihen analysieren.",
+   "avoid": "Zwei y-Achsen, 3D, Verläufe in Datenflächen, Regenbogen-Heatmaps, Rot/Grün ohne Vorzeichen, Streudiagramm mit mehr als 5 Farben (hell 3), Kreis statt sortierter Balken.",
+   "root_classes": [
+    "odsv-data-cell",
+    "odsv-data-cell-text",
+    "odsv-data-bubble",
+    "odsv-data-outlier",
+    "odsv-data-whisker",
+    "odsv-data-box",
+    "odsv-data-trend",
+    "odsv-data-ref",
+    "odsv-data-event",
+    "odsv-data-pill",
+    "odsv-data-pill-text",
+    "odsv-data-band",
+    "odsv-data-focus"
+   ],
+   "classes": [
+    "odsv-data-band",
+    "odsv-data-box",
+    "odsv-data-bubble",
+    "odsv-data-cell",
+    "odsv-data-cell--empty",
+    "odsv-data-cell-text",
+    "odsv-data-cell-text--inverse",
+    "odsv-data-event",
+    "odsv-data-focus",
+    "odsv-data-outlier",
+    "odsv-data-pill",
+    "odsv-data-pill-text",
+    "odsv-data-pill-text--plain",
+    "odsv-data-ref",
+    "odsv-data-trend",
+    "odsv-data-whisker"
+   ],
+   "elements": [],
+   "modifiers": [
+    "empty",
+    "inverse",
+    "plain"
+   ],
+   "variants": {
+    "line + annotations/target/endLabels": "Verlauf mit Ereignislinie und Pille, Zielwert gestrichelt, Reihen am Ende beschriftet",
+    "columns mode grouped|stacked|percent": "Säulen mit mehreren Reihen",
+    "hbars": "waagrecht, absteigend sortiert; eine Kategorie dv-highlight, Rest dv-context",
+    "diverging": "ab Nulllinie, negativ dv-div-neg, positiv dv-div-pos, Werte mit Vorzeichen",
+    "funnel": "abgestufte Einzelfarbe dv-seq, Wert und Quote zum Vorschritt",
+    "histogram": "Klassen gleicher Breite, optional Median oder Mittelwert",
+    "boxplot": "Strich = Spanne bis 1,5 × IQR, dicker Strich = mittlere Hälfte, Punkt = Median, Ringe = Ausreißer",
+    "scatter": "Punkte oder Blasen (r), optional Trendlinie mit R²",
+    "heatmap": "6 Stufen dv-seq mit Skala, leere Zelle gestrichelt",
+    "slope": "zwei Zeitpunkte, eine Reihe betont, Rest Kontext",
+    "multiples": "kleine Vielfache mit gleicher Achse, übrige Reihen als Kontext"
+   },
+   "states": {
+    "Legende aria-pressed=\"false\"": "Reihe ausgeblendet (letzte sichtbare Reihe bleibt)",
+    "[data-odsv-chart-table] aria-expanded=\"true\"": "Tabelle unter der Zeichnung sichtbar",
+    "SVG im Fokus": "Pfeiltasten wandern durch Punkte/Balken/Zellen, Wert wird angesagt, Esc schließt den Tooltip"
+   },
+   "rules": [
+    "Form nach Aufgabe der Daten wählen (SPEC 7.3), nicht nach Optik.",
+    "Titel ist die Aussage; der Zweitsatz nennt Einheit, Bezug und bei Verteilungen n.",
+    "Eine Sache betonen: dv-highlight für die eine Kategorie oder Reihe, Rest dv-context.",
+    "Menge in dv-seq, Richtung in dv-div, Zugehörigkeit in dv-1…7 – Paletten nie mischen.",
+    "Einheit einmal an der Achse (unit, xLabel, yLabel), nicht an jedem Wert.",
+    "Balken und Säulen beginnen bei 0; Streudiagramm und Boxplot dürfen ohne 0 beginnen.",
+    "Zu jedem Diagramm den Tabellen-Schalter anbieten."
+   ],
+   "a11y": [
+    "label-Option nennt die Aussage mit den wichtigsten Zahlen (role=\"img\").",
+    "Tastatur: Tab fokussiert die Zeichnung, Pfeiltasten wandern, eine aria-live-Region sagt den Wert an.",
+    "Tabellenansicht mit Zeilen- und Spaltenköpfen für jede Form.",
+    "Farbe nie allein: Vorzeichen bei Abweichungen, Beschriftung der Betonung, Skala bei der Heatmap."
+   ],
+   "js": "window.ODSVCharts.columns|hbars|diverging|funnel|histogram|boxplot|scatter|heatmap|slope|multiples und line mit annotations, target, endLabels – siehe catalog/js-api.md.",
+   "content_limits": {
+    "title": "Aussage, ≤ 60 Zeichen",
+    "subtitle": "Einheit, Bezug, n",
+    "Kategorien": "hbars bis 12, columns bis 12 Gruppen, heatmap bis 24 Spalten",
+    "Reihen": "line bis 4, columns bis 4, scatter bis 5 (hell 3), multiples bis 12"
+   },
+   "reference": "web/index.html#analyse",
+   "examples": [
+    {
+     "title": "Verlauf mit Ereignis und Ziel",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><p class=\"odsv-eyebrow\">Umsatz</p><figcaption class=\"odsv-chart__title\">Nach dem Relaunch übertrifft Web das Ziel</figcaption><p class=\"odsv-chart__subtitle\">je Monat, in Tsd. €</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<ul aria-label=\"Reihen ein- und ausblenden\" class=\"odsv-legend\"><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Web\" type=\"button\"><span class=\"odsv-swatch odsv-swatch--line odsv-dv-1\"></span>Web</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"App\" type=\"button\"><span class=\"odsv-swatch odsv-swatch--line odsv-dv-2\"></span>App</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Händler\" type=\"button\"><span class=\"odsv-swatch odsv-swatch--line odsv-dv-3\"></span>Händler</button></li></ul>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"line-annot\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>"
+    },
+    {
+     "title": "Gestapelte und gruppierte Säulen",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Das Wachstum kommt aus Neukunden</figcaption><p class=\"odsv-chart__subtitle\">Umsatz je Quartal, in Tsd. €</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<ul aria-label=\"Reihen ein- und ausblenden\" class=\"odsv-legend\"><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Bestand\" type=\"button\"><span class=\"odsv-swatch odsv-dv-2\"></span>Bestand</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Neukunden\" type=\"button\"><span class=\"odsv-swatch odsv-dv-1\"></span>Neukunden</button></li></ul>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"columns-stacked\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Nord holt im Q4 auf</figcaption><p class=\"odsv-chart__subtitle\">Abschlüsse je Quartal und Region</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<ul aria-label=\"Reihen ein- und ausblenden\" class=\"odsv-legend\"><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Nord\" type=\"button\"><span class=\"odsv-swatch odsv-dv-2\"></span>Nord</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Süd\" type=\"button\"><span class=\"odsv-swatch odsv-dv-4\"></span>Süd</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"West\" type=\"button\"><span class=\"odsv-swatch odsv-dv-5\"></span>West</button></li></ul>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"columns-grouped\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n</div>"
+    },
+    {
+     "title": "Rangfolge und Abweichung",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Berlin führt mit Abstand</figcaption><p class=\"odsv-chart__subtitle\">Bestellungen je Stadt, November</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"hbars\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Drei Teams liegen unter Plan</figcaption><p class=\"odsv-chart__subtitle\">Abweichung vom Ziel, in Prozentpunkten</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"diverging\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n</div>"
+    },
+    {
+     "title": "Trichter",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><p class=\"odsv-eyebrow\">Conversion</p><figcaption class=\"odsv-chart__title\">Der größte Verlust liegt vor dem Warenkorb</figcaption><p class=\"odsv-chart__subtitle\">Sitzungen je Schritt, November</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"funnel\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>"
+    },
+    {
+     "title": "Verteilung",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Die meisten Tickets sind in 2 h gelöst</figcaption><p class=\"odsv-chart__subtitle\">Lösungszeit, n = 240</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"histogram\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n<div class=\"odsv-col-12 odsv-col-md-6\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Team B streut am stärksten</figcaption><p class=\"odsv-chart__subtitle\">Lösungszeit je Team, in Stunden</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"boxplot\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n</div>"
+    },
+    {
+     "title": "Zusammenhang",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><p class=\"odsv-eyebrow\">Marketing</p><figcaption class=\"odsv-chart__title\">Mehr Budget, mehr Leads – mit abnehmendem Ertrag</figcaption><p class=\"odsv-chart__subtitle\">je Kampagne; Blasengröße = Umsatz</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<ul aria-label=\"Reihen ein- und ausblenden\" class=\"odsv-legend\"><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Online\" type=\"button\"><span class=\"odsv-swatch odsv-dv-2\"></span>Online</button></li><li><button aria-pressed=\"true\" class=\"odsv-legend__item\" data-odsv-series=\"Print\" type=\"button\"><span class=\"odsv-swatch odsv-dv-5\"></span>Print</button></li></ul>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"scatter\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>"
+    },
+    {
+     "title": "Heatmap",
+     "captions": [],
+     "html": "<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><p class=\"odsv-eyebrow\">Last</p><figcaption class=\"odsv-chart__title\">Spitzen liegen werktags um 10 und 14 Uhr</figcaption><p class=\"odsv-chart__subtitle\">Anfragen je Stunde und Wochentag</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"heatmap\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>"
+    },
+    {
+     "title": "Steigung und kleine Vielfache",
+     "captions": [],
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-5\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Hamburg steigt am stärksten</figcaption><p class=\"odsv-chart__subtitle\">Zufriedenheit 2025 → 2026, Punkte</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"slope\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n<div class=\"odsv-col-12 odsv-col-md-7\">\n<figure class=\"odsv-chart\">\n<div class=\"odsv-chart__header\">\n<div><figcaption class=\"odsv-chart__title\">Nur Region Ost wächst durchgehend</figcaption><p class=\"odsv-chart__subtitle\">Umsatz je Region, in Mio. €</p></div>\n<div class=\"odsv-chart__tools\"><button aria-expanded=\"false\" class=\"odsv-btn odsv-btn--ghost odsv-btn--sm\" data-odsv-chart-table=\"\" type=\"button\"><span data-odsv-label=\"\">Daten als Tabelle</span></button></div>\n</div>\n<div class=\"odsv-chart__plot\" data-demo-chart=\"multiples\"></div>\n<p class=\"odsv-chart__footer\">Quelle: Beispieldaten · Stand 17.11.2026</p>\n</figure>\n</div>\n</div>"
     }
    ]
   },
@@ -2041,7 +2207,7 @@
     {
      "title": "Liste und Fakten",
      "captions": [],
-     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\"><ul class=\"odsv-list odsv-card\"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>\n<div class=\"odsv-col-12 odsv-col-md-6\"><ol class=\"odsv-list odsv-list--numbered odsv-card\"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>\n<div class=\"odsv-col-12\"><dl class=\"odsv-facts odsv-facts--cols odsv-card\"><div><dt>Version</dt><dd>1.0.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>\n</div>"
+     "html": "<div class=\"odsv-grid\">\n<div class=\"odsv-col-12 odsv-col-md-6\"><ul class=\"odsv-list odsv-card\"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>\n<div class=\"odsv-col-12 odsv-col-md-6\"><ol class=\"odsv-list odsv-list--numbered odsv-card\"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>\n<div class=\"odsv-col-12\"><dl class=\"odsv-facts odsv-facts--cols odsv-card\"><div><dt>Version</dt><dd>1.1.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>\n</div>"
     }
    ]
   },

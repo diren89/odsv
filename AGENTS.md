@@ -1,6 +1,6 @@
 # ODSV – Anleitung für AI-Agents
 
-ODSV 1.0.0 ist ein dunkles, markenneutrales Design-System für **Websites, Dashboards und Präsentationen**. Es setzt auf gesperrte Versalien-Headlines, genau einen gelben Akzent, dunkle Karten mit großen Radien und Line-Art. Diese Datei ist der Einstieg: Sie sagt, was du liest, was du baust und wie du prüfst. Menschen lesen `SPEC.md`.
+ODSV 1.1.0 ist ein dunkles, markenneutrales Design-System für **Websites, Dashboards und Präsentationen**. Es setzt auf gesperrte Versalien-Headlines, genau einen gelben Akzent, dunkle Karten mit großen Radien und Line-Art. Diese Datei ist der Einstieg: Sie sagt, was du liest, was du baust und wie du prüfst. Menschen lesen `SPEC.md`.
 
 ## 0. Voraussetzungen
 
@@ -51,7 +51,7 @@ In Klammern steht die Regel-ID, die `tools/lint-html.js` meldet.
 4. Buttons: Verb plus Ziel, nie „OK“, „Weiter“ oder „Hier klicken“ (buttontext). Jedes Bedienelement hat einen Namen (name).
 5. Headlines **nicht in Versalien tippen**, das CSS setzt sie (versalien). Höchstens 24 Zeichen und 3 Wörter (headline).
 6. Dreiklang: `.odsv-eyebrow` → `.odsv-display` oder `.odsv-h1` → `.odsv-sub` (dreiklang). Genau ein `<h1>`, keine übersprungenen Ebenen (ueberschriften).
-7. Diagramme in `<figure class="odsv-chart">`: Titel als **Aussage**, SVG mit `aria-label`, Fuß „Quelle: … · Stand …“ (diagramm).
+7. Diagramme in `<figure class="odsv-chart">`: Titel als **Aussage**, SVG mit `aria-label`, Fuß „Quelle: … · Stand …“ (diagramm). Form nach Aufgabe der Daten (SPEC 7.3), Tabellenansicht über `[data-odsv-chart-table]` anbieten.
 8. Tabellen in `.odsv-table-wrap` mit `<caption>` (tabelle). Felder mit `<label>` (formular). Bilder mit `alt` (alt).
 9. Warnungen nie im Akkordeon und nie gekürzt (warnung). Status immer mit Icon und Wort, nie nur über Farbe.
 10. Kein seitliches Scrollen bei 390 px (ueberlauf). Auf Touch sind alle Ziele mindestens 44 px groß (erledigt `odsv.css`).
@@ -131,6 +131,7 @@ Zahlen: deutsches Format (1.284; 2,1), Einheit mit geschütztem Leerzeichen, „
 | Abschluss-Aufforderung / Rückfrage | `sheet` |
 | nichts da / lädt | `empty-loading` |
 | Diagramm | `chart` + `catalog/js-api.md` |
+| Verteilung, Zusammenhang, Abweichung, Rang, Trichter, Heatmap, viele Reihen | `analysis` (Form nach SPEC 7.3) + `catalog/js-api.md` |
 | Beschriftung auf Bild/3D | `label3d` |
 | Markenmoment | `signet` (einmal; Variante nach Kernthema: `#odsv-signet-ai`, `-network`, `-data`, `-code`, `-mountains`, `-bike`, `-outdoor`, `-route`; im Zweifel Basis) |
 
@@ -153,5 +154,5 @@ Zahlen: deutsches Format (1.284; 2,1), Einheit mit geschütztem Leerzeichen, „
 
 - Die PowerPoint-Vorlage gibt es nur dunkel. Die Fortschrittsleiste auf Folien hat fest 7 Segmente. Getestet ist die Vorlage mit LibreOffice, nicht mit PowerPoint selbst.
 - Das helle Theme ist rechnerisch und per Screenshot geprüft, aber nicht in einem echten Projekt abgenommen.
-- Diagramm-Tooltips gibt es nur für Maus und Touch; eine Tabellenansicht je Diagramm gibt es nicht. Wo nötig, die Daten zusätzlich als Tabelle zeigen.
+- Kleine Vielfache (`multiples`) haben keine Pfeiltasten-Navigation; ihre Werte stehen in der Tabellenansicht. Diagramme zeichnen nur im Browser (`odsv-charts.js`); für Folien gilt `d.chart` im PowerPoint-Helfer.
 - Toasts blendet die Anwendung selbst aus; `odsv.js` übernimmt das nicht.

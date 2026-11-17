@@ -1,6 +1,6 @@
 # ODSV-Vorlage für PowerPoint
 
-Dunkle 16:9-Vorlage (13,333 × 7,5 in) für das Design-System ODSV v1.0.0. Maße, Farben und Textstile stammen aus `tokens/pptx.json` und `SPEC.md` Abschnitt 9.
+Dunkle 16:9-Vorlage (13,333 × 7,5 in) für das Design-System ODSV v1.1.0. Maße, Farben und Textstile stammen aus `tokens/pptx.json` und `SPEC.md` Abschnitt 9.
 
 ## Dateien
 

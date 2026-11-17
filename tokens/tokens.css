@@ -1,4 +1,4 @@
-/* ODSV Design-Tokens v1.0.0 – ERZEUGT aus tokens.json (tools/build_tokens.py). Nicht von Hand ändern. */
+/* ODSV Design-Tokens v1.1.0 – ERZEUGT aus tokens.json (tools/build_tokens.py). Nicht von Hand ändern. */
 /* :root = dunkles Theme (Standard) · [data-theme="light"] = helles Theme · @media print = hell + Druck */
 :root, [data-theme="dark"] {
   color-scheme: dark;
