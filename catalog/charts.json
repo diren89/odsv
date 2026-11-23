@@ -1,5 +1,5 @@
 {
- "version": "1.1.0",
+ "version": "1.2.0",
  "generated_by": "tools/build_catalog.py",
  "source": "catalog/src/charts.meta.py",
  "script": "web/odsv-charts.js",

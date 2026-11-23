@@ -37,6 +37,13 @@
    "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-code\"/></svg>"
   },
   {
+   "id": "odsv-signet-swarm",
+   "group": "Technik",
+   "name": "Schwarm",
+   "meaning": "Flugbahnen sammeln sich am Punkt: Multi-Agent, Koordination, Zusammenarbeit",
+   "usage": "<svg viewBox=\"0 0 400 400\" role=\"img\" aria-label=\"…\"><use href=\"#odsv-signet-swarm\"/></svg>"
+  },
+  {
    "id": "odsv-signet-mountains",
    "group": "Lifestyle",
    "name": "Berge",

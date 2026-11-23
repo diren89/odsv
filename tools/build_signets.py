@@ -96,6 +96,18 @@ def code():
         paths.append(poly([(x + w, cy - h), (x, cy), (x + w, cy + h)]))
     return paths, (398, cy, 26)
 
+def swarm():
+    # Schwarm: vier Flugbahnen laufen spiralförmig auf den gemeinsamen Punkt zu (Koordination, Multi-Agent)
+    cx, cy, r0, r1, turn = 284, 184, 128, 58, 100
+    paths = []
+    for a0 in (135, 45, -45, -135):
+        pts = []
+        for k in range(61):
+            u = k / 60; r = r0 - (r0 - r1) * u; a = math.radians(a0 - turn * u)
+            pts.append((cx + r * math.cos(a), cy - r * math.sin(a)))
+        paths.append(smooth(pts[::6]))
+    return paths, (cx, cy, 26)
+
 def mountains():
     # Berge: ein Grat aus vier Abschnitten (links Pink → rechts Gelb), Punkt = Sonne zwischen den Gipfeln
     pts = [(150, 286), (210, 182), (266, 248), (332, 108), (410, 236)]
@@ -223,6 +235,7 @@ VARIANTS = [
     ('odsv-signet-network', 'Technik', 'Netzwerk', network, 'Knoten und Verbindungen: Vernetzung, Plattform, Integration'),
     ('odsv-signet-data', 'Technik', 'Daten', data, 'Steigende Säulen: Analyse, Kennzahlen, Wachstum'),
     ('odsv-signet-code', 'Technik', 'Code', code, 'Klammern und Cursor: Entwicklung, Software, Engineering'),
+    ('odsv-signet-swarm', 'Technik', 'Schwarm', swarm, 'Flugbahnen sammeln sich am Punkt: Multi-Agent, Koordination, Zusammenarbeit'),
     ('odsv-signet-mountains', 'Lifestyle', 'Berge', mountains, 'Gestaffelte Grate und Sonne: Alpin, Wandern, Weitblick'),
     ('odsv-signet-bike', 'Lifestyle', 'Fahrrad', bike, 'Räder und Rahmen: Radfahren, Mobilität, Touren'),
     ('odsv-signet-outdoor', 'Lifestyle', 'Outdoor', outdoor, 'Zelt unter der Sonne: Draußen, Camping, Abenteuer'),
