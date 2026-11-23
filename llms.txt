@@ -2,7 +2,7 @@
 
 > ODSV (OneDay Super Visuals) ist ein dunkles, markenneutrales Design-System für Websites, Dashboards und Präsentationen: gesperrte Versalien-Headlines, ein gelber Akzent (#FFE94D), dunkle Karten (#1C1C1E, Radius 28), Line-Art, segmentierte Fortschrittsleiste. Sprache Deutsch. Werte nur über CSS-Variablen `--odsv-*`, Klassen nur aus `catalog/classes.json`.
 
-Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Lint-Meldung → Behebung, Arbeitsablauf, Inhaltsgrenzen, Absicht → Komponente, Definition of Done, „Wenn etwas fehlt“). Arbeiten im Repo selbst: CLAUDE.md (Quellen vs. erzeugte Dateien, Einrichtung). Gerendert: https://diren89.github.io/odsv/
+Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Lint-Meldung → Behebung, Arbeitsablauf, Inhaltsgrenzen, Absicht → Komponente, Definition of Done, „Wenn etwas fehlt“). Arbeiten im Repo selbst: CLAUDE.md (Quellen vs. erzeugte Dateien, Einrichtung), Beiträge per Pull Request nach CONTRIBUTING.md. Gerendert: https://diren89.github.io/odsv/
 
 ## Referenz
 - [AGENTS.md](AGENTS.md): Anleitung für AI-Agents

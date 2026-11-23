@@ -7,6 +7,7 @@ Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Pr
 | Ordner/Datei | Inhalt |
 |---|---|
 | `AGENTS.md`, `llms.txt` | Einstieg für AI-Agents: Entscheidungsbaum, Muss-Regeln, Ablauf, Inhaltsgrenzen, Definition of Done |
+| `CONTRIBUTING.md`, `CLAUDE.md` | Beitragen (Zweig, Prüfung, Version, Pull Request) und Arbeiten im Repo (Quellen vs. erzeugte Dateien) |
 | `SPEC.md` | Vollständige Spezifikation (Prinzipien, Farbe, Typo, Raster, Komponenten, Dashboards, Diagramme, Folien, Bewegung, Barrierefreiheit, Agenten-Schnittstelle) |
 | `GAPS.md` | Lückenanalysen und Prüfberichte |
 | `tokens/` | `tokens.json` (Quelle, DTCG, alle Tokens beschrieben), `tokens.css`, `pptx.json` |
@@ -17,7 +18,17 @@ Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Pr
 | `tools/` | Erzeuger und Prüfungen, `validate.sh` führt alles aus |
 | `tools/build_site.py`, `tools/site/` | Website im Stil eines Komponenten-Explorers (Storys mit Theme, Breite und Code, Tokens, Icons, Signets, Richtlinien); erzeugt `site/` |
 
-Änderungen immer in den Quellen (Liste in [`CLAUDE.md`](CLAUDE.md): u. a. `tokens/tokens.json`, `web/odsv.css`, `web/odsv-charts.js`, `catalog/src/*.meta.py`), danach `bash tools/validate.sh`.
+Beiträge per Zweig und Pull Request nach [`CONTRIBUTING.md`](CONTRIBUTING.md). Änderungen immer in den Quellen (Liste in [`CLAUDE.md`](CLAUDE.md): u. a. `tokens/tokens.json`, `web/odsv.css`, `web/odsv-charts.js`, `catalog/src/*.meta.py`), danach `bash tools/validate.sh`.
+
+## Releasenotes
+
+Aktuelle Version: **1.2.0** (23.11.2026). Details in [`SPEC.md`](SPEC.md) Kapitel 14, jede Version ist als Git-Tag (`v1.2.0` usw.) abrufbar.
+
+| Version | Datum | Was ist neu |
+|---|---|---|
+| **1.2.0** | 23.11.2026 | Themen-Signet Schwarm (`odsv-signet-swarm`, Gruppe Technik). Keine Token-Änderung |
+| 1.1.0 | 17.11.2026 | Analyse-Diagramme: zehn neue Formen in `odsv-charts.js` mit Tastatur, Tabellenansicht und Legende als Schalter. Keine Token-Änderung |
+| 1.0.0 | 17.11.2026 | Erste Fassung: Tokens, Komponenten, helles Theme, Folienvorlage mit 16 Layouts, 17 Signets |
 
 ## Website
 
