@@ -9,3 +9,4 @@ pptx/_preview/slide*
 pptx/_preview/*.pdf
 ~$*.pptx
 /site/
+.worktrees/

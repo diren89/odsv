@@ -32,6 +32,6 @@ Dieses Repository ist das ODSV-Design-System (Websites, Dashboards, Präsentatio
 
 **Sprache der Inhalte:** Deutsch. Außer in `web/examples/` keine produktspezifischen Begriffe, nur fachlich neutrale. Beispielzahlen als „Quelle: Beispieldaten“ kennzeichnen.
 
-**Version:** Bei neuer Komponente, neuem Token oder Layout MINOR anheben (SPEC 14): `tokens.json → $extensions.odsv.version`, `pptx.json → version`, Kopfzeilen in `README.md`, `AGENTS.md`, `SPEC.md`, `llms.txt`, `web/odsv.js` (`ODSV.version`), `web/index.html`; Eintrag in SPEC 14.
+**Version:** Bei neuer Komponente, neuem Token oder Layout MINOR anheben (SPEC 14): `tokens.json → $extensions.odsv.version`, `pptx.json → version`, Kopfzeilen in `README.md`, `AGENTS.md`, `SPEC.md`, `llms.txt`, `web/odsv.js` (`ODSV.version`), `web/index.html`; Eintrag in SPEC 14 und neue Zeile in der Tabelle „Releasenotes“ der `README.md`.
 
-**Veröffentlichen:** Push auf `main` baut die Website über `.github/workflows/pages.yml` neu.
+**Veröffentlichen:** nur per Zweig und Pull Request nach [`CONTRIBUTING.md`](CONTRIBUTING.md); ein Mensch merged und setzt den Tag `v<Version>`. Der Merge auf `main` baut die Website über `.github/workflows/pages.yml` neu.

@@ -225,7 +225,7 @@ Welche Datei Quelle ist und welche erzeugt wird: Tabelle in `CLAUDE.md`.
 3. `bash tools/validate.sh` ausführen. Das erzeugt `tokens.css`, Signets, Sprite, Katalog (inkl. `charts.json`) und Website und prüft Tokens, CSS, Doku (`tools/check_docs.py`) und HTML. Mit `--full` läuft zusätzlich der Playwright-Audit. Die Prüfung scheitert bei einer CSS-Wurzel ohne Katalogeintrag, einer `ODSVCharts`-Funktion ohne `charts.meta.py`-Eintrag oder Doku, die nicht mehr zum Code passt.
 4. PowerPoint-Vorlage: `bash pptx/_build/build_all.sh`.
 5. Version (SemVer) anheben, Dateien siehe `CLAUDE.md`; Änderung in `SPEC.md` Kapitel 14 eintragen.
-6. Veröffentlichen: Push auf `main`; der Workflow baut die Website neu.
+6. Veröffentlichen: Zweig und Pull Request nach `CONTRIBUTING.md`, nie direkt auf `main`. Ein Mensch merged; danach baut der Workflow die Website neu.
 
 ## 10. Bekannte Grenzen
 
