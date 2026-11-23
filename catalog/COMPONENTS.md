@@ -1,4 +1,4 @@
-# ODSV 1.1.0 – Komponentenkatalog
+# ODSV 1.2.0 – Komponentenkatalog
 
 > Erzeugt von `tools/build_catalog.py` aus `catalog/src/components.meta.py`, `web/odsv.css` und `web/index.html`. Nicht von Hand ändern.
 > Maschinenlesbar: `catalog/components.json`. Gültige Klassen: `catalog/classes.json`.
@@ -30,7 +30,7 @@
 | [Diagramm-Rahmen](#chart) | `.odsv-chart` `.odsv-legend` `.odsv-swatch` `.odsv-stackbar` … | Rahmen mit Aussage-Titel, Legende, Zeichenfläche und Quelle; Zeichnen über odsv-charts. |
 | [Analyse-Diagramme](#analysis) | `.odsv-data-cell` `.odsv-data-cell-text` `.odsv-data-bubble` `.odsv-data-outlier` … | Verteilung, Zusammenhang, Abweichung, Rang, Trichter, Heatmap und viele Reihen analysieren. |
 | [Labels für 3D und Diagramme](#label3d) | `.odsv-label3d` `.odsv-marker` `.odsv-stage` `.odsv-leader` … | Pillen mit Hinweislinie über 3D-Bühnen oder Illustrationen; nummerierte Marken für schmale Flächen. |
-| [Signet und Wortmarke](#signet) | `.odsv-signet-card` `.odsv-signet` `.odsv-signet-arc` `.odsv-signet-dot` … | Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Berge, Fahrrad, Outdoor, Route). |
+| [Signet und Wortmarke](#signet) | `.odsv-signet-card` `.odsv-signet` `.odsv-signet-arc` `.odsv-signet-dot` … | Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Schwarm, Berge, Fahrrad, Outdoor, Route). |
 | [Liste und Fakten](#list-facts) | `.odsv-list` `.odsv-facts` | Aufzählung (Punkte gelb) oder nummerierte Liste; Fakten als <dl>. |
 | [Headline-Gruppe](#hgroup) | `.odsv-hgroup` | Dreiklang Eyebrow → Headline → Zweitsatz als Block, optional mit Icon-Kachel. |
 | [Toast](#toast) | `.odsv-toast` | Kurze Bestätigung nach einer Handlung („Stand gespeichert“). |
@@ -1138,13 +1138,13 @@
 <a id="signet"></a>
 ## Signet und Wortmarke
 
-**Wofür:** Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Berge, Fahrrad, Outdoor, Route). Erzählmoment: Situations-Signet (Erfolg, Fail, Konflikt, Einigung, Idee, Frage, In Arbeit, Neustart). Liste: catalog/signets.json.
+**Wofür:** Markenmoment (Hero, Titelfolie): Basis- oder Themen-Signet (KI, Netzwerk, Daten, Code, Schwarm, Berge, Fahrrad, Outdoor, Route). Erzählmoment: Situations-Signet (Erfolg, Fail, Konflikt, Einigung, Idee, Frage, In Arbeit, Neustart). Liste: catalog/signets.json.
 
 **Nicht für:** Signet-Verlauf als Button, Text, Diagrammfarbe oder Fläche; mehrere Signet-Varianten auf einer Seite; umgefärbte oder selbst gezeichnete Varianten.
 
 | Klasse/Variante | Bedeutung |
 |---|---|
-| `<use href="#odsv-signet-THEMA"/>` | Themen: ai, network, data, code, mountains, bike, outdoor, route · Situationen: success, fail, conflict, agreement, idea, question, progress, restart · ohne Suffix = Basis |
+| `<use href="#odsv-signet-THEMA"/>` | Themen: ai, network, data, code, swarm, mountains, bike, outdoor, route · Situationen: success, fail, conflict, agreement, idea, question, progress, restart · ohne Suffix = Basis |
 | `signet-card--landscape` | Karte 4:3 für Kopfbereiche |
 | `signet-mark` | Signet ohne Karte, 48 px (Mindestgröße für Themen-Signets) |
 | `signet-arc--1…4` | Bögen (Basis-Signet als Einzelpfade) |
@@ -1174,6 +1174,7 @@
 | `odsv-signet-network` | Technik | Netzwerk | Knoten und Verbindungen: Vernetzung, Plattform, Integration |
 | `odsv-signet-data` | Technik | Daten | Steigende Säulen: Analyse, Kennzahlen, Wachstum |
 | `odsv-signet-code` | Technik | Code | Klammern und Cursor: Entwicklung, Software, Engineering |
+| `odsv-signet-swarm` | Technik | Schwarm | Flugbahnen sammeln sich am Punkt: Multi-Agent, Koordination, Zusammenarbeit |
 | `odsv-signet-mountains` | Lifestyle | Berge | Gestaffelte Grate und Sonne: Alpin, Wandern, Weitblick |
 | `odsv-signet-bike` | Lifestyle | Fahrrad | Räder und Rahmen: Radfahren, Mobilität, Touren |
 | `odsv-signet-outdoor` | Lifestyle | Outdoor | Zelt unter der Sonne: Draußen, Camping, Abenteuer |
@@ -1227,7 +1228,7 @@
 <div class="odsv-grid">
 <div class="odsv-col-12 odsv-col-md-6"><ul class="odsv-list odsv-card"><li>Keine Installation</li><li>Daten in der EU gespeichert</li><li>Barrierearm nach WCAG 2.2 AA</li></ul></div>
 <div class="odsv-col-12 odsv-col-md-6"><ol class="odsv-list odsv-list--numbered odsv-card"><li>Konto anlegen</li><li>Daten importieren</li><li>Team einladen</li></ol></div>
-<div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.1.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
+<div class="odsv-col-12"><dl class="odsv-facts odsv-facts--cols odsv-card"><div><dt>Version</dt><dd>1.2.0</dd></div><div><dt>Lizenz</dt><dd>intern</dd></div></dl></div>
 </div>
 ```
 

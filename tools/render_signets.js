@@ -3,6 +3,7 @@
 //   pptx/signets/<name>-card.png         Signet-Karte der Titelfolie (4,883 × 6,167 in, 300 dpi, runde Ecken, Rand)
 //   pptx/signets/<name>-mark.png         Signet-Marke des Kapiteltrenners (1,05 × 1,561 in, transparent)
 // Aufruf: node tools/render_signets.js   (nach python3 tools/build_signets.py)
+// Element- statt Seiten-Screenshot: headless Chrome auf macOS zeichnet hohe Viewports sonst mit Bruch im unteren Bereich.
 const { chromium } = (() => { try { return require('playwright'); } catch (e) { return require('/opt/npm-tools/node_modules/playwright'); } })();
 const CHROME = process.env.CHROME_PATH || (require('fs').existsSync('/usr/bin/google-chrome') ? '/usr/bin/google-chrome' : undefined);
 const fs = require('fs'), path = require('path');
@@ -31,11 +32,11 @@ const short = id => id === 'odsv-signet' ? 'basis' : id.replace('odsv-signet-', 
     await page.setContent(`<html><body style="margin:0;background:transparent">
       <div style="width:${W}px;height:${H}px;box-sizing:border-box;border-radius:84px;overflow:hidden;background:${C['bg-subtle']};border:3px solid ${C['border-subtle']}">
       <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" style="width:100%;height:100%;display:block">${inner}</svg></div></body></html>`);
-    await page.screenshot({ path: path.join(outPng, short(m.id) + '-card.png'), omitBackground: true });
+    await page.locator('body > div').screenshot({ path: path.join(outPng, short(m.id) + '-card.png'), omitBackground: true });
     // Marke 900 × 1338 px, transparent
     await page.setViewportSize({ width: 900, height: 1338 });
     await page.setContent(`<html><body style="margin:0;background:transparent"><svg viewBox="100 0 340 400" preserveAspectRatio="xMaxYMid meet" style="width:900px;height:1338px;display:block">${inner}</svg></body></html>`);
-    await page.screenshot({ path: path.join(outPng, short(m.id) + '-mark.png'), omitBackground: true });
+    await page.locator('body > svg').screenshot({ path: path.join(outPng, short(m.id) + '-mark.png'), omitBackground: true });
   }
   await b.close();
   console.log(meta.length + ' Signets gerendert → web/signets/*.svg, pptx/signets/*-card.png, *-mark.png');

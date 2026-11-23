@@ -1,4 +1,4 @@
-# ODSV – Design-System v1.1.0
+# ODSV – Design-System v1.2.0
 
 Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Präsentationen.
 
@@ -11,7 +11,7 @@ Dunkel, gesperrte Versalien, ein gelber Akzent. Für Websites, Dashboards und Pr
 | `GAPS.md` | Lückenanalysen und Prüfberichte |
 | `tokens/` | `tokens.json` (Quelle, DTCG, alle Tokens beschrieben), `tokens.css`, `pptx.json` |
 | `catalog/` | erzeugt: Komponenten (`components.json`, `COMPONENTS.md`), Diagrammformen (`charts.json`), Klassen, Icons, Tokens flach, Folienlayouts; von Hand: `js-api.md`; Quellen in `catalog/src/` |
-| `web/` | `odsv.css`, `odsv.js`, `odsv-charts.js`, `icons.svg` (Icons + 17 Signets), `signets/` (SVG-Dateien), Referenzseite, Beispiele |
+| `web/` | `odsv.css`, `odsv.js`, `odsv-charts.js`, `icons.svg` (Icons + 18 Signets), `signets/` (SVG-Dateien), Referenzseite, Beispiele |
 | `templates/` | Startvorlagen: `website.html`, `dashboard.html`, `deck_example.py` |
 | `pptx/` | `ODSV-Vorlage.potx` (16 Layouts), Beispielpräsentation, `odsv_pptx.py` (Helfer), `signets/` (Folienbilder) |
 | `tools/` | Erzeuger und Prüfungen, `validate.sh` führt alles aus |

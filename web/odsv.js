@@ -37,7 +37,7 @@
   }
   var saved = store('get', THEME_KEY);
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-  window.ODSV = { version: '1.1.0', setTheme: function (t) { setTheme(t, true); } };
+  window.ODSV = { version: '1.2.0', setTheme: function (t) { setTheme(t, true); } };
 
   /* ---- Segment-Umschalter ---- */
   function initSegmented(group) {

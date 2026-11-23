@@ -1,4 +1,4 @@
-# ODSV – Design-System, Spezifikation v1.1.0
+# ODSV – Design-System, Spezifikation v1.2.0
 
 Stand 17.11.2026 · Quelle der Wahrheit für Werte: `tokens/tokens.json` · Diese Datei beschreibt Regeln, nicht Werte. Wo beides steht, gilt das Token.
 
@@ -896,7 +896,7 @@ Jedes Layout hat benannte Platzhalter (Rollen wie `eyebrow`, `title`, `sub`, `bo
 - **Raster 24 px**, Strich 2 px, runde Enden und Ecken, keine Füllung, 2 px Schutzrand. In Kacheln 44–52 px mit 2,4 px Strich. Farbe `currentColor`.
 - **Größen:** 18 px (in Buttons, Umschalter) · 22 px (Icon-Button, Navigation) · 44/52 px (Kachel).
 - **Ausnahme gefüllt:** Status-Icons in Callouts (Warndreieck, Kreis-i) dürfen gefüllt sein, damit sie bei 20 px tragen.
-- **Bestand:** `web/icons.svg` mit 33 Strich-Icons und 17 Signets (10.6) als SVG-Sprite; Namen in `catalog/icons.json`. **Von der Pflichtliste fehlen noch:** Pfeil links/oben/unten, Vollbild, Drehen. Bis sie ergänzt sind: `arrow` bzw. `chevron` per CSS drehen (`transform: rotate(…)`) oder aus Lucide mit denselben Maßen übernehmen und im Produkt vermerken. Fehlende Icons aus einem offenen Strich-Satz mit denselben Maßen ergänzen (z. B. Lucide: 24er-Raster, 2 px, runde Enden). Pflicht-Icons, die jedes Produkt braucht: Haken, Kreuz, Plus, Pfeil rechts/links/oben/unten, Chevron, Warnung, Info, Suche, Schließen, Menü, Vollbild, Drehen, Filter, Kalender, Herunterladen, Externer Link.
+- **Bestand:** `web/icons.svg` mit 33 Strich-Icons und 18 Signets (10.6) als SVG-Sprite; Namen in `catalog/icons.json`. **Von der Pflichtliste fehlen noch:** Pfeil links/oben/unten, Vollbild, Drehen. Bis sie ergänzt sind: `arrow` bzw. `chevron` per CSS drehen (`transform: rotate(…)`) oder aus Lucide mit denselben Maßen übernehmen und im Produkt vermerken. Fehlende Icons aus einem offenen Strich-Satz mit denselben Maßen ergänzen (z. B. Lucide: 24er-Raster, 2 px, runde Enden). Pflicht-Icons, die jedes Produkt braucht: Haken, Kreuz, Plus, Pfeil rechts/links/oben/unten, Chevron, Warnung, Info, Suche, Schließen, Menü, Vollbild, Drehen, Filter, Kalender, Herunterladen, Externer Link.
 - Icons stehen nie allein für eine Handlung ohne Namen (sichtbar oder `aria-label`).
 
 ### 10.5 Signet und Bild
@@ -906,7 +906,7 @@ Jedes Layout hat benannte Platzhalter (Rollen wie `eyebrow`, `title`, `sub`, `bo
 
 ### 10.6 Signet-Familie
 
-Neben dem Basis-Signet (Signal/Wirkung) gibt es acht Themen-Signets und acht Situations-Signets. Alle entstehen aus derselben Grammatik und sind daher als Familie erkennbar.
+Neben dem Basis-Signet (Signal/Wirkung) gibt es neun Themen-Signets und acht Situations-Signets. Alle entstehen aus derselben Grammatik und sind daher als Familie erkennbar.
 
 | Gruppe | Signet | ID | Motiv | Für Themen wie |
 |---|---|---|---|---|
@@ -915,6 +915,7 @@ Neben dem Basis-Signet (Signal/Wirkung) gibt es acht Themen-Signets und acht Sit
 | Technik | Netzwerk | `odsv-signet-network` | vier Verbindungen zu einem Knoten | Vernetzung, Plattform, Integration, IoT |
 | Technik | Daten | `odsv-signet-data` | vier steigende Säulen, Punkt darüber | Analyse, Kennzahlen, Reporting, Wachstum |
 | Technik | Code | `odsv-signet-code` | vier spitze Klammern, Cursor als Punkt | Entwicklung, Software, Engineering, APIs |
+| Technik | Schwarm | `odsv-signet-swarm` | vier Flugbahnen laufen spiralförmig auf den Punkt zu | Multi-Agent, Koordination, Orchestrierung, Teamarbeit |
 | Lifestyle | Berge | `odsv-signet-mountains` | Grat in vier Abschnitten, Sonne | Alpin, Wandern, Weitblick, Urlaub |
 | Lifestyle | Fahrrad | `odsv-signet-bike` | Räder, Rahmen, Lenker; Tretlager als Punkt | Radfahren, Mobilität, Touren, Dienstrad |
 | Lifestyle | Outdoor | `odsv-signet-outdoor` | Zelt mit gekreuzten Stangen, Sonne | Draußen, Camping, Abenteuer, Natur |
@@ -1065,12 +1066,14 @@ Semantische Versionierung `MAJOR.MINOR.PATCH`, Stand in `tokens.json → $extens
 | Stufe | Wann | Beispiel |
 |---|---|---|
 | MAJOR | Token entfernt oder umbenannt; Rolle ändert Bedeutung; Folienraster ändert Maße | `color.text.faint` entfällt |
-| MINOR | neues Token, neue Komponente, neues Layout, neues Theme | Analyse-Diagramme (v1.1.0), neues Icon |
+| MINOR | neues Token, neue Komponente, neues Layout, neues Theme | Analyse-Diagramme (v1.1.0), neues Icon (Schwarm, v1.2.0) |
 | PATCH | Wert korrigiert ohne Rollenwechsel, Text in der Spezifikation | Kontrastkorrektur einer Farbe |
 
 - Entfernte Tokens bleiben eine MINOR-Version lang als Alias mit `$deprecated` erhalten.
 - Jede Änderung besteht `check_tokens.py`, bevor sie veröffentlicht wird.
 - Produkte nennen die verwendete Version (Kommentar in der CSS-Datei, Notizfeld im Folienmaster).
+
+**v1.2.0 (23.11.2026)** – Neues Themen-Signet Schwarm (`odsv-signet-swarm`, Gruppe Technik): vier Flugbahnen laufen spiralförmig auf den gelben Punkt zu (Multi-Agent, Koordination, Orchestrierung, Teamarbeit). Aus derselben Grammatik wie die übrigen Signets, Grammatik-Check bestanden. Betrifft Sprite, Katalog, Website und Folien-Signets (`pptx/signets/swarm-*.png`). Keine Token-Änderung.
 
 **v1.1.0 (17.11.2026)** – Datenanalyse. `odsv-charts.js` bekommt die Formen aus 7.3, die bisher nur beschrieben waren: `columns` (gruppiert, gestapelt, 100 %), `hbars`, `diverging`, `funnel`, `histogram`, `boxplot`, `scatter` (Trend, Blasen), `heatmap`, `slope`, `multiples`; `line` mit Ereignis, Zielwert und Endbeschriftung. Für alle Formen gilt: Bedienung per Tastatur mit Ansage, Tabellenansicht, Legende als Schalter (8.3). Neue Klassen: Paletten `odsv-dv-seq-*` und `odsv-dv-div-*`, Marken `odsv-data-*`, `odsv-chart__tools`, `__table`, `__multiples`. Neue Komponente „Analyse-Diagramme“ im Katalog. Keine Token-Änderung.
 

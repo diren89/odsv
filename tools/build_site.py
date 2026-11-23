@@ -534,7 +534,7 @@ def icons_page():
 def signets_page():
     groups = {}
     for s in SIGNETS: groups.setdefault(s['group'], []).append(s)
-    out = [head('Grundlagen', 'Signets', 'Basis-Signet, acht Themen und acht Situationen aus derselben Grammatik.')]
+    out = [head('Grundlagen', 'Signets', 'Basis-Signet, neun Themen und acht Situationen aus derselben Grammatik.')]
     for g, items in groups.items():
         cards = ''.join(f'<li><div class="odsv-signet-card"><svg class="odsv-signet-card__svg" viewBox="0 0 400 400" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Signet {esc(s["name"])}"><use href="#{s["id"]}"/></svg>'
                         f'<p class="odsv-wordmark">{esc(s["name"])}</p></div><p class="odsv-body-small">{esc(s["meaning"])}</p>'

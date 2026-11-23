@@ -134,7 +134,7 @@ Parallel zu dieser Analyse sind `web/` und `pptx/` entstanden. Geprüft wurde nu
 |---|---|---|
 | **Abgleich `web/odsv.css` ↔ SPEC 6** | Datei liegt vor (857 Zeilen). Ob alle 24 Komponenten mit Varianten und Zuständen der Spezifikation entsprechen, ist nicht geprüft. | Komponente für Komponente gegen SPEC 6 prüfen; Abweichungen in eine der beiden Richtungen bereinigen |
 | **Abgleich `pptx/ODSV-Vorlage.pptx` ↔ SPEC 9.3** | Vorlage liegt vor (18 Folien, 16 Layouts); Spezifikation, `pptx.json` und `catalog/pptx-layouts.json` nennen alle 16, Rollen sind aus der Vorlage abgeleitet. Positionen der 13 Kernlayouts sind nicht maßgenau gegen die Vorlage verglichen. Auf Windows und Mac nicht geöffnet. | Layoutliste und Maße angleichen; in PowerPoint auf beiden Systemen öffnen, Umbruch der Versalien prüfen |
-| **Icon-Satz** | `web/icons.svg` enthält 33 Icons und 17 Signets. Gegen die Pflichtliste aus SPEC 10.4 geprüft (v1.1.0): es fehlen `arrow-left`, `arrow-up`, `arrow-down`, `fullscreen`, `rotate`. Maße nicht maschinell geprüft. | fehlende fünf im 24er-Raster ergänzen (MINOR), bis dahin `arrow` drehen |
+| **Icon-Satz** | `web/icons.svg` enthält 33 Icons und 18 Signets. Gegen die Pflichtliste aus SPEC 10.4 geprüft (v1.1.0): es fehlen `arrow-left`, `arrow-up`, `arrow-down`, `fullscreen`, `rotate`. Maße nicht maschinell geprüft. | fehlende fünf im 24er-Raster ergänzen (MINOR), bis dahin `arrow` drehen |
 | ~~Diagramm-Code~~ | geschlossen in v1.1.0: alle Formen aus SPEC 7.3, Bedienung nach SPEC 8.2/8.3, gerendert geprüft in beiden Themes und bei 390 px. | – |
 | **Signet-Baukasten** | Je Produkt eine eigene Form; kein Generator. | – |
 
@@ -235,7 +235,7 @@ Vorgehen: Alle Doku-Dateien (`README.md`, `AGENTS.md`, `CLAUDE.md`, `SPEC.md`, `
 
 | Lücke | Befund | Geschlossen durch |
 |---|---|---|
-| Veraltete Zahl | SPEC 10.4 nannte 9 Signets (es sind 17) | korrigiert |
+| Veraltete Zahl | SPEC 10.4 nannte 9 Signets (es sind 17; mit v1.2.0 sind es 18) | korrigiert |
 | Pflicht-Icons | 5 Icons der Pflichtliste fehlen, nirgends vermerkt | in SPEC 10.4 und 3.1 benannt, mit Übergangslösung |
 | Mehrdeutige Kurznamen | `text.muted` (Farbe) und `text.title` (Textstil) sehen gleich aus | Leseregel in SPEC (Kopf) ordnet jede Kurzform eindeutig zu |
 | Falsche Quellenangabe | CLAUDE.md erklärte alle `catalog/*.md` für erzeugt; `js-api.md` wird aber von Hand gepflegt | CLAUDE.md: Quellen/Erzeugt als Tabelle, inkl. `web/docs.js`, `charts.meta.py`, Website |

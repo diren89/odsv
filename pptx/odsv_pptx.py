@@ -205,7 +205,7 @@ class Deck:
         chapter: 0-basierter Index des aktiven Kapitels für die Fortschrittsleiste (0…6; Leiste hat 7 Segmente).
         source: Quellenzeile rechts unten. content: Rolle=Text (siehe Platzhalter-Rollen des Layouts).
         icons: nur 'Prozess vier Schritte' – vier Namen aus 'list', 'layout', 'chart', 'check'.
-        signet: nur 'Titel' und 'Kapiteltrenner' – Signet aus pptx/signets/ (Themen: ai, network, data, code, mountains,
+        signet: nur 'Titel' und 'Kapiteltrenner' – Signet aus pptx/signets/ (Themen: ai, network, data, code, swarm, mountains,
                 bike, outdoor, route; Situationen: success, fail, conflict, agreement, idea, question, progress, restart;
                 None/'basis' = Standard der Vorlage). Auf anderen Folien: Deck.mark(slide, name). wordmark: Text auf der Signet-Karte (Titel).
         Bei 'Vergleich' ist Spalte A die empfohlene (gelber Rand, ✓); Spalte B bekommt ✗."""
@@ -236,9 +236,9 @@ class Deck:
         if section: self.sections.append((section, s.slide_id))
         return s
 
-    SIGNETS = ('basis', 'ai', 'network', 'data', 'code', 'mountains', 'bike', 'outdoor', 'route',
+    SIGNETS = ('basis', 'ai', 'network', 'data', 'code', 'swarm', 'mountains', 'bike', 'outdoor', 'route',
                'success', 'fail', 'conflict', 'agreement', 'idea', 'question', 'progress', 'restart')
-    SIGNET_NAMES = {'ai': 'KI', 'network': 'Netzwerk', 'data': 'Daten', 'code': 'Code', 'mountains': 'Berge', 'bike': 'Fahrrad',
+    SIGNET_NAMES = {'ai': 'KI', 'network': 'Netzwerk', 'data': 'Daten', 'code': 'Code', 'swarm': 'Schwarm', 'mountains': 'Berge', 'bike': 'Fahrrad',
                     'outdoor': 'Outdoor', 'route': 'Route', 'success': 'Erfolg', 'fail': 'Fail', 'conflict': 'Konflikt',
                     'agreement': 'Einigung', 'idea': 'Idee', 'question': 'Frage', 'progress': 'In Arbeit', 'restart': 'Neustart', 'basis': 'Basis'}
 

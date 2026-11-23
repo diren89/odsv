@@ -1,6 +1,6 @@
 # ODSV – Anleitung für AI-Agents
 
-ODSV 1.1.0 ist ein dunkles, markenneutrales Design-System für **Websites, Dashboards und Präsentationen**. Es setzt auf gesperrte Versalien-Headlines, genau einen gelben Akzent, dunkle Karten mit großen Radien und Line-Art. Diese Datei ist der Einstieg: Sie sagt, was du liest, was du baust und wie du prüfst. Menschen lesen `SPEC.md`.
+ODSV 1.2.0 ist ein dunkles, markenneutrales Design-System für **Websites, Dashboards und Präsentationen**. Es setzt auf gesperrte Versalien-Headlines, genau einen gelben Akzent, dunkle Karten mit großen Radien und Line-Art. Diese Datei ist der Einstieg: Sie sagt, was du liest, was du baust und wie du prüfst. Menschen lesen `SPEC.md`.
 
 ## 0. Voraussetzungen
 
@@ -16,7 +16,7 @@ ODSV 1.1.0 ist ein dunkles, markenneutrales Design-System für **Websites, Dashb
 | Welcher Wert? | `tokens/tokens.json` (DTCG) | flach mit Beschreibung: `catalog/tokens.flat.json`; im Web nur `var(--odsv-…)` |
 | Welche Komponente, welches Markup? | `catalog/components.json` | lesbar: `catalog/COMPONENTS.md`; live: `web/index.html` |
 | Welche Klassen gibt es? | `catalog/classes.json` | andere `.odsv-*`-Klassen sind Fehler |
-| Welches Signet? | `catalog/signets.json` | Basis + 8 Themen (KI, Netzwerk, Daten, Code, Berge, Fahrrad, Outdoor, Route) + 8 Situationen (Erfolg, Fail, Konflikt, Einigung, Idee, Frage, In Arbeit, Neustart), SPEC 10.6 |
+| Welches Signet? | `catalog/signets.json` | Basis + 9 Themen (KI, Netzwerk, Daten, Code, Schwarm, Berge, Fahrrad, Outdoor, Route) + 8 Situationen (Erfolg, Fail, Konflikt, Einigung, Idee, Frage, In Arbeit, Neustart), SPEC 10.6 |
 | Welche Icons? | `catalog/icons.json` | `<svg class="odsv-icon" aria-hidden="true"><use href="#odsv-icon-NAME"/></svg>` |
 | Verhalten | `catalog/js-api.md` | `odsv.js` (data-Attribute, globale API, Events) |
 | Welche Diagrammform, welche Optionen? | `catalog/charts.json` | je Form: Aufgabe der Daten, wann/nicht, Optionen mit Typ/Pflicht/Standard, Grenzen, Beispielaufruf; Prosa in `catalog/js-api.md`, Regeln SPEC 7.3 und 8 |
@@ -204,7 +204,7 @@ Zahlen: deutsches Format (1.284; 2,1), Einheit mit geschütztem Leerzeichen, „
 | Stand, Quellen, Impressum am Seitenende | `footer` |
 | nur vorlesen, Abstand oben, ausblenden, Druck | `utilities` |
 | Beschriftung auf Bild/3D | `label3d` |
-| Markenmoment | `signet` (einmal; Variante nach Kernthema: `#odsv-signet-ai`, `-network`, `-data`, `-code`, `-mountains`, `-bike`, `-outdoor`, `-route`; im Zweifel Basis) |
+| Markenmoment | `signet` (einmal; Variante nach Kernthema: `#odsv-signet-ai`, `-network`, `-data`, `-code`, `-swarm`, `-mountains`, `-bike`, `-outdoor`, `-route`; im Zweifel Basis) |
 
 ## 8. Fertig, wenn
 

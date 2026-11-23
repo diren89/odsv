@@ -1,4 +1,4 @@
-# ODSV Design-System 1.1.0
+# ODSV Design-System 1.2.0
 
 > ODSV (OneDay Super Visuals) ist ein dunkles, markenneutrales Design-System für Websites, Dashboards und Präsentationen: gesperrte Versalien-Headlines, ein gelber Akzent (#FFE94D), dunkle Karten (#1C1C1E, Radius 28), Line-Art, segmentierte Fortschrittsleiste. Sprache Deutsch. Werte nur über CSS-Variablen `--odsv-*`, Klassen nur aus `catalog/classes.json`.
 
@@ -11,7 +11,7 @@ Einstieg für Agents: AGENTS.md (Entscheidungsbaum, Muss-Regeln, Lint-Meldung �
 - [catalog/classes.json](catalog/classes.json): alle gültigen Klassen
 - [catalog/tokens.flat.json](catalog/tokens.flat.json): alle Tokens mit Wert (dunkel/hell) und Beschreibung
 - [catalog/icons.json](catalog/icons.json): 33 Icon-Namen
-- [catalog/signets.json](catalog/signets.json): 17 Signets (Basis, 8 Themen, 8 Situationen wie Erfolg, Fail, Konflikt); SVG-Dateien in web/signets/
+- [catalog/signets.json](catalog/signets.json): 18 Signets (Basis, 9 Themen, 8 Situationen wie Erfolg, Fail, Konflikt); SVG-Dateien in web/signets/
 - [catalog/js-api.md](catalog/js-api.md): odsv.js (data-Attribute, globale API, Events) und odsv-charts.js (alle Formen, gemeinsames Verhalten, Markup)
 - [catalog/pptx-layouts.json](catalog/pptx-layouts.json): 16 Folienlayouts, Platzhalter-Rollen, Zeichengrenzen
 - [SPEC.md](SPEC.md): vollständige Spezifikation (7.3 welches Diagramm wann, 8.3 Bedienung und Tabellenansicht)
